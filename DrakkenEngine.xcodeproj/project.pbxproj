@@ -7,30 +7,501 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E95F9EB1CE3C47500D52B72 /* DrakkenEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95F9EA1CE3C47500D52B72 /* DrakkenEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E1F918F1CE537DB00C7E908 /* DKRCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */; };
+		2E1F91901CE537DB00C7E908 /* DKRCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */; };
+		2E1F91911CE537DB00C7E908 /* DKRCamera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */; };
+		2E1F91921CE538B600C7E908 /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA231CE3EA1000D52B72 /* DKMath.framework */; };
+		2E1F91931CE538BD00C7E908 /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA301CE3EA1D00D52B72 /* DKMath.framework */; };
+		2E1F91941CE538C200C7E908 /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */; };
+		2E1F91961CE53D0200C7E908 /* DKRScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F91951CE53D0200C7E908 /* DKRScene.swift */; };
+		2E1F91971CE53D0200C7E908 /* DKRScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F91951CE53D0200C7E908 /* DKRScene.swift */; };
+		2E1F91981CE53D0200C7E908 /* DKRScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1F91951CE53D0200C7E908 /* DKRScene.swift */; };
+		2E2AEABE1CFE3ADC00090742 /* GameViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AEABD1CFE3ADC00090742 /* GameViewTest.swift */; };
+		2E2AEABF1CFE3ADC00090742 /* GameViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AEABD1CFE3ADC00090742 /* GameViewTest.swift */; };
+		2E2AEAC01CFE3ADC00090742 /* GameViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2AEABD1CFE3ADC00090742 /* GameViewTest.swift */; };
+		2E313B841CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */; };
+		2E313B851CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */; };
+		2E313B861CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */; };
+		2E313B891CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */; };
+		2E313B8A1CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */; };
+		2E313B8B1CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */; };
+		2E313B911CF3A15E00DDBBB9 /* DKMMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */; };
+		2E313B921CF3A15E00DDBBB9 /* DKMMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */; };
+		2E313B931CF3A15E00DDBBB9 /* DKMMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */; };
+		2E313B961CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B951CF4F50000DDBBB9 /* DKRRenderGraph.swift */; };
+		2E313B971CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B951CF4F50000DDBBB9 /* DKRRenderGraph.swift */; };
+		2E313B981CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B951CF4F50000DDBBB9 /* DKRRenderGraph.swift */; };
+		2E313B9A1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B991CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift */; };
+		2E313B9B1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B991CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift */; };
+		2E313B9C1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B991CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift */; };
+		2E313B9E1CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */; };
+		2E313B9F1CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */; };
+		2E313BA01CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */; };
+		2E313BA31CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */; };
+		2E313BA41CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */; };
+		2E313BA51CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */; };
+		2E313BA81CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA71CF507A300DDBBB9 /* DKRSpriteMaterial.metal */; };
+		2E313BA91CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA71CF507A300DDBBB9 /* DKRSpriteMaterial.metal */; };
+		2E313BAA1CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BA71CF507A300DDBBB9 /* DKRSpriteMaterial.metal */; };
+		2E313BAC1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */; };
+		2E313BAD1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */; };
+		2E313BAE1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */; };
+		2E7817711CEE688900F55BE3 /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
+		2E7817721CEE688900F55BE3 /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
+		2E7817731CEE688900F55BE3 /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
+		2E7817751CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
+		2E7817761CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
+		2E7817771CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
+		2E7817791CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */; };
+		2E78177A1CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */; };
+		2E78177B1CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */; };
+		2E7817861CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */; };
+		2E7817871CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */; };
+		2E7817881CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */; };
+		2E78178A1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */; };
+		2E78178B1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */; };
+		2E78178C1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */; };
+		2E78178E1CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */; };
+		2E78178F1CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */; };
+		2E7817901CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */; };
+		2E7817971CEEA02500F55BE3 /* DKRQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817961CEEA02500F55BE3 /* DKRQuad.swift */; };
+		2E7817981CEEA02500F55BE3 /* DKRQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817961CEEA02500F55BE3 /* DKRQuad.swift */; };
+		2E7817991CEEA02500F55BE3 /* DKRQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817961CEEA02500F55BE3 /* DKRQuad.swift */; };
+		2E8AF01D1CF6341C00ACB5BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AF01C1CF6341C00ACB5BC /* AppDelegate.swift */; };
+		2E8AF01F1CF6341C00ACB5BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8AF01E1CF6341C00ACB5BC /* ViewController.swift */; };
+		2E8AF0211CF6341C00ACB5BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AF0201CF6341C00ACB5BC /* Assets.xcassets */; };
+		2E8AF0241CF6341C00ACB5BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E8AF0221CF6341C00ACB5BC /* Main.storyboard */; };
+		2E8AF0291CF6343200ACB5BC /* DKRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95F9F71CE3C52300D52B72 /* DKRender.framework */; };
+		2E8AF02A1CF6343200ACB5BC /* DKRender.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95F9F71CE3C52300D52B72 /* DKRender.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E8AF02E1CF6343700ACB5BC /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA231CE3EA1000D52B72 /* DKMath.framework */; };
+		2E8AF02F1CF6343700ACB5BC /* DKMath.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA231CE3EA1000D52B72 /* DKMath.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2E8AF0341CF6370D00ACB5BC /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
+		2E8AF0351CF6370D00ACB5BC /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
+		2E95FA071CE3C53700D52B72 /* DKRender-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95FA061CE3C53700D52B72 /* DKRender-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E95FA141CE3C54300D52B72 /* DKRender-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95FA131CE3C54300D52B72 /* DKRender-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E95FA1B1CE3C5BA00D52B72 /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
+		2E95FA1C1CE3C5BA00D52B72 /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
+		2E95FA1D1CE3C5BA00D52B72 /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
+		2E95FA261CE3EA1000D52B72 /* DKMath-OSX.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95FA251CE3EA1000D52B72 /* DKMath-OSX.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E95FA331CE3EA1D00D52B72 /* DKMath-tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95FA321CE3EA1D00D52B72 /* DKMath-tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E95FA401CE3EA2600D52B72 /* DKMath-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E95FA3F1CE3EA2600D52B72 /* DKMath-iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E95FA4B1CE4FC6D00D52B72 /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
+		2E95FA4C1CE4FC6E00D52B72 /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
+		2E95FA4D1CE4FC6F00D52B72 /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
+		2EB6E6A01CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
+		2EB6E6A11CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
+		2EB6E6A21CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
+		2EB6E6B01CED091D00ED45CC /* DKRMateriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E6AF1CED091D00ED45CC /* DKRMateriable.swift */; };
+		2EB6E6B11CED091D00ED45CC /* DKRMateriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E6AF1CED091D00ED45CC /* DKRMateriable.swift */; };
+		2EB6E6B21CED091D00ED45CC /* DKRMateriable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E6AF1CED091D00ED45CC /* DKRMateriable.swift */; };
+		2EBA239F1CFCB673002A60EB /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA239E1CFCB673002A60EB /* Assets */; };
+		2EBA23A71CFCF3C6002A60EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA23A61CFCF3C6002A60EB /* AppDelegate.swift */; };
+		2EBA23AE1CFCF3C6002A60EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23AC1CFCF3C6002A60EB /* Main.storyboard */; };
+		2EBA23B01CFCF3C6002A60EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23AF1CFCF3C6002A60EB /* Assets.xcassets */; };
+		2EBA23B61CFCF532002A60EB /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA23B51CFCF532002A60EB /* GameViewController.swift */; };
+		2EBA23BD1CFCF589002A60EB /* DKRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA041CE3C53700D52B72 /* DKRender.framework */; };
+		2EBA23BE1CFCF589002A60EB /* DKRender.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA041CE3C53700D52B72 /* DKRender.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EBA23C11CFCF589002A60EB /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA301CE3EA1D00D52B72 /* DKMath.framework */; };
+		2EBA23C21CFCF589002A60EB /* DKMath.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA301CE3EA1D00D52B72 /* DKMath.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EBA23CA1CFCF5E6002A60EB /* DKRShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */; };
+		2EBA23CB1CFCF5E6002A60EB /* DKRShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */; };
+		2EBA23CD1CFCF632002A60EB /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23CC1CFCF632002A60EB /* Assets */; };
+		2EBA23D51CFCF70F002A60EB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA23D41CFCF70F002A60EB /* AppDelegate.swift */; };
+		2EBA23D71CFCF70F002A60EB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EBA23D61CFCF70F002A60EB /* ViewController.swift */; };
+		2EBA23DA1CFCF70F002A60EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23D81CFCF70F002A60EB /* Main.storyboard */; };
+		2EBA23DC1CFCF70F002A60EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23DB1CFCF70F002A60EB /* Assets.xcassets */; };
+		2EBA23DF1CFCF70F002A60EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23DD1CFCF70F002A60EB /* LaunchScreen.storyboard */; };
+		2EBA23E41CFCF718002A60EB /* DKRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA111CE3C54300D52B72 /* DKRender.framework */; };
+		2EBA23E51CFCF718002A60EB /* DKRender.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA111CE3C54300D52B72 /* DKRender.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EBA23E81CFCF718002A60EB /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */; };
+		2EBA23E91CFCF718002A60EB /* DKMath.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2EBA23F41CFCF79B002A60EB /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2EBA23F31CFCF79B002A60EB /* Assets */; };
+		2EF0A9A91CE5447C0037DFAE /* DKRShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */; };
+		2EF0A9BF1CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9C01CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9C11CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9C21CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9C31CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9C41CE691920037DFAE /* DKError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9BE1CE691920037DFAE /* DKError.swift */; };
+		2EF0A9D51CE6995F0037DFAE /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
+		2EF0A9D61CE6995F0037DFAE /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
+		2EF0A9D71CE6995F0037DFAE /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
+		390585AC7222068B5997EDA2 /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
+		390585BBC083796C96A2C176 /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
+		39058941600BA020F2DE68E0 /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		2E8AF02B1CF6343200ACB5BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95F9F61CE3C52300D52B72;
+			remoteInfo = DKRender_OSX;
+		};
+		2E8AF0301CF6343700ACB5BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95FA221CE3EA1000D52B72;
+			remoteInfo = DKMath_OSX;
+		};
+		2EBA23BF1CFCF589002A60EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95FA031CE3C53700D52B72;
+			remoteInfo = DKRender_tvOS;
+		};
+		2EBA23C31CFCF589002A60EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95FA2F1CE3EA1D00D52B72;
+			remoteInfo = DKMath_tvOS;
+		};
+		2EBA23E61CFCF718002A60EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95FA101CE3C54300D52B72;
+			remoteInfo = DKRender_iOS;
+		};
+		2EBA23EA1CFCF718002A60EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2E95F9DE1CE3C47500D52B72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2E95FA3C1CE3EA2600D52B72;
+			remoteInfo = DKMath_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2E8AF02D1CF6343200ACB5BC /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2E8AF02A1CF6343200ACB5BC /* DKRender.framework in Embed Frameworks */,
+				2E8AF02F1CF6343700ACB5BC /* DKMath.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23C51CFCF589002A60EB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EBA23C21CFCF589002A60EB /* DKMath.framework in Embed Frameworks */,
+				2EBA23BE1CFCF589002A60EB /* DKRender.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23EC1CFCF718002A60EB /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2EBA23E51CFCF718002A60EB /* DKRender.framework in Embed Frameworks */,
+				2EBA23E91CFCF718002A60EB /* DKMath.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		2E95F9E71CE3C47500D52B72 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E95F9EA1CE3C47500D52B72 /* DrakkenEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine.h; sourceTree = "<group>"; };
-		2E95F9EC1CE3C47500D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRCamera.swift; sourceTree = "<group>"; };
+		2E1F91951CE53D0200C7E908 /* DKRScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRScene.swift; sourceTree = "<group>"; };
+		2E2AEABD1CFE3ADC00090742 /* GameViewTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewTest.swift; sourceTree = "<group>"; };
+		2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRSpriteMaterial.swift; sourceTree = "<group>"; };
+		2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SharedUniforms.swift; path = DKRender/SharedUniforms.swift; sourceTree = SOURCE_ROOT; };
+		2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKMMath.swift; sourceTree = "<group>"; };
+		2E313B951CF4F50000DDBBB9 /* DKRRenderGraph.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRRenderGraph.swift; sourceTree = "<group>"; };
+		2E313B991CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKBSceneBuilder.swift; sourceTree = "<group>"; };
+		2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRGraphRenderer.swift; sourceTree = "<group>"; };
+		2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRSimpleRenderer.swift; sourceTree = "<group>"; };
+		2E313BA71CF507A300DDBBB9 /* DKRSpriteMaterial.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DKRSpriteMaterial.metal; sourceTree = "<group>"; };
+		2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRGameView.swift; sourceTree = "<group>"; };
+		2E7817701CEE688900F55BE3 /* DKRBuffers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRBuffers.swift; sourceTree = "<group>"; };
+		2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRBufferManager.swift; sourceTree = "<group>"; };
+		2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRTextureManager.swift; sourceTree = "<group>"; };
+		2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRDrawableInstance.swift; sourceTree = "<group>"; };
+		2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRDrawable.swift; sourceTree = "<group>"; };
+		2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRTextureInstance.swift; sourceTree = "<group>"; };
+		2E7817961CEEA02500F55BE3 /* DKRQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRQuad.swift; sourceTree = "<group>"; };
+		2E8AF01A1CF6341C00ACB5BC /* OSX-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OSX-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E8AF01C1CF6341C00ACB5BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E8AF01E1CF6341C00ACB5BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2E8AF0201CF6341C00ACB5BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E8AF0231CF6341C00ACB5BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E8AF0251CF6341C00ACB5BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E8AF0321CF6370D00ACB5BC /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		2E95F9F71CE3C52300D52B72 /* DKRender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKRender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95F9F91CE3C52300D52B72 /* DKRender-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKRender-OSX.h"; sourceTree = "<group>"; };
+		2E95F9FB1CE3C52300D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA041CE3C53700D52B72 /* DKRender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKRender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95FA061CE3C53700D52B72 /* DKRender-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKRender-tvOS.h"; sourceTree = "<group>"; };
+		2E95FA081CE3C53700D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA111CE3C54300D52B72 /* DKRender.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKRender.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95FA131CE3C54300D52B72 /* DKRender-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKRender-iOS.h"; sourceTree = "<group>"; };
+		2E95FA151CE3C54300D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRCore.swift; sourceTree = "<group>"; };
+		2E95FA231CE3EA1000D52B72 /* DKMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95FA251CE3EA1000D52B72 /* DKMath-OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKMath-OSX.h"; sourceTree = "<group>"; };
+		2E95FA271CE3EA1000D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA301CE3EA1D00D52B72 /* DKMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95FA321CE3EA1D00D52B72 /* DKMath-tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKMath-tvOS.h"; sourceTree = "<group>"; };
+		2E95FA341CE3EA1D00D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKMath.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E95FA3F1CE3EA2600D52B72 /* DKMath-iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DKMath-iOS.h"; sourceTree = "<group>"; };
+		2E95FA411CE3EA2600D52B72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKMTransform.swift; sourceTree = "<group>"; };
+		2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRTexture.swift; sourceTree = "<group>"; };
+		2EB6E6AF1CED091D00ED45CC /* DKRMateriable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRMateriable.swift; sourceTree = "<group>"; };
+		2EBA239E1CFCB673002A60EB /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		2EBA23A41CFCF3C6002A60EB /* tvOS-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EBA23A61CFCF3C6002A60EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2EBA23AD1CFCF3C6002A60EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2EBA23AF1CFCF3C6002A60EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EBA23B11CFCF3C6002A60EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EBA23B51CFCF532002A60EB /* GameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		2EBA23CC1CFCF632002A60EB /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		2EBA23D21CFCF70F002A60EB /* iOS-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EBA23D41CFCF70F002A60EB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2EBA23D61CFCF70F002A60EB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		2EBA23D91CFCF70F002A60EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2EBA23DB1CFCF70F002A60EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2EBA23DE1CFCF70F002A60EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2EBA23E01CFCF70F002A60EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EBA23F31CFCF79B002A60EB /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRShader.swift; sourceTree = "<group>"; };
+		2EF0A9BE1CE691920037DFAE /* DKError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKError.swift; sourceTree = "<group>"; };
+		2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRRenderer.swift; sourceTree = "<group>"; };
+		39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRRendererFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2E95F9E31CE3C47500D52B72 /* Frameworks */ = {
+		2E8AF0171CF6341C00ACB5BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AF0341CF6370D00ACB5BC /* Metal.framework in Frameworks */,
+				2E8AF0351CF6370D00ACB5BC /* MetalKit.framework in Frameworks */,
+				2E8AF0291CF6343200ACB5BC /* DKRender.framework in Frameworks */,
+				2E8AF02E1CF6343700ACB5BC /* DKMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95F9F31CE3C52300D52B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E1F91921CE538B600C7E908 /* DKMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA001CE3C53700D52B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E1F91931CE538BD00C7E908 /* DKMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA0D1CE3C54300D52B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E1F91941CE538C200C7E908 /* DKMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA1F1CE3EA1000D52B72 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E95FA2C1CE3EA1D00D52B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA391CE3EA2600D52B72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23A11CFCF3C6002A60EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23C11CFCF589002A60EB /* DKMath.framework in Frameworks */,
+				2EBA23BD1CFCF589002A60EB /* DKRender.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23CF1CFCF70F002A60EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23E41CFCF718002A60EB /* DKRender.framework in Frameworks */,
+				2EBA23E81CFCF718002A60EB /* DKMath.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E313B811CF388B900DDBBB9 /* Materials */ = {
+			isa = PBXGroup;
+			children = (
+				2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */,
+				2EB6E6AF1CED091D00ED45CC /* DKRMateriable.swift */,
+				2E313B871CF38FF200DDBBB9 /* Shader Uniforms */,
+				2E313B821CF388D500DDBBB9 /* Prefabs */,
+				2E313BA61CF506F100DDBBB9 /* *.metal */,
+			);
+			name = Materials;
+			sourceTree = "<group>";
+		};
+		2E313B821CF388D500DDBBB9 /* Prefabs */ = {
+			isa = PBXGroup;
+			children = (
+				2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */,
+			);
+			name = Prefabs;
+			sourceTree = "<group>";
+		};
+		2E313B871CF38FF200DDBBB9 /* Shader Uniforms */ = {
+			isa = PBXGroup;
+			children = (
+				2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */,
+			);
+			name = "Shader Uniforms";
+			path = ../Shared;
+			sourceTree = "<group>";
+		};
+		2E313B941CF4F4E300DDBBB9 /* Graph */ = {
+			isa = PBXGroup;
+			children = (
+				2E313B951CF4F50000DDBBB9 /* DKRRenderGraph.swift */,
+				2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */,
+				2E313BA11CF5062E00DDBBB9 /* Renderers */,
+			);
+			name = Graph;
+			sourceTree = "<group>";
+		};
+		2E313BA11CF5062E00DDBBB9 /* Renderers */ = {
+			isa = PBXGroup;
+			children = (
+				2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */,
+			);
+			name = Renderers;
+			sourceTree = "<group>";
+		};
+		2E313BA61CF506F100DDBBB9 /* *.metal */ = {
+			isa = PBXGroup;
+			children = (
+				2E313BA71CF507A300DDBBB9 /* DKRSpriteMaterial.metal */,
+			);
+			name = "*.metal";
+			sourceTree = "<group>";
+		};
+		2E78177C1CEE6FD100F55BE3 /* Texture */ = {
+			isa = PBXGroup;
+			children = (
+				2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */,
+				2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */,
+				2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */,
+			);
+			name = Texture;
+			sourceTree = "<group>";
+		};
+		2E78177D1CEE6FD800F55BE3 /* Buffer */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817701CEE688900F55BE3 /* DKRBuffers.swift */,
+				2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */,
+			);
+			name = Buffer;
+			sourceTree = "<group>";
+		};
+		2E78177E1CEE6FEA00F55BE3 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */,
+				2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */,
+				39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2E78177F1CEE6FFF00F55BE3 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */,
+				2E1F91951CE53D0200C7E908 /* DKRScene.swift */,
+				2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */,
+				2E313B991CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift */,
+				2E313B941CF4F4E300DDBBB9 /* Graph */,
+			);
+			name = Render;
+			sourceTree = "<group>";
+		};
+		2E7817841CEE9AF500F55BE3 /* Drawable */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */,
+				2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */,
+				2E7817951CEEA00A00F55BE3 /* Prefabs */,
+			);
+			name = Drawable;
+			sourceTree = "<group>";
+		};
+		2E7817951CEEA00A00F55BE3 /* Prefabs */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817961CEEA02500F55BE3 /* DKRQuad.swift */,
+			);
+			name = Prefabs;
+			sourceTree = "<group>";
+		};
+		2E8AF01B1CF6341C00ACB5BC /* OSX-Test */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA239E1CFCB673002A60EB /* Assets */,
+				2E8AF01C1CF6341C00ACB5BC /* AppDelegate.swift */,
+				2E8AF01E1CF6341C00ACB5BC /* ViewController.swift */,
+				2E8AF0201CF6341C00ACB5BC /* Assets.xcassets */,
+				2E8AF0221CF6341C00ACB5BC /* Main.storyboard */,
+				2E8AF0251CF6341C00ACB5BC /* Info.plist */,
+			);
+			path = "OSX-Test";
+			sourceTree = "<group>";
+		};
 		2E95F9DD1CE3C47500D52B72 = {
 			isa = PBXGroup;
 			children = (
-				2E95F9E91CE3C47500D52B72 /* DrakkenEngine */,
+				2E95FA451CE3EA4100D52B72 /* Frameworks */,
+				2EF0A9B41CE68FFB0037DFAE /* Shared */,
+				2E95FA461CE3EA7700D52B72 /* DKMath */,
+				2E95FA191CE3C57200D52B72 /* DKRender */,
+				2E8AF01B1CF6341C00ACB5BC /* OSX-Test */,
+				2EBA23A51CFCF3C6002A60EB /* tvOS-Test */,
+				2EBA23D31CFCF70F002A60EB /* iOS-Test */,
 				2E95F9E81CE3C47500D52B72 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -38,51 +509,374 @@
 		2E95F9E81CE3C47500D52B72 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2E95F9E71CE3C47500D52B72 /* DrakkenEngine.framework */,
+				2E95F9F71CE3C52300D52B72 /* DKRender.framework */,
+				2E95FA041CE3C53700D52B72 /* DKRender.framework */,
+				2E95FA111CE3C54300D52B72 /* DKRender.framework */,
+				2E95FA231CE3EA1000D52B72 /* DKMath.framework */,
+				2E95FA301CE3EA1D00D52B72 /* DKMath.framework */,
+				2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */,
+				2E8AF01A1CF6341C00ACB5BC /* OSX-Test.app */,
+				2EBA23A41CFCF3C6002A60EB /* tvOS-Test.app */,
+				2EBA23D21CFCF70F002A60EB /* iOS-Test.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2E95F9E91CE3C47500D52B72 /* DrakkenEngine */ = {
+		2E95F9F81CE3C52300D52B72 /* DKRender-OSX */ = {
 			isa = PBXGroup;
 			children = (
-				2E95F9EA1CE3C47500D52B72 /* DrakkenEngine.h */,
-				2E95F9EC1CE3C47500D52B72 /* Info.plist */,
+				2E95F9F91CE3C52300D52B72 /* DKRender-OSX.h */,
+				2E95F9FB1CE3C52300D52B72 /* Info.plist */,
 			);
-			path = DrakkenEngine;
+			path = "DKRender-OSX";
+			sourceTree = SOURCE_ROOT;
+		};
+		2E95FA051CE3C53700D52B72 /* DKRender-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA061CE3C53700D52B72 /* DKRender-tvOS.h */,
+				2E95FA081CE3C53700D52B72 /* Info.plist */,
+			);
+			path = "DKRender-tvOS";
+			sourceTree = SOURCE_ROOT;
+		};
+		2E95FA121CE3C54300D52B72 /* DKRender-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA131CE3C54300D52B72 /* DKRender-iOS.h */,
+				2E95FA151CE3C54300D52B72 /* Info.plist */,
+			);
+			path = "DKRender-iOS";
+			sourceTree = SOURCE_ROOT;
+		};
+		2E95FA191CE3C57200D52B72 /* DKRender */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817841CEE9AF500F55BE3 /* Drawable */,
+				2E313B811CF388B900DDBBB9 /* Materials */,
+				2E78177F1CEE6FFF00F55BE3 /* Render */,
+				2E78177E1CEE6FEA00F55BE3 /* Core */,
+				2E78177D1CEE6FD800F55BE3 /* Buffer */,
+				2E78177C1CEE6FD100F55BE3 /* Texture */,
+			);
+			path = DKRender;
+			sourceTree = "<group>";
+		};
+		2E95FA241CE3EA1000D52B72 /* DKMath-OSX */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA251CE3EA1000D52B72 /* DKMath-OSX.h */,
+				2E95FA271CE3EA1000D52B72 /* Info.plist */,
+			);
+			path = "DKMath-OSX";
+			sourceTree = "<group>";
+		};
+		2E95FA311CE3EA1D00D52B72 /* DKMath-tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA321CE3EA1D00D52B72 /* DKMath-tvOS.h */,
+				2E95FA341CE3EA1D00D52B72 /* Info.plist */,
+			);
+			path = "DKMath-tvOS";
+			sourceTree = "<group>";
+		};
+		2E95FA3E1CE3EA2600D52B72 /* DKMath-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA3F1CE3EA2600D52B72 /* DKMath-iOS.h */,
+				2E95FA411CE3EA2600D52B72 /* Info.plist */,
+			);
+			path = "DKMath-iOS";
+			sourceTree = "<group>";
+		};
+		2E95FA451CE3EA4100D52B72 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2E8AF0321CF6370D00ACB5BC /* Metal.framework */,
+				2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */,
+				2E95F9F81CE3C52300D52B72 /* DKRender-OSX */,
+				2E95FA051CE3C53700D52B72 /* DKRender-tvOS */,
+				2E95FA121CE3C54300D52B72 /* DKRender-iOS */,
+				2E95FA241CE3EA1000D52B72 /* DKMath-OSX */,
+				2E95FA311CE3EA1D00D52B72 /* DKMath-tvOS */,
+				2E95FA3E1CE3EA2600D52B72 /* DKMath-iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2E95FA461CE3EA7700D52B72 /* DKMath */ = {
+			isa = PBXGroup;
+			children = (
+				2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */,
+				2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */,
+			);
+			path = DKMath;
+			sourceTree = "<group>";
+		};
+		2EBA23A51CFCF3C6002A60EB /* tvOS-Test */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA23CC1CFCF632002A60EB /* Assets */,
+				2EBA23A61CFCF3C6002A60EB /* AppDelegate.swift */,
+				2EBA23B51CFCF532002A60EB /* GameViewController.swift */,
+				2EBA23AC1CFCF3C6002A60EB /* Main.storyboard */,
+				2EBA23AF1CFCF3C6002A60EB /* Assets.xcassets */,
+				2EBA23B11CFCF3C6002A60EB /* Info.plist */,
+			);
+			path = "tvOS-Test";
+			sourceTree = "<group>";
+		};
+		2EBA23D31CFCF70F002A60EB /* iOS-Test */ = {
+			isa = PBXGroup;
+			children = (
+				2EBA23F31CFCF79B002A60EB /* Assets */,
+				2EBA23D41CFCF70F002A60EB /* AppDelegate.swift */,
+				2EBA23D61CFCF70F002A60EB /* ViewController.swift */,
+				2EBA23D81CFCF70F002A60EB /* Main.storyboard */,
+				2EBA23DB1CFCF70F002A60EB /* Assets.xcassets */,
+				2EBA23DD1CFCF70F002A60EB /* LaunchScreen.storyboard */,
+				2EBA23E01CFCF70F002A60EB /* Info.plist */,
+			);
+			path = "iOS-Test";
+			sourceTree = "<group>";
+		};
+		2EF0A9B41CE68FFB0037DFAE /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				2E2AEABD1CFE3ADC00090742 /* GameViewTest.swift */,
+				2EF0A9BD1CE691680037DFAE /* Errors */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		2EF0A9BD1CE691680037DFAE /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				2EF0A9BE1CE691920037DFAE /* DKError.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2E95F9E41CE3C47500D52B72 /* Headers */ = {
+		2E95F9F41CE3C52300D52B72 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E95F9EB1CE3C47500D52B72 /* DrakkenEngine.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA011CE3C53700D52B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E95FA071CE3C53700D52B72 /* DKRender-tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA0E1CE3C54300D52B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E95FA141CE3C54300D52B72 /* DKRender-iOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA201CE3EA1000D52B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E95FA261CE3EA1000D52B72 /* DKMath-OSX.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA2D1CE3EA1D00D52B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E95FA331CE3EA1D00D52B72 /* DKMath-tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA3A1CE3EA2600D52B72 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E95FA401CE3EA2600D52B72 /* DKMath-iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2E95F9E61CE3C47500D52B72 /* DrakkenEngine */ = {
+		2E8AF0191CF6341C00ACB5BC /* OSX-Test */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2E95F9EF1CE3C47500D52B72 /* Build configuration list for PBXNativeTarget "DrakkenEngine" */;
+			buildConfigurationList = 2E8AF0281CF6341D00ACB5BC /* Build configuration list for PBXNativeTarget "OSX-Test" */;
 			buildPhases = (
-				2E95F9E21CE3C47500D52B72 /* Sources */,
-				2E95F9E31CE3C47500D52B72 /* Frameworks */,
-				2E95F9E41CE3C47500D52B72 /* Headers */,
-				2E95F9E51CE3C47500D52B72 /* Resources */,
+				2E8AF0161CF6341C00ACB5BC /* Sources */,
+				2E8AF0171CF6341C00ACB5BC /* Frameworks */,
+				2E8AF0181CF6341C00ACB5BC /* Resources */,
+				2E8AF02D1CF6343200ACB5BC /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E8AF02C1CF6343200ACB5BC /* PBXTargetDependency */,
+				2E8AF0311CF6343700ACB5BC /* PBXTargetDependency */,
+			);
+			name = "OSX-Test";
+			productName = "OSX-Test";
+			productReference = 2E8AF01A1CF6341C00ACB5BC /* OSX-Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2E95F9F61CE3C52300D52B72 /* DKRender_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95F9FC1CE3C52300D52B72 /* Build configuration list for PBXNativeTarget "DKRender_OSX" */;
+			buildPhases = (
+				2E95F9F21CE3C52300D52B72 /* Sources */,
+				2E95F9F31CE3C52300D52B72 /* Frameworks */,
+				2E95F9F41CE3C52300D52B72 /* Headers */,
+				2E95F9F51CE3C52300D52B72 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DrakkenEngine;
-			productName = DrakkenEngine;
-			productReference = 2E95F9E71CE3C47500D52B72 /* DrakkenEngine.framework */;
+			name = DKRender_OSX;
+			productName = "DKRender-OSX";
+			productReference = 2E95F9F71CE3C52300D52B72 /* DKRender.framework */;
 			productType = "com.apple.product-type.framework";
+		};
+		2E95FA031CE3C53700D52B72 /* DKRender_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95FA091CE3C53700D52B72 /* Build configuration list for PBXNativeTarget "DKRender_tvOS" */;
+			buildPhases = (
+				2E95F9FF1CE3C53700D52B72 /* Sources */,
+				2E95FA001CE3C53700D52B72 /* Frameworks */,
+				2E95FA011CE3C53700D52B72 /* Headers */,
+				2E95FA021CE3C53700D52B72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKRender_tvOS;
+			productName = "DKRender-tvOS";
+			productReference = 2E95FA041CE3C53700D52B72 /* DKRender.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2E95FA101CE3C54300D52B72 /* DKRender_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95FA161CE3C54300D52B72 /* Build configuration list for PBXNativeTarget "DKRender_iOS" */;
+			buildPhases = (
+				2E95FA0C1CE3C54300D52B72 /* Sources */,
+				2E95FA0D1CE3C54300D52B72 /* Frameworks */,
+				2E95FA0E1CE3C54300D52B72 /* Headers */,
+				2E95FA0F1CE3C54300D52B72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKRender_iOS;
+			productName = "DKRender-iOS";
+			productReference = 2E95FA111CE3C54300D52B72 /* DKRender.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2E95FA221CE3EA1000D52B72 /* DKMath_OSX */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95FA281CE3EA1000D52B72 /* Build configuration list for PBXNativeTarget "DKMath_OSX" */;
+			buildPhases = (
+				2E95FA1E1CE3EA1000D52B72 /* Sources */,
+				2E95FA1F1CE3EA1000D52B72 /* Frameworks */,
+				2E95FA201CE3EA1000D52B72 /* Headers */,
+				2E95FA211CE3EA1000D52B72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKMath_OSX;
+			productName = "DKMath-OSX";
+			productReference = 2E95FA231CE3EA1000D52B72 /* DKMath.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2E95FA2F1CE3EA1D00D52B72 /* DKMath_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95FA351CE3EA1D00D52B72 /* Build configuration list for PBXNativeTarget "DKMath_tvOS" */;
+			buildPhases = (
+				2E95FA2B1CE3EA1D00D52B72 /* Sources */,
+				2E95FA2C1CE3EA1D00D52B72 /* Frameworks */,
+				2E95FA2D1CE3EA1D00D52B72 /* Headers */,
+				2E95FA2E1CE3EA1D00D52B72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKMath_tvOS;
+			productName = "DKMath-tvOS";
+			productReference = 2E95FA301CE3EA1D00D52B72 /* DKMath.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2E95FA3C1CE3EA2600D52B72 /* DKMath_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E95FA421CE3EA2600D52B72 /* Build configuration list for PBXNativeTarget "DKMath_iOS" */;
+			buildPhases = (
+				2E95FA381CE3EA2600D52B72 /* Sources */,
+				2E95FA391CE3EA2600D52B72 /* Frameworks */,
+				2E95FA3A1CE3EA2600D52B72 /* Headers */,
+				2E95FA3B1CE3EA2600D52B72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DKMath_iOS;
+			productName = "DKMath-iOS";
+			productReference = 2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2EBA23A31CFCF3C6002A60EB /* tvOS-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EBA23B41CFCF3C6002A60EB /* Build configuration list for PBXNativeTarget "tvOS-Test" */;
+			buildPhases = (
+				2EBA23A01CFCF3C6002A60EB /* Sources */,
+				2EBA23A11CFCF3C6002A60EB /* Frameworks */,
+				2EBA23A21CFCF3C6002A60EB /* Resources */,
+				2EBA23C51CFCF589002A60EB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EBA23C01CFCF589002A60EB /* PBXTargetDependency */,
+				2EBA23C41CFCF589002A60EB /* PBXTargetDependency */,
+			);
+			name = "tvOS-Test";
+			productName = "tvOS-Test";
+			productReference = 2EBA23A41CFCF3C6002A60EB /* tvOS-Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2EBA23D11CFCF70F002A60EB /* iOS-Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EBA23E11CFCF70F002A60EB /* Build configuration list for PBXNativeTarget "iOS-Test" */;
+			buildPhases = (
+				2EBA23CE1CFCF70F002A60EB /* Sources */,
+				2EBA23CF1CFCF70F002A60EB /* Frameworks */,
+				2EBA23D01CFCF70F002A60EB /* Resources */,
+				2EBA23EC1CFCF718002A60EB /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2EBA23E71CFCF718002A60EB /* PBXTargetDependency */,
+				2EBA23EB1CFCF718002A60EB /* PBXTargetDependency */,
+			);
+			name = "iOS-Test";
+			productName = "iOS-Test";
+			productReference = 2EBA23D21CFCF70F002A60EB /* iOS-Test.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -90,10 +884,38 @@
 		2E95F9DE1CE3C47500D52B72 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Allison Lindner";
 				TargetAttributes = {
-					2E95F9E61CE3C47500D52B72 = {
+					2E8AF0191CF6341C00ACB5BC = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2E95F9F61CE3C52300D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2E95FA031CE3C53700D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 62TU375XJE;
+					};
+					2E95FA101CE3C54300D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2E95FA221CE3EA1000D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2E95FA2F1CE3EA1D00D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 62TU375XJE;
+					};
+					2E95FA3C1CE3EA2600D52B72 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					2EBA23A31CFCF3C6002A60EB = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 62TU375XJE;
+					};
+					2EBA23D11CFCF70F002A60EB = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
 				};
@@ -104,38 +926,353 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2E95F9DD1CE3C47500D52B72;
 			productRefGroup = 2E95F9E81CE3C47500D52B72 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2E95F9E61CE3C47500D52B72 /* DrakkenEngine */,
+				2E95F9F61CE3C52300D52B72 /* DKRender_OSX */,
+				2E95FA031CE3C53700D52B72 /* DKRender_tvOS */,
+				2E95FA101CE3C54300D52B72 /* DKRender_iOS */,
+				2E95FA221CE3EA1000D52B72 /* DKMath_OSX */,
+				2E95FA2F1CE3EA1D00D52B72 /* DKMath_tvOS */,
+				2E95FA3C1CE3EA2600D52B72 /* DKMath_iOS */,
+				2E8AF0191CF6341C00ACB5BC /* OSX-Test */,
+				2EBA23A31CFCF3C6002A60EB /* tvOS-Test */,
+				2EBA23D11CFCF70F002A60EB /* iOS-Test */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2E95F9E51CE3C47500D52B72 /* Resources */ = {
+		2E8AF0181CF6341C00ACB5BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AF0211CF6341C00ACB5BC /* Assets.xcassets in Resources */,
+				2EBA239F1CFCB673002A60EB /* Assets in Resources */,
+				2E8AF0241CF6341C00ACB5BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95F9F51CE3C52300D52B72 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		2E95F9E21CE3C47500D52B72 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
+		2E95FA021CE3C53700D52B72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2E95FA0F1CE3C54300D52B72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA211CE3EA1000D52B72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA2E1CE3EA1D00D52B72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA3B1CE3EA2600D52B72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23A21CFCF3C6002A60EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23B01CFCF3C6002A60EB /* Assets.xcassets in Resources */,
+				2EBA23CD1CFCF632002A60EB /* Assets in Resources */,
+				2EBA23AE1CFCF3C6002A60EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23D01CFCF70F002A60EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23DF1CFCF70F002A60EB /* LaunchScreen.storyboard in Resources */,
+				2EBA23F41CFCF79B002A60EB /* Assets in Resources */,
+				2EBA23DC1CFCF70F002A60EB /* Assets.xcassets in Resources */,
+				2EBA23DA1CFCF70F002A60EB /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2E8AF0161CF6341C00ACB5BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E8AF01F1CF6341C00ACB5BC /* ViewController.swift in Sources */,
+				2E8AF01D1CF6341C00ACB5BC /* AppDelegate.swift in Sources */,
+				2E2AEABE1CFE3ADC00090742 /* GameViewTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95F9F21CE3C52300D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E313B961CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */,
+				2E1F918F1CE537DB00C7E908 /* DKRCamera.swift in Sources */,
+				2E313B891CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */,
+				2E313B9E1CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */,
+				2E313B9A1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */,
+				2E78178A1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */,
+				2E1F91961CE53D0200C7E908 /* DKRScene.swift in Sources */,
+				2EF0A9A91CE5447C0037DFAE /* DKRShader.swift in Sources */,
+				2EF0A9BF1CE691920037DFAE /* DKError.swift in Sources */,
+				2EB6E6B01CED091D00ED45CC /* DKRMateriable.swift in Sources */,
+				2E313BAC1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */,
+				2E7817711CEE688900F55BE3 /* DKRBuffers.swift in Sources */,
+				2E7817971CEEA02500F55BE3 /* DKRQuad.swift in Sources */,
+				2E313BA31CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */,
+				2EF0A9D51CE6995F0037DFAE /* DKRRenderer.swift in Sources */,
+				2E313B841CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */,
+				2E95FA1B1CE3C5BA00D52B72 /* DKRCore.swift in Sources */,
+				2E313BA81CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */,
+				2E7817751CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */,
+				2E7817861CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */,
+				2E78178E1CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */,
+				390585BBC083796C96A2C176 /* DKRRendererFactory.swift in Sources */,
+				2EB6E6A01CECEA7900ED45CC /* DKRTexture.swift in Sources */,
+				2E7817791CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95F9FF1CE3C53700D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7817871CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */,
+				2E313BAD1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */,
+				2E1F91901CE537DB00C7E908 /* DKRCamera.swift in Sources */,
+				2E313BA41CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */,
+				2E78177A1CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */,
+				2E313B9B1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */,
+				2E1F91971CE53D0200C7E908 /* DKRScene.swift in Sources */,
+				2E7817981CEEA02500F55BE3 /* DKRQuad.swift in Sources */,
+				2E313BA91CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */,
+				2EF0A9C01CE691920037DFAE /* DKError.swift in Sources */,
+				2E313B9F1CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */,
+				2EF0A9D61CE6995F0037DFAE /* DKRRenderer.swift in Sources */,
+				2E95FA1C1CE3C5BA00D52B72 /* DKRCore.swift in Sources */,
+				2EB6E6B11CED091D00ED45CC /* DKRMateriable.swift in Sources */,
+				2E78178B1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */,
+				2E7817721CEE688900F55BE3 /* DKRBuffers.swift in Sources */,
+				2E313B8A1CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */,
+				2E313B851CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */,
+				2EBA23CA1CFCF5E6002A60EB /* DKRShader.swift in Sources */,
+				2E7817761CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */,
+				2E313B971CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */,
+				390585AC7222068B5997EDA2 /* DKRRendererFactory.swift in Sources */,
+				2E78178F1CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */,
+				2EB6E6A11CECEA7900ED45CC /* DKRTexture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA0C1CE3C54300D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E7817881CEE9B0700F55BE3 /* DKRDrawableInstance.swift in Sources */,
+				2E313BAE1CF62AB000DDBBB9 /* DKRGameView.swift in Sources */,
+				2E1F91911CE537DB00C7E908 /* DKRCamera.swift in Sources */,
+				2E313BA51CF5064400DDBBB9 /* DKRSimpleRenderer.swift in Sources */,
+				2E78177B1CEE6FCB00F55BE3 /* DKRTextureManager.swift in Sources */,
+				2E313B9C1CF4F5CB00DDBBB9 /* DKBSceneBuilder.swift in Sources */,
+				2E1F91981CE53D0200C7E908 /* DKRScene.swift in Sources */,
+				2E7817991CEEA02500F55BE3 /* DKRQuad.swift in Sources */,
+				2E313BAA1CF507A300DDBBB9 /* DKRSpriteMaterial.metal in Sources */,
+				2EF0A9C11CE691920037DFAE /* DKError.swift in Sources */,
+				2E313BA01CF505D900DDBBB9 /* DKRGraphRenderer.swift in Sources */,
+				2EF0A9D71CE6995F0037DFAE /* DKRRenderer.swift in Sources */,
+				2E95FA1D1CE3C5BA00D52B72 /* DKRCore.swift in Sources */,
+				2EB6E6B21CED091D00ED45CC /* DKRMateriable.swift in Sources */,
+				2E78178C1CEE9B2900F55BE3 /* DKRDrawable.swift in Sources */,
+				2E7817731CEE688900F55BE3 /* DKRBuffers.swift in Sources */,
+				2E313B8B1CF3902B00DDBBB9 /* SharedUniforms.swift in Sources */,
+				2E313B861CF388F300DDBBB9 /* DKRSpriteMaterial.swift in Sources */,
+				2EBA23CB1CFCF5E6002A60EB /* DKRShader.swift in Sources */,
+				2E7817771CEE6F0800F55BE3 /* DKRBufferManager.swift in Sources */,
+				2E313B981CF4F50000DDBBB9 /* DKRRenderGraph.swift in Sources */,
+				39058941600BA020F2DE68E0 /* DKRRendererFactory.swift in Sources */,
+				2E7817901CEE9D5100F55BE3 /* DKRTextureInstance.swift in Sources */,
+				2EB6E6A21CECEA7900ED45CC /* DKRTexture.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA1E1CE3EA1000D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF0A9C21CE691920037DFAE /* DKError.swift in Sources */,
+				2E95FA4B1CE4FC6D00D52B72 /* DKMTransform.swift in Sources */,
+				2E313B911CF3A15E00DDBBB9 /* DKMMath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA2B1CE3EA1D00D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF0A9C31CE691920037DFAE /* DKError.swift in Sources */,
+				2E95FA4C1CE4FC6E00D52B72 /* DKMTransform.swift in Sources */,
+				2E313B921CF3A15E00DDBBB9 /* DKMMath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2E95FA381CE3EA2600D52B72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EF0A9C41CE691920037DFAE /* DKError.swift in Sources */,
+				2E95FA4D1CE4FC6F00D52B72 /* DKMTransform.swift in Sources */,
+				2E313B931CF3A15E00DDBBB9 /* DKMMath.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23A01CFCF3C6002A60EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23B61CFCF532002A60EB /* GameViewController.swift in Sources */,
+				2EBA23A71CFCF3C6002A60EB /* AppDelegate.swift in Sources */,
+				2E2AEABF1CFE3ADC00090742 /* GameViewTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EBA23CE1CFCF70F002A60EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EBA23D71CFCF70F002A60EB /* ViewController.swift in Sources */,
+				2EBA23D51CFCF70F002A60EB /* AppDelegate.swift in Sources */,
+				2E2AEAC01CFE3ADC00090742 /* GameViewTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		2E8AF02C1CF6343200ACB5BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95F9F61CE3C52300D52B72 /* DKRender_OSX */;
+			targetProxy = 2E8AF02B1CF6343200ACB5BC /* PBXContainerItemProxy */;
+		};
+		2E8AF0311CF6343700ACB5BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95FA221CE3EA1000D52B72 /* DKMath_OSX */;
+			targetProxy = 2E8AF0301CF6343700ACB5BC /* PBXContainerItemProxy */;
+		};
+		2EBA23C01CFCF589002A60EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95FA031CE3C53700D52B72 /* DKRender_tvOS */;
+			targetProxy = 2EBA23BF1CFCF589002A60EB /* PBXContainerItemProxy */;
+		};
+		2EBA23C41CFCF589002A60EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95FA2F1CE3EA1D00D52B72 /* DKMath_tvOS */;
+			targetProxy = 2EBA23C31CFCF589002A60EB /* PBXContainerItemProxy */;
+		};
+		2EBA23E71CFCF718002A60EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95FA101CE3C54300D52B72 /* DKRender_iOS */;
+			targetProxy = 2EBA23E61CFCF718002A60EB /* PBXContainerItemProxy */;
+		};
+		2EBA23EB1CFCF718002A60EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2E95FA3C1CE3EA2600D52B72 /* DKMath_iOS */;
+			targetProxy = 2EBA23EA1CFCF718002A60EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2E8AF0221CF6341C00ACB5BC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E8AF0231CF6341C00ACB5BC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2EBA23AC1CFCF3C6002A60EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EBA23AD1CFCF3C6002A60EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2EBA23D81CFCF70F002A60EB /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EBA23D91CFCF70F002A60EB /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2EBA23DD1CFCF70F002A60EB /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2EBA23DE1CFCF70F002A60EB /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2E8AF0261CF6341D00ACB5BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "OSX-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.OSX-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2E8AF0271CF6341D00ACB5BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "OSX-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.OSX-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		2E95F9ED1CE3C47500D52B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -224,45 +1361,343 @@
 			};
 			name = Release;
 		};
-		2E95F9F01CE3C47500D52B72 /* Debug */ = {
+		2E95F9FD1CE3C52300D52B72 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DrakkenEngine/Info.plist;
+				INFOPLIST_FILE = "DKRender-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = drakken.DrakkenEngine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		2E95F9F11CE3C47500D52B72 /* Release */ = {
+		2E95F9FE1CE3C52300D52B72 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DrakkenEngine/Info.plist;
+				INFOPLIST_FILE = "DKRender-OSX/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = drakken.DrakkenEngine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2E95FA0A1CE3C53700D52B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKRender-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		2E95FA0B1CE3C53700D52B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKRender-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E95FA171CE3C54300D52B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKRender-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E95FA181CE3C54300D52B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKRender-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKRender;
+				PRODUCT_NAME = DKRender;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E95FA291CE3EA1000D52B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "DKMath-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		2E95FA2A1CE3EA1000D52B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = "DKMath-OSX/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		2E95FA361CE3EA1D00D52B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKMath-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		2E95FA371CE3EA1D00D52B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKMath-tvOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2E95FA431CE3EA2600D52B72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKMath-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2E95FA441CE3EA2600D52B72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "DKMath-iOS/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakken.DKMath;
+				PRODUCT_NAME = DKMath;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2EBA23B21CFCF3C6002A60EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "tvOS-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.tvOS-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+			};
+			name = Debug;
+		};
+		2EBA23B31CFCF3C6002A60EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "tvOS-Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.tvOS-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2EBA23E21CFCF70F002A60EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "iOS-Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.iOS-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2EBA23E31CFCF70F002A60EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				INFOPLIST_FILE = "iOS-Test/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "drakken.iOS-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E8AF0281CF6341D00ACB5BC /* Build configuration list for PBXNativeTarget "OSX-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E8AF0261CF6341D00ACB5BC /* Debug */,
+				2E8AF0271CF6341D00ACB5BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		2E95F9E11CE3C47500D52B72 /* Build configuration list for PBXProject "DrakkenEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -270,15 +1705,79 @@
 				2E95F9EE1CE3C47500D52B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		2E95F9EF1CE3C47500D52B72 /* Build configuration list for PBXNativeTarget "DrakkenEngine" */ = {
+		2E95F9FC1CE3C52300D52B72 /* Build configuration list for PBXNativeTarget "DKRender_OSX" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2E95F9F01CE3C47500D52B72 /* Debug */,
-				2E95F9F11CE3C47500D52B72 /* Release */,
+				2E95F9FD1CE3C52300D52B72 /* Debug */,
+				2E95F9FE1CE3C52300D52B72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E95FA091CE3C53700D52B72 /* Build configuration list for PBXNativeTarget "DKRender_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E95FA0A1CE3C53700D52B72 /* Debug */,
+				2E95FA0B1CE3C53700D52B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E95FA161CE3C54300D52B72 /* Build configuration list for PBXNativeTarget "DKRender_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E95FA171CE3C54300D52B72 /* Debug */,
+				2E95FA181CE3C54300D52B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E95FA281CE3EA1000D52B72 /* Build configuration list for PBXNativeTarget "DKMath_OSX" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E95FA291CE3EA1000D52B72 /* Debug */,
+				2E95FA2A1CE3EA1000D52B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E95FA351CE3EA1D00D52B72 /* Build configuration list for PBXNativeTarget "DKMath_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E95FA361CE3EA1D00D52B72 /* Debug */,
+				2E95FA371CE3EA1D00D52B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2E95FA421CE3EA2600D52B72 /* Build configuration list for PBXNativeTarget "DKMath_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E95FA431CE3EA2600D52B72 /* Debug */,
+				2E95FA441CE3EA2600D52B72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2EBA23B41CFCF3C6002A60EB /* Build configuration list for PBXNativeTarget "tvOS-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EBA23B21CFCF3C6002A60EB /* Debug */,
+				2EBA23B31CFCF3C6002A60EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2EBA23E11CFCF70F002A60EB /* Build configuration list for PBXNativeTarget "iOS-Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EBA23E21CFCF70F002A60EB /* Debug */,
+				2EBA23E31CFCF70F002A60EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

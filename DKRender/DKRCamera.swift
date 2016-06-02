@@ -1,0 +1,90 @@
+//
+//  DKRCamera.swift
+//  DrakkenEngine
+//
+//  Created by Allison Lindner on 12/05/16.
+//  Copyright © 2016 Allison Lindner. All rights reserved.
+//
+
+import Metal
+import DKMath
+import simd
+
+internal class DKRCamera {
+	internal var transform: DKMTransform
+	internal var fovy: Float
+	
+	private var width: Int
+	private var height: Int
+	
+	private var _uCamera: DKCameraUniform!
+	private var _uCameraBuffer: DKRBuffer<DKCameraUniform>!
+	
+	internal var uCameraBuffer: DKRBuffer<DKCameraUniform> {
+		get {
+			return _uCameraBuffer
+		}
+	}
+	
+	private var _renderTargetID: Int?
+	
+	internal var renderTexture: MTLTexture? {
+		get {
+			if let renderTargetID = _renderTargetID {
+				return DKRCore.instance.tManager.getRenderTargetTexture(renderTargetID)
+			} else {
+				return DKRCore.instance.tManager.screenTexture
+			}
+		}
+	}
+	
+	internal init(name: String,
+	              cameraPosition: (x: Float, y: Float, z: Float),
+	              fovy: Float = 60,
+	              width: Int = 1920,
+	              height: Int = 1080)
+	{
+		
+		self.transform = DKMTransform()
+		self.transform.position.x = cameraPosition.x
+		self.transform.position.y = cameraPosition.y
+		self.transform.position.z = cameraPosition.z
+		
+		self.fovy = fovy
+		
+		self.width = width
+		self.height = height
+		
+		self._updateBuffer()
+	}
+	
+	internal func changeSize(width: Int, _ height: Int) {
+		self.width = width
+		self.height = height
+		
+		_updateBuffer()
+	}
+	
+	private func _updateBuffer() {
+		//CAMERA UNIFORM CREATION
+		var center = transform.position
+		center.z = center.z - 1.0
+		
+		let mView: float4x4 = newLookAt(transform.position, center: center, up: float3(0.0, 1.0, 0.0))
+		
+		let mProjection: float4x4 = newPerspective(
+			toRadians(fovy),
+			aspect: Float(width)/Float(height),
+			near: 0.01, far: 1000
+		)
+		
+		_uCamera = DKCameraUniform(viewMatrix: mView, projectionMatrix: mProjection)
+		_uCameraBuffer = DKRBuffer(
+			data: _uCamera,
+			index: 0,
+			bufferType: DKRBufferType.Vertex,
+			staticMode: false,
+			offset: 0
+		)
+	}
+}

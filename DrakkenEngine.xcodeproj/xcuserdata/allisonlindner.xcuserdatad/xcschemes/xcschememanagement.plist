@@ -4,15 +4,105 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DrakkenEngine.xcscheme</key>
+		<key>DKMath-OSX.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>DKMath-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>DKMath-tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>DKRender-OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>DKRender-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>DKRender-tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>OSX-Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
+		<key>iOS-Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>8</integer>
+		</dict>
+		<key>tvOS-Test.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>7</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>2E8AF0191CF6341C00ACB5BC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2E95F9E61CE3C47500D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95F9F61CE3C52300D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA031CE3C53700D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA101CE3C54300D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA221CE3EA1000D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA2F1CE3EA1D00D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA3C1CE3EA2600D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2E95FA511CE5015B00D52B72</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EBA23A31CFCF3C6002A60EB</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EBA23D11CFCF70F002A60EB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
