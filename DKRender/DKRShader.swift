@@ -62,14 +62,14 @@ public class DKRShader {
 		rpDescriptor.colorAttachments[0].pixelFormat = .BGRA8Unorm
 		rpDescriptor.colorAttachments[0].blendingEnabled = true
 		
-//		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.Add
-//		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.Add
-//		
-//		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.SourceAlpha
-//		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
-//		
-//		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.SourceAlpha
-//		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
+		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.Add
+		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.Add
+
+		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.SourceAlpha
+		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
+
+		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.SourceAlpha
+		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
 		
 		rpDescriptor.depthAttachmentPixelFormat = .Depth32Float_Stencil8
 		rpDescriptor.stencilAttachmentPixelFormat = .Depth32Float_Stencil8
