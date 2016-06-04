@@ -17,12 +17,16 @@ internal class DKRBufferManager {
 		_nextIndex = 0
 	}
 	
-	internal func createBuffer<T>(data: [T], index: Int = -1, offset: Int = 0) -> Int {
+	internal func createBuffer<T>(data: [T], index: Int = -1, offset: Int = 0, id: Int? = nil) -> Int {
 		let buffer = DKRCore.instance.device.newBufferWithBytes(
 													data,
 													length: (data.count + 1) * sizeofValue(data[0]),
 													options: .CPUCacheModeDefaultCache
 												)
+		if id != nil {
+			_buffers[id!] = buffer
+			return id!
+		}
 		
 		let _index = _nextIndex
 		_buffers[_index] = buffer

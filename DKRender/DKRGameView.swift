@@ -63,6 +63,7 @@ public class DKGameView: MTKView {
 	
 	private func _start() {
 		self.device = DKRCore.instance.device
+		self.sampleCount = 4
 		
 		_gameView = DKRGameView()
 		_gameView.start()
@@ -72,7 +73,7 @@ public class DKGameView: MTKView {
 	}
 	
 	public func start() {
-		
+		//Override this method to create your scene on startup
 	}
 	
 	public func createScene(name: String) {
@@ -80,7 +81,7 @@ public class DKGameView: MTKView {
 	}
 	
 	public func builder(sceneName: String = "main") -> DKBSceneBuilder {
-		let builder = DKBSceneBuilder(sceneGraph: &_gameView._sceneManager.sceneGraphs[sceneName]!)
+		let builder = DKBSceneBuilder(sceneGraph: &_gameView._sceneManager.sceneGraphs[sceneName]!, name: sceneName)
 		
 		return builder
 	}

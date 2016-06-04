@@ -18,9 +18,12 @@ internal class DKRSceneGraph {
 	internal var screenChange: Bool = false
 	internal var size: CGSize
 	
+	internal var nodeCount: Int
+	
 	internal init() {
 		scenes = [:]
 		size = CGSizeMake(1920.0, 1080.0)
+		nodeCount = 0
 	}
 	
 	internal func changeSize(width: Float, _ height: Float) {

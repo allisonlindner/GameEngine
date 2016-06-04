@@ -17,14 +17,14 @@ class GameViewTest: DKGameView {
 		
 		var spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
 		
-		builder().newTexture("wall", fileName: "wall", fileExtension: ".png")
-		spriteMaterial.setTexture("wall")
+		builder().newTexture("grid", fileName: "grid2", fileExtension: ".png")
+		spriteMaterial.setTexture("grid")
 		
 		let transform = DKMTransform()
-		transform.scale = float2(30.0, 30.0)
+		transform.scale = float2(2.0, 2.0)
 		
-		let xUnits = 10
-		let yUnits = 20
+		let xUnits = 170
+		let yUnits = 115
 		
 		for x in 0..<xUnits {
 			for y in 0..<yUnits {
@@ -34,6 +34,7 @@ class GameViewTest: DKGameView {
 				spriteMaterial.addQuad("box", transform: transform)
 			}
 		}
+		scene.finish()
 		
 		createScene("main2")
 		scene = builder("main2").createScene(Float(self.frame.width), Float(self.frame.height))
@@ -50,5 +51,6 @@ class GameViewTest: DKGameView {
 				spriteMaterial.addQuad("box", transform: transform)
 			}
 		}
+		scene.finish()
 	}
 }

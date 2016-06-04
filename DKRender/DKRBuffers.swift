@@ -31,6 +31,8 @@ internal class DKRBuffer<T>: DKBuffer {
 	private var _staticMode: Bool
 	private var _bufferType: DKRBufferType
 	
+	private var _bufferChanged: Bool
+	
 	internal var id: Int {
 		get {
 			return self._id
@@ -67,12 +69,16 @@ internal class DKRBuffer<T>: DKBuffer {
 		}
 		set (data) {
 			self._data = data
-			_updateBuffer()
+			self._bufferChanged = true
 		}
 	}
 	
 	internal var buffer: MTLBuffer {
 		get {
+			if self._bufferChanged {
+				_updateBuffer()
+			}
+			
 			guard let buffer = DKRCore.instance.bManager.getBuffer(_id) else {
 				assert(false, "Buffer nil")
 			}
@@ -95,6 +101,8 @@ internal class DKRBuffer<T>: DKBuffer {
 		self._staticMode = staticMode
 		self._bufferType = bufferType
 
+		self._bufferChanged = true
+		
 		_updateBuffer()
 	}
 	
@@ -105,14 +113,16 @@ internal class DKRBuffer<T>: DKBuffer {
 	}
 
 	private func _updateBuffer() {
-		if self._id != nil {
-			DKRCore.instance.bManager.deleteBuffer(self._id)
-		}
-		
 		self._id = DKRCore.instance.bManager.createBuffer(
 															_data,
 															index: self._index,
-															offset: self._offset
+															offset: self._offset,
+															id: self._id
 														)
+		_bufferChanged = false
+	}
+	
+	internal func finishBuffer() {
+		_updateBuffer()
 	}
 }
