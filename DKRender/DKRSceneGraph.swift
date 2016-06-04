@@ -11,16 +11,21 @@ import Metal
 import MetalKit
 import CoreGraphics
 
-internal class DKRRenderGraph {
+internal class DKRSceneGraph {
 	internal var scenes: [Int : DKRScene]
 	internal var mainScene: Int?
-	internal var screenSize: CGSize
 	
-	internal var screenChange: Bool
+	internal var screenChange: Bool = false
+	internal var size: CGSize
 	
 	internal init() {
 		scenes = [:]
-		screenChange = true
-		screenSize = CGSizeMake(1920, 1080)
+		size = CGSizeMake(1920.0, 1080.0)
+	}
+	
+	internal func changeSize(width: Float, _ height: Float) {
+		self.size.width = CGFloat(width)
+		self.size.height = CGFloat(height)
+		self.screenChange = true
 	}
 }

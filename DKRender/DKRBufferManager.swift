@@ -20,7 +20,7 @@ internal class DKRBufferManager {
 	internal func createBuffer<T>(data: [T], index: Int = -1, offset: Int = 0) -> Int {
 		let buffer = DKRCore.instance.device.newBufferWithBytes(
 													data,
-													length: data.count * sizeofValue(data[0]) * 2,
+													length: (data.count + 1) * sizeofValue(data[0]),
 													options: .CPUCacheModeDefaultCache
 												)
 		

@@ -14,8 +14,8 @@ internal class DKRCamera {
 	internal var transform: DKMTransform
 	internal var fovy: Float
 	
-	private var width: Int
-	private var height: Int
+	private var width: Float
+	private var height: Float
 	
 	private var _uCamera: DKCameraUniform!
 	private var _uCameraBuffer: DKRBuffer<DKCameraUniform>!
@@ -41,8 +41,8 @@ internal class DKRCamera {
 	internal init(name: String,
 	              cameraPosition: (x: Float, y: Float, z: Float),
 	              fovy: Float = 60,
-	              width: Int = 1920,
-	              height: Int = 1080)
+	              width: Float = 1920,
+	              height: Float = 1080)
 	{
 		
 		self.transform = DKMTransform()
@@ -58,7 +58,7 @@ internal class DKRCamera {
 		self._updateBuffer()
 	}
 	
-	internal func changeSize(width: Int, _ height: Int) {
+	internal func changeSize(width: Float, _ height: Float) {
 		self.width = width
 		self.height = height
 		
@@ -74,12 +74,12 @@ internal class DKRCamera {
 		
 		let mProjection: float4x4 = newPerspective(
 			toRadians(fovy),
-			aspect: Float(width)/Float(height),
+			aspect: width/height,
 			near: 0.01, far: 1000
 		)
 		
-		_uCamera = DKCameraUniform(viewMatrix: mView, projectionMatrix: mProjection)
-		_uCameraBuffer = DKRBuffer(
+		self._uCamera = DKCameraUniform(viewMatrix: mView, projectionMatrix: mProjection)
+		self._uCameraBuffer = DKRBuffer(
 			data: _uCamera,
 			index: 0,
 			bufferType: DKRBufferType.Vertex,

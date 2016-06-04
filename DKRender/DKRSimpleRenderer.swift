@@ -9,13 +9,13 @@
 import Metal
 
 internal class DKRSimpleRenderer: DKRGraphRenderer {
-	func draw(graph: DKRRenderGraph) {
+	func draw(graph: DKRSceneGraph) {
 		var ids: [Int] = []
 		
 		if graph.screenChange {
 			if let mainScene = graph.mainScene {
 				if let scene = graph.scenes[mainScene] {
-					scene.currentCamera.changeSize(Int(graph.screenSize.width), Int(graph.screenSize.height))
+					scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
 					graph.screenChange = false
 				}
 			}

@@ -22,8 +22,6 @@ internal class DKRCore {
 	internal var bManager: DKRBufferManager
 	internal var tManager: DKRTextureManager
 	
-	internal var currentScene: Int!
-	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
 		self.cQueue = device.newCommandQueue()

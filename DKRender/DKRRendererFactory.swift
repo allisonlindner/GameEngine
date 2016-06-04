@@ -21,6 +21,15 @@ internal class DKRRendererFactory {
 	}
 
 	private func buildDepthStencilDescriptor() -> MTLDepthStencilDescriptor {
+		let stencilState = MTLStencilDescriptor()
+		
+		stencilState.stencilCompareFunction = .Always;
+		stencilState.stencilFailureOperation = .Keep;
+		stencilState.depthFailureOperation = .Keep;
+		stencilState.depthStencilPassOperation = .Replace;
+		stencilState.readMask = 0xFF;
+		stencilState.writeMask = 0xFF;
+		
 		let dsDescriptor = MTLDepthStencilDescriptor();
 		dsDescriptor.depthCompareFunction = .Less
 		dsDescriptor.depthWriteEnabled = true
@@ -28,9 +37,10 @@ internal class DKRRendererFactory {
 		dsDescriptor.frontFaceStencil.stencilFailureOperation = .Keep
 		dsDescriptor.frontFaceStencil.depthFailureOperation = .IncrementClamp
 		dsDescriptor.frontFaceStencil.depthStencilPassOperation = .IncrementClamp
-		dsDescriptor.frontFaceStencil.readMask = 0x0
-		dsDescriptor.frontFaceStencil.writeMask = 0x0
-		dsDescriptor.backFaceStencil = nil
+		dsDescriptor.depthCompareFunction = .LessEqual;
+		
+		dsDescriptor.backFaceStencil = stencilState
+		dsDescriptor.frontFaceStencil = stencilState
 
 		return dsDescriptor
 	}
