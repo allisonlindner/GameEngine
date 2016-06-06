@@ -10,6 +10,7 @@ import Metal
 import DKMath
 
 public class DKRScene {
+	internal var scenes: [DKRScene]
 	internal var materiables: [Int : DKRMateriable]
 	private var _cameras: [String : DKRCamera]
 	private var _currentCamera: String
@@ -40,6 +41,7 @@ public class DKRScene {
 	}
 	
 	internal init() {
+		scenes = []
 		materiables = [:]
 		_cameras = [:]
 		

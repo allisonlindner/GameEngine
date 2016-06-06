@@ -9,11 +9,13 @@
 import DKRender
 import DKMath
 import simd
+import Foundation
 
 class GameViewTest: DKGameView {
 
 	override func start() {
-		var scene = builder().createScene(Float(self.frame.width), Float(self.frame.height))
+		var scene = builder().createScene(DKMTransform(scaleX: Float(self.frame.width),
+															y: Float(self.frame.height)))
 		
 		var spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
 		
@@ -24,7 +26,7 @@ class GameViewTest: DKGameView {
 		transform.scale = float2(2.0, 2.0)
 		
 		let xUnits = 170
-		let yUnits = 115
+		let yUnits = 110
 		
 		for x in 0..<xUnits {
 			for y in 0..<yUnits {
@@ -34,10 +36,12 @@ class GameViewTest: DKGameView {
 				spriteMaterial.addQuad("box", transform: transform)
 			}
 		}
+		
 		scene.finish()
 		
 		createScene("main2")
-		scene = builder("main2").createScene(Float(self.frame.width), Float(self.frame.height))
+		scene = builder("main2").createScene(DKMTransform(scaleX: Float(self.frame.width),
+														y: Float(self.frame.height)))
 		spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
 		
 		builder().newTexture("box", fileName: "box", fileExtension: ".jpg")

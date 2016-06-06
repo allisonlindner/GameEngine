@@ -13,30 +13,28 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 		var ids: [Int] = []
 		
 		if graph.screenChange {
-			if let mainScene = graph.mainScene {
-				if let scene = graph.scenes[mainScene] {
-					scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
-					graph.screenChange = false
-				}
+			if let scene = graph.scene {
+				scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
+				graph.screenChange = false
 			}
 		}
 		
-		for scene in graph.scenes {
-			guard let renderTexture = scene.1.renderTexture else {
+		if let scene = graph.scene {
+			guard let renderTexture = scene.renderTexture else {
 				print("No render texture found on scene")
-				continue
+				return
 			}
 			
 			let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
 			ids.append(id)
-			for materiable in scene.1.materiables {
+			for materiable in scene.materiables {
 				let rcState = materiable.1.shader.rpState
 				
 				let renderer = DKRCore.instance.renderer
 				
 				renderer.encoder(withID: id).setRenderPipelineState(rcState)
 				
-				renderer.bind(scene.1.currentCamera.uCameraBuffer, encoderID: id)
+				renderer.bind(scene.currentCamera.uCameraBuffer, encoderID: id)
 				
 				for buffer in materiable.1.getUniformBuffers() {
 					renderer.bind(buffer, encoderID: id)

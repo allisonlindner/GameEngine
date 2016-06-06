@@ -25,9 +25,35 @@ public class DKMTransform {
 		}
 	}
 	
-	public init() {
-		self.position = float3(0.0)
-		self.rotation = float3(0.0)
-		self.scale = float2(1.0)
+	public init(position: (x: Float, y: Float, z: Float),
+	            rotation: (x: Float, y: Float, z: Float),
+	            scale: (x: Float, y: Float)) {
+		self.position = float3(position.x, position.y, position.z)
+		self.rotation = float3(rotation.x, rotation.y, rotation.z)
+		self.scale = float2(scale.x, scale.y)
+	}
+	
+	public convenience init(positionX x: Float, y: Float, z: Float) {
+		self.init(position: (x, y, z),
+		          rotation: (0.0, 0.0, 0.0),
+		          scale: (1.0, 1.0))
+	}
+	
+	public convenience init(rotationX x: Float, y: Float, z: Float) {
+		self.init(position: (0.0, 0.0, 0.0),
+		          rotation: (x, y, z),
+		          scale: (1.0, 1.0))
+	}
+	
+	public convenience init(scaleX x: Float, y: Float) {
+		self.init(position: (0.0, 0.0, 0.0),
+		          rotation: (0.0, 0.0, 0.0),
+		          scale: (x, y))
+	}
+	
+	public convenience init() {
+		self.init(position: (0.0, 0.0, 0.0),
+		          rotation: (0.0, 0.0, 0.0),
+		          scale: (1.0, 1.0))
 	}
 }

@@ -12,8 +12,7 @@ import MetalKit
 import CoreGraphics
 
 internal class DKRSceneGraph {
-	internal var scenes: [Int : DKRScene]
-	internal var mainScene: Int?
+	internal var scene: DKRScene?
 	
 	internal var screenChange: Bool = false
 	internal var size: CGSize
@@ -21,7 +20,6 @@ internal class DKRSceneGraph {
 	internal var nodeCount: Int
 	
 	internal init() {
-		scenes = [:]
 		size = CGSizeMake(1920.0, 1080.0)
 		nodeCount = 0
 	}

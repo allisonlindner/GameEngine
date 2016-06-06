@@ -32,7 +32,7 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 			_firstStep = false
 		}
 		
-		if _sceneManager.sceneGraphs[_sceneManager.currentScene]!.scenes.count > 0 {
+		if _sceneManager.sceneGraphs[_sceneManager.currentScene]!.scene != nil {
 			if let currentDrawable = view.currentDrawable {
 				DKRCore.instance.tManager.screenTexture = currentDrawable.texture
 				
