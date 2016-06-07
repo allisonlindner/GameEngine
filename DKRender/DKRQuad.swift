@@ -53,11 +53,11 @@ public class DKRQuad: DKRDrawable {
 		_indicesBuffer = DKRBuffer(data: indices)
 	}
 	
-	internal func getBuffers() -> [DKBuffer] {
+	public func getBuffers() -> [DKBuffer] {
 		return [_verticesBuffer, _normalBuffer, _texCoordBuffer]
 	}
 	
-	internal func getIndicesBuffer() -> DKBuffer {
+	public func getIndicesBuffer() -> DKBuffer {
 		return _indicesBuffer
 	}
 }

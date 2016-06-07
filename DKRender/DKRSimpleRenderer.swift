@@ -27,7 +27,7 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 			
 			let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
 			ids.append(id)
-			for materiable in scene.materiables {
+			for materiable in scene.materials {
 				let rcState = materiable.1.shader.rpState
 				
 				let renderer = DKRCore.instance.renderer
@@ -36,13 +36,17 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 				
 				renderer.bind(scene.currentCamera.uCameraBuffer, encoderID: id)
 				
-				for buffer in materiable.1.getUniformBuffers() {
+				guard let materialUniformBuffer = materiable.1.getUniformBuffers() else {
+					fatalError("Uniform buffer of material is nil")
+				}
+				
+				for buffer in materialUniformBuffer {
 					renderer.bind(buffer, encoderID: id)
 				}
 				
 				for drawableInstance in materiable.1.drawables {
 					guard let uModelBuffer = drawableInstance.1.uModelBuffer else {
-						return print("Model buffer for drawable instance is nil")
+						fatalError("Model buffer for drawable instance is nil")
 					}
 					
 					renderer.bind(uModelBuffer, encoderID: id)

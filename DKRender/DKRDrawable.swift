@@ -8,7 +8,7 @@
 
 import Metal
 
-internal protocol DKRDrawable {
+public protocol DKRDrawable {
 	func getBuffers() -> [DKBuffer]
 	func getIndicesBuffer() -> DKBuffer
 }

@@ -28,12 +28,14 @@ class GameViewTest: DKGameView {
 		let xUnits = 60
 		let yUnits = 40
 		
+		spriteMaterial.createDrawable("quad", drawable: DKRQuad(), size: xUnits * yUnits)
+		
 		for x in 0..<xUnits {
 			for y in 0..<yUnits {
 				transform.position.x = -((Float(xUnits) * transform.scale.x)/2.0) + (Float(x) * transform.scale.x)
 				transform.position.y = -((Float(yUnits) * transform.scale.y)/2.0) + (Float(y) * transform.scale.y)
 				
-				spriteMaterial.addQuad("box", transform: transform, preAllocateQuads: xUnits * yUnits)
+				spriteMaterial.addDrawableInstance("quad", transform: transform)
 			}
 		}
 		
@@ -47,12 +49,14 @@ class GameViewTest: DKGameView {
 		builder().newTexture("box", fileName: "box", fileExtension: ".jpg")
 		spriteMaterial.setTexture("box")
 		
+		spriteMaterial.createDrawable("quad", drawable: DKRQuad(), size: xUnits * yUnits)
+		
 		for x in 0..<xUnits {
 			for y in 0..<yUnits {
 				transform.position.x = -((Float(xUnits) * transform.scale.x)/2.0) + (Float(x) * transform.scale.x)
 				transform.position.y = -((Float(yUnits) * transform.scale.y)/2.0) + (Float(y) * transform.scale.y)
 				
-				spriteMaterial.addQuad("box", transform: transform, preAllocateQuads: xUnits * yUnits)
+				spriteMaterial.addDrawableInstance("quad", transform: transform)
 			}
 		}
 		scene.finish()

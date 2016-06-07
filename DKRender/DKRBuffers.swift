@@ -30,7 +30,6 @@ internal class DKRBuffer<T>: DKBuffer {
 	private var _offset: Int
 	private var _staticMode: Bool
 	private var _bufferType: DKRBufferType
-	private var _count: Int
 	
 	private var _bufferChanged: Bool
 	
@@ -86,7 +85,7 @@ internal class DKRBuffer<T>: DKBuffer {
 	
 	internal var count: Int {
 		get {
-			return self._count + 1
+			return self._data.count
 		}
 	}
 
@@ -97,21 +96,12 @@ internal class DKRBuffer<T>: DKBuffer {
 		self._staticMode = staticMode
 		self._bufferType = bufferType
 		
+		self._data = data
 		self._bufferChanged = true
 		
 		if size > data.count {
-			self._data = Array(count: size, repeatedValue: data[0])
-			
-			for (k,d) in data.enumerate() {
-				if k > 0 {
-					self._data[k] = d
-				}
-			}
-		} else {
-			self._data = data
+			self._data.reserveCapacity(size)
 		}
-		
-		self._count = data.count
 		
 		_updateBuffer()
 	}
@@ -123,13 +113,14 @@ internal class DKRBuffer<T>: DKBuffer {
 	}
 	
 	internal func append(data: T) {
-		if self._count >= _data.count {
-			self._data.append(data)
-		} else {
-			self._data[self._count] = data
+		self._data.append(data)
+		self._bufferChanged = true
+	}
+	
+	internal func extendTo(size: Int) {
+		if size > self._data.capacity {
+			self._data.reserveCapacity(size)
 		}
-		
-		self._count += 1
 		self._bufferChanged = true
 	}
 

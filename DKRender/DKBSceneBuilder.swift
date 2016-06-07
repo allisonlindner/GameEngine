@@ -16,13 +16,14 @@ public protocol DKSceneBuilder {
 
 public protocol DKScene {
 	func createScene(transform: DKMTransform) -> DKScene
-	func addMaterial(material: DKRMateriable) -> DKMaterial
+	func addMaterial(material: DKRMaterial) -> DKMaterial
 	func finish()
 }
 
 public protocol DKMaterial {
-	func addQuad(name: String, transform: DKMTransform) -> DKMaterial
-	func addQuad(name: String, transform: DKMTransform, preAllocateQuads: Int) -> DKMaterial
+	func createDrawable(name: String, drawable: DKRDrawable) -> DKMaterial
+	func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> DKMaterial
+	func addDrawableInstance(name: String, transform: DKMTransform) -> DKMaterial
 	func setTexture(textureName: String) -> DKMaterial
 }
 
@@ -62,10 +63,10 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 		return newSceneBuilder
 	}
 	
-	public func addMaterial(material: DKRMateriable) -> DKMaterial {
+	public func addMaterial(material: DKRMaterial) -> DKMaterial {
 		let index = self._nextMateriableIndex
 		if let scene = self._currentScene {
-			scene.materiables[index] = material
+			scene.materials[index] = material
 			self._nextMateriableIndex += 1
 		}
 		
@@ -79,28 +80,30 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 		return newSceneBuilder
 	}
 	
-	public func addQuad(name: String, transform: DKMTransform) -> DKMaterial {
-		return self.addQuad(name, transform: transform, preAllocateQuads: 1)
+	public func createDrawable(name: String, drawable: DKRDrawable) -> DKMaterial {
+		return self.createDrawable(name, drawable: drawable, size: 1)
 	}
 	
-	public func addQuad(name: String, transform: DKMTransform, preAllocateQuads: Int) -> DKMaterial {
+	public func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> DKMaterial {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
-				var materiable = scene.materiables[materialIndex]!
+				let material = scene.materials[materialIndex]!
 				
-				if let drawable = materiable.drawables[name] {
+				material.createDrawable(name, drawable: drawable, size: size)
+			}
+		}
+		
+		return self
+	}
+	
+	public func addDrawableInstance(name: String, transform: DKMTransform) -> DKMaterial {
+		if let scene = self._currentScene {
+			if let materialIndex = self._materialIndex {
+				let material = scene.materials[materialIndex]!
+				
+				if let drawable = material.drawables[name] {
 					drawable.addUModelBuffer(
-						DKModelUniform(modelMatrix: transform.matrix4x4),
-						preAllocateQuad: preAllocateQuads
-					)
-					sceneGraph.nodeCount += 1
-				} else {
-					materiable.drawables[name] = DKRDrawableInstance(drawable: DKRQuad())
-					let drawable = materiable.drawables[name]!
-					
-					drawable.addUModelBuffer(
-						DKModelUniform(modelMatrix: transform.matrix4x4),
-						preAllocateQuad: preAllocateQuads
+						DKModelUniform(modelMatrix: transform.matrix4x4)
 					)
 					sceneGraph.nodeCount += 1
 				}
@@ -113,9 +116,9 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 	public func finish() {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
-				var materiable = scene.materiables[materialIndex]!
+				let material = scene.materials[materialIndex]!
 				
-				for drawable in materiable.drawables {
+				for drawable in material.drawables {
 					drawable.1.uModelBuffer?.finishBuffer()
 				}
 			}
@@ -130,9 +133,9 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 	public func setTexture(textureName: String) -> DKMaterial {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
-				var materiable = scene.materiables[materialIndex]!
+				let material = scene.materials[materialIndex]!
 				
-				materiable.textureInstances.append(
+				material.textureInstances.append(
 												DKRTextureInstance(
 														index: 0,
 														texture: DKRTexture(name: textureName)

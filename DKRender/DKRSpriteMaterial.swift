@@ -13,11 +13,7 @@ public struct DKRSpriteUniform {
 	var light: DKLight
 }
 
-public class DKRSpriteMaterial: DKRMateriable {
-	public var shader: DKRShader!
-	public var drawables: [String : DKRDrawableInstance]
-	public var textureInstances: [DKRTextureInstance]
-	
+public class DKRSpriteMaterial: DKRMaterial, DKRMaterialDataSource {
 	private var _uDiffuse: DKRSpriteUniform
 	private var _uDiffuseBuffer: DKRBuffer<DKRSpriteUniform>
 	
@@ -25,17 +21,6 @@ public class DKRSpriteMaterial: DKRMateriable {
 		lightColor: (r: Float, g: Float, b: Float) = (1.0, 1.0, 1.0),
 		intensity: Float = 1.0
 	) {
-		do {
-			shader = try DKRShader(name: "sprite")
-		} catch let error as DKShaderNotFoundError {
-			assert(false, error.description)
-		} catch {
-			assert(false, "Error on shader creation: diffuse")
-		}
-		
-		drawables = [:]
-		textureInstances = []
-		
 		_uDiffuse = DKRSpriteUniform(light: DKLight(
 												color: float3(lightColor.r, lightColor.g, lightColor.b),
 												intensity: intensity)
@@ -47,9 +32,13 @@ public class DKRSpriteMaterial: DKRMateriable {
 								staticMode: true,
 								offset: 0
 							)
+		
+		super.init(shaderName: "sprite")
+		
+		self.dataSource = self
 	}
 	
-	public func getUniformBuffers() -> [DKBuffer] {
+	public func uniformBuffers() -> [DKBuffer] {
 		return [_uDiffuseBuffer]
 	}
 }
