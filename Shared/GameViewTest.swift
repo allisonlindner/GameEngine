@@ -23,17 +23,17 @@ class GameViewTest: DKGameView {
 		spriteMaterial.setTexture("grid")
 		
 		let transform = DKMTransform()
-		transform.scale = float2(2.0, 2.0)
+		transform.scale = float2(5.0, 5.0)
 		
-		let xUnits = 170
-		let yUnits = 110
+		let xUnits = 60
+		let yUnits = 40
 		
 		for x in 0..<xUnits {
 			for y in 0..<yUnits {
 				transform.position.x = -((Float(xUnits) * transform.scale.x)/2.0) + (Float(x) * transform.scale.x)
 				transform.position.y = -((Float(yUnits) * transform.scale.y)/2.0) + (Float(y) * transform.scale.y)
 				
-				spriteMaterial.addQuad("box", transform: transform)
+				spriteMaterial.addQuad("box", transform: transform, preAllocateQuads: xUnits * yUnits)
 			}
 		}
 		
@@ -41,7 +41,7 @@ class GameViewTest: DKGameView {
 		
 		createScene("main2")
 		scene = builder("main2").createScene(DKMTransform(scaleX: Float(self.frame.width),
-														y: Float(self.frame.height)))
+															   y: Float(self.frame.height)))
 		spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
 		
 		builder().newTexture("box", fileName: "box", fileExtension: ".jpg")
@@ -52,7 +52,7 @@ class GameViewTest: DKGameView {
 				transform.position.x = -((Float(xUnits) * transform.scale.x)/2.0) + (Float(x) * transform.scale.x)
 				transform.position.y = -((Float(yUnits) * transform.scale.y)/2.0) + (Float(y) * transform.scale.y)
 				
-				spriteMaterial.addQuad("box", transform: transform)
+				spriteMaterial.addQuad("box", transform: transform, preAllocateQuads: xUnits * yUnits)
 			}
 		}
 		scene.finish()

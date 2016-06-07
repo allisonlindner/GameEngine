@@ -22,6 +22,7 @@ public protocol DKScene {
 
 public protocol DKMaterial {
 	func addQuad(name: String, transform: DKMTransform) -> DKMaterial
+	func addQuad(name: String, transform: DKMTransform, preAllocateQuads: Int) -> DKMaterial
 	func setTexture(textureName: String) -> DKMaterial
 }
 
@@ -79,13 +80,18 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 	}
 	
 	public func addQuad(name: String, transform: DKMTransform) -> DKMaterial {
+		return self.addQuad(name, transform: transform, preAllocateQuads: 1)
+	}
+	
+	public func addQuad(name: String, transform: DKMTransform, preAllocateQuads: Int) -> DKMaterial {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				var materiable = scene.materiables[materialIndex]!
 				
 				if let drawable = materiable.drawables[name] {
 					drawable.addUModelBuffer(
-						DKModelUniform(modelMatrix: transform.matrix4x4)
+						DKModelUniform(modelMatrix: transform.matrix4x4),
+						preAllocateQuad: preAllocateQuads
 					)
 					sceneGraph.nodeCount += 1
 				} else {
@@ -93,7 +99,8 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 					let drawable = materiable.drawables[name]!
 					
 					drawable.addUModelBuffer(
-						DKModelUniform(modelMatrix: transform.matrix4x4)
+						DKModelUniform(modelMatrix: transform.matrix4x4),
+						preAllocateQuad: preAllocateQuads
 					)
 					sceneGraph.nodeCount += 1
 				}

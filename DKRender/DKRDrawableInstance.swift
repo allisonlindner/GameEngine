@@ -24,15 +24,15 @@ public class DKRDrawableInstance {
 		self.drawable = drawable
 	}
 	
-	internal func addUModelBuffer(uModel: DKModelUniform) {
+	internal func addUModelBuffer(uModel: DKModelUniform, preAllocateQuad: Int = 1) {
 		if _uModels == nil {
-			_createBuffer([uModel])
+			_createBuffer([uModel], preAllocateQuad: preAllocateQuad)
 		} else {
-			_uModels?.data.append(uModel)
+			_uModels?.append(uModel)
 		}
 	}
 	
-	private func _createBuffer(uModel: [DKModelUniform]) {
-		_uModels = DKRBuffer(data: uModel, index: 1)
+	private func _createBuffer(uModel: [DKModelUniform], preAllocateQuad: Int = 1) {
+		_uModels = DKRBuffer(data: uModel, index: 1, preAllocateSize: preAllocateQuad)
 	}
 }
