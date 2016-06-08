@@ -106,6 +106,15 @@
 		2EB4FAB11D060BDB00D43351 /* DKRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA041CE3C53700D52B72 /* DKRender.framework */; };
 		2EB4FAB21D060BE400D43351 /* DKMath.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA3D1CE3EA2600D52B72 /* DKMath.framework */; };
 		2EB4FAB31D060BE400D43351 /* DKRender.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E95FA111CE3C54300D52B72 /* DKRender.framework */; };
+		2EB4FAB71D077BC000D43351 /* DKGComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAB61D077BC000D43351 /* DKGComponent.swift */; };
+		2EB4FAB81D077BC000D43351 /* DKGComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAB61D077BC000D43351 /* DKGComponent.swift */; };
+		2EB4FAB91D077BC000D43351 /* DKGComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAB61D077BC000D43351 /* DKGComponent.swift */; };
+		2EB4FABB1D07800900D43351 /* DKGActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABA1D07800900D43351 /* DKGActor.swift */; };
+		2EB4FABC1D07800900D43351 /* DKGActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABA1D07800900D43351 /* DKGActor.swift */; };
+		2EB4FABD1D07800900D43351 /* DKGActor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABA1D07800900D43351 /* DKGActor.swift */; };
+		2EB4FABF1D07803400D43351 /* DKGBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABE1D07803400D43351 /* DKGBehavior.swift */; };
+		2EB4FAC01D07803400D43351 /* DKGBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABE1D07803400D43351 /* DKGBehavior.swift */; };
+		2EB4FAC11D07803400D43351 /* DKGBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FABE1D07803400D43351 /* DKGBehavior.swift */; };
 		2EB6E6A01CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
 		2EB6E6A11CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
 		2EB6E6A21CECEA7900ED45CC /* DKRTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */; };
@@ -292,6 +301,9 @@
 		2EB4FAA61D060B4200D43351 /* DKGame.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DKGame.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB4FAA81D060B4200D43351 /* DKGame_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DKGame_iOS.h; sourceTree = "<group>"; };
 		2EB4FAAA1D060B4200D43351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EB4FAB61D077BC000D43351 /* DKGComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGComponent.swift; sourceTree = "<group>"; };
+		2EB4FABA1D07800900D43351 /* DKGActor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGActor.swift; sourceTree = "<group>"; };
+		2EB4FABE1D07803400D43351 /* DKGBehavior.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGBehavior.swift; sourceTree = "<group>"; };
 		2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRTexture.swift; sourceTree = "<group>"; };
 		2EB6E6AF1CED091D00ED45CC /* DKRMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRMaterial.swift; sourceTree = "<group>"; };
 		2EBA23A41CFCF3C6002A60EB /* tvOS-Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tvOS-Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -704,8 +716,19 @@
 		2EB4FAB41D06137B00D43351 /* DKGame */ = {
 			isa = PBXGroup;
 			children = (
+				2EB4FAB51D07729100D43351 /* Components */,
 			);
 			path = DKGame;
+			sourceTree = "<group>";
+		};
+		2EB4FAB51D07729100D43351 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2EB4FAB61D077BC000D43351 /* DKGComponent.swift */,
+				2EB4FABE1D07803400D43351 /* DKGBehavior.swift */,
+				2EB4FABA1D07800900D43351 /* DKGActor.swift */,
+			);
+			name = Components;
 			sourceTree = "<group>";
 		};
 		2EBA23A51CFCF3C6002A60EB /* tvOS-Test */ = {
@@ -1100,6 +1123,7 @@
 					};
 					2EBA23D11CFCF70F002A60EB = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = 62TU375XJE;
 					};
 				};
 			};
@@ -1371,6 +1395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB4FAB71D077BC000D43351 /* DKGComponent.swift in Sources */,
+				2EB4FABB1D07800900D43351 /* DKGActor.swift in Sources */,
+				2EB4FABF1D07803400D43351 /* DKGBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1378,6 +1405,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB4FAB81D077BC000D43351 /* DKGComponent.swift in Sources */,
+				2EB4FABC1D07800900D43351 /* DKGActor.swift in Sources */,
+				2EB4FAC01D07803400D43351 /* DKGBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1385,6 +1415,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EB4FAB91D077BC000D43351 /* DKGComponent.swift in Sources */,
+				2EB4FABD1D07800900D43351 /* DKGActor.swift in Sources */,
+				2EB4FAC11D07803400D43351 /* DKGBehavior.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1854,6 +1887,7 @@
 		2EB4FA911D060AF300D43351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1866,12 +1900,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "drakken.DKGame-OSX";
 				PRODUCT_NAME = DKGame;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		2EB4FA921D060AF300D43351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1890,6 +1926,7 @@
 		2EB4FA9F1D060B3100D43351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1901,6 +1938,7 @@
 				PRODUCT_NAME = DKGame;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.2;
 			};
@@ -1909,6 +1947,7 @@
 		2EB4FAA01D060B3100D43351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -1929,6 +1968,7 @@
 		2EB4FAAC1D060B4200D43351 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1942,6 +1982,7 @@
 				PRODUCT_NAME = DKGame;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1949,6 +1990,7 @@
 		2EB4FAAD1D060B4200D43351 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -2007,6 +2049,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "iOS-Test/Info.plist";
@@ -2014,6 +2057,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "drakken.iOS-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2023,6 +2067,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = "iOS-Test/Info.plist";
@@ -2030,6 +2075,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "drakken.iOS-Test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

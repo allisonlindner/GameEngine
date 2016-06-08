@@ -112,9 +112,18 @@ internal class DKRBuffer<T>: DKBuffer {
 		self.init(data: [data], index: index, preAllocateSize: size, bufferType: bufferType, staticMode: staticMode, offset: offset)
 	}
 	
-	internal func append(data: T) {
+	internal func append(data: T) -> Int {
 		self._data.append(data)
 		self._bufferChanged = true
+		
+		return self._data.count - 1
+	}
+	
+	internal func change(data: T, atIndex: Int) {
+		self._data[atIndex] = data
+		
+		let pointer = self.buffer.contents()
+		memcpy(pointer, [data], atIndex * sizeof(T))
 	}
 	
 	internal func extendTo(size: Int) {

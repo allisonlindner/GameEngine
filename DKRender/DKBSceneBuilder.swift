@@ -23,7 +23,7 @@ public protocol DKScene {
 public protocol DKMaterial {
 	func createDrawable(name: String, drawable: DKRDrawable) -> DKMaterial
 	func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> DKMaterial
-	func addDrawableInstance(name: String, transform: DKMTransform) -> DKMaterial
+	func addDrawableInstance(name: String, transform: DKMTransform) -> Int?
 	func setTexture(textureName: String) -> DKMaterial
 }
 
@@ -96,21 +96,21 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 		return self
 	}
 	
-	public func addDrawableInstance(name: String, transform: DKMTransform) -> DKMaterial {
+	public func addDrawableInstance(name: String, transform: DKMTransform) -> Int? {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!
 				
 				if let drawable = material.drawables[name] {
-					drawable.addUModelBuffer(
+					sceneGraph.nodeCount += 1
+					return drawable.addUModelBuffer(
 						DKModelUniform(modelMatrix: transform.matrix4x4)
 					)
-					sceneGraph.nodeCount += 1
 				}
 			}
 		}
 		
-		return self
+		return nil
 	}
 	
 	public func finish() {

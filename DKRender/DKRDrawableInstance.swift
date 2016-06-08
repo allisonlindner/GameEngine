@@ -26,7 +26,7 @@ public class DKRDrawableInstance {
 		self.drawable = drawable
 	}
 	
-	internal func addUModelBuffer(uModel: DKModelUniform) {
+	internal func addUModelBuffer(uModel: DKModelUniform) -> Int {
 		if _uModels == nil {
 			_createBuffer([uModel])
 		}
@@ -36,7 +36,7 @@ public class DKRDrawableInstance {
 			_preAllocateSize = nil
 		}
 		
-		_uModels?.append(uModel)
+		return _uModels!.append(uModel)
 	}
 	
 	internal func extendTo(size: Int) {
