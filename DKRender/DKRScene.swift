@@ -12,6 +12,8 @@ import DKMath
 public class DKRScene {
 	internal var scenes: [DKRScene]
 	internal var materials: [Int : DKRMaterial]
+	internal var transform: DKMTransform?
+	
 	private var _cameras: [String : DKRCamera]
 	private var _currentCamera: String
 	
