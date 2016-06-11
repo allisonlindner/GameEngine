@@ -14,7 +14,7 @@ import Foundation
 class GameViewTest: DKGameView {
 
 	override func start() {
-		var scene = builder().createScene(DKMTransform(scaleX: Float(self.frame.width),
+		var scene = builder().createScene(DKRTransform(scaleX: Float(self.frame.width),
 															y: Float(self.frame.height)))
 		
 		var spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
@@ -22,7 +22,7 @@ class GameViewTest: DKGameView {
 		builder().newTexture("grid", fileName: "grid2", fileExtension: ".png")
 		spriteMaterial.setTexture("grid")
 		
-		let transform = DKMTransform()
+		let transform = DKRTransform()
 		transform.scale = float2(5.0, 5.0)
 		
 		let xUnits = 60
@@ -42,7 +42,7 @@ class GameViewTest: DKGameView {
 		scene.finish()
 		
 		createScene("main2")
-		scene = builder("main2").createScene(DKMTransform(scaleX: Float(self.frame.width),
+		scene = builder("main2").createScene(DKRTransform(scaleX: Float(self.frame.width),
 															   y: Float(self.frame.height)))
 		spriteMaterial = scene.addMaterial(DKRSpriteMaterial())
 		

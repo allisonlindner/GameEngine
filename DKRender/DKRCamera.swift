@@ -11,7 +11,7 @@ import DKMath
 import simd
 
 internal class DKRCamera {
-	internal var transform: DKMTransform
+	internal var transform: DKRTransform
 	internal var fovy: Float
 	
 	private var width: Float
@@ -45,7 +45,7 @@ internal class DKRCamera {
 	              height: Float = 1080)
 	{
 		
-		self.transform = DKMTransform()
+		self.transform = DKRTransform()
 		self.transform.position.x = cameraPosition.x
 		self.transform.position.y = cameraPosition.y
 		self.transform.position.z = cameraPosition.z
@@ -70,10 +70,10 @@ internal class DKRCamera {
 		var center = transform.position
 		center.z = center.z - 1.0
 		
-		let mView: float4x4 = newLookAt(transform.position, center: center, up: float3(0.0, 1.0, 0.0))
+		let mView: float4x4 = DKMath.newLookAt(transform.position, center: center, up: float3(0.0, 1.0, 0.0))
 		
-		let mProjection: float4x4 = newPerspective(
-			toRadians(fovy),
+		let mProjection: float4x4 = DKMath.newPerspective(
+			DKMath.toRadians(fovy),
 			aspect: width/height,
 			near: 0.01, far: 1000
 		)

@@ -10,7 +10,7 @@ import Metal
 import CoreGraphics
 
 internal class DKRCore {
-	internal static let instance: DKRCore = DKRCore()
+	public static let instance: DKRCore = DKRCore()
 	
 	internal var device: MTLDevice
 	internal var library: MTLLibrary!
@@ -21,6 +21,7 @@ internal class DKRCore {
 	
 	internal var bManager: DKRBufferManager
 	internal var tManager: DKRTextureManager
+	internal var trManager: DKRTransformManager
 	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
@@ -28,6 +29,7 @@ internal class DKRCore {
 		
 		self.bManager = DKRBufferManager()
 		self.tManager = DKRTextureManager()
+		self.trManager = DKRTransformManager()
 
 		self.renderer = DKRRenderer()
 		

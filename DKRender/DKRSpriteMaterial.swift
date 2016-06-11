@@ -41,4 +41,8 @@ public class DKRSpriteMaterial: DKRMaterial, DKRMaterialDataSource {
 	public func uniformBuffers() -> [DKBuffer] {
 		return [_uDiffuseBuffer]
 	}
+	
+	public func setTexture(name: String) {
+		super.setTexture(name, index: 0)
+	}
 }

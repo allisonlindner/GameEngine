@@ -9,7 +9,7 @@
 import Metal
 import MetalKit
 
-internal class DKRTexture {
+public class DKRTexture {
 	private var _name: String
 	private var _id: Int
 	
@@ -25,19 +25,19 @@ internal class DKRTexture {
 		}
 	}
 	
-	internal init(name: String, fileName: String, fileExtension ext: String = ".png") {
+	public init(name: String, fileName: String, fileExtension ext: String = ".png") {
 		self._name = name
 		
 		self._id = DKRCore.instance.tManager.create(name, fileName: fileName, fileExtension: ext)
 	}
 	
-	internal init(name: String) {
+	public init(name: String) {
 		self._name = name
 		
 		self._id = DKRCore.instance.tManager.getID(name)
 	}
 	
-	internal init(name: String, width: Int, height: Int) {
+	public init(name: String, width: Int, height: Int) {
 		self._name = name
 		
 		self._id = DKRCore.instance.tManager.createRenderTarget(name, width: width, height: height)

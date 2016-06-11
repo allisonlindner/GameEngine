@@ -10,9 +10,8 @@ import Metal
 import DKMath
 
 public class DKRScene {
-	internal var scenes: [DKRScene]
 	internal var materials: [Int : DKRMaterial]
-	internal var transform: DKMTransform?
+	internal var transform: DKRTransform?
 	
 	private var _cameras: [String : DKRCamera]
 	private var _currentCamera: String
@@ -43,7 +42,6 @@ public class DKRScene {
 	}
 	
 	internal init() {
-		scenes = []
 		materials = [:]
 		_cameras = [:]
 		
@@ -54,7 +52,7 @@ public class DKRScene {
 		
 		_currentCamera = "default"
 		
-		addCamera("default", camera: camera)
+		self.addCamera("default", camera: camera)
 	}
 	
 	internal func addCamera(name: String, camera: DKRCamera) {

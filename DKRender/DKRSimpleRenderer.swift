@@ -56,8 +56,8 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 					}
 					
 					for textureInstance in materiable.1.textureInstances {
-						let index = textureInstance.index
-						let texture = textureInstance.texture.getTexture()
+						let index = textureInstance.1.index
+						let texture = textureInstance.1.texture.getTexture()
 						
 						renderer.encoder(withID: id).setFragmentTexture(texture, atIndex: index)
 					}

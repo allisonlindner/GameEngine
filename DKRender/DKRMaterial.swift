@@ -15,7 +15,7 @@ public protocol DKRMaterialDataSource {
 public class DKRMaterial {
 	internal var shader: DKRShader!
 	internal var drawables: [String : DKRDrawableInstance]
-	internal var textureInstances: [DKRTextureInstance]
+	internal var textureInstances: [Int:DKRTextureInstance]
 	
 	public var dataSource: DKRMaterialDataSource?
 	
@@ -29,12 +29,18 @@ public class DKRMaterial {
 		}
 		
 		drawables = [:]
-		textureInstances = []
+		textureInstances = [:]
 	}
 	
 	public func createDrawable(name: String, drawable: DKRDrawable, size: Int = 1) {
-		drawables[name] = DKRDrawableInstance(drawable: drawable)
-		drawables[name]!.extendTo(size)
+		if drawables[name] == nil {
+			drawables[name] = DKRDrawableInstance(drawable: drawable)
+			drawables[name]!.extendTo(size)
+		}
+	}
+	
+	public func setTexture(name: String, index: Int) {
+		textureInstances[index] = DKRTextureInstance(index: index, texture: DKRTexture(name: name))
 	}
 	
 	internal func getUniformBuffers() -> [DKBuffer]? {
