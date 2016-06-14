@@ -8,17 +8,17 @@
 
 import Cocoa
 
-class GameViewTestOSX: GameViewTest {
+class GameViewTestOSX: GameViewTest2 {
 	
 	var sceneToggle = true
 	
 	override func mouseDown(theEvent: NSEvent) {
-		if sceneToggle {
-			changeScene("main2")
-			sceneToggle = !sceneToggle
-		} else {
-			changeScene("main")
-			sceneToggle = !sceneToggle
-		}
+//		if sceneToggle {
+//			changeScene("main2")
+//			sceneToggle = !sceneToggle
+//		} else {
+//			changeScene("main")
+//			sceneToggle = !sceneToggle
+//		}
 	}
 }

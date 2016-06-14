@@ -11,44 +11,48 @@ import DKMath
 
 public class DKRTransform {
 	private var _id: Int
+	internal var drawableInstances: [(drawable: DKRDrawableInstance, index: Int)]
 	
 	public var matrix4x4: float4x4 {
 		get {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			return data.matrix4x4
+			return DKRCore.instance.trManager.getTransform(_id).matrix4x4
 		}
 	}
 	
 	public var position: float3 {
 		get {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			return data.position
+			return DKRCore.instance.trManager.getTransform(_id).position
 		}
 		set {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			data.position = newValue
+			changedValue()
+			DKRCore.instance.trManager.getTransform(_id).position = newValue
 		}
 	}
 	
 	public var rotation: float3 {
 		get {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			return data.rotation
+			return DKRCore.instance.trManager.getTransform(_id).rotation
 		}
 		set {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			data.rotation = newValue
+			changedValue()
+			DKRCore.instance.trManager.getTransform(_id).rotation = newValue
 		}
 	}
 	
 	public var scale: float2 {
 		get {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			return data.scale
+			return DKRCore.instance.trManager.getTransform(_id).scale
 		}
 		set {
-			let data = DKRCore.instance.trManager.getTransform(_id)
-			data.scale = newValue
+			changedValue()
+			DKRCore.instance.trManager.getTransform(_id).scale = newValue
+		}
+	}
+	
+	private func changedValue() {
+		for drawableInstance in drawableInstances {
+			drawableInstance.drawable.changedTransforms[drawableInstance.index] = self
+			drawableInstance.drawable.changed = true
 		}
 	}
 	
@@ -57,6 +61,7 @@ public class DKRTransform {
 				   scale: (x: Float, y: Float)) {
 		
 		self._id = DKRCore.instance.trManager.create(position, rotation, scale)
+		drawableInstances = []
 	}
 	
 	public convenience init(positionX x: Float, y: Float, z: Float) {

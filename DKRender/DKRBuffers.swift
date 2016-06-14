@@ -123,7 +123,7 @@ internal class DKRBuffer<T>: DKBuffer {
 		self._data[atIndex] = data
 		
 		let pointer = self.buffer.contents()
-		memcpy(pointer, [data], atIndex * sizeof(T))
+		memcpy(pointer + (atIndex * sizeof(T)), [data], sizeof(T))
 	}
 	
 	internal func extendTo(size: Int) {

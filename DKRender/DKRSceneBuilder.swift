@@ -8,26 +8,7 @@
 
 import DKMath
 
-public protocol DKSceneBuilder {
-	func createScene(transform: DKRTransform) -> DKScene
-	func newTexture(name: String, fileName fName: String, fileExtension ext: String)
-	func finish()
-}
-
-public protocol DKScene {
-	func createScene(transform: DKRTransform) -> DKScene
-	func addMaterial(material: DKRMaterial) -> DKMaterial
-	func finish()
-}
-
-public protocol DKMaterial {
-	func createDrawable(name: String, drawable: DKRDrawable) -> DKMaterial
-	func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> DKMaterial
-	func addDrawableInstance(name: String, transform: DKRTransform) -> Int?
-	func setTexture(textureName: String) -> DKMaterial
-}
-
-public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
+public class DKRSceneBuilder {
 	internal var sceneGraph: DKRSceneGraph
 	internal var sceneName: String
 	private var _currentScene: DKRScene?
@@ -36,49 +17,40 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 	
 	private var _materialIndex: Int?
 
-	internal init(inout sceneGraph: DKRSceneGraph, name: String, scene: DKRScene? = nil) {
+	public init(inout sceneGraph: DKRSceneGraph, name: String, scene: DKRScene? = nil) {
 		self.sceneGraph = sceneGraph
 		self._nextMateriableIndex = 0
 		self.sceneName = name
 		self._currentScene = scene
 	}
 	
-	public func createScene(transform: DKRTransform) -> DKScene {
+	public func createScene(transform: DKRTransform) -> Self {
 		let newScene = DKRScene()
 		
 		self.sceneGraph.scene = newScene
 		
 		newScene.currentCamera.changeSize(transform.scale.x, transform.scale.y)
 		
-		let newSceneBuilder = DKBSceneBuilder(sceneGraph: &self.sceneGraph,
-		                                      name: self.sceneName,
-		                                      scene: newScene)
-		
-		return newSceneBuilder
+		return self
 	}
 	
-	public func addMaterial(material: DKRMaterial) -> DKMaterial {
+	public func addMaterial(material: DKRMaterial) -> Self {
 		let index = self._nextMateriableIndex
 		if let scene = self._currentScene {
 			scene.materials[index] = material
 			self._nextMateriableIndex += 1
 		}
 		
-		let newSceneBuilder = DKBSceneBuilder(sceneGraph: &self.sceneGraph,
-		                                      name: self.sceneName,
-		                                      scene: self._currentScene)
+		self._materialIndex = index
 		
-		newSceneBuilder._nextMateriableIndex = self._nextMateriableIndex
-		newSceneBuilder._materialIndex = index
-		
-		return newSceneBuilder
+		return self
 	}
 	
-	public func createDrawable(name: String, drawable: DKRDrawable) -> DKMaterial {
+	public func createDrawable(name: String, drawable: DKRDrawable) -> Self {
 		return self.createDrawable(name, drawable: drawable, size: 1)
 	}
 	
-	public func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> DKMaterial {
+	public func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> Self {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!
@@ -124,7 +96,7 @@ public class DKBSceneBuilder: DKScene, DKMaterial, DKSceneBuilder {
 		_ = DKRTexture(name: name, fileName: fName, fileExtension: ext)
 	}
 	
-	public func setTexture(textureName: String) -> DKMaterial {
+	public func setTexture(textureName: String) -> Self {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!

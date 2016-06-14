@@ -8,24 +8,19 @@
 
 import DKRender
 
-public class DKGScene: DKGComponent {
-	public var label: String?
-	public var tag: String?
-	
+public class DKGScene {
 	public var transform: DKRTransform
-	
-	public var id: Int!
+	public var name: String
 	
 	internal var sceneGraph: DKRSceneGraph
 	internal var components: [DKGComponent]
 	
-	internal init(label: String? = nil, tag: String? = nil) {
+	internal init(name: String) {
 		self.transform = DKRTransform()
 		self.components = []
 		self.sceneGraph = DKRSceneGraph()
 		
-		self.label = label
-		self.tag = tag
+		self.name = name
 	}
 	
 	public func start() {

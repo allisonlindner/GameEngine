@@ -13,13 +13,13 @@ public class DKRTexture {
 	private var _name: String
 	private var _id: Int
 	
-	internal var name: String {
+	public var name: String {
 		get {
 			return self._name
 		}
 	}
 	
-	internal var id: Int {
+	public var id: Int {
 		get {
 			return self._id
 		}

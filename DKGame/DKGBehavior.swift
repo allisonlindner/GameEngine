@@ -7,11 +7,16 @@
 //
 
 
-public protocol DKGBehavior {
-	func start()
-	func update()
-}
-
-public extension DKGBehavior {
+public class DKGBehavior {
+	internal var internalActor: DKGActor!
+	public var actor: DKGActor! {
+		get {
+			return internalActor
+		}
+	}
 	
+	public init() {}
+	
+	public func start() {}
+	public func update() {}
 }

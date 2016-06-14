@@ -8,17 +8,7 @@
 
 import UIKit
 
-class GameViewTestTvOS: GameViewTest {
+class GameViewTestTvOS: GameViewTest2 {
 	
 	var sceneToggle = true
-	
-	override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-		if sceneToggle {
-			changeScene("main2")
-			sceneToggle = !sceneToggle
-		} else {
-			changeScene("main")
-			sceneToggle = !sceneToggle
-		}
-	}
 }

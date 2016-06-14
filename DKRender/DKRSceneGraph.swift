@@ -12,16 +12,21 @@ import MetalKit
 import CoreGraphics
 
 public class DKRSceneGraph {
-	internal var scene: DKRScene?
+	internal var scene: DKRScene
 	
 	internal var screenChange: Bool = false
 	internal var size: CGSize
 	
-	internal var nodeCount: Int
+	public var nodeCount: Int
 	
 	public init() {
+		scene = DKRScene()
 		size = CGSizeMake(1920.0, 1080.0)
 		nodeCount = 0
+	}
+	
+	public func addMaterial(material: DKRMaterial) {
+		scene.addMaterial(material)
 	}
 	
 	public func changeSize(width: Float, _ height: Float) {

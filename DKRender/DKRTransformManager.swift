@@ -10,23 +10,17 @@ import simd
 import DKMath
 
 internal class DKRTransformData {
-	internal var position: float3 {
-		didSet {
-			_updateMatrix()
-		}
-	}
-	internal var rotation: float3 {
-		didSet {
-			_updateMatrix()
-		}
-	}
-	internal var scale: float2 {
-		didSet {
-			_updateMatrix()
-		}
-	}
+	internal var position: float3
+	internal var rotation: float3
+	internal var scale: float2
 	
-	internal var matrix4x4: float4x4!
+	internal var _matrix: float4x4!
+	internal var matrix4x4: float4x4! {
+		get {
+			self._updateMatrix()
+			return self._matrix
+		}
+	}
 	
 	internal init(position: (x: Float, y: Float, z: Float),
 	              rotation: (x: Float, y: Float, z: Float),
@@ -40,11 +34,11 @@ internal class DKRTransformData {
 	}
 	
 	private func _updateMatrix() {
-		self.matrix4x4 = DKMath.newTranslation(self.position) *
-						 DKMath.newRotationX(self.rotation.x) *
-						 DKMath.newRotationY(self.rotation.y) *
-						 DKMath.newRotationZ(self.rotation.z) *
-						 DKMath.newScale(self.scale.x, y: self.scale.y, z: 1.0)
+		self._matrix = DKMath.newTranslation(self.position) *
+					   DKMath.newRotationX(self.rotation.x) *
+					   DKMath.newRotationY(self.rotation.y) *
+					   DKMath.newRotationZ(self.rotation.z) *
+					   DKMath.newScale(self.scale.x, y: self.scale.y, z: 1.0)
 	}
 }
 

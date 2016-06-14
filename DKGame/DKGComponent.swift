@@ -15,7 +15,7 @@ public protocol DKGComponent {
 	var id: Int! { get set }
 	
 	var transform: DKRTransform { get set }
-	
-	func start()
+
+func start()
 	func update()
 }

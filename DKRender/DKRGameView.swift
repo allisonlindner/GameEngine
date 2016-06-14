@@ -11,14 +11,15 @@ import Metal
 import MetalKit
 
 internal class DKRGameView: NSObject, MTKViewDelegate {
-	private var _renderer: DKRGraphRenderer!
-	private var _sceneManager: DKRSceneManager!
+	typealias updateFunction = () -> Void
 	
+	private var _renderer: DKRGraphRenderer!
 	private var _firstStep: Bool = true
+	
+	private var _updateFunction: updateFunction?
 	
 	func start() {
 		_renderer = DKRSimpleRenderer()
-		_sceneManager = DKRSceneManager(mainScene: "main")
 	}
 	
 	func drawInMTKView(view: MTKView) {
@@ -27,16 +28,20 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 		}
 		
 		if _firstStep {
-			_sceneManager.changeSize(Float(view.frame.width), Float(view.frame.height))
+			DKRCore.instance.sManager.changeSize(Float(view.frame.width), Float(view.frame.height))
 			
 			_firstStep = false
 		}
 		
-		if _sceneManager.sceneGraphs[_sceneManager.currentScene]!.scene != nil {
+		if _updateFunction != nil {
+			_updateFunction!()
+		}
+		
+		if DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!] != nil {
 			if let currentDrawable = view.currentDrawable {
 				DKRCore.instance.tManager.screenTexture = currentDrawable.texture
 				
-				_renderer.draw(_sceneManager.sceneGraphs[_sceneManager.currentScene]!)
+				_renderer.draw(&DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!]!)
 				
 				DKRCore.instance.renderer.present(currentDrawable)
 			}
@@ -44,11 +49,45 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 	}
 	
 	func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
-		_sceneManager.changeSize(Float(size.width), Float(size.height))
+		DKRCore.instance.sManager.changeSize(Float(size.width), Float(size.height))
 	}
 }
 
 public class DKGameView: MTKView {
+	private var _gameView: DKRGameView!
+	
+	override public init(frame frameRect: CGRect, device: MTLDevice?) {
+		super.init(frame: frameRect, device: DKRCore.instance.device)
+		self._start()
+	}
+	
+	required public init(coder: NSCoder) {
+		super.init(coder: coder)
+		self._start()
+	}
+	
+	private func _start() {
+		self.device = DKRCore.instance.device
+		self.sampleCount = 4
+		
+		_gameView = DKRGameView()
+		_gameView.start()
+		_gameView._updateFunction = self.update
+		
+		self.start()
+		self.delegate = _gameView
+	}
+	
+	public func update() {
+		
+	}
+	
+	public func start() {
+		//Override this method to create your scene on startup
+	}
+}
+
+public class DKGameRender: MTKView {
 	private var _gameView: DKRGameView!
 	
 	override public init(frame frameRect: CGRect, device: MTLDevice?) {
@@ -77,19 +116,20 @@ public class DKGameView: MTKView {
 	}
 	
 	public func createScene(name: String) {
-		_gameView._sceneManager.sceneGraphs[name] = DKRSceneGraph()
+		var sceneGraph = DKRSceneGraph()
+		DKRCore.instance.sManager.addScene(name, sceneGraph: &sceneGraph)
 	}
 	
-	public func builder(sceneName: String = "main") -> DKBSceneBuilder {
-		let builder = DKBSceneBuilder(sceneGraph: &_gameView._sceneManager.sceneGraphs[sceneName]!, name: sceneName)
+	public func builder(sceneName: String) -> DKRSceneBuilder {
+		let builder = DKRSceneBuilder(sceneGraph: &DKRCore.instance.sManager.sceneGraphs[sceneName]!, name: sceneName)
 		
 		return builder
 	}
 	
 	public func changeScene(name: String) {
-		if _gameView._sceneManager.sceneGraphs[name] != nil {
+		if DKRCore.instance.sManager.sceneGraphs[name] != nil {
 			_gameView._firstStep = true
-			_gameView._sceneManager.currentScene = name
+			DKRCore.instance.sManager.currentScene = name
 		}
 	}
 }

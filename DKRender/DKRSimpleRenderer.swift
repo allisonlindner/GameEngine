@@ -9,68 +9,66 @@
 import Metal
 
 internal class DKRSimpleRenderer: DKRGraphRenderer {
-	func draw(graph: DKRSceneGraph) {
+	func draw(inout graph: DKRSceneGraph) {
 		var ids: [Int] = []
 		
 		if graph.screenChange {
-			if let scene = graph.scene {
-				scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
-				graph.screenChange = false
-			}
+			let scene = graph.scene
+			scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
+			graph.screenChange = false
 		}
 		
-		if let scene = graph.scene {
-			guard let renderTexture = scene.renderTexture else {
-				print("No render texture found on scene")
-				return
+		let scene = graph.scene
+		guard let renderTexture = scene.renderTexture else {
+			print("No render texture found on scene")
+			return
+		}
+		
+		let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
+		ids.append(id)
+		for materiable in scene.materials {
+			let rcState = materiable.1.shader.rpState
+			
+			let renderer = DKRCore.instance.renderer
+			
+			renderer.encoder(withID: id).setRenderPipelineState(rcState)
+			
+			renderer.bind(scene.currentCamera.uCameraBuffer, encoderID: id)
+			
+			guard let materialUniformBuffer = materiable.1.getUniformBuffers() else {
+				fatalError("Uniform buffer of material is nil")
 			}
 			
-			let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
-			ids.append(id)
-			for materiable in scene.materials {
-				let rcState = materiable.1.shader.rpState
-				
-				let renderer = DKRCore.instance.renderer
-				
-				renderer.encoder(withID: id).setRenderPipelineState(rcState)
-				
-				renderer.bind(scene.currentCamera.uCameraBuffer, encoderID: id)
-				
-				guard let materialUniformBuffer = materiable.1.getUniformBuffers() else {
-					fatalError("Uniform buffer of material is nil")
+			for buffer in materialUniformBuffer {
+				renderer.bind(buffer, encoderID: id)
+			}
+			
+			for drawableInstance in materiable.1.drawables {
+				guard let uModelBuffer = drawableInstance.1.uModelBuffer else {
+					fatalError("Model buffer for drawable instance is nil")
 				}
 				
-				for buffer in materialUniformBuffer {
+				renderer.bind(uModelBuffer, encoderID: id)
+				
+				for buffer in drawableInstance.1.drawable.getBuffers() {
 					renderer.bind(buffer, encoderID: id)
 				}
 				
-				for drawableInstance in materiable.1.drawables {
-					guard let uModelBuffer = drawableInstance.1.uModelBuffer else {
-						fatalError("Model buffer for drawable instance is nil")
-					}
+				for textureInstance in materiable.1.textureInstances {
+					let index = textureInstance.1.index
+					let texture = textureInstance.1.texture.getTexture()
 					
-					renderer.bind(uModelBuffer, encoderID: id)
-					
-					for buffer in drawableInstance.1.drawable.getBuffers() {
-						renderer.bind(buffer, encoderID: id)
-					}
-					
-					for textureInstance in materiable.1.textureInstances {
-						let index = textureInstance.1.index
-						let texture = textureInstance.1.texture.getTexture()
-						
-						renderer.encoder(withID: id).setFragmentTexture(texture, atIndex: index)
-					}
-					
-					renderer.encoder(withID: id).drawIndexedPrimitives(
-							.Triangle,
-							indexCount: drawableInstance.1.drawable.getIndicesBuffer().count,
-							indexType: .UInt32,
-							indexBuffer: drawableInstance.1.drawable.getIndicesBuffer().buffer,
-							indexBufferOffset: 0,
-							instanceCount: uModelBuffer.count
-					)
+					renderer.encoder(withID: id).setFragmentTexture(texture, atIndex: index)
 				}
+				
+				renderer.encoder(withID: id).drawIndexedPrimitives(
+						.Triangle,
+						indexCount: drawableInstance.1.drawable.getIndicesBuffer().count,
+						indexType: .UInt32,
+						indexBuffer: drawableInstance.1.drawable.getIndicesBuffer().buffer,
+						indexBufferOffset: 0,
+						instanceCount: uModelBuffer.count
+				)
 			}
 		}
 		

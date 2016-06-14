@@ -11,7 +11,7 @@
 public class DKGGameManager {
 	public static let instance = DKGGameManager()
 	
-	internal var sManager: DKGSceneManager
+	public var sManager: DKGSceneManager
 	internal var cManager: DKGComponentManager
 	
 	internal init() {

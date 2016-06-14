@@ -9,5 +9,5 @@
 import Metal
 
 internal protocol DKRGraphRenderer {
-	func draw(graph: DKRSceneGraph)
+	func draw(inout graph: DKRSceneGraph)
 }

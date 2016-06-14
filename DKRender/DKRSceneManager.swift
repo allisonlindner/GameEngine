@@ -8,18 +8,31 @@
 
 import Foundation
 
-internal class DKRSceneManager {
+public class DKRSceneManager {
 	internal var sceneGraphs: [String : DKRSceneGraph]
-	internal var currentScene: String
+	internal var currentScene: String?
 	
-	internal init(mainScene: String) {
+	internal init() {
 		sceneGraphs = [:]
-		currentScene = mainScene
-		
-		sceneGraphs[mainScene] = DKRSceneGraph()
+	}
+
+	public func addScene(name: String, inout sceneGraph: DKRSceneGraph) {
+		sceneGraphs[name] = sceneGraph
+
+		if currentScene == nil {
+			currentScene = name
+		}
+	}
+
+	public func presentScene(name: String) {
+		if sceneGraphs[name] != nil {
+			currentScene = name
+		}
 	}
 	
 	internal func changeSize(width: Float, _ height: Float) {
-		sceneGraphs[currentScene]?.changeSize(width, height)
+		if currentScene != nil {
+			sceneGraphs[currentScene!]?.changeSize(width, height)
+		}
 	}
 }

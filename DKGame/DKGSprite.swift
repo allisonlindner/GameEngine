@@ -7,24 +7,48 @@
 //
 
 import DKRender
+import CoreGraphics
 
 public class DKGSprite {
 	internal var transform: DKRTransform
+	internal var texture: DKRTexture
+	internal var name: String
 	
-	private var _material: DKRSpriteMaterial
-	private var _drawable: DKRQuad
+	internal var material: DKRSpriteMaterial
+	internal var drawable: DKRDrawable
 	
-	public init(name: String, texture: String) {
+	public init(name: String, size: CGSize, fileName: String, fileExtension ext: String) {
 		//Create texture on texture manager
-		_ = DKRTexture(name: texture)
+		let transform = DKRTransform(scaleX: Float(size.width), y: Float(size.height))
 		
-		self.transform = DKRTransform()
+		texture = DKRTexture(name: fileName, fileName: fileName, fileExtension: ext)
 		
-		_material = DKRSpriteMaterial()
-		_drawable = DKRQuad()
+		self.name = name
+		self.transform = transform
 		
-		_material.createDrawable(name, drawable: _drawable)
+		material = DKRSpriteMaterial()
+		drawable = DKRQuad()
 		
-		_material.setTexture(texture)
+		material.createDrawable(name, drawable: self.drawable)
+		material.addInstance(name, transform: self.transform)
+		material.setTexture(fileName)
+	}
+	
+	public func set(position position: CGPoint) {
+		transform.position.x = Float(position.x)
+		transform.position.y = Float(position.y)
+	}
+	
+	public func set(zPosition z: Float) {
+		transform.position.z = z
+	}
+	
+	public func set(scale scale: CGSize) {
+		transform.scale.x = Float(scale.width)
+		transform.scale.y = Float(scale.height)
+	}
+	
+	public func set(zRotation z: Float) {
+		transform.rotation.z = z
 	}
 }

@@ -11,6 +11,10 @@ import DKRender
 public class DKGActorBuilder {
 	private var _actor: DKGActor?
 	
+	public init() {
+		
+	}
+	
 	public func new(label: String? = nil, tag: String? = nil) -> Self {
 		_actor = DKGActor(label: label, tag: tag)
 		
@@ -19,12 +23,12 @@ public class DKGActorBuilder {
 		return self
 	}
 	
-	public func setSprite(name: String, texture: String) -> Self {
+	public func setSprite(sprite: DKGSprite) -> Self {
 		guard let actor = _actor else {
 			fatalError("You must use 'new' function before this")
 		}
 		
-		actor.sprite = DKGSprite(name: name, texture: texture)
+		actor.sprite = sprite
 		
 		return self
 	}

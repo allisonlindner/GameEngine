@@ -16,6 +16,8 @@ public class DKRScene {
 	private var _cameras: [String : DKRCamera]
 	private var _currentCamera: String
 	
+	private var _nextMaterialIndex: Int
+	
 	internal var currentCameraName: String {
 		get {
 			return self._currentCamera
@@ -41,9 +43,19 @@ public class DKRScene {
 		}
 	}
 	
+	internal func addMaterial(material: DKRMaterial) -> Int {
+		let index = _nextMaterialIndex
+		materials[index] = material
+		_nextMaterialIndex += 1
+		
+		return index
+	}
+	
 	internal init() {
 		materials = [:]
 		_cameras = [:]
+		
+		_nextMaterialIndex = 0
 		
 		let camera = DKRCamera(
 			name: "default",

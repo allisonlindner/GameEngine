@@ -6,6 +6,7 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
+import CoreGraphics
 import DKMath
 import DKRender
 
@@ -26,6 +27,27 @@ public class DKGActor: DKGComponent {
 		
 		self.label = label
 		self.tag = tag
+	}
+	
+	public func set(position position: CGPoint) {
+		sprite.set(position: position)
+	}
+	
+	public func set(zPosition z: Float) {
+		sprite.set(zPosition: z)
+	}
+	
+	public func set(scale scale: CGSize) {
+		sprite.set(scale: scale)
+	}
+	
+	public func set(zRotation z: Float) {
+		sprite.set(zRotation: z)
+	}
+	
+	public func addBehavior(behavior: DKGBehavior) {
+		behavior.internalActor = self
+		self.behaviors.append(behavior)
 	}
 	
 	public func start() {
