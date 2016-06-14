@@ -13,6 +13,7 @@ public protocol DKRMaterialDataSource {
 }
 
 public class DKRMaterial {
+	internal var id: Int?
 	internal var shader: DKRShader!
 	internal var drawables: [String : DKRDrawableInstance]
 	internal var textureInstances: [Int:DKRTextureInstance]

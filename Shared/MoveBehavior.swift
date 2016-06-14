@@ -14,7 +14,7 @@ class MoveBehavior: DKGBehavior {
 	var direction: Int!
 	
 	override func start() {
-		position = CGPointZero
+		position = actor.position
 		direction = 1
 	}
 	

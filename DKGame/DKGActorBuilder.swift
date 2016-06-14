@@ -29,6 +29,7 @@ public class DKGActorBuilder {
 		}
 		
 		actor.sprite = sprite
+		actor.sprite.addInstance(actor.transform)
 		
 		return self
 	}

@@ -16,19 +16,27 @@ class GameViewTest2: DKGame {
 		let sceneBuilder = DKGSceneBuilder()
 		let actorBuilder = DKGActorBuilder()
 		
-		let moveBehavior = MoveBehavior()
-
-		let sprite = DKGSprite(name: "box", size: CGSizeMake(10, 10), fileName: "box", fileExtension: ".jpg")
+		let sprite = DKGSprite(name: "box", fileName: "box", fileExtension: ".jpg")
 
 		let box = actorBuilder.new()
 							  .setSprite(sprite)
 							  .create()
 		
 		box.set(position: CGPointMake(100.0, 0.0))
-		box.addBehavior(moveBehavior)
+		box.set(size: CGSizeMake(10.0, 10.0))
+		box.addBehavior(MoveBehavior())
+		
+		let box2 = actorBuilder.new()
+							   .setSprite(sprite)
+							   .create()
+		
+		box2.set(position: CGPointMake(-100.0, 20.0))
+		box2.set(size: CGSizeMake(10.0, 10.0))
+		box2.addBehavior(MoveBehavior())
 
 		sceneBuilder.newScene("test01")
 					.addActor(box)
+					.addActor(box2)
 					.create()
 		
 		super.start()

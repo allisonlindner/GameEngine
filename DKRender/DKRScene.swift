@@ -44,11 +44,16 @@ public class DKRScene {
 	}
 	
 	internal func addMaterial(material: DKRMaterial) -> Int {
-		let index = _nextMaterialIndex
-		materials[index] = material
-		_nextMaterialIndex += 1
+		if material.id == nil {
+			let index = _nextMaterialIndex
+			materials[index] = material
+			_nextMaterialIndex += 1
+			
+			material.id = index
+			return index
+		}
 		
-		return index
+		return material.id!
 	}
 	
 	internal init() {

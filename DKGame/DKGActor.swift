@@ -21,6 +21,20 @@ public class DKGActor: DKGComponent {
 	internal var behaviors: [DKGBehavior]
 	internal var sprite: DKGSprite!
 	
+	public var position: CGPoint {
+		get {
+			return CGPointMake(CGFloat(transform.position.x),
+			                   CGFloat(transform.position.y))
+		}
+	}
+	
+	public var size: CGPoint {
+		get {
+			return CGPointMake(CGFloat(transform.scale.x),
+			                   CGFloat(transform.scale.y))
+		}
+	}
+	
 	internal init(label: String? = nil, tag: String? = nil) {
 		self.behaviors = []
 		self.transform = DKRTransform()
@@ -30,19 +44,21 @@ public class DKGActor: DKGComponent {
 	}
 	
 	public func set(position position: CGPoint) {
-		sprite.set(position: position)
+		transform.position.x = Float(position.x)
+		transform.position.y = Float(position.y)
 	}
 	
 	public func set(zPosition z: Float) {
-		sprite.set(zPosition: z)
+		transform.position.z = z
 	}
 	
-	public func set(scale scale: CGSize) {
-		sprite.set(scale: scale)
+	public func set(size scale: CGSize) {
+		transform.scale.x = Float(scale.width)
+		transform.scale.y = Float(scale.height)
 	}
 	
 	public func set(zRotation z: Float) {
-		sprite.set(zRotation: z)
+		transform.rotation.z = z
 	}
 	
 	public func addBehavior(behavior: DKGBehavior) {
