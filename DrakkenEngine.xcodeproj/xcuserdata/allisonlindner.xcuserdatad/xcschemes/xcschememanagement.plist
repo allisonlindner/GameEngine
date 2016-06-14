@@ -4,21 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DKGame_OSX.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
-		<key>DKGame_iOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>2</integer>
-		</dict>
-		<key>DKGame_tvOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>1</integer>
-		</dict>
 		<key>DKMath-OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -33,21 +18,6 @@
 		<dict>
 			<key>orderHint</key>
 			<integer>4</integer>
-		</dict>
-		<key>DKMath_OSX.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>6</integer>
-		</dict>
-		<key>DKMath_iOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>8</integer>
-		</dict>
-		<key>DKMath_tvOS.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>7</integer>
 		</dict>
 		<key>DKRender-OSX.xcscheme</key>
 		<dict>
@@ -64,35 +34,20 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
-		<key>DKRender_OSX.xcscheme</key>
+		<key>DrakkenKit_OSX.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>3</integer>
+			<integer>0</integer>
 		</dict>
-		<key>DKRender_iOS.xcscheme</key>
+		<key>DrakkenKit_iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>2</integer>
 		</dict>
-		<key>DKRender_tvOS.xcscheme</key>
+		<key>DrakkenKit_tvOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
-		<key>OSX-Test.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>9</integer>
-		</dict>
-		<key>iOS-Test.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>11</integer>
-		</dict>
-		<key>tvOS-Test.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>10</integer>
+			<integer>1</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>

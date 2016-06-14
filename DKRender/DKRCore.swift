@@ -35,7 +35,7 @@ public class DKRCore {
 
 		self.renderer = DKRRenderer()
 		
-		let bundle = NSBundle.init(identifier: "drakken.DKRender")
+		let bundle = NSBundle.init(identifier: "drakken.DrakkenKit")
 		
 		if let path = bundle!.pathForResource("default", ofType: "metallib") {
 			do

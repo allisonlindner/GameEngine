@@ -6,8 +6,6 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
-import DKMath
-import DKRender
 
 public protocol DKGComponent {
 	var label: String? { get set }

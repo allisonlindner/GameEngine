@@ -7,7 +7,6 @@
 //
 
 import Metal
-import DKMath
 
 public class DKRDrawableInstance {
 	internal var changed = false

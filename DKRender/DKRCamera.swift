@@ -7,7 +7,6 @@
 //
 
 import Metal
-import DKMath
 import simd
 
 internal class DKRCamera {

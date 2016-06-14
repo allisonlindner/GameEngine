@@ -7,7 +7,6 @@
 //
 
 import simd
-import DKMath
 
 internal class DKRTransformData {
 	internal var position: float3

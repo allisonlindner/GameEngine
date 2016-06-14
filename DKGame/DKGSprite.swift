@@ -6,7 +6,6 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
-import DKRender
 import CoreGraphics
 
 public class DKGSprite {

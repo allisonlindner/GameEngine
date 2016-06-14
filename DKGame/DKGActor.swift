@@ -7,8 +7,6 @@
 //
 
 import CoreGraphics
-import DKMath
-import DKRender
 
 public class DKGActor: DKGComponent {
 	public var label: String?

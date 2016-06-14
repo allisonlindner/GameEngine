@@ -8,7 +8,6 @@
 
 import Metal
 import MetalKit
-import DKMath
 
 public enum DKRBufferType {
 	case Vertex

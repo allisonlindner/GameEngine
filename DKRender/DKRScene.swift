@@ -7,7 +7,6 @@
 //
 
 import Metal
-import DKMath
 
 public class DKRScene {
 	internal var materials: [Int : DKRMaterial]

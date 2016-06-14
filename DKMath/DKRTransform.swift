@@ -7,7 +7,6 @@
 //
 
 import simd
-import DKMath
 
 public class DKRTransform {
 	private var _id: Int

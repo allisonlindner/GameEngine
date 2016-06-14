@@ -115,7 +115,7 @@ internal class DKRTextureManager {
 		var _textureURL: NSURL?
 		
 		do {
-			if let textureURL = NSBundle(identifier: "drakken.DKRender")!.URLForResource(
+			if let textureURL = NSBundle(identifier: "drakken.DrakkenKit")!.URLForResource(
 											"Assets/" + name, withExtension: ext) {
 				
 				_textureURL = textureURL
