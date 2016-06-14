@@ -6,6 +6,7 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
+import CoreGraphics
 import simd
 
 public class DKGSceneBuilder {
@@ -16,9 +17,15 @@ public class DKGSceneBuilder {
 		
 	}
 	
-	public func newScene(name: String) -> DKGSceneBuilder {
+	public func newScene(name: String) -> Self {
 		_scene = DKGScene(name: name)
 		_name = name
+		
+		return self
+	}
+	
+	public func changeSize(size: CGSize) -> Self {
+		_scene?.sceneGraph.changeSize(Float(size.width), Float(size.height))
 		
 		return self
 	}

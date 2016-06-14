@@ -37,13 +37,15 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 			_updateFunction!()
 		}
 		
-		if DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!] != nil {
-			if let currentDrawable = view.currentDrawable {
-				DKRCore.instance.tManager.screenTexture = currentDrawable.texture
-				
-				_renderer.draw(&DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!]!)
-				
-				DKRCore.instance.renderer.present(currentDrawable)
+		if let currentScene = DKRCore.instance.sManager.currentScene {
+			if DKRCore.instance.sManager.sceneGraphs[currentScene] != nil {
+				if let currentDrawable = view.currentDrawable {
+					DKRCore.instance.tManager.screenTexture = currentDrawable.texture
+					
+					_renderer.draw(&DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!]!)
+					
+					DKRCore.instance.renderer.present(currentDrawable)
+				}
 			}
 		}
 	}
