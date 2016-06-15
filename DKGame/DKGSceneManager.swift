@@ -27,7 +27,7 @@ public class DKGSceneManager {
 	internal func addScene(name: String, scene: DKGScene) {
 		self.scenes[name] = scene
 
-		DKRCore.instance.sManager.addScene(name, sceneGraph: &scene.sceneGraph)
+		DKRCore.instance.sManager.addScene(name: name, sceneGraph: &scene.sceneGraph)
 
 		if _currentSceneName == nil {
 			self._currentSceneName = name
@@ -35,10 +35,10 @@ public class DKGSceneManager {
 		}
 	}
 
-	public func presentScene(name: String) {
+	public func presentScene(_ name: String) {
 		if scenes[name] != nil {
 			self._currentSceneName = name
-			DKRCore.instance.sManager.presentScene(name)
+			DKRCore.instance.sManager.presentScene(name: name)
 		}
 	}
 }

@@ -35,26 +35,26 @@ public class DKRCore {
 
 		self.renderer = DKRRenderer()
 		
-		let bundle = NSBundle.init(identifier: "drakken.DrakkenKit")
+		let bundle = Bundle.init(identifier: "drakken.DrakkenKit")
 		
 		if let path = bundle!.pathForResource("default", ofType: "metallib") {
 			do
 			{
-				library = try self.device.newLibraryWithFile(path)
+				library = try self.device.newLibrary(withFile: path)
 			}
-			catch MTLLibraryError.Internal
+			catch MTLLibraryError.internal
 			{
 				assert(false, "Bundle identifier incorrect!")
 			}
-			catch MTLLibraryError.CompileFailure
+			catch MTLLibraryError.compileFailure
 			{
 				assert(false, "Compile failure")
 			}
-			catch MTLLibraryError.CompileWarning
+			catch MTLLibraryError.compileWarning
 			{
 				assert(false, "Compile warning")
 			}
-			catch MTLLibraryError.Unsupported
+			catch MTLLibraryError.unsupported
 			{
 				assert(false, "Unsupported")
 			}

@@ -16,7 +16,7 @@ public class DKRSceneBuilder {
 	
 	private var _materialIndex: Int?
 
-	public init(inout sceneGraph: DKRSceneGraph, name: String, scene: DKRScene? = nil) {
+	public init(sceneGraph: inout DKRSceneGraph, name: String, scene: DKRScene? = nil) {
 		self.sceneGraph = sceneGraph
 		self._nextMateriableIndex = 0
 		self.sceneName = name
@@ -33,7 +33,7 @@ public class DKRSceneBuilder {
 		return self
 	}
 	
-	public func addMaterial(material: DKRMaterial) -> Self {
+	public func add(material: DKRMaterial) -> Self {
 		let index = self._nextMateriableIndex
 		if let scene = self._currentScene {
 			scene.materials[index] = material
@@ -46,7 +46,7 @@ public class DKRSceneBuilder {
 	}
 	
 	public func createDrawable(name: String, drawable: DKRDrawable) -> Self {
-		return self.createDrawable(name, drawable: drawable, size: 1)
+		return self.createDrawable(name: name, drawable: drawable, size: 1)
 	}
 	
 	public func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> Self {
@@ -54,7 +54,7 @@ public class DKRSceneBuilder {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!
 				
-				material.createDrawable(name, drawable: drawable, size: size)
+				material.createDrawable(name: name, drawable: drawable, size: size)
 			}
 		}
 		

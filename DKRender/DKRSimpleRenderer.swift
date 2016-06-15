@@ -9,7 +9,7 @@
 import Metal
 
 internal class DKRSimpleRenderer: DKRGraphRenderer {
-	func draw(inout graph: DKRSceneGraph) {
+	func draw(_ graph: inout DKRSceneGraph) {
 		var ids: [Int] = []
 		
 		if graph.screenChange {
@@ -27,20 +27,20 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 		let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
 		ids.append(id)
 		for materiable in scene.materials {
-			let rcState = materiable.1.shader.rpState
+			let rcState = materiable.1.shader.rpState!
 			
-			let renderer = DKRCore.instance.renderer
+			let renderer = DKRCore.instance.renderer!
 			
 			renderer.encoder(withID: id).setRenderPipelineState(rcState)
 			
-			renderer.bind(scene.currentCamera.uCameraBuffer, encoderID: id)
+			renderer.bind(buffer: scene.currentCamera.uCameraBuffer, encoderID: id)
 			
 			guard let materialUniformBuffer = materiable.1.getUniformBuffers() else {
 				fatalError("Uniform buffer of material is nil")
 			}
 			
 			for buffer in materialUniformBuffer {
-				renderer.bind(buffer, encoderID: id)
+				renderer.bind(buffer: buffer, encoderID: id)
 			}
 			
 			for drawableInstance in materiable.1.drawables {
@@ -48,23 +48,23 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 					fatalError("Model buffer for drawable instance is nil")
 				}
 				
-				renderer.bind(uModelBuffer, encoderID: id)
+				renderer.bind(buffer: uModelBuffer, encoderID: id)
 				
 				for buffer in drawableInstance.1.drawable.getBuffers() {
-					renderer.bind(buffer, encoderID: id)
+					renderer.bind(buffer: buffer, encoderID: id)
 				}
 				
 				for textureInstance in materiable.1.textureInstances {
 					let index = textureInstance.1.index
 					let texture = textureInstance.1.texture.getTexture()
 					
-					renderer.encoder(withID: id).setFragmentTexture(texture, atIndex: index)
+					renderer.encoder(withID: id).setFragmentTexture(texture, at: index)
 				}
 				
 				renderer.encoder(withID: id).drawIndexedPrimitives(
-						.Triangle,
+						.triangle,
 						indexCount: drawableInstance.1.drawable.getIndicesBuffer().count,
-						indexType: .UInt32,
+						indexType: .uInt32,
 						indexBuffer: drawableInstance.1.drawable.getIndicesBuffer().buffer,
 						indexBufferOffset: 0,
 						instanceCount: uModelBuffer.count
@@ -73,7 +73,7 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 		}
 		
 		for id in ids {
-			DKRCore.instance.renderer.endFrame(id)
+			DKRCore.instance.renderer.endFrame(id: id)
 		}
 	}
 }

@@ -14,7 +14,7 @@ public class DKMath {
 	//General matrices functions
 	//--------------------------
 
-	static public func newMatrix(values : [Float]) -> float4x4 {
+	static public func newMatrix(_ values : [Float]) -> float4x4 {
 		let P = float4(values[ 0], values[ 1], values[ 2], values[ 3])
 		let Q = float4(values[ 4], values[ 5], values[ 6], values[ 7])
 		let R = float4(values[ 8], values[ 9], values[10], values[11])
@@ -23,18 +23,18 @@ public class DKMath {
 		return float4x4([P, Q, R, S])
 	}
 
-	static public func toRadians(degrees : Float) -> Float {
+	static public func toRadians(_ degrees : Float) -> Float {
 		return degrees * Float(M_PI) / 180.0
 	}
 
-	static public func toDegrees(radians : Float) -> Float {
+	static public func toDegrees(_ radians : Float) -> Float {
 		return radians * 180.0 / Float(M_PI)
 	}
 
 	//Projection matrices
 	//-------------------
 
-	static public func newPerspective(fovy: Float, aspect: Float, near: Float, far: Float) -> float4x4 {
+	static public func newPerspective(_ fovy: Float, aspect: Float, near: Float, far: Float) -> float4x4 {
 		let f = 1.0 / tan(fovy / 2.0)
 		let nf = 1.0 / (near - far)
 		
@@ -45,7 +45,7 @@ public class DKMath {
 			0,          0,    (2.0 * far * near) * nf,  0])
 	}
 
-	static public func newOrtho(left: Float, right: Float, bottom: Float, top : Float, near: Float, far: Float) -> float4x4 {
+	static public func newOrtho(_ left: Float, right: Float, bottom: Float, top : Float, near: Float, far: Float) -> float4x4 {
 		let lr = 1.0 / (left - right)
 		let bt = 1.0 / (bottom - top)
 		let nf = 1.0 / (near - far)
@@ -61,7 +61,7 @@ public class DKMath {
 	//View matrices
 	//-------------
 
-	static public func newLookAt(eye: float3, center: float3, up: float3) -> float4x4 {
+	static public func newLookAt(_ eye: float3, center: float3, up: float3) -> float4x4 {
 		var z0 = eye.x - center.x;
 		var z1 = eye.y - center.y;
 		var z2 = eye.z - center.z;
@@ -120,11 +120,11 @@ public class DKMath {
 	//Model matrices
 	//--------------
 
-	static public func newScale(scale: Float) -> float4x4 {
+	static public func newScale(_ scale: Float) -> float4x4 {
 		return DKMath.newScale(scale, y: scale, z: scale);
 	}
 
-	static public func newScale(x: Float, y: Float, z: Float) -> float4x4 {
+	static public func newScale(_ x: Float, y: Float, z: Float) -> float4x4 {
 		return DKMath.newMatrix([
 			  x, 0.0, 0.0, 0.0,
 			0.0,   y, 0.0, 0.0,
@@ -133,7 +133,7 @@ public class DKMath {
 		]);
 	}
 
-	static public func newTranslation(p: float3) -> float4x4 {
+	static public func newTranslation(_ p: float3) -> float4x4 {
 		return DKMath.newMatrix([
 			  1,   0,   0,   0,
 			  0,   1,   0,   0,
@@ -142,7 +142,7 @@ public class DKMath {
 		]);
 	}
 
-	static public func newRotation(angle: Float, axis : float3) -> float4x4 {
+	static public func newRotation(_ angle: Float, axis : float3) -> float4x4 {
 		var len = length(axis);
 		
 		if (len <= EPSILON) {
@@ -159,30 +159,27 @@ public class DKMath {
 		let c = cos(angle);
 		let t = 1.0 - c;
 		
+		let A = x * x * t + c
+		let B = y * x * t + z * s
+		let C = z * x * t - y * s
+		
+		let D = x * y * t - z * s
+		let E = y * y * t + c
+		let F = z * y * t + x * s
+		
+		let G = x * z * t + y * s
+		let H = y * z * t - x * s
+		let I = z * z * t + c
+		
 		return DKMath.newMatrix([
-			x * x * t + c,
-			y * x * t + z * s,
-			z * x * t - y * s,
-			0.0,
-			
-			x * y * t - z * s,
-			y * y * t + c,
-			z * y * t + x * s,
-			0.0,
-			
-			x * z * t + y * s,
-			y * z * t - x * s,
-			z * z * t + c,
-			0.0,
-			
-			0.0,
-			0.0,
-			0.0,
-			1.0
+			A,		B,		C,		0.0,
+			D,		E,		F,		0.0,
+			G,		H,		I,		0.0,
+			0.0,		0.0,	0.0,	1.0
 		])
 	}
 
-	static public func newRotationX(angle: Float) -> float4x4 {
+	static public func newRotationX(_ angle: Float) -> float4x4 {
 		let s = sin(angle)
 		let c = cos(angle)
 		return DKMath.newMatrix([
@@ -193,7 +190,7 @@ public class DKMath {
 		])
 	}
 
-	static public func newRotationY(angle: Float) -> float4x4 {
+	static public func newRotationY(_ angle: Float) -> float4x4 {
 		let s = sin(angle)
 		let c = cos(angle)
 		return DKMath.newMatrix([
@@ -204,7 +201,7 @@ public class DKMath {
 		])
 	}
 
-	static public func newRotationZ(angle: Float) -> float4x4 {
+	static public func newRotationZ(_ angle: Float) -> float4x4 {
 		let s = sin(angle)
 		let c = cos(angle)
 		return DKMath.newMatrix([

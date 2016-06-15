@@ -36,20 +36,20 @@ public class DKRShader {
 			self.ffName = fragmentName
 		}
 		
-		self._vertexFunction = DKRCore.instance.library.newFunctionWithName(vfName)
+		self._vertexFunction = DKRCore.instance.library.newFunction(withName: vfName)
 		
 		if self._vertexFunction == nil {
 			throw DKShaderNotFoundError(name: vfName)
 		}
 		
-		self._fragmentFunction = DKRCore.instance.library.newFunctionWithName(ffName)
+		self._fragmentFunction = DKRCore.instance.library.newFunction(withName: ffName)
 		
 		if self._fragmentFunction == nil {
 			throw DKShaderNotFoundError(name: ffName)
 		}
 		
 		do {
-			rpState = try DKRCore.instance.device.newRenderPipelineStateWithDescriptor(setupRenderPipelineDescriptor())
+			rpState = try DKRCore.instance.device.newRenderPipelineState(with: setupRenderPipelineDescriptor())
 		}
 		catch {
 			assert(false, "Shader with name: \(name) fail on creation!!")
@@ -59,20 +59,20 @@ public class DKRShader {
 	private func setupRenderPipelineDescriptor() -> MTLRenderPipelineDescriptor {
 		let rpDescriptor = MTLRenderPipelineDescriptor()
 		
-		rpDescriptor.colorAttachments[0].pixelFormat = .BGRA8Unorm
-		rpDescriptor.colorAttachments[0].blendingEnabled = true
+		rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+		rpDescriptor.colorAttachments[0].isBlendingEnabled = true
 		
-		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.Add
-		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.Add
+		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.add
+		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.add
 
-		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.SourceAlpha
-		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
+		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.sourceAlpha
+		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
 
-		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.SourceAlpha
-		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
+		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.sourceAlpha
+		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
 		
-		rpDescriptor.depthAttachmentPixelFormat = .Depth32Float_Stencil8
-		rpDescriptor.stencilAttachmentPixelFormat = .Depth32Float_Stencil8
+		rpDescriptor.depthAttachmentPixelFormat = .depth32Float_Stencil8
+		rpDescriptor.stencilAttachmentPixelFormat = .depth32Float_Stencil8
 		
 		rpDescriptor.vertexFunction = self._vertexFunction
 		rpDescriptor.fragmentFunction = self._fragmentFunction

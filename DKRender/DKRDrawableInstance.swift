@@ -20,7 +20,7 @@ public class DKRDrawableInstance {
 		get {
 			if changed {
 				for transform in changedTransforms {
-					_uModels?.change(DKModelUniform(modelMatrix: transform.1.matrix4x4),
+					_uModels?.change(data: DKModelUniform(modelMatrix: transform.1.matrix4x4),
 					                 atIndex: transform.0)
 				}
 				changed = false
@@ -34,12 +34,12 @@ public class DKRDrawableInstance {
 		self.changedTransforms = [:]
 	}
 	
-	internal func addUModelBuffer(uModel: DKModelUniform) -> Int {
+	internal func addUModelBuffer(_ uModel: DKModelUniform) -> Int {
 		if _uModels == nil {
 			_createBuffer([uModel])
 			
 			if let size = _preAllocateSize {
-				_uModels?.extendTo(size)
+				_uModels?.extendTo(size: size)
 				_preAllocateSize = nil
 			}
 			
@@ -47,14 +47,14 @@ public class DKRDrawableInstance {
 		}
 		
 		if let size = _preAllocateSize {
-			_uModels?.extendTo(size)
+			_uModels?.extendTo(size: size)
 			_preAllocateSize = nil
 		}
 		
 		return _uModels!.append(uModel)
 	}
 	
-	internal func addTransform(transform: DKRTransform) -> Int {
+	internal func addTransform(_ transform: DKRTransform) -> Int {
 		let index = self.addUModelBuffer(DKModelUniform(modelMatrix: transform.matrix4x4))
 		
 		transform.drawableInstances.append((drawable: self, index: index))
@@ -66,11 +66,11 @@ public class DKRDrawableInstance {
 		_preAllocateSize = size
 	}
 	
-	private func _createBuffer(uModel: [DKModelUniform]) {
+	private func _createBuffer(_ uModel: [DKModelUniform]) {
 		_uModels = DKRBuffer(data: uModel, index: 1)
 		
 		if let size = _preAllocateSize {
-			_uModels!.extendTo(size)
+			_uModels!.extendTo(size: size)
 			_preAllocateSize = nil
 		}
 	}

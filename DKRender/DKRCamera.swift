@@ -30,7 +30,7 @@ internal class DKRCamera {
 	internal var renderTexture: MTLTexture? {
 		get {
 			if let renderTargetID = _renderTargetID {
-				return DKRCore.instance.tManager.getRenderTargetTexture(renderTargetID)
+				return DKRCore.instance.tManager.getRenderTargetTexture(id: renderTargetID)
 			} else {
 				return DKRCore.instance.tManager.screenTexture
 			}
@@ -57,7 +57,7 @@ internal class DKRCamera {
 		self._updateBuffer()
 	}
 	
-	internal func changeSize(width: Float, _ height: Float) {
+	internal func changeSize(_ width: Float, _ height: Float) {
 		self.width = width
 		self.height = height
 		

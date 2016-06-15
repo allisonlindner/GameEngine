@@ -28,22 +28,22 @@ public class DKRTexture {
 	public init(name: String, fileName: String, fileExtension ext: String = ".png") {
 		self._name = name
 		
-		self._id = DKRCore.instance.tManager.create(name, fileName: fileName, fileExtension: ext)
+		self._id = DKRCore.instance.tManager.create(name: name, fileName: fileName, fileExtension: ext)
 	}
 	
 	public init(name: String) {
 		self._name = name
 		
-		self._id = DKRCore.instance.tManager.getID(name)
+		self._id = DKRCore.instance.tManager.getID(name: name)
 	}
 	
 	public init(name: String, width: Int, height: Int) {
 		self._name = name
 		
-		self._id = DKRCore.instance.tManager.createRenderTarget(name, width: width, height: height)
+		self._id = DKRCore.instance.tManager.createRenderTarget(name: name, width: width, height: height)
 	}
 	
 	internal func getTexture() -> MTLTexture {
-		return DKRCore.instance.tManager.getTexture(_id)
+		return DKRCore.instance.tManager.getTexture(id: _id)
 	}
 }

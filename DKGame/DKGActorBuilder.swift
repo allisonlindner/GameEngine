@@ -22,13 +22,13 @@ public class DKGActorBuilder {
 		return self
 	}
 	
-	public func setSprite(sprite: DKGSprite) -> Self {
+	public func set(sprite: DKGSprite) -> Self {
 		guard let actor = _actor else {
 			fatalError("You must use 'new' function before this")
 		}
 		
 		actor.sprite = sprite
-		actor.sprite.addInstance(actor.transform)
+		actor.sprite.addInstance(transform: actor.transform)
 		
 		return self
 	}

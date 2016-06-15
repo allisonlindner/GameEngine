@@ -22,7 +22,7 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 		_renderer = DKRSimpleRenderer()
 	}
 	
-	func drawInMTKView(view: MTKView) {
+	func draw(in view: MTKView) {
 		if view.device == nil {
 			view.device =  DKRCore.instance.device
 		}
@@ -44,13 +44,13 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 					
 					_renderer.draw(&DKRCore.instance.sManager.sceneGraphs[DKRCore.instance.sManager.currentScene!]!)
 					
-					DKRCore.instance.renderer.present(currentDrawable)
+					DKRCore.instance.renderer.present(drawable: currentDrawable)
 				}
 			}
 		}
 	}
 	
-	func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
+	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
 		DKRCore.instance.sManager.changeSize(Float(size.width), Float(size.height))
 	}
 }
@@ -119,7 +119,7 @@ public class DKGameRender: MTKView {
 	
 	public func createScene(name: String) {
 		var sceneGraph = DKRSceneGraph()
-		DKRCore.instance.sManager.addScene(name, sceneGraph: &sceneGraph)
+		DKRCore.instance.sManager.addScene(name: name, sceneGraph: &sceneGraph)
 	}
 	
 	public func builder(sceneName: String) -> DKRSceneBuilder {

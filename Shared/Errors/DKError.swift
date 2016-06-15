@@ -7,11 +7,11 @@
 //
 
 //MARK: Errors
-public class DKError: ErrorType {
+public class DKError: ErrorProtocol {
 	public var description: String
-	public var cause: ErrorType?
+	public var cause: ErrorProtocol?
 	
-	internal init(description: String, cause: ErrorType? = nil) {
+	internal init(description: String, cause: ErrorProtocol? = nil) {
 		self.description = description
 		self.cause = cause
 	}

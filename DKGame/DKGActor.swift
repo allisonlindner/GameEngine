@@ -22,15 +22,15 @@ public class DKGActor: DKGComponent {
 	
 	public var position: CGPoint {
 		get {
-			return CGPointMake(CGFloat(transform.position.x),
-			                   CGFloat(transform.position.y))
+			return CGPoint(x: CGFloat(transform.position.x),
+			               y: CGFloat(transform.position.y))
 		}
 	}
 	
 	public var size: CGPoint {
 		get {
-			return CGPointMake(CGFloat(transform.scale.x),
-			                   CGFloat(transform.scale.y))
+			return CGPoint(x: CGFloat(transform.scale.x),
+			               y: CGFloat(transform.scale.y))
 		}
 	}
 	
@@ -43,7 +43,7 @@ public class DKGActor: DKGComponent {
 		self.tag = tag
 	}
 	
-	public func set(position position: CGPoint) {
+	public func set(position: CGPoint) {
 		transform.position.x = Float(position.x)
 		transform.position.y = Float(position.y)
 	}
@@ -61,7 +61,7 @@ public class DKGActor: DKGComponent {
 		transform.rotation.z = z
 	}
 	
-	public func addBehavior(behavior: DKGBehavior) {
+	public func add(behavior: DKGBehavior) {
 		behavior.internalActor = self
 		self.behaviors.append(behavior)
 	}

@@ -43,6 +43,6 @@ public class DKRSpriteMaterial: DKRMaterial, DKRMaterialDataSource {
 	}
 	
 	public func setTexture(name: String) {
-		super.setTexture(name, index: 0)
+		super.setTexture(name: name, index: 0)
 	}
 }

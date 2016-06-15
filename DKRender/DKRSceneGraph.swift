@@ -21,15 +21,15 @@ public class DKRSceneGraph {
 	
 	public init() {
 		scene = DKRScene()
-		size = CGSizeMake(1920.0, 1080.0)
+		size = CGSize(width: 1920.0, height: 1080.0)
 		nodeCount = 0
 	}
 	
-	public func addMaterial(material: DKRMaterial) {
-		scene.addMaterial(material)
+	public func addMaterial(_ material: DKRMaterial) {
+		_ = scene.addMaterial(material)
 	}
 	
-	public func changeSize(width: Float, _ height: Float) {
+	public func changeSize(_ width: Float, _ height: Float) {
 		self.size.width = CGFloat(width)
 		self.size.height = CGFloat(height)
 		self.screenChange = true

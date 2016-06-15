@@ -41,11 +41,11 @@ public class DKGSprite {
 		material = DKRSpriteMaterial()
 		drawable = DKRQuad()
 		
-		material.createDrawable(name, drawable: self.drawable)
-		material.setTexture(fileName)
+		material.createDrawable(name: name, drawable: self.drawable)
+		material.setTexture(name: fileName)
 	}
 	
 	internal func addInstance(transform: DKRTransform) {
-		material.addInstance(name, transform: transform)
+		material.addInstance(name: name, transform: transform)
 	}
 }

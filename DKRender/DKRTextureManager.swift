@@ -45,7 +45,7 @@ internal class DKRTextureManager {
 	}
 	
 	internal func create(name: String, fileName: String, fileExtension ext: String = ".png") -> Int {
-		let texture = self.loadImage(fileName, ext)
+		let texture = self.loadImage(name: fileName, ext)
 		
 		guard let indexed = _namedTextures[name] else {
 			let _index = _nextTextureIndex
@@ -62,15 +62,15 @@ internal class DKRTextureManager {
 	}
 	
 	internal func createRenderTarget(name: String, width: Int, height: Int) -> Int {
-		let textureDesc = MTLTextureDescriptor.texture2DDescriptorWithPixelFormat(
-			.BGRA8Unorm,
+		let textureDesc = MTLTextureDescriptor.texture2DDescriptor(
+			with: .bgra8Unorm,
 			width: width,
 			height: height,
 			mipmapped: false
 		)
-		textureDesc.usage.insert(.RenderTarget)
+		_ = textureDesc.usage.insert(.renderTarget)
 		
-		let texture = DKRCore.instance.device.newTextureWithDescriptor(textureDesc)
+		let texture = DKRCore.instance.device.newTexture(with: textureDesc)
 		
 		guard let indexed = _namedRenderTargetTextures[name] else {
 			let _index = _nextRenderTargetIndex
@@ -96,11 +96,11 @@ internal class DKRTextureManager {
 	}
 	
 	internal func getTexture(name: String) -> MTLTexture {
-		return getTexture(_namedTextures[name]!)
+		return getTexture(id: _namedTextures[name]!)
 	}
 	
 	internal func getRenderTargetTexture(name: String) -> MTLTexture {
-		return getRenderTargetTexture(_namedRenderTargetTextures[name]!)
+		return getRenderTargetTexture(id: _namedRenderTargetTextures[name]!)
 	}
 	
 	internal func getID(name: String) -> Int{
@@ -115,18 +115,18 @@ internal class DKRTextureManager {
 		var _textureURL: NSURL?
 		
 		do {
-			if let textureURL = NSBundle(identifier: "drakken.DrakkenKit")!.URLForResource(
+			if let textureURL = Bundle(identifier: "drakken.DrakkenKit")!.urlForResource(
 											"Assets/" + name, withExtension: ext) {
 				
 				_textureURL = textureURL
-			} else if let textureURL = NSBundle.mainBundle().URLForResource(
+			} else if let textureURL = Bundle.main().urlForResource(
 											"Assets/" + name, withExtension: ext) {
 				
 				_textureURL = textureURL
 			}
 			
 			if _textureURL != nil {
-				let texture = try _mtkTextureLoader.newTextureWithContentsOfURL(_textureURL!, options: nil)
+				let texture = try _mtkTextureLoader.newTexture(withContentsOf: _textureURL! as URL, options: nil)
 				return texture
 			} else {
 				assert(false, "Fail load image with name: \(name) of extension: \(ext)")

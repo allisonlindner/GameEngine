@@ -74,7 +74,7 @@ internal class DKRBuffer<T>: DKBuffer {
 				_updateBuffer()
 			}
 			
-			guard let buffer = DKRCore.instance.bManager.getBuffer(_id) else {
+			guard let buffer = DKRCore.instance.bManager.getBuffer(id: _id) else {
 				assert(false, "Buffer nil")
 			}
 			
@@ -111,7 +111,7 @@ internal class DKRBuffer<T>: DKBuffer {
 		self.init(data: [data], index: index, preAllocateSize: size, bufferType: bufferType, staticMode: staticMode, offset: offset)
 	}
 	
-	internal func append(data: T) -> Int {
+	internal func append(_ data: T) -> Int {
 		self._data.append(data)
 		self._bufferChanged = true
 		
@@ -134,7 +134,7 @@ internal class DKRBuffer<T>: DKBuffer {
 
 	private func _updateBuffer() {
 		self._id = DKRCore.instance.bManager.createBuffer(
-															_data,
+															data: _data,
 															index: self._index,
 															offset: self._offset,
 															id: self._id

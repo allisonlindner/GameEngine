@@ -14,37 +14,37 @@ public class DKRTransform {
 	
 	public var matrix4x4: float4x4 {
 		get {
-			return DKRCore.instance.trManager.getTransform(_id).matrix4x4
+			return DKRCore.instance.trManager.getTransform(id: _id).matrix4x4
 		}
 	}
 	
 	public var position: float3 {
 		get {
-			return DKRCore.instance.trManager.getTransform(_id).position
+			return DKRCore.instance.trManager.getTransform(id: _id).position
 		}
 		set {
 			changedValue()
-			DKRCore.instance.trManager.getTransform(_id).position = newValue
+			DKRCore.instance.trManager.getTransform(id: _id).position = newValue
 		}
 	}
 	
 	public var rotation: float3 {
 		get {
-			return DKRCore.instance.trManager.getTransform(_id).rotation
+			return DKRCore.instance.trManager.getTransform(id: _id).rotation
 		}
 		set {
 			changedValue()
-			DKRCore.instance.trManager.getTransform(_id).rotation = newValue
+			DKRCore.instance.trManager.getTransform(id: _id).rotation = newValue
 		}
 	}
 	
 	public var scale: float2 {
 		get {
-			return DKRCore.instance.trManager.getTransform(_id).scale
+			return DKRCore.instance.trManager.getTransform(id: _id).scale
 		}
 		set {
 			changedValue()
-			DKRCore.instance.trManager.getTransform(_id).scale = newValue
+			DKRCore.instance.trManager.getTransform(id: _id).scale = newValue
 		}
 	}
 	

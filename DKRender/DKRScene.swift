@@ -42,7 +42,7 @@ public class DKRScene {
 		}
 	}
 	
-	internal func addMaterial(material: DKRMaterial) -> Int {
+	internal func addMaterial(_ material: DKRMaterial) -> Int {
 		if material.id == nil {
 			let index = _nextMaterialIndex
 			materials[index] = material
@@ -68,7 +68,7 @@ public class DKRScene {
 		
 		_currentCamera = "default"
 		
-		self.addCamera("default", camera: camera)
+		self.addCamera(name: "default", camera: camera)
 	}
 	
 	internal func addCamera(name: String, camera: DKRCamera) {
