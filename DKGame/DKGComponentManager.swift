@@ -23,7 +23,7 @@ public class DKGComponentManager {
 		get {
 			return components.flatMap({ (comp) -> DKGActor? in
 				if comp.1 is DKGActor {
-					return comp.1 as! DKGActor
+					return comp.1 as? DKGActor
 				}
 				
 				return nil
