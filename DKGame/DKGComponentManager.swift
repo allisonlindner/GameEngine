@@ -11,6 +11,26 @@
 public class DKGComponentManager {
 	internal var components: [Int : DKGComponent]
 	
+	public var allComponents: [DKGComponent] {
+		get {
+			return components.map({ (comp) -> DKGComponent in
+				return comp.1
+			})
+		}
+	}
+	
+	public var allActors: [DKGActor] {
+		get {
+			return components.flatMap({ (comp) -> DKGActor? in
+				if comp.1 is DKGActor {
+					return comp.1 as! DKGActor
+				}
+				
+				return nil
+			})
+		}
+	}
+	
 	private var _nextComponentIndex: Int
 	
 	internal init() {
@@ -27,7 +47,7 @@ public class DKGComponentManager {
 		return index
 	}
 	
-	internal func getComponents(label label: String) -> [DKGComponent]? {
+	public func getComponents(label label: String) -> [DKGComponent]? {
 		let flatComponents = components.flatMap { (component) -> DKGComponent? in
 			if component.1.label == label {
 				return component.1
@@ -42,7 +62,7 @@ public class DKGComponentManager {
 		return nil
 	}
 	
-	internal func getComponents(tag tag: String) -> [DKGComponent]? {
+	public func getComponents(tag tag: String) -> [DKGComponent]? {
 		let flatComponents = components.flatMap { (component) -> DKGComponent? in
 			if component.1.tag == tag {
 				return component.1

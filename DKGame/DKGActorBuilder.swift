@@ -14,8 +14,8 @@ public class DKGActorBuilder {
 		
 	}
 	
-	public func new(label: String? = nil, tag: String? = nil) -> Self {
-		_actor = DKGActor(label: label, tag: tag)
+	public func new(name: String, label: String? = nil, tag: String? = nil) -> Self {
+		_actor = DKGActor(name: name, label: label, tag: tag)
 		
 		_actor!.id = DKGGameManager.instance.cManager.addComponent(_actor!)
 		

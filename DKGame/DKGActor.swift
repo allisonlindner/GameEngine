@@ -9,6 +9,7 @@
 import CoreGraphics
 
 public class DKGActor: DKGComponent {
+	public var name: String
 	public var label: String?
 	public var tag: String?
 	
@@ -17,7 +18,7 @@ public class DKGActor: DKGComponent {
 	public var id: Int!
 	
 	internal var behaviors: [DKGBehavior]
-	internal var sprite: DKGSprite!
+	public var sprite: DKGSprite!
 	
 	public var position: CGPoint {
 		get {
@@ -33,7 +34,8 @@ public class DKGActor: DKGComponent {
 		}
 	}
 	
-	internal init(label: String? = nil, tag: String? = nil) {
+	internal init(name: String, label: String? = nil, tag: String? = nil) {
+		self.name = name
 		self.behaviors = []
 		self.transform = DKRTransform()
 		

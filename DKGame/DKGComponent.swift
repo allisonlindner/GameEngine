@@ -8,6 +8,7 @@
 
 
 public protocol DKGComponent {
+	var name: String { get set }
 	var label: String? { get set }
 	var tag: String? { get set }
 	var id: Int! { get set }
