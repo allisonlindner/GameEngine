@@ -28,8 +28,7 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 		}
 		
 		if _firstStep {
-			DKRCore.instance.sManager.changeSize(Float(view.frame.width), Float(view.frame.height))
-			
+			self.mtkView(view, drawableSizeWillChange: view.drawableSize)
 			_firstStep = false
 		}
 		
@@ -89,49 +88,49 @@ public class DKGameView: MTKView {
 	}
 }
 
-public class DKGameRender: MTKView {
-	private var _gameView: DKRGameView!
-	
-	override public init(frame frameRect: CGRect, device: MTLDevice?) {
-		super.init(frame: frameRect, device: DKRCore.instance.device)
-		self._start()
-	}
-	
-	required public init(coder: NSCoder) {
-		super.init(coder: coder)
-		self._start()
-	}
-	
-	private func _start() {
-		self.device = DKRCore.instance.device
-		self.sampleCount = 4
-		
-		_gameView = DKRGameView()
-		_gameView.start()
-		
-		self.start()
-		self.delegate = _gameView
-	}
-	
-	public func start() {
-		//Override this method to create your scene on startup
-	}
-	
-	public func createScene(name: String) {
-		var sceneGraph = DKRSceneGraph()
-		DKRCore.instance.sManager.addScene(name, sceneGraph: &sceneGraph)
-	}
-	
-	public func builder(sceneName: String) -> DKRSceneBuilder {
-		let builder = DKRSceneBuilder(sceneGraph: &DKRCore.instance.sManager.sceneGraphs[sceneName]!, name: sceneName)
-		
-		return builder
-	}
-	
-	public func changeScene(name: String) {
-		if DKRCore.instance.sManager.sceneGraphs[name] != nil {
-			_gameView._firstStep = true
-			DKRCore.instance.sManager.currentScene = name
-		}
-	}
-}
+//public class DKGameRender: MTKView {
+//	private var _gameView: DKRGameView!
+//	
+//	override public init(frame frameRect: CGRect, device: MTLDevice?) {
+//		super.init(frame: frameRect, device: DKRCore.instance.device)
+//		self._start()
+//	}
+//	
+//	required public init(coder: NSCoder) {
+//		super.init(coder: coder)
+//		self._start()
+//	}
+//	
+//	private func _start() {
+//		self.device = DKRCore.instance.device
+//		self.sampleCount = 4
+//		
+//		_gameView = DKRGameView()
+//		_gameView.start()
+//		
+//		self.start()
+//		self.delegate = _gameView
+//	}
+//	
+//	public func start() {
+//		//Override this method to create your scene on startup
+//	}
+//	
+//	public func createScene(name: String) {
+//		var sceneGraph = DKRSceneGraph()
+//		DKRCore.instance.sManager.addScene(name, sceneGraph: &sceneGraph)
+//	}
+//	
+//	public func builder(sceneName: String) -> DKRSceneBuilder {
+//		let builder = DKRSceneBuilder(sceneGraph: &DKRCore.instance.sManager.sceneGraphs[sceneName]!, name: sceneName)
+//		
+//		return builder
+//	}
+//	
+//	public func changeScene(name: String) {
+//		if DKRCore.instance.sManager.sceneGraphs[name] != nil {
+//			_gameView._firstStep = true
+//			DKRCore.instance.sManager.currentScene = name
+//		}
+//	}
+//}

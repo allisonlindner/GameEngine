@@ -66,15 +66,15 @@ internal class DKRCamera {
 	
 	private func _updateBuffer() {
 		//CAMERA UNIFORM CREATION
-		var center = transform.position
-		center.z = center.z - 1.0
+		let mView: float4x4 = DKMath.newTranslation(self.transform.position)
 		
-		let mView: float4x4 = DKMath.newLookAt(transform.position, center: center, up: float3(0.0, 1.0, 0.0))
-		
-		let mProjection: float4x4 = DKMath.newPerspective(
-			DKMath.toRadians(fovy),
-			aspect: width/height,
-			near: 0.01, far: 1000
+		let mProjection: float4x4 = DKMath.newOrtho(
+					-self.width/2.0,
+			right:	 self.width/2.0,
+			bottom: -self.height/2.0,
+			top:	 self.height/2.0,
+			near:	-1000,
+			far:	 1000
 		)
 		
 		self._uCamera = DKCameraUniform(viewMatrix: mView, projectionMatrix: mProjection)

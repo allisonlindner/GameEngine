@@ -46,15 +46,15 @@ public class DKMath {
 	}
 
 	static public func newOrtho(left: Float, right: Float, bottom: Float, top : Float, near: Float, far: Float) -> float4x4 {
-		let lr = 1.0 / (left - right)
-		let bt = 1.0 / (bottom - top)
-		let nf = 1.0 / (near - far)
+		let dx = right - left
+		let dy = top - bottom
+		let dz = far - near
 		
 		return DKMath.newMatrix([
-					  -2.0 * lr,                   0.0,                 0.0,         0.0,
-							0.0,             -2.0 * bt,                 0.0,         0.0,
-							0.0,                   0.0,              2 * nf,         0.0,
-			(left + right) * lr,   (top + bottom) * bt,   (far + near) * nf,         1.0
+			2 / dx					, 0						, 0						, 0,
+			0						, 2 / dy					, 0						, 0,
+			0						, 0						, -2 / dz				, 0,
+			-(right + left) / dx	, -(top + bottom) / dy	,	-(far + near) / dz	, 1
 		]);
 	}
 

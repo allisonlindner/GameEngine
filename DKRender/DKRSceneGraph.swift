@@ -30,6 +30,8 @@ public class DKRSceneGraph {
 	}
 	
 	public func changeSize(width: Float, _ height: Float) {
+		scene.changeSize(width, height)
+		
 		self.size.width = CGFloat(width)
 		self.size.height = CGFloat(height)
 		self.screenChange = true

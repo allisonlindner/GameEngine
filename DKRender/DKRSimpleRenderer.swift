@@ -14,7 +14,7 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 		
 		if graph.screenChange {
 			let scene = graph.scene
-			scene.currentCamera.changeSize(Float(graph.size.width), Float(graph.size.height))
+			scene.changeSize(Float(graph.size.width), Float(graph.size.height))
 			graph.screenChange = false
 		}
 		

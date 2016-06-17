@@ -40,6 +40,12 @@ public class DKRMaterial {
 		}
 	}
 	
+	public func extendDrawable(name: String, to size: Int) {
+		if drawables[name] == nil {
+			drawables[name]!.extendTo(size)
+		}
+	}
+	
 	public func addInstance(name: String, transform: DKRTransform) {
 		if drawables[name] == nil {
 			fatalError("No drawable with name: \(name)")

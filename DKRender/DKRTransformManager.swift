@@ -50,7 +50,7 @@ internal class DKRTransformManager {
 		_nextTransformIndex = 0
 	}
 	
-	internal func create(_ position: (x: Float, y: Float, z: Float),
+	internal func create(position: (x: Float, y: Float, z: Float),
 	                     _ rotation: (x: Float, y: Float, z: Float),
 							_ scale: (x: Float, y: Float)) -> Int {
 		

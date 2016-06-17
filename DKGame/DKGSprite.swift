@@ -45,6 +45,10 @@ public class DKGSprite {
 		material.setTexture(fileName)
 	}
 	
+	public func preallocSprites(size: Int) {
+		material.extendDrawable(self.name, to: size)
+	}
+	
 	internal func addInstance(transform: DKRTransform) {
 		material.addInstance(name, transform: transform)
 	}
