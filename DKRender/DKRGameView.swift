@@ -50,7 +50,11 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 	}
 	
 	func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
-		DKRCore.instance.sManager.changeSize(Float(size.width), Float(size.height))
+		#if os(tvOS)
+			DKRCore.instance.sManager.changeSize(1920.0, 1080.0)
+		#else
+			DKRCore.instance.sManager.changeSize(Float(size.width), Float(size.height))
+		#endif
 	}
 }
 

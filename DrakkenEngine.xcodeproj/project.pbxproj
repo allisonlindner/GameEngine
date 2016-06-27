@@ -130,6 +130,12 @@
 		2EB4FAC81D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
 		2EB4FAC91D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
 		2EB4FACA1D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
+		2EF911DD1D18799F00A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
+		2EF911DE1D18799F00A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
+		2EF911DF1D1879A300A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
+		2EF911E01D1879A300A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
+		2EF911E11D1879A500A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
+		2EF911E21D1879A500A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -191,6 +197,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF911DD1D18799F00A5310F /* Metal.framework in Frameworks */,
+				2EF911DE1D18799F00A5310F /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +206,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF911DF1D1879A300A5310F /* Metal.framework in Frameworks */,
+				2EF911E01D1879A300A5310F /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -205,6 +215,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF911E11D1879A500A5310F /* Metal.framework in Frameworks */,
+				2EF911E21D1879A500A5310F /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

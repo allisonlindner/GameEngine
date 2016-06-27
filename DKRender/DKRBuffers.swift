@@ -75,7 +75,7 @@ internal class DKRBuffer<T>: DKBuffer {
 			}
 			
 			guard let buffer = DKRCore.instance.bManager.getBuffer(_id) else {
-				assert(false, "Buffer nil")
+				fatalError("Buffer nil")
 			}
 			
 			return buffer

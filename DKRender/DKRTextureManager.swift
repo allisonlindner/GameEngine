@@ -45,7 +45,7 @@ internal class DKRTextureManager {
 	}
 	
 	internal func create(name: String, fileName: String, fileExtension ext: String = ".png") -> Int {
-		let texture = self.loadImage(fileName, ext)
+		let texture = self.loadImage(fileName, ext)!
 		
 		guard let indexed = _namedTextures[name] else {
 			let _index = _nextTextureIndex
@@ -111,7 +111,7 @@ internal class DKRTextureManager {
 		return _namedRenderTargetTextures[name]!
 	}
 	
-	private func loadImage(name: String, _ ext: String = ".png") -> MTLTexture {
+	private func loadImage(name: String, _ ext: String = ".png") -> MTLTexture? {
 		var _textureURL: NSURL?
 		
 		do {
@@ -129,11 +129,13 @@ internal class DKRTextureManager {
 				let texture = try _mtkTextureLoader.newTextureWithContentsOfURL(_textureURL!, options: nil)
 				return texture
 			} else {
-				assert(false, "Fail load image with name: \(name) of extension: \(ext)")
+				fatalError("Fail load image with name: \(name) of extension: \(ext)")
 			}
 			
 		} catch {
-			assert(false, "Fail load image with name: \(name) of extension: \(ext)")
+			fatalError("Fail load image with name: \(name) of extension: \(ext)")
 		}
+		
+		return nil
 	}
 }
