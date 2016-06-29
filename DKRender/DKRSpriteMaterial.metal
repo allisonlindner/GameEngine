@@ -33,13 +33,13 @@ struct VertexOut {
 	float2 texCoord;
 };
 
-vertex VertexOut sprite_vertex (constant		CameraUniform	&uScene			[[ buffer(0) ]] ,
-								constant		ModelUniform		*uModel			[[ buffer(1) ]] ,
-								constant		float4			*pPosition		[[ buffer(2) ]] ,
-								constant		float4			*pNormal			[[ buffer(3) ]] ,
-								constant		float2			*pTexCoord		[[ buffer(4) ]] ,
-											uint				vid				[[ vertex_id ]] ,
-											uint				iid				[[ instance_id ]]) {
+vertex VertexOut sprite_vertex (constant	CameraUniform	&uScene			[[ buffer(0) ]] ,
+								constant	ModelUniform	*uModel			[[ buffer(1) ]] ,
+								constant	float4			*pPosition		[[ buffer(2) ]] ,
+								constant	float4			*pNormal		[[ buffer(3) ]] ,
+								constant	float2			*pTexCoord		[[ buffer(4) ]] ,
+											uint			vid				[[ vertex_id ]] ,
+											uint			iid				[[ instance_id ]]) {
 	VertexOut out;
 	
 	out.position =  uScene.projectionMatrix *
@@ -55,8 +55,8 @@ vertex VertexOut sprite_vertex (constant		CameraUniform	&uScene			[[ buffer(0) ]
 }
 
 fragment float4 sprite_fragment (			VertexOut			in			[[ stage_in   ]] ,
-								  constant	SpriteUniform		&uSprite		[[ buffer(0)  ]] ,
-											texture2d<float>		texture		[[ texture(0) ]] ,
+								  constant	SpriteUniform		&uSprite	[[ buffer(0)  ]] ,
+											texture2d<float>	texture		[[ texture(0) ]] ,
 											sampler				s			[[ sampler(0) ]] ) {
 	
 	float4 color = texture.sample(s, in.texCoord);
