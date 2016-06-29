@@ -8,7 +8,7 @@
 
 import simd
 
-public class DKRTransform {
+public class DKMTransform {
 	private var _id: Int
 	internal var drawableInstances: [(drawable: DKRDrawableInstance, index: Int)]
 	

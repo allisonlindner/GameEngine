@@ -54,7 +54,7 @@
 		2E24499D1D0FAE5800CC9BFF /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
 		2E24499E1D0FAE5800CC9BFF /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
 		2E24499F1D0FAE5800CC9BFF /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
-		2E2449A01D0FAE5800CC9BFF /* DKRTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKRTransform.swift */; };
+		2E2449A01D0FAE5800CC9BFF /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
 		2E2449A11D0FAE5800CC9BFF /* DKRTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01631C1D0B393500012793 /* DKRTransformManager.swift */; };
 		2E2449A21D0FAE5800CC9BFF /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
 		2E2449A31D0FAE5800CC9BFF /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
@@ -78,7 +78,7 @@
 		2E2449B51D0FAE5800CC9BFF /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
 		2E2449B61D0FAE5800CC9BFF /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
 		2E2449B71D0FAE5800CC9BFF /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
-		2E2449B81D0FAE5800CC9BFF /* DKRTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKRTransform.swift */; };
+		2E2449B81D0FAE5800CC9BFF /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
 		2E2449B91D0FAE5800CC9BFF /* DKRTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01631C1D0B393500012793 /* DKRTransformManager.swift */; };
 		2E2449BA1D0FAE5800CC9BFF /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
 		2E2449BB1D0FAE5800CC9BFF /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
@@ -102,7 +102,7 @@
 		2E2449CD1D0FAE5900CC9BFF /* DKRCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */; };
 		2E2449CE1D0FAE5900CC9BFF /* DKRRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */; };
 		2E2449CF1D0FAE5900CC9BFF /* DKRRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */; };
-		2E2449D01D0FAE5900CC9BFF /* DKRTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKRTransform.swift */; };
+		2E2449D01D0FAE5900CC9BFF /* DKMTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */; };
 		2E2449D11D0FAE5900CC9BFF /* DKRTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E01631C1D0B393500012793 /* DKRTransformManager.swift */; };
 		2E2449D21D0FAE5900CC9BFF /* DKRBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817701CEE688900F55BE3 /* DKRBuffers.swift */; };
 		2E2449D31D0FAE5900CC9BFF /* DKRBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */; };
@@ -169,7 +169,7 @@
 		2E8AF0321CF6370D00ACB5BC /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 		2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRCore.swift; sourceTree = "<group>"; };
-		2E95FA471CE3EAAB00D52B72 /* DKRTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DKRTransform.swift; path = ../DKMath/DKRTransform.swift; sourceTree = "<group>"; };
+		2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKMTransform.swift; sourceTree = "<group>"; };
 		2EB4FA8C1D060AF300D43351 /* DrakkenKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EB4FA8E1D060AF300D43351 /* DrakkenKit_OSX.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenKit_OSX.h; sourceTree = "<group>"; };
 		2EB4FA901D060AF300D43351 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -223,15 +223,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2E0163181D0B38DC00012793 /* Transform */ = {
-			isa = PBXGroup;
-			children = (
-				2E95FA471CE3EAAB00D52B72 /* DKRTransform.swift */,
-				2E01631C1D0B393500012793 /* DKRTransformManager.swift */,
-			);
-			name = Transform;
-			sourceTree = "<group>";
-		};
 		2E0163241D0C824000012793 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,51 +242,80 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
-		2E313B811CF388B900DDBBB9 /* Materials */ = {
+		2E0618091D245798008DAB7A /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */,
 				2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */,
+				2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */,
+				2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */,
+				2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */,
+				2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */,
+				2E06180F1D2458FC008DAB7A /* Materials */,
+				2E06180E1D2458C7008DAB7A /* Scene */,
+				2E06180D1D2458AB008DAB7A /* Data */,
+				2E06180C1D245893008DAB7A /* Meshs */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		2E06180A1D2457A1008DAB7A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2E86D6531D01F1A600C4BDBF /* DKRSceneManager.swift */,
+				2E01631C1D0B393500012793 /* DKRTransformManager.swift */,
+				2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */,
+				2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		2E06180B1D2457B0008DAB7A /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */,
+				2E313B991CF4F5CB00DDBBB9 /* DKRSceneBuilder.swift */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
+		2E06180C1D245893008DAB7A /* Meshs */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817961CEEA02500F55BE3 /* DKRQuad.swift */,
+			);
+			name = Meshs;
+			sourceTree = "<group>";
+		};
+		2E06180D1D2458AB008DAB7A /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2E7817701CEE688900F55BE3 /* DKRBuffers.swift */,
+				2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */,
+				2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2E06180E1D2458C7008DAB7A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */,
+				2E1F91951CE53D0200C7E908 /* DKRScene.swift */,
+				2E313B951CF4F50000DDBBB9 /* DKRSceneGraph.swift */,
+				2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */,
+			);
+			name = Scene;
+			sourceTree = "<group>";
+		};
+		2E06180F1D2458FC008DAB7A /* Materials */ = {
+			isa = PBXGroup;
+			children = (
 				2EB6E6AF1CED091D00ED45CC /* DKRMaterial.swift */,
-				2E313B871CF38FF200DDBBB9 /* Shader Uniforms */,
-				2E313B821CF388D500DDBBB9 /* Prefabs */,
+				2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */,
 				2E313BA61CF506F100DDBBB9 /* *.metal */,
 			);
 			name = Materials;
-			sourceTree = "<group>";
-		};
-		2E313B821CF388D500DDBBB9 /* Prefabs */ = {
-			isa = PBXGroup;
-			children = (
-				2E313B831CF388F300DDBBB9 /* DKRSpriteMaterial.swift */,
-			);
-			name = Prefabs;
-			sourceTree = "<group>";
-		};
-		2E313B871CF38FF200DDBBB9 /* Shader Uniforms */ = {
-			isa = PBXGroup;
-			children = (
-				2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */,
-			);
-			name = "Shader Uniforms";
-			path = ../Shared;
-			sourceTree = "<group>";
-		};
-		2E313B941CF4F4E300DDBBB9 /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				2E313B951CF4F50000DDBBB9 /* DKRSceneGraph.swift */,
-				2E313B9D1CF505D900DDBBB9 /* DKRGraphRenderer.swift */,
-				2E313BA11CF5062E00DDBBB9 /* Renderers */,
-			);
-			name = Graph;
-			sourceTree = "<group>";
-		};
-		2E313BA11CF5062E00DDBBB9 /* Renderers */ = {
-			isa = PBXGroup;
-			children = (
-				2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */,
-			);
-			name = Renderers;
 			sourceTree = "<group>";
 		};
 		2E313BA61CF506F100DDBBB9 /* *.metal */ = {
@@ -306,64 +326,12 @@
 			name = "*.metal";
 			sourceTree = "<group>";
 		};
-		2E78177C1CEE6FD100F55BE3 /* Texture */ = {
+		2E78177F1CEE6FFF00F55BE3 /* Renderers */ = {
 			isa = PBXGroup;
 			children = (
-				2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */,
-				2E7817781CEE6FCB00F55BE3 /* DKRTextureManager.swift */,
-				2E78178D1CEE9D5100F55BE3 /* DKRTextureInstance.swift */,
+				2E313BA21CF5064400DDBBB9 /* DKRSimpleRenderer.swift */,
 			);
-			name = Texture;
-			sourceTree = "<group>";
-		};
-		2E78177D1CEE6FD800F55BE3 /* Buffer */ = {
-			isa = PBXGroup;
-			children = (
-				2E7817701CEE688900F55BE3 /* DKRBuffers.swift */,
-				2E7817741CEE6F0800F55BE3 /* DKRBufferManager.swift */,
-			);
-			name = Buffer;
-			sourceTree = "<group>";
-		};
-		2E78177E1CEE6FEA00F55BE3 /* Core */ = {
-			isa = PBXGroup;
-			children = (
-				2E95FA1A1CE3C5BA00D52B72 /* DKRCore.swift */,
-				2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */,
-				39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */,
-			);
-			name = Core;
-			sourceTree = "<group>";
-		};
-		2E78177F1CEE6FFF00F55BE3 /* Render */ = {
-			isa = PBXGroup;
-			children = (
-				2E313BAB1CF62AB000DDBBB9 /* DKRGameView.swift */,
-				2E1F918E1CE537DB00C7E908 /* DKRCamera.swift */,
-				2E1F91951CE53D0200C7E908 /* DKRScene.swift */,
-				2E86D6531D01F1A600C4BDBF /* DKRSceneManager.swift */,
-				2E313B991CF4F5CB00DDBBB9 /* DKRSceneBuilder.swift */,
-				2E313B941CF4F4E300DDBBB9 /* Graph */,
-			);
-			name = Render;
-			sourceTree = "<group>";
-		};
-		2E7817841CEE9AF500F55BE3 /* Drawable */ = {
-			isa = PBXGroup;
-			children = (
-				2E7817891CEE9B2900F55BE3 /* DKRDrawable.swift */,
-				2E7817851CEE9B0700F55BE3 /* DKRDrawableInstance.swift */,
-				2E7817951CEEA00A00F55BE3 /* Prefabs */,
-			);
-			name = Drawable;
-			sourceTree = "<group>";
-		};
-		2E7817951CEEA00A00F55BE3 /* Prefabs */ = {
-			isa = PBXGroup;
-			children = (
-				2E7817961CEEA02500F55BE3 /* DKRQuad.swift */,
-			);
-			name = Prefabs;
+			name = Renderers;
 			sourceTree = "<group>";
 		};
 		2E86E58E1D0DDF0D00F90DFA /* Game Engine */ = {
@@ -380,6 +348,7 @@
 				2E95FA451CE3EA4100D52B72 /* Frameworks */,
 				2EF0A9B41CE68FFB0037DFAE /* Shared */,
 				2E95FA461CE3EA7700D52B72 /* DKMath */,
+				39058DE6357AF44322E4D2F5 /* DKScripting */,
 				2EB4FAB41D06137B00D43351 /* DKGame */,
 				2E95FA191CE3C57200D52B72 /* DKRender */,
 				2E95F9E81CE3C47500D52B72 /* Products */,
@@ -399,13 +368,10 @@
 		2E95FA191CE3C57200D52B72 /* DKRender */ = {
 			isa = PBXGroup;
 			children = (
-				2E313B811CF388B900DDBBB9 /* Materials */,
-				2E7817841CEE9AF500F55BE3 /* Drawable */,
-				2E78177F1CEE6FFF00F55BE3 /* Render */,
-				2E78177E1CEE6FEA00F55BE3 /* Core */,
-				2E0163181D0B38DC00012793 /* Transform */,
-				2E78177D1CEE6FD800F55BE3 /* Buffer */,
-				2E78177C1CEE6FD100F55BE3 /* Texture */,
+				2E0618091D245798008DAB7A /* Components */,
+				2E06180A1D2457A1008DAB7A /* Managers */,
+				2E06180B1D2457B0008DAB7A /* Builders */,
+				2E78177F1CEE6FFF00F55BE3 /* Renderers */,
 			);
 			path = DKRender;
 			sourceTree = "<group>";
@@ -425,6 +391,7 @@
 		2E95FA461CE3EA7700D52B72 /* DKMath */ = {
 			isa = PBXGroup;
 			children = (
+				2E95FA471CE3EAAB00D52B72 /* DKMTransform.swift */,
 				2E313B901CF3A15E00DDBBB9 /* DKMMath.swift */,
 			);
 			path = DKMath;
@@ -492,6 +459,7 @@
 		2EF0A9B41CE68FFB0037DFAE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				2E313B881CF3902B00DDBBB9 /* SharedUniforms.swift */,
 				2EF0A9BD1CE691680037DFAE /* Errors */,
 			);
 			path = Shared;
@@ -503,6 +471,13 @@
 				2EF0A9BE1CE691920037DFAE /* DKError.swift */,
 			);
 			path = Errors;
+			sourceTree = "<group>";
+		};
+		39058DE6357AF44322E4D2F5 /* DKScripting */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DKScripting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -678,7 +653,7 @@
 				2E2449A21D0FAE5800CC9BFF /* DKRBuffers.swift in Sources */,
 				2EB4FAB71D077BC000D43351 /* DKGComponent.swift in Sources */,
 				2E2449831D0FAE2B00CC9BFF /* DKError.swift in Sources */,
-				2E2449A01D0FAE5800CC9BFF /* DKRTransform.swift in Sources */,
+				2E2449A01D0FAE5800CC9BFF /* DKMTransform.swift in Sources */,
 				2E2449891D0FAE3A00CC9BFF /* DKRShader.swift in Sources */,
 				2E2449961D0FAE5800CC9BFF /* DKRCamera.swift in Sources */,
 				2E0163331D0C8EE300012793 /* DKGGameManager.swift in Sources */,
@@ -725,7 +700,7 @@
 				2E2449BA1D0FAE5800CC9BFF /* DKRBuffers.swift in Sources */,
 				2EB4FAB81D077BC000D43351 /* DKGComponent.swift in Sources */,
 				2E2449841D0FAE2B00CC9BFF /* DKError.swift in Sources */,
-				2E2449B81D0FAE5800CC9BFF /* DKRTransform.swift in Sources */,
+				2E2449B81D0FAE5800CC9BFF /* DKMTransform.swift in Sources */,
 				2E24498A1D0FAE3A00CC9BFF /* DKRShader.swift in Sources */,
 				2E2449AE1D0FAE5800CC9BFF /* DKRCamera.swift in Sources */,
 				2E0163341D0C8EE300012793 /* DKGGameManager.swift in Sources */,
@@ -772,7 +747,7 @@
 				2E2449D21D0FAE5900CC9BFF /* DKRBuffers.swift in Sources */,
 				2EB4FAB91D077BC000D43351 /* DKGComponent.swift in Sources */,
 				2E2449851D0FAE2C00CC9BFF /* DKError.swift in Sources */,
-				2E2449D01D0FAE5900CC9BFF /* DKRTransform.swift in Sources */,
+				2E2449D01D0FAE5900CC9BFF /* DKMTransform.swift in Sources */,
 				2E24498B1D0FAE3B00CC9BFF /* DKRShader.swift in Sources */,
 				2E2449C61D0FAE5900CC9BFF /* DKRCamera.swift in Sources */,
 				2E0163351D0C8EE300012793 /* DKGGameManager.swift in Sources */,

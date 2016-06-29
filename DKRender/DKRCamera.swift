@@ -10,7 +10,7 @@ import Metal
 import simd
 
 internal class DKRCamera {
-	internal var transform: DKRTransform
+	internal var transform: DKMTransform
 	internal var fovy: Float
 	
 	private var width: Float
@@ -44,7 +44,7 @@ internal class DKRCamera {
 	              height: Float = 1080)
 	{
 		
-		self.transform = DKRTransform()
+		self.transform = DKMTransform()
 		self.transform.position.x = cameraPosition.x
 		self.transform.position.y = cameraPosition.y
 		self.transform.position.z = cameraPosition.z

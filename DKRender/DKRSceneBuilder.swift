@@ -23,7 +23,7 @@ public class DKRSceneBuilder {
 		self._currentScene = scene
 	}
 	
-	public func createScene(transform: DKRTransform) -> Self {
+	public func createScene(transform: DKMTransform) -> Self {
 		let newScene = DKRScene()
 		
 		self.sceneGraph.scene = newScene
@@ -61,7 +61,7 @@ public class DKRSceneBuilder {
 		return self
 	}
 	
-	public func addDrawableInstance(name: String, transform: DKRTransform) -> Int? {
+	public func addDrawableInstance(name: String, transform: DKMTransform) -> Int? {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!

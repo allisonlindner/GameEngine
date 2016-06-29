@@ -13,7 +13,7 @@ public class DKGActor: DKGComponent {
 	public var label: String?
 	public var tag: String?
 	
-	public var transform: DKRTransform
+	public var transform: DKMTransform
 	
 	public var id: Int!
 	
@@ -37,7 +37,7 @@ public class DKGActor: DKGComponent {
 	internal init(name: String, label: String? = nil, tag: String? = nil) {
 		self.name = name
 		self.behaviors = []
-		self.transform = DKRTransform()
+		self.transform = DKMTransform()
 		
 		self.label = label
 		self.tag = tag

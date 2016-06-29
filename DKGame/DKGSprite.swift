@@ -49,7 +49,7 @@ public class DKGSprite {
 		material.extendDrawable(self.name, to: size)
 	}
 	
-	internal func addInstance(transform: DKRTransform) {
+	internal func addInstance(transform: DKMTransform) {
 		material.addInstance(name, transform: transform)
 	}
 }

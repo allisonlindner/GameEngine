@@ -46,7 +46,7 @@ public class DKRMaterial {
 		}
 	}
 	
-	public func addInstance(name: String, transform: DKRTransform) {
+	public func addInstance(name: String, transform: DKMTransform) {
 		if drawables[name] == nil {
 			fatalError("No drawable with name: \(name)")
 		}

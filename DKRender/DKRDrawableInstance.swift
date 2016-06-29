@@ -10,7 +10,7 @@ import Metal
 
 public class DKRDrawableInstance {
 	internal var changed = false
-	internal var changedTransforms: [Int : DKRTransform]
+	internal var changedTransforms: [Int :DKMTransform]
 	internal var drawable: DKRDrawable
 	
 	private var _uModels: DKRBuffer<DKModelUniform>?
@@ -54,7 +54,7 @@ public class DKRDrawableInstance {
 		return _uModels!.append(uModel)
 	}
 	
-	internal func addTransform(transform: DKRTransform) -> Int {
+	internal func addTransform(transform: DKMTransform) -> Int {
 		let index = self.addUModelBuffer(DKModelUniform(modelMatrix: transform.matrix4x4))
 		
 		transform.drawableInstances.append((drawable: self, index: index))

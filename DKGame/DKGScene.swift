@@ -8,14 +8,14 @@
 
 
 public class DKGScene {
-	public var transform: DKRTransform
+	public var transform: DKMTransform
 	public var name: String
 	
 	internal var sceneGraph: DKRSceneGraph
 	internal var components: [DKGComponent]
 	
 	internal init(name: String) {
-		self.transform = DKRTransform()
+		self.transform = DKMTransform()
 		self.components = []
 		self.sceneGraph = DKRSceneGraph()
 		

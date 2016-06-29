@@ -13,7 +13,7 @@ public protocol DKGComponent {
 	var tag: String? { get set }
 	var id: Int! { get set }
 	
-	var transform: DKRTransform { get set }
+	var transform: DKMTransform { get set }
 
 func start()
 	func update()

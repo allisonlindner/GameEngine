@@ -10,7 +10,7 @@ import Metal
 
 public class DKRScene {
 	internal var materials: [Int : DKRMaterial]
-	internal var transform: DKRTransform?
+	internal var transform: DKMTransform?
 	
 	private var _cameras: [String : DKRCamera]
 	private var _currentCamera: String
