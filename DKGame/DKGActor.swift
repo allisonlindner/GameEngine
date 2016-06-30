@@ -6,9 +6,10 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
+import Foundation
 import CoreGraphics
 
-public class DKGActor: DKGComponent {
+public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 	public var name: String
 	public var label: String?
 	public var tag: String?
@@ -61,6 +62,23 @@ public class DKGActor: DKGComponent {
 		transform.rotation.z = z
 	}
 	
+	public func setPosition(x: NSNumber, _ y: NSNumber) {
+		self.set(position: CGPoint(x: CGFloat(x.floatValue), y: CGFloat(y.floatValue)))
+	}
+	
+	public func setZ(z: NSNumber) {
+		self.set(zPosition: z.floatValue)
+	}
+	
+	public func setSize(width: NSNumber, height: NSNumber) {
+		self.set(size: CGSize(width: CGFloat(width.floatValue),
+							 height: CGFloat(height.floatValue)))
+	}
+	
+	public func setZRotation(z: NSNumber) {
+		self.set(zRotation: z.floatValue)
+	}
+	
 	public func addBehavior(behavior: DKGBehavior) {
 		behavior.internalActor = self
 		self.behaviors.append(behavior)
@@ -70,11 +88,23 @@ public class DKGActor: DKGComponent {
 		for behavior in behaviors {
 			behavior.start()
 		}
+
+		if let scripts = DKSScriptManager.instance.scripts[self.id] {
+			for script in scripts {
+				script.call(function: "start")
+			}
+		}
 	}
 	
 	public func update() {
 		for behavior in behaviors {
 			behavior.update()
+		}
+		
+		if let scripts = DKSScriptManager.instance.scripts[self.id] {
+			for script in scripts {
+				script.call(function: "update")
+			}
 		}
 	}
 }

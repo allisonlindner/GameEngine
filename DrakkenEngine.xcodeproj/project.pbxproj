@@ -130,12 +130,24 @@
 		2EB4FAC81D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
 		2EB4FAC91D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
 		2EB4FACA1D08D98100D43351 /* DKGSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB4FAC71D08D98100D43351 /* DKGSprite.swift */; };
+		2EE967E41D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E31D25D7B8000D7827 /* DKSScriptBuilder.swift */; };
+		2EE967E51D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E31D25D7B8000D7827 /* DKSScriptBuilder.swift */; };
+		2EE967E61D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E31D25D7B8000D7827 /* DKSScriptBuilder.swift */; };
+		2EE967E81D25DABF000D7827 /* DKSActorExports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E71D25DABF000D7827 /* DKSActorExports.swift */; };
+		2EE967E91D25DABF000D7827 /* DKSActorExports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E71D25DABF000D7827 /* DKSActorExports.swift */; };
+		2EE967EA1D25DABF000D7827 /* DKSActorExports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE967E71D25DABF000D7827 /* DKSActorExports.swift */; };
 		2EF911DD1D18799F00A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
 		2EF911DE1D18799F00A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
 		2EF911DF1D1879A300A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
 		2EF911E01D1879A300A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
 		2EF911E11D1879A500A5310F /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0321CF6370D00ACB5BC /* Metal.framework */; };
 		2EF911E21D1879A500A5310F /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2E8AF0331CF6370D00ACB5BC /* MetalKit.framework */; };
+		3905822BC816CD3050F149A1 /* DKSScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390588E238324F253E74E5B0 /* DKSScriptManager.swift */; };
+		390583E15C3746E2502994F7 /* DKSScriptJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390589C84E96F88E9B3AA8F1 /* DKSScriptJS.swift */; };
+		3905848BCDA9A6EA7632D0C4 /* DKSScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390588E238324F253E74E5B0 /* DKSScriptManager.swift */; };
+		390586EAB6283482BB5618E9 /* DKSScriptJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390589C84E96F88E9B3AA8F1 /* DKSScriptJS.swift */; };
+		39058982302380A3301BE61E /* DKSScriptManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390588E238324F253E74E5B0 /* DKSScriptManager.swift */; };
+		39058CDFF245FC08AA7FA38E /* DKSScriptJS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390589C84E96F88E9B3AA8F1 /* DKSScriptJS.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,9 +198,13 @@
 		2EB4FAC71D08D98100D43351 /* DKGSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKGSprite.swift; sourceTree = "<group>"; };
 		2EB6E69F1CECEA7900ED45CC /* DKRTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRTexture.swift; sourceTree = "<group>"; };
 		2EB6E6AF1CED091D00ED45CC /* DKRMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRMaterial.swift; sourceTree = "<group>"; };
+		2EE967E31D25D7B8000D7827 /* DKSScriptBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSScriptBuilder.swift; sourceTree = "<group>"; };
+		2EE967E71D25DABF000D7827 /* DKSActorExports.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSActorExports.swift; sourceTree = "<group>"; };
 		2EF0A9A81CE5447C0037DFAE /* DKRShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRShader.swift; sourceTree = "<group>"; };
 		2EF0A9BE1CE691920037DFAE /* DKError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKError.swift; sourceTree = "<group>"; };
 		2EF0A9D41CE6995F0037DFAE /* DKRRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRRenderer.swift; sourceTree = "<group>"; };
+		390588E238324F253E74E5B0 /* DKSScriptManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSScriptManager.swift; sourceTree = "<group>"; };
+		390589C84E96F88E9B3AA8F1 /* DKSScriptJS.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKSScriptJS.swift; sourceTree = "<group>"; };
 		39058A740242EAFD7DB98956 /* DKRRendererFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKRRendererFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -456,6 +472,14 @@
 			name = Sprite;
 			sourceTree = "<group>";
 		};
+		2EE967E21D25D797000D7827 /* Builders */ = {
+			isa = PBXGroup;
+			children = (
+				2EE967E31D25D7B8000D7827 /* DKSScriptBuilder.swift */,
+			);
+			name = Builders;
+			sourceTree = "<group>";
+		};
 		2EF0A9B41CE68FFB0037DFAE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,9 +497,29 @@
 			path = Errors;
 			sourceTree = "<group>";
 		};
+		39058B763034A8704A47A364 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				390589C84E96F88E9B3AA8F1 /* DKSScriptJS.swift */,
+				2EE967E71D25DABF000D7827 /* DKSActorExports.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		39058D2DD288917C2A04D659 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				390588E238324F253E74E5B0 /* DKSScriptManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		39058DE6357AF44322E4D2F5 /* DKScripting */ = {
 			isa = PBXGroup;
 			children = (
+				39058B763034A8704A47A364 /* Components */,
+				39058D2DD288917C2A04D659 /* Managers */,
+				2EE967E21D25D797000D7827 /* Builders */,
 			);
 			path = DKScripting;
 			sourceTree = "<group>";
@@ -644,7 +688,9 @@
 				2E24499E1D0FAE5800CC9BFF /* DKRRenderer.swift in Sources */,
 				2E2449991D0FAE5800CC9BFF /* DKRSceneBuilder.swift in Sources */,
 				2E2449931D0FAE5800CC9BFF /* DKRDrawableInstance.swift in Sources */,
+				2EE967E81D25DABF000D7827 /* DKSActorExports.swift in Sources */,
 				2E0163371D0C924000012793 /* DKGComponentManager.swift in Sources */,
+				2EE967E41D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */,
 				2E0163211D0C815200012793 /* DKGScene.swift in Sources */,
 				2E01632A1D0C828200012793 /* DKGSceneBuilder.swift in Sources */,
 				2E2449A41D0FAE5800CC9BFF /* DKRTexture.swift in Sources */,
@@ -676,6 +722,8 @@
 				2EB4FABF1D07803400D43351 /* DKGBehavior.swift in Sources */,
 				2E2449921D0FAE5800CC9BFF /* DKRDrawable.swift in Sources */,
 				2E2449A51D0FAE5800CC9BFF /* DKRTextureManager.swift in Sources */,
+				39058CDFF245FC08AA7FA38E /* DKSScriptJS.swift in Sources */,
+				3905822BC816CD3050F149A1 /* DKSScriptManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -691,7 +739,9 @@
 				2E2449B61D0FAE5800CC9BFF /* DKRRenderer.swift in Sources */,
 				2E2449B11D0FAE5800CC9BFF /* DKRSceneBuilder.swift in Sources */,
 				2E2449AB1D0FAE5800CC9BFF /* DKRDrawableInstance.swift in Sources */,
+				2EE967E91D25DABF000D7827 /* DKSActorExports.swift in Sources */,
 				2E0163381D0C924000012793 /* DKGComponentManager.swift in Sources */,
+				2EE967E51D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */,
 				2E0163221D0C815200012793 /* DKGScene.swift in Sources */,
 				2E01632B1D0C828200012793 /* DKGSceneBuilder.swift in Sources */,
 				2E2449BC1D0FAE5800CC9BFF /* DKRTexture.swift in Sources */,
@@ -723,6 +773,8 @@
 				2EB4FAC01D07803400D43351 /* DKGBehavior.swift in Sources */,
 				2E2449AA1D0FAE5800CC9BFF /* DKRDrawable.swift in Sources */,
 				2E2449BD1D0FAE5800CC9BFF /* DKRTextureManager.swift in Sources */,
+				390583E15C3746E2502994F7 /* DKSScriptJS.swift in Sources */,
+				3905848BCDA9A6EA7632D0C4 /* DKSScriptManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,7 +790,9 @@
 				2E2449CE1D0FAE5900CC9BFF /* DKRRenderer.swift in Sources */,
 				2E2449C91D0FAE5900CC9BFF /* DKRSceneBuilder.swift in Sources */,
 				2E2449C31D0FAE5900CC9BFF /* DKRDrawableInstance.swift in Sources */,
+				2EE967EA1D25DABF000D7827 /* DKSActorExports.swift in Sources */,
 				2E0163391D0C924000012793 /* DKGComponentManager.swift in Sources */,
+				2EE967E61D25D7B8000D7827 /* DKSScriptBuilder.swift in Sources */,
 				2E0163231D0C815200012793 /* DKGScene.swift in Sources */,
 				2E01632C1D0C828200012793 /* DKGSceneBuilder.swift in Sources */,
 				2E2449D41D0FAE5900CC9BFF /* DKRTexture.swift in Sources */,
@@ -770,6 +824,8 @@
 				2EB4FAC11D07803400D43351 /* DKGBehavior.swift in Sources */,
 				2E2449C21D0FAE5900CC9BFF /* DKRDrawable.swift in Sources */,
 				2E2449D51D0FAE5900CC9BFF /* DKRTextureManager.swift in Sources */,
+				390586EAB6283482BB5618E9 /* DKSScriptJS.swift in Sources */,
+				39058982302380A3301BE61E /* DKSScriptManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
