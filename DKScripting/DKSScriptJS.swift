@@ -13,17 +13,40 @@ internal struct DKSScriptJS {
 	private var _context: JSContext
 	internal var name: String
 
-	internal init(name: String) {
+	internal init(name: String, script: String, actor: DKGActor) {
 		self._context = JSContext()
 		self.name = name
 		self._context.name = name
+		
+		let consoleLog: @convention(block) String -> Void = { message in
+			NSLog(message as String)
+		}
+		
+		self.set(object: actor, name: "actor")
+		DKSScriptManager.instance.add(scriptJS: self, actor: actor)
+		self._context.setObject(unsafeBitCast(consoleLog, AnyObject.self), forKeyedSubscript: "consoleLog")
+		
+		evaluate(script: script)
+		evaluate(script: "var script\(self.name) = new \(self.name)();")
 	}
 	
-	internal func evaluate(script script: String) {
+	internal init(name: String, script: NSURL, actor: DKGActor) {
+		var fileString: String = ""
+		
+		do {
+			fileString = try String(contentsOfURL: script)
+		} catch {
+			NSLog("Script file error")
+		}
+		
+		self.init(name: name, script: fileString, actor: actor)
+	}
+	
+	private func evaluate(script script: String) {
 		self._context.evaluateScript(script)
 	}
 
-	internal func evaluate(script script: NSURL) {
+	private func evaluate(script script: NSURL) {
 		do {
 			let fileString = try String(contentsOfURL: script)
 			
@@ -33,16 +56,15 @@ internal struct DKSScriptJS {
 		}
 	}
 
-	internal func evaluate(filePath filePath: String) {
+	private func evaluate(filePath filePath: String) {
 		let fileURL = NSURL(fileURLWithPath: filePath)
 		
 		self.evaluate(script: fileURL)
 	}
 
 	internal func call(function function: String, arguments: AnyObject...) {
-		let function = self._context.objectForKeyedSubscript(function)
-		
-		function.callWithArguments(arguments)
+		let classVar = self._context.objectForKeyedSubscript("script\(self.name)")
+		classVar.invokeMethod(function, withArguments: arguments)
 	}
 
 	internal func set(object obj: AnyObject, name: String) {
