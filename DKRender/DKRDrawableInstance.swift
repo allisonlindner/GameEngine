@@ -34,7 +34,7 @@ public class DKRDrawableInstance {
 		self.changedTransforms = [:]
 	}
 	
-	internal func addUModelBuffer(uModel: DKModelUniform) -> Int {
+	internal func addUModelBuffer(_ uModel: DKModelUniform) -> Int {
 		if _uModels == nil {
 			_createBuffer([uModel])
 			
@@ -54,7 +54,7 @@ public class DKRDrawableInstance {
 		return _uModels!.append(uModel)
 	}
 	
-	internal func addTransform(transform: DKMTransform) -> Int {
+	internal func addTransform(_ transform: DKMTransform) -> Int {
 		let index = self.addUModelBuffer(DKModelUniform(modelMatrix: transform.matrix4x4))
 		
 		transform.drawableInstances.append((drawable: self, index: index))
@@ -62,11 +62,11 @@ public class DKRDrawableInstance {
 		return index
 	}
 	
-	internal func extendTo(size: Int) {
+	internal func extendTo(_ size: Int) {
 		_preAllocateSize = size
 	}
 	
-	private func _createBuffer(uModel: [DKModelUniform]) {
+	private func _createBuffer(_ uModel: [DKModelUniform]) {
 		_uModels = DKRBuffer(data: uModel, index: 1)
 		
 		if let size = _preAllocateSize {

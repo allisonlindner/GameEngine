@@ -11,7 +11,7 @@ import MetalKit
 
 public class DKGame: DKGameView {
 	
-	public func present(sceneName: String) {
+	public func present(_ sceneName: String) {
 		DKGGameManager.instance.sManager.presentScene(sceneName)
 	}
 	

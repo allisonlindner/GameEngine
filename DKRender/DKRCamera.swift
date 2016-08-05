@@ -57,7 +57,7 @@ internal class DKRCamera {
 		self._updateBuffer()
 	}
 	
-	internal func changeSize(width: Float, _ height: Float) {
+	internal func changeSize(_ width: Float, _ height: Float) {
 		self.width = width
 		self.height = height
 		
@@ -81,7 +81,7 @@ internal class DKRCamera {
 		self._uCameraBuffer = DKRBuffer(
 			data: _uCamera,
 			index: 0,
-			bufferType: DKRBufferType.Vertex,
+			bufferType: DKRBufferType.vertex,
 			staticMode: false,
 			offset: 0
 		)

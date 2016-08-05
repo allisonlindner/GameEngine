@@ -16,7 +16,7 @@ public class DKRSceneManager {
 		sceneGraphs = [:]
 	}
 
-	public func addScene(name: String, inout sceneGraph: DKRSceneGraph) {
+	public func addScene(_ name: String, sceneGraph: inout DKRSceneGraph) {
 		sceneGraphs[name] = sceneGraph
 
 		if currentScene == nil {
@@ -24,15 +24,15 @@ public class DKRSceneManager {
 		}
 	}
 
-	public func presentScene(name: String) {
+	public func presentScene(_ name: String) {
 		if sceneGraphs[name] != nil {
 			currentScene = name
 		}
 	}
 	
-	internal func changeSize(width: Float, _ height: Float) {
+	internal func changeSize(_ width: Float, _ height: Float) {
 		if currentScene != nil {
-			sceneGraphs[currentScene!]?.changeSize(width, height)
+			sceneGraphs[currentScene!]!.changeSize(width, height)
 		}
 	}
 }

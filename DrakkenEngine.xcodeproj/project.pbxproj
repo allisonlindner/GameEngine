@@ -620,6 +620,7 @@
 				TargetAttributes = {
 					2EB4FA8B1D060AF300D43351 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0800;
 					};
 					2EB4FA981D060B3100D43351 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -938,6 +939,7 @@
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -958,6 +960,7 @@
 				PRODUCT_NAME = DrakkenKit;
 				SCAN_ALL_SOURCE_FILES_FOR_INCLUDES = NO;
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

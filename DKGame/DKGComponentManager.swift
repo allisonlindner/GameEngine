@@ -39,7 +39,7 @@ public class DKGComponentManager {
 		self._nextComponentIndex = 0
 	}
 	
-	internal func addComponent(component: DKGComponent) -> Int {
+	internal func addComponent(_ component: DKGComponent) -> Int {
 		let index = self._nextComponentIndex
 		self.components[index] = component
 		self._nextComponentIndex += 1
@@ -47,7 +47,7 @@ public class DKGComponentManager {
 		return index
 	}
 	
-	public func getComponents(label label: String) -> [DKGComponent]? {
+	public func getComponents(label: String) -> [DKGComponent]? {
 		let flatComponents = components.flatMap { (component) -> DKGComponent? in
 			if component.1.label == label {
 				return component.1
@@ -62,7 +62,7 @@ public class DKGComponentManager {
 		return nil
 	}
 	
-	public func getComponents(tag tag: String) -> [DKGComponent]? {
+	public func getComponents(tag: String) -> [DKGComponent]? {
 		let flatComponents = components.flatMap { (component) -> DKGComponent? in
 			if component.1.tag == tag {
 				return component.1

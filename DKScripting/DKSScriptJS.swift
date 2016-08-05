@@ -18,23 +18,23 @@ internal struct DKSScriptJS {
 		self.name = name
 		self._context.name = name
 		
-		let consoleLog: @convention(block) String -> Void = { message in
+		let consoleLog: @convention(block) (String) -> Void = { message in
 			NSLog(message as String)
 		}
 		
 		self.set(object: actor, name: "actor")
 		DKSScriptManager.instance.add(scriptJS: self, actor: actor)
-		self._context.setObject(unsafeBitCast(consoleLog, AnyObject.self), forKeyedSubscript: "consoleLog")
+		self._context.setObject(unsafeBitCast(consoleLog, to: AnyObject.self), forKeyedSubscript: "consoleLog")
 		
 		evaluate(script: script)
 		evaluate(script: "var script\(self.name) = new \(self.name)();")
 	}
 	
-	internal init(name: String, script: NSURL, actor: DKGActor) {
+	internal init(name: String, script: URL, actor: DKGActor) {
 		var fileString: String = ""
 		
 		do {
-			fileString = try String(contentsOfURL: script)
+			fileString = try String(contentsOf: script)
 		} catch {
 			NSLog("Script file error")
 		}
@@ -42,13 +42,13 @@ internal struct DKSScriptJS {
 		self.init(name: name, script: fileString, actor: actor)
 	}
 	
-	private func evaluate(script script: String) {
+	private func evaluate(script: String) {
 		self._context.evaluateScript(script)
 	}
 
-	private func evaluate(script script: NSURL) {
+	private func evaluate(script: URL) {
 		do {
-			let fileString = try String(contentsOfURL: script)
+			let fileString = try String(contentsOf: script)
 			
 			self.evaluate(script: fileString)
 		} catch {
@@ -56,24 +56,24 @@ internal struct DKSScriptJS {
 		}
 	}
 
-	private func evaluate(filePath filePath: String) {
-		let fileURL = NSURL(fileURLWithPath: filePath)
+	private func evaluate(filePath: String) {
+		let fileURL = URL(fileURLWithPath: filePath)
 		
 		self.evaluate(script: fileURL)
 	}
 
-	internal func call(function function: String, arguments: AnyObject...) {
+	internal func call(function: String, arguments: AnyObject...) {
 		let classVar = self._context.objectForKeyedSubscript("script\(self.name)")
-		classVar.invokeMethod(function, withArguments: arguments)
+		_ = classVar?.invokeMethod(function, withArguments: arguments)
 	}
 
 	internal func set(object obj: AnyObject, name: String) {
 		self._context.setObject(obj, forKeyedSubscript: name)
 	}
 
-	internal func function(name: String, _ function: Any) {
+	internal func function(_ name: String, _ function: Any) {
 		self._context.setObject(
-				unsafeBitCast(function, AnyObject.self),
+				unsafeBitCast(function, to: AnyObject.self),
 				forKeyedSubscript: name
 		)
 	}

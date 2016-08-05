@@ -24,7 +24,7 @@ public class DKGSceneManager {
 		self.scenes = [:]
 	}
 	
-	internal func addScene(name: String, scene: DKGScene) {
+	internal func addScene(_ name: String, scene: DKGScene) {
 		self.scenes[name] = scene
 
 		DKRCore.instance.sManager.addScene(name, sceneGraph: &scene.sceneGraph)
@@ -35,7 +35,7 @@ public class DKGSceneManager {
 		}
 	}
 
-	public func presentScene(name: String) {
+	public func presentScene(_ name: String) {
 		if scenes[name] != nil {
 			self._currentSceneName = name
 			DKRCore.instance.sManager.presentScene(name)

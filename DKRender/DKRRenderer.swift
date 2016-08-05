@@ -22,7 +22,7 @@ internal class DKRRenderer {
 		_nextIndex = 0
 	}
 
-	internal func startFrame(texture texture: MTLTexture) -> Int {
+	internal func startFrame(texture: MTLTexture) -> Int {
 		_cBuffer = DKRCore.instance.cQueue.commandBuffer()
 		_cBuffer.enqueue()
 		
@@ -31,12 +31,12 @@ internal class DKRRenderer {
 		}
 		
 		let index = _nextIndex
-		let encoder = _cBuffer.renderCommandEncoderWithDescriptor(_rFactory!.buildRenderPassDescriptor(texture))
+		let encoder = _cBuffer.renderCommandEncoder(with: _rFactory!.buildRenderPassDescriptor(texture))
 		encoder.setDepthStencilState(_rFactory?.buildDepthStencil())
-		encoder.setFrontFacingWinding(.CounterClockwise)
-		encoder.setCullMode(.Back)
+		encoder.setFrontFacing(.counterClockwise)
+		encoder.setCullMode(.back)
 		
-		encoder.setFragmentSamplerState(_rFactory?.buildSamplerState(), atIndex: 0)
+		encoder.setFragmentSamplerState(_rFactory?.buildSamplerState(), at: 0)
 		
 		_rcEncoders[index] = encoder
 		_nextIndex += 1
@@ -44,33 +44,33 @@ internal class DKRRenderer {
 		return index
 	}
 	
-	internal func endFrame(id: Int) {
+	internal func endFrame(_ id: Int) {
 		let encoder: MTLRenderCommandEncoder = _rcEncoders[id]!
 		encoder.endEncoding()
 		
-		_rcEncoders.removeAtIndex(_rcEncoders.indexForKey(id)!)
+		_rcEncoders.remove(at: _rcEncoders.index(forKey: id)!)
 	}
 	
 	internal func encoder(withID id: Int) -> MTLRenderCommandEncoder {
 		return self._rcEncoders[id]!
 	}
 	
-	internal func present(drawable: CAMetalDrawable) {
-		_cBuffer.presentDrawable(drawable)
+	internal func present(_ drawable: CAMetalDrawable) {
+		_cBuffer.present(drawable)
 		_cBuffer.commit()
 	}
 	
-	internal func bind(buffer: DKBuffer, encoderID: Int) {
+	internal func bind(_ buffer: DKBuffer, encoderID: Int) {
 		let encoder = _rcEncoders[encoderID]!
 		
 		switch buffer.bufferType {
-		case .Vertex:
+		case .vertex:
 			encoder.setVertexBuffer(
-				buffer.buffer, offset: buffer.offset, atIndex: buffer.index
+				buffer.buffer, offset: buffer.offset, at: buffer.index
 			)
-		case .Fragment:
+		case .fragment:
 			encoder.setFragmentBuffer(
-				buffer.buffer, offset: buffer.offset, atIndex: buffer.index
+				buffer.buffer, offset: buffer.offset, at: buffer.index
 			)
 		}
 	}

@@ -14,7 +14,7 @@ public class DKGActorBuilder {
 		
 	}
 	
-	public func new(name: String, label: String? = nil, tag: String? = nil) -> Self {
+	public func new(_ name: String, label: String? = nil, tag: String? = nil) -> Self {
 		_actor = DKGActor(name: name, label: label, tag: tag)
 		
 		_actor!.id = DKGGameManager.instance.cManager.addComponent(_actor!)
@@ -22,7 +22,7 @@ public class DKGActorBuilder {
 		return self
 	}
 	
-	public func setSprite(sprite: DKGSprite) -> Self {
+	public func setSprite(_ sprite: DKGSprite) -> Self {
 		guard let actor = _actor else {
 			fatalError("You must use 'new' function before this")
 		}

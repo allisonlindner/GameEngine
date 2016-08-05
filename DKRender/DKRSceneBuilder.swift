@@ -16,24 +16,24 @@ public class DKRSceneBuilder {
 	
 	private var _materialIndex: Int?
 
-	public init(inout sceneGraph: DKRSceneGraph, name: String, scene: DKRScene? = nil) {
+	public init(sceneGraph: inout DKRSceneGraph, name: String, scene: DKRScene? = nil) {
 		self.sceneGraph = sceneGraph
 		self._nextMateriableIndex = 0
 		self.sceneName = name
 		self._currentScene = scene
 	}
 	
-	public func createScene(transform: DKMTransform) -> Self {
+	public func createScene(_ transform: DKMTransform) -> Self {
 		let newScene = DKRScene()
 		
 		self.sceneGraph.scene = newScene
 		
-		newScene.currentCamera.changeSize(transform.scale.x, transform.scale.y)
+		newScene.currentCamera.changeSize(transform.scale.y, transform.scale.x)
 		
 		return self
 	}
 	
-	public func addMaterial(material: DKRMaterial) -> Self {
+	public func addMaterial(_ material: DKRMaterial) -> Self {
 		let index = self._nextMateriableIndex
 		if let scene = self._currentScene {
 			scene.materials[index] = material
@@ -45,11 +45,11 @@ public class DKRSceneBuilder {
 		return self
 	}
 	
-	public func createDrawable(name: String, drawable: DKRDrawable) -> Self {
+	public func createDrawable(_ name: String, drawable: DKRDrawable) -> Self {
 		return self.createDrawable(name, drawable: drawable, size: 1)
 	}
 	
-	public func createDrawable(name: String, drawable: DKRDrawable, size: Int) -> Self {
+	public func createDrawable(_ name: String, drawable: DKRDrawable, size: Int) -> Self {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!
@@ -61,7 +61,7 @@ public class DKRSceneBuilder {
 		return self
 	}
 	
-	public func addDrawableInstance(name: String, transform: DKMTransform) -> Int? {
+	public func addDrawableInstance(_ name: String, transform: DKMTransform) -> Int? {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!
@@ -91,11 +91,11 @@ public class DKRSceneBuilder {
 		print("Scene: \(self.sceneName) - nodes: \(sceneGraph.nodeCount)")
 	}
 	
-	public func newTexture(name: String, fileName fName: String, fileExtension ext: String) {
+	public func newTexture(_ name: String, fileName fName: String, fileExtension ext: String) {
 		_ = DKRTexture(name: name, fileName: fName, fileExtension: ext)
 	}
 	
-	public func setTexture(textureName: String) -> Self {
+	public func setTexture(_ textureName: String) -> Self {
 		if let scene = self._currentScene {
 			if let materialIndex = self._materialIndex {
 				let material = scene.materials[materialIndex]!

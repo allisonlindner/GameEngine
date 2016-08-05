@@ -22,7 +22,7 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 		_renderer = DKRSimpleRenderer()
 	}
 	
-	func drawInMTKView(view: MTKView) {
+	func draw(in view: MTKView) {
 		if view.device == nil {
 			view.device =  DKRCore.instance.device
 		}
@@ -49,7 +49,7 @@ internal class DKRGameView: NSObject, MTKViewDelegate {
 		}
 	}
 	
-	func mtkView(view: MTKView, drawableSizeWillChange size: CGSize) {
+	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
 		#if os(tvOS)
 			DKRCore.instance.sManager.changeSize(1920.0, 1080.0)
 		#else
@@ -74,6 +74,22 @@ public class DKGameView: MTKView {
 	private func _start() {
 		self.device = DKRCore.instance.device
 		self.sampleCount = 4
+		
+		#if os(iOS) || os(watchOS) || os(tvOS)
+			if #available(iOS 10.0, *) {
+				self.colorPixelFormat = .bgra10_XR_sRGB
+			} else {
+				self.colorPixelFormat = .bgra8Unorm
+			}
+		#elseif os(OSX)
+			if #available(OSX 10.12, *) {
+				self.colorPixelFormat = .bgra8Unorm_sRGB
+			} else {
+				self.colorPixelFormat = .bgra8Unorm
+			}
+		#else
+			println("OMG, it's that mythical new Apple product!!!")
+		#endif
 		
 		_gameView = DKRGameView()
 		_gameView.start()

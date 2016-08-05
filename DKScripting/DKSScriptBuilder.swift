@@ -13,13 +13,13 @@ public class DKSScriptBuilder {
 	
 	public init() {}
 	
-	public func new(name: String, script: String, actor: DKGActor) -> Self {
+	public func new(_ name: String, script: String, actor: DKGActor) -> Self {
 		_script = DKSScriptJS(name: name, script: script, actor: actor)
 		return self
 	}
 	
-	public func new(name: String, fileName: String, actor: DKGActor) -> Self {
-		let url = NSBundle.mainBundle().URLForResource(name, withExtension: "js")
+	public func new(_ name: String, fileName: String, actor: DKGActor) -> Self {
+		let url = Bundle.main.url(forResource: name, withExtension: "js")
 		if url != nil {
 			_script = DKSScriptJS(name: name, script: url!, actor: actor)
 		}

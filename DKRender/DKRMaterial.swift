@@ -33,28 +33,28 @@ public class DKRMaterial {
 		textureInstances = [:]
 	}
 	
-	public func createDrawable(name: String, drawable: DKRDrawable, size: Int = 1) {
+	public func createDrawable(_ name: String, drawable: DKRDrawable, size: Int = 1) {
 		if drawables[name] == nil {
 			drawables[name] = DKRDrawableInstance(drawable: drawable)
 			drawables[name]!.extendTo(size)
 		}
 	}
 	
-	public func extendDrawable(name: String, to size: Int) {
+	public func extendDrawable(_ name: String, to size: Int) {
 		if drawables[name] == nil {
 			drawables[name]!.extendTo(size)
 		}
 	}
 	
-	public func addInstance(name: String, transform: DKMTransform) {
+	public func addInstance(_ name: String, transform: DKMTransform) {
 		if drawables[name] == nil {
 			fatalError("No drawable with name: \(name)")
 		}
 		
-		drawables[name]?.addTransform(transform)
+		_ = drawables[name]?.addTransform(transform)
 	}
 	
-	public func setTexture(name: String, index: Int) {
+	public func setTexture(_ name: String, index: Int) {
 		textureInstances[index] = DKRTextureInstance(index: index, texture: DKRTexture(name: name))
 	}
 	

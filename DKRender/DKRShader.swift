@@ -36,20 +36,20 @@ public class DKRShader {
 			self.ffName = fragmentName
 		}
 		
-		self._vertexFunction = DKRCore.instance.library.newFunctionWithName(vfName)
+		self._vertexFunction = DKRCore.instance.library.newFunction(withName: vfName)
 		
 		if self._vertexFunction == nil {
-			throw DKShaderNotFoundError(name: vfName)
+			throw DKShaderNotFoundError(name: vfName) as Error
 		}
 		
-		self._fragmentFunction = DKRCore.instance.library.newFunctionWithName(ffName)
+		self._fragmentFunction = DKRCore.instance.library.newFunction(withName: ffName)
 		
 		if self._fragmentFunction == nil {
-			throw DKShaderNotFoundError(name: ffName)
+			throw DKShaderNotFoundError(name: ffName) as Error
 		}
 		
 		do {
-			rpState = try DKRCore.instance.device.newRenderPipelineStateWithDescriptor(setupRenderPipelineDescriptor())
+			rpState = try DKRCore.instance.device.newRenderPipelineState(with: setupRenderPipelineDescriptor())
 		}
 		catch {
 			assert(false, "Shader with name: \(name) fail on creation!!")
@@ -59,20 +59,35 @@ public class DKRShader {
 	private func setupRenderPipelineDescriptor() -> MTLRenderPipelineDescriptor {
 		let rpDescriptor = MTLRenderPipelineDescriptor()
 		
-		rpDescriptor.colorAttachments[0].pixelFormat = .BGRA8Unorm
-		rpDescriptor.colorAttachments[0].blendingEnabled = true
+		#if os(iOS) || os(watchOS) || os(tvOS)
+			if #available(iOS 10.0, *) {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra10_XR_sRGB
+			} else {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+			}
+		#elseif os(OSX)
+			if #available(OSX 10.12, *) {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm_sRGB
+			} else {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+			}
+		#else
+			println("OMG, it's that mythical new Apple product!!!")
+		#endif
 		
-		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.Add
-		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.Add
-
-		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.SourceAlpha
-		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
-
-		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.SourceAlpha
-		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.OneMinusSourceAlpha
+		rpDescriptor.colorAttachments[0].isBlendingEnabled = true
 		
-		rpDescriptor.depthAttachmentPixelFormat = .Depth32Float_Stencil8
-		rpDescriptor.stencilAttachmentPixelFormat = .Depth32Float_Stencil8
+		rpDescriptor.colorAttachments[0].alphaBlendOperation = MTLBlendOperation.add
+		rpDescriptor.colorAttachments[0].rgbBlendOperation = MTLBlendOperation.add
+
+		rpDescriptor.colorAttachments[0].sourceAlphaBlendFactor = MTLBlendFactor.sourceAlpha
+		rpDescriptor.colorAttachments[0].destinationAlphaBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
+
+		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.sourceAlpha
+		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
+		
+		rpDescriptor.depthAttachmentPixelFormat = .depth32Float_Stencil8
+		rpDescriptor.stencilAttachmentPixelFormat = .depth32Float_Stencil8
 		
 		rpDescriptor.vertexFunction = self._vertexFunction
 		rpDescriptor.fragmentFunction = self._fragmentFunction

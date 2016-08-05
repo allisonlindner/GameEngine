@@ -42,11 +42,11 @@ public class DKRScene {
 		}
 	}
 	
-	internal func changeSize(width: Float, _ height: Float) {
+	internal func changeSize(_ width: Float, _ height: Float) {
 		self.currentCamera.changeSize(width, height)
 	}
 	
-	internal func addMaterial(material: DKRMaterial) -> Int {
+	internal func addMaterial(_ material: DKRMaterial) -> Int {
 		if material.id == nil {
 			let index = _nextMaterialIndex
 			materials[index] = material
@@ -75,7 +75,7 @@ public class DKRScene {
 		self.addCamera("default", camera: camera)
 	}
 	
-	internal func addCamera(name: String, camera: DKRCamera) {
+	internal func addCamera(_ name: String, camera: DKRCamera) {
 		_cameras[name] = camera
 	}
 }

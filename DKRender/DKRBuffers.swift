@@ -10,8 +10,8 @@ import Metal
 import MetalKit
 
 public enum DKRBufferType {
-	case Vertex
-	case Fragment
+	case vertex
+	case fragment
 }
 
 public protocol DKBuffer {
@@ -88,7 +88,7 @@ internal class DKRBuffer<T>: DKBuffer {
 		}
 	}
 
-	internal init(data: [T], index: Int = -1, preAllocateSize size: Int = 1, bufferType: DKRBufferType = .Vertex,
+	internal init(data: [T], index: Int = -1, preAllocateSize size: Int = 1, bufferType: DKRBufferType = .vertex,
 	            staticMode: Bool = false , offset: Int = 0) {
 		self._index = index
 		self._offset = offset
@@ -105,27 +105,27 @@ internal class DKRBuffer<T>: DKBuffer {
 		_updateBuffer()
 	}
 	
-	internal convenience init(data: T, index: Int = -1, preAllocateSize size: Int = 1, bufferType: DKRBufferType = .Vertex,
+	internal convenience init(data: T, index: Int = -1, preAllocateSize size: Int = 1, bufferType: DKRBufferType = .vertex,
 	                          staticMode: Bool = false , offset: Int = 0) {
 		
 		self.init(data: [data], index: index, preAllocateSize: size, bufferType: bufferType, staticMode: staticMode, offset: offset)
 	}
 	
-	internal func append(data: T) -> Int {
+	internal func append(_ data: T) -> Int {
 		self._data.append(data)
 		self._bufferChanged = true
 		
 		return self._data.count - 1
 	}
 	
-	internal func change(data: T, atIndex: Int) {
+	internal func change(_ data: T, atIndex: Int) {
 		self._data[atIndex] = data
 		
 		let pointer = self.buffer.contents()
-		memcpy(pointer + (atIndex * sizeof(T)), [data], sizeof(T))
+		memcpy(pointer + (atIndex * sizeof(T.self)), [data], sizeof(T.self))
 	}
 	
-	internal func extendTo(size: Int) {
+	internal func extendTo(_ size: Int) {
 		if size > self._data.capacity {
 			self._data.reserveCapacity(size)
 		}

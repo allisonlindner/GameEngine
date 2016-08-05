@@ -17,20 +17,20 @@ public class DKGSceneBuilder {
 		
 	}
 	
-	public func newScene(name: String) -> Self {
+	public func newScene(_ name: String) -> Self {
 		_scene = DKGScene(name: name)
 		_name = name
 		
 		return self
 	}
 	
-	public func changeSize(size: CGSize) -> Self {
+	public func changeSize(_ size: CGSize) -> Self {
 		_scene?.sceneGraph.changeSize(Float(size.width), Float(size.height))
 		
 		return self
 	}
 	
-	public func addComponent(component: DKGComponent) -> Self {
+	public func addComponent(_ component: DKGComponent) -> Self {
 		if _scene == nil {
 			fatalError("You must use 'new' function before this")
 		}
@@ -41,7 +41,7 @@ public class DKGSceneBuilder {
 		return self
 	}
 	
-	public func addActor(actor: DKGActor) -> Self {
+	public func addActor(_ actor: DKGActor) -> Self {
 		if _scene == nil {
 			fatalError("You must use 'new' function before this")
 		}

@@ -28,7 +28,7 @@ public class DKRSpriteMaterial: DKRMaterial, DKRMaterialDataSource {
 		_uDiffuseBuffer = DKRBuffer(
 								data: _uDiffuse,
 								index: 0,
-								bufferType: DKRBufferType.Fragment,
+								bufferType: DKRBufferType.fragment,
 								staticMode: true,
 								offset: 0
 							)
@@ -42,7 +42,7 @@ public class DKRSpriteMaterial: DKRMaterial, DKRMaterialDataSource {
 		return [_uDiffuseBuffer]
 	}
 	
-	public func setTexture(name: String) {
+	public func setTexture(_ name: String) {
 		super.setTexture(name, index: 0)
 	}
 }

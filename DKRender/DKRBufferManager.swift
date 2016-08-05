@@ -17,11 +17,11 @@ internal class DKRBufferManager {
 		_nextIndex = 0
 	}
 	
-	internal func createBuffer<T>(data: [T], index: Int = -1, offset: Int = 0, id: Int? = nil) -> Int {
-		let buffer = DKRCore.instance.device.newBufferWithBytes(
-													data,
+	internal func createBuffer<T>(_ data: [T], index: Int = -1, offset: Int = 0, id: Int? = nil) -> Int {
+		let buffer = DKRCore.instance.device.newBuffer(
+													withBytes: data,
 													length: (data.count + 1) * sizeofValue(data[0]),
-													options: .CPUCacheModeDefaultCache
+													options: MTLResourceOptions()
 												)
 		if id != nil {
 			_buffers[id!] = buffer
@@ -36,11 +36,11 @@ internal class DKRBufferManager {
 		return _index
 	}
 	
-	internal func deleteBuffer(id: Int) {
-		_buffers.removeAtIndex(_buffers.indexForKey(id)!)
+	internal func deleteBuffer(_ id: Int) {
+		_buffers.remove(at: _buffers.index(forKey: id)!)
 	}
 	
-	internal func getBuffer(id: Int) -> MTLBuffer? {
+	internal func getBuffer(_ id: Int) -> MTLBuffer? {
 		return _buffers[id]
 	}
 }

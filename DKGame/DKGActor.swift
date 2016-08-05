@@ -23,15 +23,15 @@ public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 	
 	public var position: CGPoint {
 		get {
-			return CGPointMake(CGFloat(transform.position.x),
-			                   CGFloat(transform.position.y))
+			return CGPoint(x: CGFloat(transform.position.x),
+			                   y: CGFloat(transform.position.y))
 		}
 	}
 	
 	public var size: CGPoint {
 		get {
-			return CGPointMake(CGFloat(transform.scale.x),
-			                   CGFloat(transform.scale.y))
+			return CGPoint(x: CGFloat(transform.scale.x),
+			                   y: CGFloat(transform.scale.y))
 		}
 	}
 	
@@ -44,7 +44,7 @@ public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 		self.tag = tag
 	}
 	
-	public func set(position position: CGPoint) {
+	public func set(position: CGPoint) {
 		transform.position.x = Float(position.x)
 		transform.position.y = Float(position.y)
 	}
@@ -62,24 +62,24 @@ public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 		transform.rotation.z = z
 	}
 	
-	public func setPosition(x: NSNumber, _ y: NSNumber) {
+	public func setPosition(_ x: NSNumber, _ y: NSNumber) {
 		self.set(position: CGPoint(x: CGFloat(x.floatValue), y: CGFloat(y.floatValue)))
 	}
 	
-	public func setZ(z: NSNumber) {
+	public func setZ(_ z: NSNumber) {
 		self.set(zPosition: z.floatValue)
 	}
 	
-	public func setSize(width: NSNumber, height: NSNumber) {
+	public func setSize(_ width: NSNumber, height: NSNumber) {
 		self.set(size: CGSize(width: CGFloat(width.floatValue),
 							 height: CGFloat(height.floatValue)))
 	}
 	
-	public func setZRotation(z: NSNumber) {
+	public func setZRotation(_ z: NSNumber) {
 		self.set(zRotation: z.floatValue)
 	}
 	
-	public func addBehavior(behavior: DKGBehavior) {
+	public func addBehavior(_ behavior: DKGBehavior) {
 		behavior.internalActor = self
 		self.behaviors.append(behavior)
 	}
