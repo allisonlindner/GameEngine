@@ -22,7 +22,7 @@ internal class DKRRenderer {
 		_nextIndex = 0
 	}
 
-	internal func startFrame(texture: MTLTexture) -> Int {
+	internal func startFrame(_ texture: MTLTexture) -> Int {
 		_cBuffer = DKRCore.instance.cQueue.commandBuffer()
 		_cBuffer.enqueue()
 		

@@ -91,7 +91,7 @@ public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 
 		if let scripts = DKSScriptManager.instance.scripts[self.id] {
 			for script in scripts {
-				script.call(function: "start")
+				script.call("start")
 			}
 		}
 	}
@@ -103,7 +103,7 @@ public class DKGActor: NSObject, DKGComponent, DKSActorExports {
 		
 		if let scripts = DKSScriptManager.instance.scripts[self.id] {
 			for script in scripts {
-				script.call(function: "update")
+				script.call("update")
 			}
 		}
 	}

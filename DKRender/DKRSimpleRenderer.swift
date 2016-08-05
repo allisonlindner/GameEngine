@@ -24,7 +24,7 @@ internal class DKRSimpleRenderer: DKRGraphRenderer {
 			return
 		}
 		
-		let id = DKRCore.instance.renderer.startFrame(texture: renderTexture)
+		let id = DKRCore.instance.renderer.startFrame(renderTexture)
 		ids.append(id)
 		for materiable in scene.materials {
 			let rcState = materiable.1.shader.rpState

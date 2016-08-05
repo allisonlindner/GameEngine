@@ -26,8 +26,8 @@ internal struct DKSScriptJS {
 		DKSScriptManager.instance.add(scriptJS: self, actor: actor)
 		self._context.setObject(unsafeBitCast(consoleLog, to: AnyObject.self), forKeyedSubscript: "consoleLog")
 		
-		evaluate(script: script)
-		evaluate(script: "var script\(self.name) = new \(self.name)();")
+		evaluate(script)
+		evaluate("var script\(self.name) = new \(self.name)();")
 	}
 	
 	internal init(name: String, script: URL, actor: DKGActor) {
@@ -42,15 +42,15 @@ internal struct DKSScriptJS {
 		self.init(name: name, script: fileString, actor: actor)
 	}
 	
-	private func evaluate(script: String) {
+	private func evaluate(_ script: String) {
 		self._context.evaluateScript(script)
 	}
 
-	private func evaluate(script: URL) {
+	private func evaluate(_ script: URL) {
 		do {
 			let fileString = try String(contentsOf: script)
 			
-			self.evaluate(script: fileString)
+			self.evaluate(fileString)
 		} catch {
 			NSLog("Script file error")
 		}
@@ -59,10 +59,10 @@ internal struct DKSScriptJS {
 	private func evaluate(filePath: String) {
 		let fileURL = URL(fileURLWithPath: filePath)
 		
-		self.evaluate(script: fileURL)
+		self.evaluate(fileURL)
 	}
 
-	internal func call(function: String, arguments: AnyObject...) {
+	internal func call(_ function: String, arguments: AnyObject...) {
 		let classVar = self._context.objectForKeyedSubscript("script\(self.name)")
 		_ = classVar?.invokeMethod(function, withArguments: arguments)
 	}
