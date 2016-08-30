@@ -7,38 +7,245 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EEC08041D6B79AD00F1FF19 /* DrakkenEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08021D6B79AD00F1FF19 /* DrakkenEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2E47936B1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
+		2E47936C1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
+		2E47936D1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
+		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
+		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
+		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
+		2E6CBD491D6CCC950096C912 /* dMaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */; };
+		2E6CBD4A1D6CCC950096C912 /* dMaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */; };
+		2E6CBD4B1D6CCC950096C912 /* dMaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */; };
+		2E6CBD4D1D6CF7E60096C912 /* dMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */; };
+		2E6CBD4E1D6CF7E60096C912 /* dMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */; };
+		2E6CBD4F1D6CF7E60096C912 /* dMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */; };
+		2E6CBD521D6D241B0096C912 /* dDiffuseDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */; };
+		2E6CBD531D6D241B0096C912 /* dDiffuseDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */; };
+		2E6CBD541D6D241B0096C912 /* dDiffuseDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */; };
+		2E6CBD561D6E3EFE0096C912 /* dShaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */; };
+		2E6CBD571D6E3EFE0096C912 /* dShaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */; };
+		2E6CBD581D6E3EFE0096C912 /* dShaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */; };
+		2E6CBD5A1D6E44190096C912 /* DrakkenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */; };
+		2E6CBD5B1D6E44190096C912 /* DrakkenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */; };
+		2E6CBD5C1D6E44190096C912 /* DrakkenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */; };
+		2E6CBD631D6F58F80096C912 /* dMeshRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD621D6F58F80096C912 /* dMeshRender.swift */; };
+		2E6CBD641D6F58F80096C912 /* dMeshRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD621D6F58F80096C912 /* dMeshRender.swift */; };
+		2E6CBD651D6F58F80096C912 /* dMeshRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD621D6F58F80096C912 /* dMeshRender.swift */; };
+		2E6CBD6C1D6F78F70096C912 /* dSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD6B1D6F78F70096C912 /* dSprite.swift */; };
+		2E6CBD6D1D6F78F70096C912 /* dSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD6B1D6F78F70096C912 /* dSprite.swift */; };
+		2E6CBD6E1D6F78F70096C912 /* dSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD6B1D6F78F70096C912 /* dSprite.swift */; };
+		2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD701D6F82FF0096C912 /* dQuad.swift */; };
+		2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD701D6F82FF0096C912 /* dQuad.swift */; };
+		2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD701D6F82FF0096C912 /* dQuad.swift */; };
+		2E6CBD791D70959A0096C912 /* dScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD781D70959A0096C912 /* dScene.swift */; };
+		2E6CBD7A1D70959A0096C912 /* dScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD781D70959A0096C912 /* dScene.swift */; };
+		2E6CBD7B1D70959A0096C912 /* dScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD781D70959A0096C912 /* dScene.swift */; };
+		2E6CBD7E1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */; };
+		2E6CBD7F1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */; };
+		2E6CBD801D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */; };
+		2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2EB1C41E1D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
+		2EB1C41F1D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
+		2EB1C4201D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
+		2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EEC08201D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC081E1D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EEC082D1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC082B1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2EEC08331D6B7A4800F1FF19 /* dCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08321D6B7A4800F1FF19 /* dCore.swift */; };
+		2EEC08341D6B7A4800F1FF19 /* dCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08321D6B7A4800F1FF19 /* dCore.swift */; };
+		2EEC08351D6B7A4800F1FF19 /* dCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08321D6B7A4800F1FF19 /* dCore.swift */; };
+		2EEC08381D6B7A5A00F1FF19 /* dShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08361D6B7A5A00F1FF19 /* dShader.swift */; };
+		2EEC08391D6B7A5A00F1FF19 /* dShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08361D6B7A5A00F1FF19 /* dShader.swift */; };
+		2EEC083A1D6B7A5A00F1FF19 /* dShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08361D6B7A5A00F1FF19 /* dShader.swift */; };
+		2EEC083B1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */; };
+		2EEC083C1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */; };
+		2EEC083D1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */; };
+		2EEC083F1D6B7A6A00F1FF19 /* dGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */; };
+		2EEC08401D6B7A6A00F1FF19 /* dGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */; };
+		2EEC08411D6B7A6A00F1FF19 /* dGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */; };
+		2EEC08461D6B7A9D00F1FF19 /* dBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */; };
+		2EEC08471D6B7A9D00F1FF19 /* dBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */; };
+		2EEC08481D6B7A9D00F1FF19 /* dBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */; };
+		2EEC08491D6B7A9D00F1FF19 /* dTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */; };
+		2EEC084A1D6B7A9D00F1FF19 /* dTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */; };
+		2EEC084B1D6B7A9D00F1FF19 /* dTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */; };
+		2EEC084E1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */; };
+		2EEC084F1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */; };
+		2EEC08501D6B7AA900F1FF19 /* dBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */; };
+		2EEC08511D6B7AA900F1FF19 /* dTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */; };
+		2EEC08521D6B7AA900F1FF19 /* dTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */; };
+		2EEC08531D6B7AA900F1FF19 /* dTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */; };
+		2EEC08561D6B7AD400F1FF19 /* dMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08551D6B7AD400F1FF19 /* dMath.swift */; };
+		2EEC08571D6B7AD400F1FF19 /* dMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08551D6B7AD400F1FF19 /* dMath.swift */; };
+		2EEC08581D6B7AD400F1FF19 /* dMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08551D6B7AD400F1FF19 /* dMath.swift */; };
+		2EEC085A1D6B7ADE00F1FF19 /* dTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */; };
+		2EEC085B1D6B7ADE00F1FF19 /* dTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */; };
+		2EEC085C1D6B7ADE00F1FF19 /* dTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */; };
+		2EEC085E1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */; };
+		2EEC085F1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */; };
+		2EEC08601D6B7AE900F1FF19 /* dTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */; };
+		2EEC08631D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
+		2EEC08641D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
+		2EEC08651D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
+		2EEC08681D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
+		2EEC08691D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
+		2EEC086A1D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
+		2EEC086D1D6B7B8B00F1FF19 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2EEC086E1D6B7B8B00F1FF19 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2EEC086F1D6B7B8B00F1FF19 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2EEC08731D6B7BAE00F1FF19 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC08711D6B7BAE00F1FF19 /* Metal.framework */; };
+		2EEC08741D6B7BAE00F1FF19 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC08721D6B7BAE00F1FF19 /* MetalKit.framework */; };
+		2EEC08771D6B7BBA00F1FF19 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC08751D6B7BBA00F1FF19 /* Metal.framework */; };
+		2EEC08781D6B7BBA00F1FF19 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC08761D6B7BBA00F1FF19 /* MetalKit.framework */; };
+		2EEC087B1D6B7BC200F1FF19 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC08791D6B7BC200F1FF19 /* Metal.framework */; };
+		2EEC087C1D6B7BC200F1FF19 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2EEC087A1D6B7BC200F1FF19 /* MetalKit.framework */; };
+		2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */; };
+		2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */; };
+		2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2EEC07FF1D6B79AD00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2EEC08021D6B79AD00F1FF19 /* DrakkenEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine.h; sourceTree = "<group>"; };
-		2EEC08031D6B79AD00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E47936A1D74BED0007C1DCF /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
+		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
+		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
+		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
+		2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dDiffuseDef.swift; sourceTree = "<group>"; };
+		2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dShaderManager.swift; sourceTree = "<group>"; };
+		2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrakkenEngine.swift; sourceTree = "<group>"; };
+		2E6CBD621D6F58F80096C912 /* dMeshRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshRender.swift; sourceTree = "<group>"; };
+		2E6CBD6B1D6F78F70096C912 /* dSprite.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSprite.swift; sourceTree = "<group>"; };
+		2E6CBD701D6F82FF0096C912 /* dQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dQuad.swift; sourceTree = "<group>"; };
+		2E6CBD781D70959A0096C912 /* dScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dScene.swift; sourceTree = "<group>"; };
+		2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSimpleSceneRender.swift; sourceTree = "<group>"; };
+		2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshManager.swift; sourceTree = "<group>"; };
+		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
+		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_macOS.h; sourceTree = "<group>"; };
+		2EEC08121D6B79DE00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EEC081C1D6B79EC00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EEC081E1D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_tvOS.h; sourceTree = "<group>"; };
+		2EEC081F1D6B79EC00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EEC08291D6B79FB00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2EEC082B1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_iOS.h; sourceTree = "<group>"; };
+		2EEC082C1D6B79FB00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EEC08321D6B7A4800F1FF19 /* dCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dCore.swift; sourceTree = "<group>"; };
+		2EEC08361D6B7A5A00F1FF19 /* dShader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dShader.swift; sourceTree = "<group>"; };
+		2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dRenderer.swift; sourceTree = "<group>"; };
+		2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dGameView.swift; sourceTree = "<group>"; };
+		2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dBuffers.swift; sourceTree = "<group>"; };
+		2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dTexture.swift; sourceTree = "<group>"; };
+		2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dBufferManager.swift; sourceTree = "<group>"; };
+		2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dTextureManager.swift; sourceTree = "<group>"; };
+		2EEC08551D6B7AD400F1FF19 /* dMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMath.swift; sourceTree = "<group>"; };
+		2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dTransform.swift; sourceTree = "<group>"; };
+		2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dTransformManager.swift; sourceTree = "<group>"; };
+		2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.metal; path = DiffuseMaterial.metal; sourceTree = "<group>"; };
+		2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SharedUniforms.swift; sourceTree = "<group>"; };
+		2EEC086C1D6B7B8B00F1FF19 /* dError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dError.swift; sourceTree = "<group>"; };
+		2EEC08711D6B7BAE00F1FF19 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		2EEC08721D6B7BAE00F1FF19 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		2EEC08751D6B7BBA00F1FF19 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
+		2EEC08761D6B7BBA00F1FF19 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS10.0.sdk/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
+		2EEC08791D6B7BC200F1FF19 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		2EEC087A1D6B7BC200F1FF19 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dRendererFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2EEC07FB1D6B79AD00F1FF19 /* Frameworks */ = {
+		2EEC080B1D6B79DE00F1FF19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEC087B1D6B7BC200F1FF19 /* Metal.framework in Frameworks */,
+				2EEC087C1D6B7BC200F1FF19 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08181D6B79EC00F1FF19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC08771D6B7BBA00F1FF19 /* Metal.framework in Frameworks */,
+				2EEC08781D6B7BBA00F1FF19 /* MetalKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08251D6B79FB00F1FF19 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC08731D6B7BAE00F1FF19 /* Metal.framework in Frameworks */,
+				2EEC08741D6B7BAE00F1FF19 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6CBD501D6D23FD0096C912 /* Materials */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */,
+			);
+			name = Materials;
+			sourceTree = "<group>";
+		};
+		2E6CBD6A1D6F74050096C912 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CBD621D6F58F80096C912 /* dMeshRender.swift */,
+				2E6CBD6B1D6F78F70096C912 /* dSprite.swift */,
+			);
+			name = Components;
+			sourceTree = "<group>";
+		};
+		2E6CBD6F1D6F82ED0096C912 /* Meshes */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CBD701D6F82FF0096C912 /* dQuad.swift */,
+			);
+			name = Meshes;
+			sourceTree = "<group>";
+		};
+		2E6CBD7C1D70A0650096C912 /* Renders */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */,
+			);
+			name = Renders;
+			sourceTree = "<group>";
+		};
+		2EB1C41C1D6BAE94004285D2 /* Engine */ = {
+			isa = PBXGroup;
+			children = (
+				2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */,
+				2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */,
+				2E61F66E1D70CE7900237241 /* dMesh.swift */,
+				2E6CBD781D70959A0096C912 /* dScene.swift */,
+				2E6CBD7C1D70A0650096C912 /* Renders */,
+			);
+			name = Engine;
+			sourceTree = "<group>";
+		};
 		2EEC07F51D6B79AD00F1FF19 = {
 			isa = PBXGroup;
 			children = (
 				2EEC08011D6B79AD00F1FF19 /* DrakkenEngine */,
+				2EEC08101D6B79DE00F1FF19 /* DrakkenEngine_macOS */,
+				2EEC081D1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */,
+				2EEC082A1D6B79FB00F1FF19 /* DrakkenEngine_iOS */,
 				2EEC08001D6B79AD00F1FF19 /* Products */,
+				2EEC08701D6B7BAE00F1FF19 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		2EEC08001D6B79AD00F1FF19 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2EEC07FF1D6B79AD00F1FF19 /* DrakkenEngine.framework */,
+				2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */,
+				2EEC081C1D6B79EC00F1FF19 /* DrakkenEngine.framework */,
+				2EEC08291D6B79FB00F1FF19 /* DrakkenEngine.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -46,42 +253,220 @@
 		2EEC08011D6B79AD00F1FF19 /* DrakkenEngine */ = {
 			isa = PBXGroup;
 			children = (
-				2EEC08021D6B79AD00F1FF19 /* DrakkenEngine.h */,
-				2EEC08031D6B79AD00F1FF19 /* Info.plist */,
+				2E47936A1D74BED0007C1DCF /* Assets */,
+				2EEC08541D6B7AC900F1FF19 /* Math */,
+				2EEC08431D6B7A8500F1FF19 /* Data */,
+				2EEC08421D6B7A7C00F1FF19 /* Managers */,
+				2EEC08311D6B7A3800F1FF19 /* Core */,
+				2EEC087D1D6B7C2D00F1FF19 /* Core Factories */,
+				2EB1C41C1D6BAE94004285D2 /* Engine */,
+				2E6CBD6A1D6F74050096C912 /* Components */,
+				2E6CBD501D6D23FD0096C912 /* Materials */,
+				2EEC08611D6B7B2800F1FF19 /* Shaders */,
+				2EEC08661D6B7B5300F1FF19 /* Uniforms */,
+				2EEC086B1D6B7B7C00F1FF19 /* Errors */,
 			);
 			path = DrakkenEngine;
+			sourceTree = "<group>";
+		};
+		2EEC08101D6B79DE00F1FF19 /* DrakkenEngine_macOS */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */,
+				2EEC08121D6B79DE00F1FF19 /* Info.plist */,
+			);
+			path = DrakkenEngine_macOS;
+			sourceTree = "<group>";
+		};
+		2EEC081D1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC081E1D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h */,
+				2EEC081F1D6B79EC00F1FF19 /* Info.plist */,
+			);
+			path = DrakkenEngine_tvOS;
+			sourceTree = "<group>";
+		};
+		2EEC082A1D6B79FB00F1FF19 /* DrakkenEngine_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC082B1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h */,
+				2EEC082C1D6B79FB00F1FF19 /* Info.plist */,
+			);
+			path = DrakkenEngine_iOS;
+			sourceTree = "<group>";
+		};
+		2EEC08311D6B7A3800F1FF19 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */,
+				2EEC08321D6B7A4800F1FF19 /* dCore.swift */,
+				2EEC08361D6B7A5A00F1FF19 /* dShader.swift */,
+				2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */,
+				2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		2EEC08421D6B7A7C00F1FF19 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */,
+				2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */,
+				2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */,
+				2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */,
+				2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */,
+				2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
+		2EEC08431D6B7A8500F1FF19 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */,
+				2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */,
+				2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */,
+				2E6CBD6F1D6F82ED0096C912 /* Meshes */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		2EEC08541D6B7AC900F1FF19 /* Math */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08551D6B7AD400F1FF19 /* dMath.swift */,
+			);
+			name = Math;
+			sourceTree = "<group>";
+		};
+		2EEC08611D6B7B2800F1FF19 /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */,
+			);
+			name = Shaders;
+			sourceTree = "<group>";
+		};
+		2EEC08661D6B7B5300F1FF19 /* Uniforms */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */,
+			);
+			name = Uniforms;
+			sourceTree = "<group>";
+		};
+		2EEC086B1D6B7B7C00F1FF19 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC086C1D6B7B8B00F1FF19 /* dError.swift */,
+			);
+			name = Errors;
+			sourceTree = "<group>";
+		};
+		2EEC08701D6B7BAE00F1FF19 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC08791D6B7BC200F1FF19 /* Metal.framework */,
+				2EEC087A1D6B7BC200F1FF19 /* MetalKit.framework */,
+				2EEC08751D6B7BBA00F1FF19 /* Metal.framework */,
+				2EEC08761D6B7BBA00F1FF19 /* MetalKit.framework */,
+				2EEC08711D6B7BAE00F1FF19 /* Metal.framework */,
+				2EEC08721D6B7BAE00F1FF19 /* MetalKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2EEC087D1D6B7C2D00F1FF19 /* Core Factories */ = {
+			isa = PBXGroup;
+			children = (
+				2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */,
+			);
+			name = "Core Factories";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		2EEC07FC1D6B79AD00F1FF19 /* Headers */ = {
+		2EEC080C1D6B79DE00F1FF19 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EEC08041D6B79AD00F1FF19 /* DrakkenEngine.h in Headers */,
+				2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08191D6B79EC00F1FF19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC08201D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08261D6B79FB00F1FF19 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC082D1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		2EEC07FE1D6B79AD00F1FF19 /* DrakkenEngine */ = {
+		2EEC080E1D6B79DE00F1FF19 /* DrakkenEngine_macOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 2EEC08071D6B79AD00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine" */;
+			buildConfigurationList = 2EEC08141D6B79DE00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_macOS" */;
 			buildPhases = (
-				2EEC07FA1D6B79AD00F1FF19 /* Sources */,
-				2EEC07FB1D6B79AD00F1FF19 /* Frameworks */,
-				2EEC07FC1D6B79AD00F1FF19 /* Headers */,
-				2EEC07FD1D6B79AD00F1FF19 /* Resources */,
+				2EEC080A1D6B79DE00F1FF19 /* Sources */,
+				2EEC080B1D6B79DE00F1FF19 /* Frameworks */,
+				2EEC080C1D6B79DE00F1FF19 /* Headers */,
+				2EEC080D1D6B79DE00F1FF19 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = DrakkenEngine;
-			productName = DrakkenEngine;
-			productReference = 2EEC07FF1D6B79AD00F1FF19 /* DrakkenEngine.framework */;
+			name = DrakkenEngine_macOS;
+			productName = DrakkenEngine_macOS;
+			productReference = 2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2EEC081B1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EEC08211D6B79EC00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_tvOS" */;
+			buildPhases = (
+				2EEC08171D6B79EC00F1FF19 /* Sources */,
+				2EEC08181D6B79EC00F1FF19 /* Frameworks */,
+				2EEC08191D6B79EC00F1FF19 /* Headers */,
+				2EEC081A1D6B79EC00F1FF19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrakkenEngine_tvOS;
+			productName = DrakkenEngine_tvOS;
+			productReference = 2EEC081C1D6B79EC00F1FF19 /* DrakkenEngine.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2EEC08281D6B79FB00F1FF19 /* DrakkenEngine_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2EEC082E1D6B79FB00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_iOS" */;
+			buildPhases = (
+				2EEC08241D6B79FB00F1FF19 /* Sources */,
+				2EEC08251D6B79FB00F1FF19 /* Frameworks */,
+				2EEC08261D6B79FB00F1FF19 /* Headers */,
+				2EEC08271D6B79FB00F1FF19 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrakkenEngine_iOS;
+			productName = DrakkenEngine_iOS;
+			productReference = 2EEC08291D6B79FB00F1FF19 /* DrakkenEngine.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -93,9 +478,22 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Drakken Studio";
 				TargetAttributes = {
-					2EEC07FE1D6B79AD00F1FF19 = {
+					2EEC080E1D6B79DE00F1FF19 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 62TU375XJE;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					2EEC081B1D6B79EC00F1FF19 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 62TU375XJE;
+						LastSwiftMigration = 0800;
+						ProvisioningStyle = Automatic;
+					};
+					2EEC08281D6B79FB00F1FF19 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 62TU375XJE;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -112,26 +510,143 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				2EEC07FE1D6B79AD00F1FF19 /* DrakkenEngine */,
+				2EEC080E1D6B79DE00F1FF19 /* DrakkenEngine_macOS */,
+				2EEC081B1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */,
+				2EEC08281D6B79FB00F1FF19 /* DrakkenEngine_iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2EEC07FD1D6B79AD00F1FF19 /* Resources */ = {
+		2EEC080D1D6B79DE00F1FF19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E47936B1D74BED0007C1DCF /* Assets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC081A1D6B79EC00F1FF19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E47936C1D74BED0007C1DCF /* Assets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08271D6B79FB00F1FF19 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E47936D1D74BED0007C1DCF /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2EEC07FA1D6B79AD00F1FF19 /* Sources */ = {
+		2EEC080A1D6B79DE00F1FF19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EEC08381D6B7A5A00F1FF19 /* dShader.swift in Sources */,
+				2EEC08491D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
+				2EB1C41E1D6BAEAF004285D2 /* dComponent.swift in Sources */,
+				2E6CBD7E1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E6CBD6C1D6F78F70096C912 /* dSprite.swift in Sources */,
+				2EEC08681D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
+				2EEC084E1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,
+				2E6CBD631D6F58F80096C912 /* dMeshRender.swift in Sources */,
+				2E6CBD561D6E3EFE0096C912 /* dShaderManager.swift in Sources */,
+				2EEC08631D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
+				2EEC08461D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
+				2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */,
+				2EEC083B1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
+				2EEC085A1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EEC083F1D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
+				2EEC08331D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EEC085E1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
+				2E6CBD791D70959A0096C912 /* dScene.swift in Sources */,
+				2E6CBD5A1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
+				2E6CBD521D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
+				2EEC08561D6B7AD400F1FF19 /* dMath.swift in Sources */,
+				2EEC08511D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EEC086D1D6B7B8B00F1FF19 /* dError.swift in Sources */,
+				2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
+				2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */,
+				2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2E6CBD491D6CCC950096C912 /* dMaterialManager.swift in Sources */,
+				2E6CBD4D1D6CF7E60096C912 /* dMaterial.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08171D6B79EC00F1FF19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC08391D6B7A5A00F1FF19 /* dShader.swift in Sources */,
+				2EEC084A1D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
+				2EB1C41F1D6BAEAF004285D2 /* dComponent.swift in Sources */,
+				2E6CBD7F1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E6CBD6D1D6F78F70096C912 /* dSprite.swift in Sources */,
+				2EEC08691D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
+				2EEC084F1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,
+				2E6CBD641D6F58F80096C912 /* dMeshRender.swift in Sources */,
+				2E6CBD571D6E3EFE0096C912 /* dShaderManager.swift in Sources */,
+				2EEC08641D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
+				2EEC08471D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
+				2E61F6701D70CE7900237241 /* dMesh.swift in Sources */,
+				2EEC083C1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
+				2EEC085B1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EEC08401D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
+				2EEC08341D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EEC085F1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
+				2E6CBD7A1D70959A0096C912 /* dScene.swift in Sources */,
+				2E6CBD5B1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
+				2E6CBD531D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
+				2EEC08571D6B7AD400F1FF19 /* dMath.swift in Sources */,
+				2EEC08521D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EEC086E1D6B7B8B00F1FF19 /* dError.swift in Sources */,
+				2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
+				2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */,
+				2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2E6CBD4A1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
+				2E6CBD4E1D6CF7E60096C912 /* dMaterial.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EEC08241D6B79FB00F1FF19 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2EEC083A1D6B7A5A00F1FF19 /* dShader.swift in Sources */,
+				2EEC084B1D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
+				2EB1C4201D6BAEAF004285D2 /* dComponent.swift in Sources */,
+				2E6CBD801D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E6CBD6E1D6F78F70096C912 /* dSprite.swift in Sources */,
+				2EEC086A1D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
+				2EEC08501D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,
+				2E6CBD651D6F58F80096C912 /* dMeshRender.swift in Sources */,
+				2E6CBD581D6E3EFE0096C912 /* dShaderManager.swift in Sources */,
+				2EEC08651D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
+				2EEC08481D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
+				2E61F6711D70CE7900237241 /* dMesh.swift in Sources */,
+				2EEC083D1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
+				2EEC085C1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EEC08411D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
+				2EEC08351D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EEC08601D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
+				2E6CBD7B1D70959A0096C912 /* dScene.swift in Sources */,
+				2E6CBD5C1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
+				2E6CBD541D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
+				2EEC08581D6B7AD400F1FF19 /* dMath.swift in Sources */,
+				2EEC08531D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EEC086F1D6B7B8B00F1FF19 /* dError.swift in Sources */,
+				2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
+				2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */,
+				2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2E6CBD4B1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
+				2E6CBD4F1D6CF7E60096C912 /* dMaterial.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,9 +749,10 @@
 			};
 			name = Release;
 		};
-		2EEC08081D6B79AD00F1FF19 /* Debug */ = {
+		2EEC08151D6B79DE00F1FF19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -245,19 +761,22 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DrakkenEngine/Info.plist;
+				INFOPLIST_FILE = DrakkenEngine_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DrakkenEngine;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
-		2EEC08091D6B79AD00F1FF19 /* Release */ = {
+		2EEC08161D6B79DE00F1FF19 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
@@ -266,13 +785,112 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = DrakkenEngine/Info.plist;
+				INFOPLIST_FILE = DrakkenEngine_macOS/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = DrakkenEngine;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		2EEC08221D6B79EC00F1FF19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrakkenEngine_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = DrakkenEngine;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+			};
+			name = Debug;
+		};
+		2EEC08231D6B79EC00F1FF19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrakkenEngine_tvOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = DrakkenEngine;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2EEC082F1D6B79FB00F1FF19 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrakkenEngine_iOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = DrakkenEngine;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2EEC08301D6B79FB00F1FF19 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = DrakkenEngine_iOS/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = DrakkenEngine;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
@@ -286,15 +904,34 @@
 				2EEC08061D6B79AD00F1FF19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = Debug;
 		};
-		2EEC08071D6B79AD00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine" */ = {
+		2EEC08141D6B79DE00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				2EEC08081D6B79AD00F1FF19 /* Debug */,
-				2EEC08091D6B79AD00F1FF19 /* Release */,
+				2EEC08151D6B79DE00F1FF19 /* Debug */,
+				2EEC08161D6B79DE00F1FF19 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2EEC08211D6B79EC00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EEC08221D6B79EC00F1FF19 /* Debug */,
+				2EEC08231D6B79EC00F1FF19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		2EEC082E1D6B79FB00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2EEC082F1D6B79FB00F1FF19 /* Debug */,
+				2EEC08301D6B79FB00F1FF19 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};

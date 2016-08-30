@@ -4,15 +4,40 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>DrakkenEngine.xcscheme</key>
+		<key>DrakkenEngine_iOS.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>0</integer>
+			<integer>3</integer>
+		</dict>
+		<key>DrakkenEngine_macOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>DrakkenEngine_tvOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>2EEC07FE1D6B79AD00F1FF19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EEC080E1D6B79DE00F1FF19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EEC081B1D6B79EC00F1FF19</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>2EEC08281D6B79FB00F1FF19</key>
 		<dict>
 			<key>primary</key>
 			<true/>
