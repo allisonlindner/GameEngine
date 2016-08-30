@@ -27,6 +27,14 @@ public class dMaterialDef {
 		let materialTexture = dMaterialTexture(texture: data, index: index)
 		self.textures[name] = materialTexture
 	}
+	
+	internal func get(texture name: String) -> dTexture? {
+		return self.textures[name]?.texture
+	}
+	
+	internal func get(buffer name: String) -> dBufferable? {
+		return self.buffers[name]
+	}
 }
 
 internal class dMaterial {

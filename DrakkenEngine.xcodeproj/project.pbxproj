@@ -46,6 +46,9 @@
 		2EB1C41E1D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
 		2EB1C41F1D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
 		2EB1C4201D6BAEAF004285D2 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
+		2EC7F0B01D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
+		2EC7F0B11D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
+		2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
 		2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEC08201D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC081E1D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEC082D1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC082B1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -116,6 +119,7 @@
 		2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSimpleSceneRender.swift; sourceTree = "<group>"; };
 		2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshManager.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
+		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
 		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_macOS.h; sourceTree = "<group>"; };
 		2EEC08121D6B79DE00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				2E6CBD701D6F82FF0096C912 /* dQuad.swift */,
+				2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */,
 			);
 			name = Meshes;
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EC7F0B01D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD491D6CCC950096C912 /* dMaterialManager.swift in Sources */,
 				2E6CBD4D1D6CF7E60096C912 /* dMaterial.swift in Sources */,
 			);
@@ -602,6 +608,7 @@
 				2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EC7F0B11D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD4A1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
 				2E6CBD4E1D6CF7E60096C912 /* dMaterial.swift in Sources */,
 			);
@@ -637,6 +644,7 @@
 				2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD4B1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
 				2E6CBD4F1D6CF7E60096C912 /* dMaterial.swift in Sources */,
 			);

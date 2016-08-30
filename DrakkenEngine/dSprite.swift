@@ -9,8 +9,11 @@
 
 public class dSprite : dComponent {
 	internal var meshRender: dMeshRender!
+	internal var spriteID: Int32
 	
-	public init(mesh name: String = "quad") {
+	public init(spriteID: Int32 = 0, mesh name: String = "spritequad") {
+		self.spriteID = spriteID
+		
 		super.init()
 		
 		let meshRender = dMeshRender()
@@ -21,5 +24,9 @@ public class dSprite : dComponent {
 	
 	public func set(material: String) {
 		self.meshRender.material = material
+	}
+	
+	public func set(spriteID: Int32) {
+		self.spriteID = spriteID
 	}
 }

@@ -122,7 +122,9 @@ internal class dBuffer<T>: dBufferable {
 		self._data[atIndex] = data
 		
 		let pointer = self.buffer.contents()
-		memcpy(pointer + (atIndex * MemoryLayout<T>.size), [data], MemoryLayout<T>.size)
+		
+		let size = MemoryLayout<T>.size
+		memcpy(pointer + (atIndex * size), [data], size)
 	}
 	
 	internal func extendTo(_ size: Int) {

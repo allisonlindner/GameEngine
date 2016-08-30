@@ -73,6 +73,7 @@ public class DrakkenEngine {
 	
 	private static func InitInternalMeshs() {
 		DrakkenEngine.Register(mesh: dQuad(name: "quad"))
+		DrakkenEngine.Register(mesh: dSpriteQuad(name: "spritequad"))
 	}
 	
 	private static func InitInternalMaterial() {
