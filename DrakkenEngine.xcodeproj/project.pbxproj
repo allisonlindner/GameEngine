@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E47936B1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
-		2E47936C1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
-		2E47936D1D74BED0007C1DCF /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E47936A1D74BED0007C1DCF /* Assets */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -106,7 +103,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E47936A1D74BED0007C1DCF /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
 		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
@@ -253,7 +249,6 @@
 		2EEC08011D6B79AD00F1FF19 /* DrakkenEngine */ = {
 			isa = PBXGroup;
 			children = (
-				2E47936A1D74BED0007C1DCF /* Assets */,
 				2EEC08541D6B7AC900F1FF19 /* Math */,
 				2EEC08431D6B7A8500F1FF19 /* Data */,
 				2EEC08421D6B7A7C00F1FF19 /* Managers */,
@@ -522,7 +517,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E47936B1D74BED0007C1DCF /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,7 +524,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E47936C1D74BED0007C1DCF /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -538,7 +531,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E47936D1D74BED0007C1DCF /* Assets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
