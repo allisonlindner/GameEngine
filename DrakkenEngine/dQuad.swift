@@ -13,7 +13,7 @@ public class dQuad: dMeshDef {
 	private var _normalBuffer: dBuffer<float4>
 	private var _texCoordBuffer: dBuffer<float2>
 	private var _indicesBuffer: dBuffer<Int32>
-	private var _verticesCountBuffer: dBuffer<UInt>
+	private var _verticesCountBuffer: dBuffer<Int32>
 	
 	private var _indicesCount: Int = 0
 	
@@ -43,7 +43,7 @@ public class dQuad: dMeshDef {
 		//VertexBuffers
 		_verticesBuffer = dBuffer(data: vertices, index: 2)
 		_normalBuffer = dBuffer(data: normals, index: 3)
-		_verticesCountBuffer = dBuffer(data: UInt(vertices.count), index: 4)
+		_verticesCountBuffer = dBuffer(data: Int32(vertices.count), index: 4)
 		_texCoordBuffer = dBuffer(data: texCoords, index: 5)
 		
 		//Indices

@@ -12,7 +12,7 @@ public class dSpriteQuad: dQuad {
 	private var _verticesBuffer: dBuffer<float4>
 	private var _normalBuffer: dBuffer<float4>
 	private var _indicesBuffer: dBuffer<Int32>
-	private var _verticesCountBuffer: dBuffer<UInt>
+	private var _verticesCountBuffer: dBuffer<Int32>
 	
 	private var _indicesCount: Int = 0
 	
@@ -38,7 +38,7 @@ public class dSpriteQuad: dQuad {
 		//VertexBuffers
 		_verticesBuffer = dBuffer(data: vertices, index: 2)
 		_normalBuffer = dBuffer(data: normals, index: 3)
-		_verticesCountBuffer = dBuffer(data: UInt(vertices.count), index: 4)
+		_verticesCountBuffer = dBuffer(data: Int32(vertices.count), index: 4)
 		
 		//Indices
 		_indicesBuffer = dBuffer(data: indices)

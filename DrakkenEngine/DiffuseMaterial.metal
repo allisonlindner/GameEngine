@@ -33,9 +33,9 @@ vertex VertexOut diffuse_vertex (constant		CameraUniform	&uScene			[[ buffer(0) 
 								 constant		float4x4			*uModelMatrix	[[ buffer(1) ]] ,
 								 constant		float4			*pPosition		[[ buffer(2) ]] ,
 								 constant		float4			*pNormal			[[ buffer(3) ]] ,
-								 constant		uint				&pVerticesCount	[[ buffer(4)	 ]] ,
+								 constant		int				&pVerticesCount	[[ buffer(4)	 ]] ,
 								 constant		float2			*pTexCoord		[[ buffer(5) ]] ,
-								 constant		uint				*pTexCoordIndex	[[ buffer(6)	 ]] ,
+								 constant		int				*pTexCoordIndex	[[ buffer(6)	 ]] ,
 												uint				vid				[[ vertex_id ]] ,
 												uint				iid				[[ instance_id ]]) {
 	VertexOut out;
