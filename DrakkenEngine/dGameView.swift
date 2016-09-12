@@ -90,7 +90,7 @@ open class dGameView: MTKView {
 			}
 		#elseif os(OSX)
 			if #available(OSX 10.12, *) {
-				self.colorPixelFormat = .bgra8Unorm_sRGB
+				self.colorPixelFormat = .bgra8Unorm_srgb
 			} else {
 				self.colorPixelFormat = .bgra8Unorm
 			}

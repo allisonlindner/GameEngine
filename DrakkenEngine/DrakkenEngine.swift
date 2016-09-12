@@ -16,6 +16,7 @@ public class DrakkenEngine {
 	private static var _toBeRegisteredShaders: [dShaderRegister] = []
 	private static var _toBeRegisteredMeshs: [dMeshDef] = []
 	private static var _toBeRegisteredMaterials: [dMaterialDef] = []
+	private static var _toBeRegisteredSprites: [dSpriteDef] = []
 	
 	public static func Init() {
 		DrakkenEngine.InitInternalShaders()
@@ -23,6 +24,9 @@ public class DrakkenEngine {
 		DrakkenEngine.InitInternalMaterial()
 		
 		DrakkenEngine.SetupShaders()
+		
+		DrakkenEngine.SetupSprites()
+		
 		DrakkenEngine.SetupMeshs()
 		DrakkenEngine.SetupMaterials()
 	}
@@ -43,6 +47,10 @@ public class DrakkenEngine {
 		_toBeRegisteredMaterials.append(def)
 	}
 	
+	public static func Register(sprite def: dSpriteDef) {
+		_toBeRegisteredSprites.append(def)
+	}
+	
 	private static func SetupShaders() {
 		for shaderToRegister in DrakkenEngine._toBeRegisteredShaders {
 			dCore.instance.shManager.register(shader: shaderToRegister.name,
@@ -60,8 +68,14 @@ public class DrakkenEngine {
 	
 	private static func SetupMaterials() {
 		for materialToRegister in DrakkenEngine._toBeRegisteredMaterials {
-			let mesh = dMaterial(materialDef: materialToRegister)
-			mesh.build()
+			let material = dMaterial(materialDef: materialToRegister)
+			material.build()
+		}
+	}
+	
+	private static func SetupSprites() {
+		for spriteToRegister in DrakkenEngine._toBeRegisteredSprites {
+			_ = dCore.instance.spManager.create(sprite: spriteToRegister)
 		}
 	}
 	

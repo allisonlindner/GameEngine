@@ -8,14 +8,14 @@ import Metal
 internal class dRendererFactory {
 
 	private func buildDepthTexture(_ texture: MTLTexture) -> MTLTexture {
-		let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(with: .depth32Float_Stencil8,
+		let textureDescriptor = MTLTextureDescriptor.texture2DDescriptor(pixelFormat: .depth32Float_stencil8,
 				width: texture.width,
 				height: texture.height,
 				mipmapped: false)
 		textureDescriptor.usage = .renderTarget
 		textureDescriptor.storageMode = .private
 		
-		let depthTexture = dCore.instance.device.newTexture(with: textureDescriptor)
+		let depthTexture = dCore.instance.device.makeTexture(descriptor: textureDescriptor)
 
 		return depthTexture
 	}
@@ -60,7 +60,7 @@ internal class dRendererFactory {
 	}
 
 	internal func buildDepthStencil() -> MTLDepthStencilState {
-		return dCore.instance.device.newDepthStencilState(with: buildDepthStencilDescriptor())
+		return dCore.instance.device.makeDepthStencilState(descriptor: buildDepthStencilDescriptor())
 	}
 	
 	internal func buildSamplerState() -> MTLSamplerState {
@@ -74,6 +74,6 @@ internal class dRendererFactory {
 		samplerDescriptor.lodMinClamp = 0
 		samplerDescriptor.lodMaxClamp = FLT_MAX
 		
-		return dCore.instance.device.newSamplerState(with: samplerDescriptor)
+		return dCore.instance.device.makeSamplerState(descriptor: samplerDescriptor)
 	}
 }

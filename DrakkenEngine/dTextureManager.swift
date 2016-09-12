@@ -52,14 +52,14 @@ internal class dTextureManager {
 	
 	internal func createRenderTarget(_ name: String, width: Int, height: Int) -> Int {
 		let textureDesc = MTLTextureDescriptor.texture2DDescriptor(
-			with: .bgra8Unorm,
+			pixelFormat: .bgra8Unorm,
 			width: width,
 			height: height,
 			mipmapped: false
 		)
 		textureDesc.usage.insert(.renderTarget)
 		
-		let texture = dCore.instance.device.newTexture(with: textureDesc)
+		let texture = dCore.instance.device.makeTexture(descriptor: textureDesc)
 		
 		guard let indexed = _namedRenderTargetTextures[name] else {
 			let _index = _nextRenderTargetIndex

@@ -61,7 +61,7 @@ public class dQuad: dMeshDef {
 	}
 	
 	internal func set(texCoords: [float2]) {
-		_texCoordBuffer = dBuffer(data: texCoords, index: 4)
+		_texCoordBuffer = dBuffer(data: texCoords, index: 5)
 		self.buffers["texcoords"] = _texCoordBuffer
 	}
 }

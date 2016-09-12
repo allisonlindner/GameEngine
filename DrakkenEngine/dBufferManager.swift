@@ -13,8 +13,8 @@ internal class dBufferManager {
 	private var _nextIndex: Int = 0
 	
 	internal func createBuffer<T>(_ data: [T], index: Int = -1, offset: Int = 0, id: Int? = nil) -> Int {
-		let buffer = dCore.instance.device.newBuffer(
-													withBytes: data,
+		let buffer = dCore.instance.device.makeBuffer(
+													bytes: data,
 													length: (data.count + 1) * MemoryLayout<T>.size,
 													options: MTLResourceOptions()
 												)

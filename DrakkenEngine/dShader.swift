@@ -36,20 +36,20 @@ public class dShader {
 			self.ffName = fragmentName
 		}
 		
-		self._vertexFunction = dCore.instance.library.newFunction(withName: vfName)
+		self._vertexFunction = dCore.instance.library.makeFunction(name: vfName)
 		
 		if self._vertexFunction == nil {
 			throw dShaderNotFoundError(name: vfName) as Error
 		}
 		
-		self._fragmentFunction = dCore.instance.library.newFunction(withName: ffName)
+		self._fragmentFunction = dCore.instance.library.makeFunction(name: ffName)
 		
 		if self._fragmentFunction == nil {
 			throw dShaderNotFoundError(name: ffName) as Error
 		}
 		
 		do {
-			rpState = try dCore.instance.device.newRenderPipelineState(with: setupRenderPipelineDescriptor())
+			rpState = try dCore.instance.device.makeRenderPipelineState(descriptor: setupRenderPipelineDescriptor())
 		}
 		catch {
 			assert(false, "Shader with name: \(name) fail on creation!!")
@@ -67,7 +67,7 @@ public class dShader {
 			}
 		#elseif os(OSX)
 			if #available(OSX 10.12, *) {
-				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm_sRGB
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm_srgb
 			} else {
 				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
 			}
@@ -86,8 +86,8 @@ public class dShader {
 		rpDescriptor.colorAttachments[0].sourceRGBBlendFactor = MTLBlendFactor.sourceAlpha
 		rpDescriptor.colorAttachments[0].destinationRGBBlendFactor = MTLBlendFactor.oneMinusSourceAlpha
 		
-		rpDescriptor.depthAttachmentPixelFormat = .depth32Float_Stencil8
-		rpDescriptor.stencilAttachmentPixelFormat = .depth32Float_Stencil8
+		rpDescriptor.depthAttachmentPixelFormat = .depth32Float_stencil8
+		rpDescriptor.stencilAttachmentPixelFormat = .depth32Float_stencil8
 		
 		rpDescriptor.vertexFunction = self._vertexFunction
 		rpDescriptor.fragmentFunction = self._fragmentFunction

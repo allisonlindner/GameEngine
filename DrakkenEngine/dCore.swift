@@ -25,10 +25,12 @@ public class dCore {
 	internal var mtManager: dMaterialManager
 	internal var shManager: dShaderManager
 	internal var mshManager: dMeshManager
+	internal var anManager: dAnimationManager
+	internal var spManager: dSpriteManager
 	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
-		self.cQueue = device.newCommandQueue()
+		self.cQueue = device.makeCommandQueue()
 		
 		self.bManager = dBufferManager()
 		self.tManager = dTextureManager()
@@ -36,6 +38,8 @@ public class dCore {
 		self.mtManager = dMaterialManager()
 		self.shManager = dShaderManager()
 		self.mshManager = dMeshManager()
+		self.anManager = dAnimationManager()
+		self.spManager = dSpriteManager()
 
 		self.renderer = dRenderer()
 		
@@ -44,7 +48,7 @@ public class dCore {
 		if let path = bundle!.path(forResource: "default", ofType: "metallib") {
 			do
 			{
-				library = try self.device.newLibrary(withFile: path)
+				library = try self.device.makeLibrary(filepath: path)
 			}
 			catch MTLLibraryErrorDomain.internal
 			{

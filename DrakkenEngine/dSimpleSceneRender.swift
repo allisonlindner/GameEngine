@@ -142,6 +142,6 @@ internal class dSimpleSceneRender {
 	}
 	
 	private func process(sprite: dSprite, materialMeshBind: dMaterialMeshBind) {
-		materialMeshBind.instanceTexCoordIDs.append(sprite.spriteID)
+		materialMeshBind.instanceTexCoordIDs.append(sprite.frame)
 	}
 }

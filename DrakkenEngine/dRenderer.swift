@@ -18,7 +18,7 @@ internal class dRenderer {
 	private var _nextIndex: Int = 0
 
 	internal func startFrame(_ texture: MTLTexture) -> Int {
-		_cBuffer = dCore.instance.cQueue.commandBuffer()
+		_cBuffer = dCore.instance.cQueue.makeCommandBuffer()
 		_cBuffer.enqueue()
 		
 		if _rFactory == nil {
@@ -26,7 +26,7 @@ internal class dRenderer {
 		}
 		
 		let index = _nextIndex
-		let encoder = _cBuffer.renderCommandEncoder(with: _rFactory!.buildRenderPassDescriptor(texture))
+		let encoder = _cBuffer.makeRenderCommandEncoder(descriptor: _rFactory!.buildRenderPassDescriptor(texture))
 		encoder.setDepthStencilState(_rFactory?.buildDepthStencil())
 		encoder.setFrontFacing(.counterClockwise)
 		encoder.setCullMode(.back)
@@ -102,9 +102,9 @@ internal class dRenderer {
 		self.bind(modelMatrixBuffer, encoderID: encoderID)
 		
 		if let encoder = _rcEncoders[encoderID] {
-			encoder.drawIndexedPrimitives(.triangle,
+			encoder.drawIndexedPrimitives(type: .triangle,
 			                              indexCount: mesh.indicesCount!,
-			                              indexType: .uInt32,
+			                              indexType: .uint32,
 			                              indexBuffer: mesh.indicesBuffer!.buffer,
 			                              indexBufferOffset: 0,
 			                              instanceCount: modelMatrixBuffer.count)
