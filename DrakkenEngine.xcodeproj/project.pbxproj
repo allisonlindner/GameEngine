@@ -58,9 +58,6 @@
 		2ED7C77D1D78881500E65237 /* dAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C77C1D78881500E65237 /* dAnimator.swift */; };
 		2ED7C77E1D78881500E65237 /* dAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C77C1D78881500E65237 /* dAnimator.swift */; };
 		2ED7C77F1D78881500E65237 /* dAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C77C1D78881500E65237 /* dAnimator.swift */; };
-		2ED7C7811D788A9700E65237 /* dAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7801D788A9700E65237 /* dAnimationManager.swift */; };
-		2ED7C7821D788A9700E65237 /* dAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7801D788A9700E65237 /* dAnimationManager.swift */; };
-		2ED7C7831D788A9700E65237 /* dAnimationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7801D788A9700E65237 /* dAnimationManager.swift */; };
 		2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
@@ -138,7 +135,6 @@
 		2ED7C7741D78868400E65237 /* dSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSceneController.swift; sourceTree = "<group>"; };
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
-		2ED7C7801D788A9700E65237 /* dAnimationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimationManager.swift; sourceTree = "<group>"; };
 		2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteManager.swift; sourceTree = "<group>"; };
 		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_macOS.h; sourceTree = "<group>"; };
@@ -349,7 +345,6 @@
 				2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */,
 				2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */,
 				2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */,
-				2ED7C7801D788A9700E65237 /* dAnimationManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -608,7 +603,6 @@
 				2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */,
-				2ED7C7811D788A9700E65237 /* dAnimationManager.swift in Sources */,
 				2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */,
 				2EC7F0B01D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD491D6CCC950096C912 /* dMaterialManager.swift in Sources */,
@@ -649,7 +643,6 @@
 				2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */,
-				2ED7C7821D788A9700E65237 /* dAnimationManager.swift in Sources */,
 				2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */,
 				2EC7F0B11D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD4A1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
@@ -690,7 +683,6 @@
 				2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */,
-				2ED7C7831D788A9700E65237 /* dAnimationManager.swift in Sources */,
 				2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */,
 				2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2E6CBD4B1D6CCC950096C912 /* dMaterialManager.swift in Sources */,

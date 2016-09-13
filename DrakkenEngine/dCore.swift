@@ -25,7 +25,6 @@ public class dCore {
 	internal var mtManager: dMaterialManager
 	internal var shManager: dShaderManager
 	internal var mshManager: dMeshManager
-	internal var anManager: dAnimationManager
 	internal var spManager: dSpriteManager
 	
 	internal init() {
@@ -38,7 +37,6 @@ public class dCore {
 		self.mtManager = dMaterialManager()
 		self.shManager = dShaderManager()
 		self.mshManager = dMeshManager()
-		self.anManager = dAnimationManager()
 		self.spManager = dSpriteManager()
 
 		self.renderer = dRenderer()

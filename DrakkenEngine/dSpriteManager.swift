@@ -14,16 +14,20 @@ internal class dSpriteData {
 	
 	internal var columns: Int = 1
 	internal var lines: Int = 1
+	internal var animations: [String : dAnimation] = [:]
 	
 	private var materialDef: dMaterialDef
 	private var meshDef: dMeshDef
 	
-	internal init(name: String, columns: Int = 1, lines: Int = 1, texture: dTexture) {
+	
+	internal init(name: String, columns: Int = 1, lines: Int = 1, texture: dTexture, animations: [String : dAnimation]) {
 		self.name = name
 		self.texture = texture
 		
 		self.columns = columns
 		self.lines = lines
+		
+		self.animations = animations
 		
 		let materialName = "\(name)_spritematerial"
 		self.materialDef = dDiffuseDef(name: materialName)
@@ -55,10 +59,10 @@ internal class dSpriteData {
 		
 		var texCoords: [float2] = []
 		
-		for c in 0..<columns {
-			let _c = Float(c)
-			for l in 0..<lines {
-				let _l = Float(l)
+		for l in 0..<lines {
+			let _l = Float(l)
+			for c in 0..<columns {
+				let _c = Float(c)
 				texCoords.append(float2( (_c * sW) / tW			 , ((_l + 1.0) * sH) / tH	))
 				texCoords.append(float2( (_c * sW) / tW			 , (_l * sH) / tH			))
 				texCoords.append(float2( ((_c + 1.0) * sW) / tW	 , (_l * sH) / tH			))
@@ -74,7 +78,11 @@ internal class dSpriteManager {
 	private var sprites: [String : dSpriteData] = [:]
 	
 	internal func create(sprite def: dSpriteDef) -> dSpriteData {
-		let sprite = dSpriteData(name: def.name, columns: def.columns, lines: def.lines, texture: def.texture)
+		let sprite = dSpriteData(name: def.name,
+		                         columns: def.columns,
+		                         lines: def.lines,
+		                         texture: def.texture,
+		                         animations: def.animations)
 		self.sprites[def.name] = sprite
 		
 		return sprite

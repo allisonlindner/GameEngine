@@ -9,10 +9,10 @@
 
 public class dAnimation {
 	internal var name: String
-	internal var sequence: [Int]
+	internal var sequence: [(frame: Int32, time: Float)]
 	internal var repeatX: Int
 	
-	public init(name: String, repeatX: Int, sequence: Int...) {
+	public init(name: String, repeatX: Int, sequence: (frame: Int32, time: Float)...) {
 		self.name = name
 		self.repeatX = repeatX
 		self.sequence = sequence

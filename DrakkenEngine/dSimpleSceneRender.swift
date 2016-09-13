@@ -19,6 +19,9 @@ fileprivate class dMaterialMeshBind {
 
 internal class dSimpleSceneRender {
 	private var renderGraph: [String : [String : dMaterialMeshBind]] = [:]
+	
+	private var _animatorToBeUpdated: [(materialMeshBind: dMaterialMeshBind, index: Int, animator: dAnimator)] = []
+	
 	private var ids: [Int] = []
 	private var _scene: dScene!
 	
@@ -36,7 +39,11 @@ internal class dSimpleSceneRender {
 	
 	private func process(components: [dComponent]) {
 		var materialMeshBind: dMaterialMeshBind? = nil
+		var animatorToBeProcess: dAnimator? = nil
 		var spriteToBeProcess: dSprite? = nil
+		
+		var hasSprite: Bool = false
+		var hasAnimator: Bool = false
 		
 		for component in components {
 			switch component.self {
@@ -51,20 +58,33 @@ internal class dSimpleSceneRender {
 				}
 				break
 			case is dSprite:
-				let sprite = component as! dSprite
+				hasSprite = true
+				spriteToBeProcess = component as? dSprite
+				break
+			case is dAnimator:
+				hasAnimator = true
+				let animator = component as! dAnimator
 				if materialMeshBind == nil {
-					spriteToBeProcess = sprite
+					animatorToBeProcess = animator
 				} else {
-					self.process(sprite: sprite, materialMeshBind: materialMeshBind!)
-					spriteToBeProcess = nil
+					self.process(animator: animator, materialMeshBind: materialMeshBind!)
+					animatorToBeProcess = nil
 				}
 				break
 			default:
 				break
 			}
 			
+			if component is dAnimator {
+				if materialMeshBind != nil && animatorToBeProcess != nil {
+					self.process(animator: component as! dAnimator, materialMeshBind: materialMeshBind!)
+				}
+			}
+		}
+		
+		if hasSprite && !hasAnimator {
 			if materialMeshBind != nil && spriteToBeProcess != nil {
-				self.process(sprite: component as! dSprite, materialMeshBind: materialMeshBind!)
+				self.process(sprite: spriteToBeProcess!, materialMeshBind: materialMeshBind!)
 			}
 		}
 	}
@@ -104,7 +124,36 @@ internal class dSimpleSceneRender {
 		return dBuffer<float4x4>(data: matrixArray, index: 1)
 	}
 	
+	private func process(animator: dAnimator, materialMeshBind: dMaterialMeshBind) {
+		let index = materialMeshBind.instanceTexCoordIDs.count
+		materialMeshBind.instanceTexCoordIDs.append(animator.frame)
+		
+		_animatorToBeUpdated.append((materialMeshBind: materialMeshBind,
+		                             index: index,
+		                             animator: animator))
+	}
+	
+	private func process(sprite: dSprite, materialMeshBind: dMaterialMeshBind) {
+		materialMeshBind.instanceTexCoordIDs.append(sprite.frame)
+	}
+	
+	internal func update(deltaTime: Float) {
+		for value in _animatorToBeUpdated {
+			value.animator.update(deltaTime: deltaTime)
+			value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+		}
+	}
+	
 	internal func draw(drawable: CAMetalDrawable) {
+		
+		// ######################## //
+		// ######## UPDATE ######## //
+		// ######################## //
+		self.update(deltaTime: 0.016)
+		// ######################## //
+		// ######################## //
+		
+		
 		let id = dCore.instance.renderer.startFrame(drawable.texture)
 		self.ids.append(id)
 		
@@ -139,9 +188,5 @@ internal class dSimpleSceneRender {
 		
 		renderer?.endFrame(id)
 		renderer?.present(drawable)
-	}
-	
-	private func process(sprite: dSprite, materialMeshBind: dMaterialMeshBind) {
-		materialMeshBind.instanceTexCoordIDs.append(sprite.frame)
 	}
 }

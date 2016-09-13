@@ -13,6 +13,12 @@ public class dSpriteDef {
 	public var columns: Int = 1
 	public var lines: Int = 1
 	
+	internal var animations: [String : dAnimation] = [:]
+	
+	public func add(animation data: dAnimation) {
+		self.animations[data.name] = data
+	}
+	
 	public init(name: String, columns: Int = 1, lines: Int = 1, texture: dTexture) {
 		self.name = name
 		self.texture = texture
@@ -25,6 +31,13 @@ public class dSpriteDef {
 public class dSprite : dComponent {
 	internal var spriteName: String
 	internal var meshRender: dMeshRender
+	internal var animator: dAnimator?
+	
+	internal var animations: [String : dAnimation] {
+		get {
+			return dCore.instance.spManager.get(sprite: self.spriteName)!.animations
+		}
+	}
 	
 	internal var frame: Int32
 	
@@ -39,6 +52,24 @@ public class dSprite : dComponent {
 		super.init()
 		
 		_ = self.add(dependence: meshRender)
+		
+		if animations.count > 0 {
+			self.animator = dAnimator(sprite: self, defaultAnimation: animations.first!.key)
+			_ = self.add(dependence: animator!)
+		}
+	}
+	
+	public func play(animation name: String) {
+		if animator != nil {
+			animator!.set(animation: name)
+			animator!.play()
+		}
+	}
+	
+	public func stop() {
+		if animator != nil {
+			animator!.stop()
+		}
 	}
 	
 	public func set(frame: Int32) {
