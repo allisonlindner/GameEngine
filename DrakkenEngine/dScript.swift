@@ -9,4 +9,7 @@
 
 public class dScript : dComponent {
 	
+	public override init() {
+		super.init()
+	}
 }
