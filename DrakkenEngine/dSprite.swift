@@ -6,6 +6,7 @@
 //  Copyright © 2016 Drakken Studio. All rights reserved.
 //
 
+
 public class dSpriteDef {
 	public var name: String
 	public var texture: dTexture

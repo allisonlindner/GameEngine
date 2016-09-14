@@ -9,6 +9,7 @@
 import simd
 import Metal
 import MetalKit
+import Foundation
 
 fileprivate class dMaterialMeshBind {
 	fileprivate var material: dMaterialData!
@@ -139,8 +140,18 @@ internal class dSimpleSceneRender {
 	
 	internal func update(deltaTime: Float) {
 		for value in _animatorToBeUpdated {
-			value.animator.update(deltaTime: deltaTime)
-			value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+			if #available(OSX 10.12, *) {
+				let thread = Thread(block: {
+					value.animator.update(deltaTime: deltaTime)
+					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+					return
+				})
+				
+				thread.start()
+			} else {
+				value.animator.update(deltaTime: deltaTime)
+				value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+			}
 		}
 	}
 	
