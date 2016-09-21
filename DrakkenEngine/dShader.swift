@@ -59,20 +59,26 @@ public class dShader {
 	private func setupRenderPipelineDescriptor() -> MTLRenderPipelineDescriptor {
 		let rpDescriptor = MTLRenderPipelineDescriptor()
 		
-		#if os(iOS) || os(watchOS) || os(tvOS)
+		#if os(iOS)
 			if #available(iOS 10.0, *) {
 				rpDescriptor.colorAttachments[0].pixelFormat = .bgra10_XR_sRGB
 			} else {
 				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
 			}
-		#elseif os(OSX)
+		#endif
+		#if os(tvOS)
+			if #available(tvOS 10.0, *) {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra10_XR_sRGB
+			} else {
+				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+			}
+		#endif
+		#if os(OSX)
 			if #available(OSX 10.12, *) {
 				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm_srgb
 			} else {
 				rpDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
 			}
-		#else
-			println("OMG, it's that mythical new Apple product!!!")
 		#endif
 		
 		rpDescriptor.colorAttachments[0].isBlendingEnabled = true

@@ -140,18 +140,45 @@ internal class dSimpleSceneRender {
 	
 	internal func update(deltaTime: Float) {
 		for value in _animatorToBeUpdated {
-			if #available(OSX 10.12, *) {
-				let thread = Thread(block: {
+			#if os(iOS)
+				if #available(iOS 10, *) {
+					let thread = Thread(block: {
+						value.animator.update(deltaTime: deltaTime)
+						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+						return
+					})
+					thread.start()
+				} else {
 					value.animator.update(deltaTime: deltaTime)
 					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
-					return
-				})
-				
-				thread.start()
-			} else {
-				value.animator.update(deltaTime: deltaTime)
-				value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
-			}
+				}
+			#endif
+			#if os(tvOS)
+				if #available(tvOS 10, *) {
+					let thread = Thread(block: {
+						value.animator.update(deltaTime: deltaTime)
+						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+						return
+					})
+					thread.start()
+				} else {
+					value.animator.update(deltaTime: deltaTime)
+					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+				}
+			#endif
+			#if os(OSX)
+				if #available(OSX 10.12, *) {
+					let thread = Thread(block: {
+						value.animator.update(deltaTime: deltaTime)
+						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+						return
+					})
+					thread.start()
+				} else {
+					value.animator.update(deltaTime: deltaTime)
+					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
+				}
+			#endif
 		}
 	}
 	

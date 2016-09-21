@@ -82,20 +82,26 @@ open class dGameView: MTKView {
 		self.device = dCore.instance.device
 		self.sampleCount = 4
 		
-		#if os(iOS) || os(watchOS) || os(tvOS)
+		#if os(iOS)
 			if #available(iOS 10.0, *) {
 				self.colorPixelFormat = .bgra10_XR_sRGB
 			} else {
 				self.colorPixelFormat = .bgra8Unorm
 			}
-		#elseif os(OSX)
+		#endif
+		#if os(tvOS)
+			if #available(tvOS 10.0, *) {
+				self.colorPixelFormat = .bgra10_XR_sRGB
+			} else {
+				self.colorPixelFormat = .bgra8Unorm
+			}
+		#endif
+		#if os(OSX)
 			if #available(OSX 10.12, *) {
 				self.colorPixelFormat = .bgra8Unorm_srgb
 			} else {
 				self.colorPixelFormat = .bgra8Unorm
 			}
-		#else
-			println("OMG, it's that mythical new Apple product!!!")
 		#endif
 		
 		_gameView = dGameViewDelegate()

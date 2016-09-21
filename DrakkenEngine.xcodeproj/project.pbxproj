@@ -203,6 +203,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6A16351D8C7DB9004F9750 /* *.js */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "*.js";
+			sourceTree = "<group>";
+		};
 		2E6CBD501D6D23FD0096C912 /* Materials */ = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +226,7 @@
 				2ED7C7781D78880100E65237 /* dAnimation.swift */,
 				2ED7C77C1D78881500E65237 /* dAnimator.swift */,
 				2E2054791D89E2FC004FB841 /* dScript.swift */,
+				2E6A16351D8C7DB9004F9750 /* *.js */,
 			);
 			name = Components;
 			sourceTree = "<group>";

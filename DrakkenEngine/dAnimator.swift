@@ -46,7 +46,7 @@ public class dAnimator: dComponent {
 	
 	internal func update(deltaTime: Float) {
 		if playing {
-			var state = _states[_currentAnimation]
+			let state = _states[_currentAnimation]
 			let sequence = _sprite.animations[_currentAnimation]!.sequence
 			
 			state!.timeStamp += deltaTime
