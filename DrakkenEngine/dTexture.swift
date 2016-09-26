@@ -25,10 +25,10 @@ public class dTexture {
 		}
 	}
 	
-	public init(name: String, fileName: String, fileExtension ext: String = ".png") {
+	public init(name: String, file: String) {
 		self._name = name
 		
-		self._id = dCore.instance.tManager.create(name, fileName: fileName, fileExtension: ext)
+		self._id = dCore.instance.tManager.create(name, file: file)
 	}
 	
 	public init(name: String) {

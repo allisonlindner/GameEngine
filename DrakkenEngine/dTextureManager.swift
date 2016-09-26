@@ -33,8 +33,8 @@ internal class dTextureManager {
 	
 	internal var screenTexture: MTLTexture?
 	
-	internal func create(_ name: String, fileName: String, fileExtension ext: String = ".png") -> Int {
-		let texture = self.loadImage(fileName, ext)!
+	internal func create(_ name: String, file: String) -> Int {
+		let texture = self.loadImage(file)!
 		
 		guard let indexed = _namedTextures[name] else {
 			let _index = _nextTextureIndex
@@ -100,17 +100,13 @@ internal class dTextureManager {
 		return _namedRenderTargetTextures[name]!
 	}
 	
-	private func loadImage(_ name: String, _ ext: String = ".png") -> MTLTexture? {
+	private func loadImage(_ name: String) -> MTLTexture? {
 		var _textureURL: URL?
 		
 		do {
-			if let textureURL = Bundle(identifier: "drakkenstudio.DrakkenEngine")!.url(forResource: "Assets/" + name,
-			                                                                  withExtension: ext) {
-				
+			if let textureURL = Bundle(identifier: "drakkenstudio.DrakkenEngine")!.url(forResource: name, withExtension: nil, subdirectory: "Assets") {
 				_textureURL = textureURL
-			} else if let textureURL = Bundle.main.url(forResource: "Assets/" + name,
-			                                           withExtension: ext) {
-				
+			} else if let textureURL = Bundle.main.url(forResource: name, withExtension: nil, subdirectory: "Assets") {
 				_textureURL = textureURL
 			}
 			
@@ -118,11 +114,11 @@ internal class dTextureManager {
 				let texture = try _mtkTextureLoader.newTexture(withContentsOf: _textureURL!, options: nil)
 				return texture
 			} else {
-				fatalError("Fail load image with name: \(name) of extension: \(ext)")
+				fatalError("Fail load image with name: \(name)")
 			}
 			
 		} catch {
-			fatalError("Fail load image with name: \(name) of extension: \(ext)")
+			fatalError("Fail load image with name: \(name)")
 		}
 		
 		return nil
