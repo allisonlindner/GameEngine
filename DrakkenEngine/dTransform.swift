@@ -7,10 +7,17 @@
 //
 
 import simd
+import JavaScriptCore
 
-public class dTransform {
+@objc internal protocol dTransformExport: JSExport {
+    var position: dSVector3DExport { get }
+    var rotation: dSVector3DExport { get }
+    var scale: dSSize2DExport { get }
+}
+
+public class dTransform: NSObject, dTransformExport {
 	internal var _id: Int
-	private var _tranformData: dTransformData!
+	internal var _tranformData: dTransformData!
 	
 	private var _indexOnParentArray: Int?
 	private var _parentTransform: dTransform?
@@ -36,20 +43,32 @@ public class dTransform {
 		get { return self._tranformData.worldMatrix4x4 }
 	}
 	
-	public var localPosition: float3 {
+	public var Position: dVector3D {
 		get { return self._tranformData.position }
 		set { self._tranformData.position = newValue }
 	}
 	
-	public var rotation: float3 {
+	public var Rotation: dVector3D {
 		get { return self._tranformData.rotation }
 		set { self._tranformData.rotation = newValue }
 	}
 	
-	public var scale: float2 {
+	public var Scale: dSize2D {
 		get { return self._tranformData.scale }
 		set { self._tranformData.scale = newValue }
 	}
+    
+    @objc internal var position: dSVector3DExport {
+        get { return dSVector3D(self._tranformData.position) }
+    }
+    
+    @objc internal var rotation: dSVector3DExport {
+        get { return dSVector3D(self._tranformData.rotation) }
+    }
+    
+    @objc internal var scale: dSSize2DExport {
+        get { return dSSize2D(self._tranformData.scale) }
+    }
 	
 	public init(position: (x: Float, y: Float, z: Float),
 	            rotation: (x: Float, y: Float, z: Float),
@@ -62,28 +81,28 @@ public class dTransform {
 		self._parentTransform = parent
 	}
 	
-	public convenience init(positionX x: Float, y: Float, z: Float) {
+	public convenience init(position x: Float, _ y: Float, _ z: Float) {
 		self.init(position: (x, y, z),
 		          rotation: (0.0, 0.0, 0.0),
 					 scale: (1.0, 1.0),
 					 parent: nil)
 	}
 	
-	public convenience init(rotationX x: Float, y: Float, z: Float) {
+	public convenience init(rotation x: Float, _ y: Float, _ z: Float) {
 		self.init(position: (0.0, 0.0, 0.0),
 		          rotation: (x, y, z),
 					 scale: (1.0, 1.0),
 					parent: nil)
 	}
 	
-	public convenience init(scaleX x: Float, y: Float) {
+	public convenience init(scale x: Float, _ y: Float) {
 		self.init(position: (0.0, 0.0, 0.0),
 		          rotation: (0.0, 0.0, 0.0),
 					 scale: (x, y),
 					parent: nil)
 	}
 	
-	public convenience init() {
+	public convenience override init() {
 		self.init(position: (0.0, 0.0, 0.0),
 		          rotation: (0.0, 0.0, 0.0),
 					 scale: (1.0, 1.0),

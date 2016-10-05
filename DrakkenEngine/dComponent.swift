@@ -6,9 +6,11 @@
 //  Copyright © 2016 Drakken Studio. All rights reserved.
 //
 
+import Foundation
+import JavaScriptCore
 
-public class dComponent {
-	private var _parentTransform: dTransform?
+public class dComponent: NSObject {
+    private var _parentTransform: dTransform?
 	internal var parentTransform: dTransform? {
 		return _parentTransform
 	}

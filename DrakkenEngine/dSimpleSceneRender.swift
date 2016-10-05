@@ -22,6 +22,7 @@ internal class dSimpleSceneRender {
 	private var renderGraph: [String : [String : dMaterialMeshBind]] = [:]
 	
 	private var _animatorToBeUpdated: [(materialMeshBind: dMaterialMeshBind, index: Int, animator: dAnimator)] = []
+    private var _jsScriptToBeUpdated: [dJSScript] = []
 	
 	private var ids: [Int] = []
 	private var _scene: dScene!
@@ -49,6 +50,8 @@ internal class dSimpleSceneRender {
 		for component in components {
 			switch component.self {
 			case is dMeshRender:
+                //###############################################################################################
+                //################################################################################# MESH RENDER
 				let meshRender = component as! dMeshRender
 				if meshRender.material != nil {
 					if meshRender.mesh != nil {
@@ -56,13 +59,21 @@ internal class dSimpleSceneRender {
 						                           with: meshRender.material!,
 						                           transform: meshRender.parentTransform!)
 					}
-				}
+                }
+                //#####################################################################
+                //###################################################################
 				break
-			case is dSprite:
+            case is dSprite:
+                //###############################################################################################
+                //###################################################################################### SPRITE
 				hasSprite = true
-				spriteToBeProcess = component as? dSprite
+                spriteToBeProcess = component as? dSprite
+                //#####################################################################
+                //###################################################################
 				break
-			case is dAnimator:
+            case is dAnimator:
+                //###############################################################################################
+                //#################################################################################### ANIMATOR
 				hasAnimator = true
 				let animator = component as! dAnimator
 				if materialMeshBind == nil {
@@ -70,8 +81,19 @@ internal class dSimpleSceneRender {
 				} else {
 					self.process(animator: animator, materialMeshBind: materialMeshBind!)
 					animatorToBeProcess = nil
-				}
+                }
+                //#####################################################################
+                //###################################################################
 				break
+            case is dJSScript:
+                //###############################################################################################
+                //###################################################################################### SCRIPT
+                let script = component as! dJSScript
+                script.run(function: "Awake")
+                _jsScriptToBeUpdated.append(script)
+                //#####################################################################
+                //###################################################################
+                break
 			default:
 				break
 			}
@@ -180,6 +202,10 @@ internal class dSimpleSceneRender {
 				}
 			#endif
 		}
+        
+        for script in _jsScriptToBeUpdated {
+            script.run(function: "Update")
+        }
 	}
 	
 	internal func draw(drawable: CAMetalDrawable) {
@@ -227,4 +253,10 @@ internal class dSimpleSceneRender {
 		renderer?.endFrame(id)
 		renderer?.present(drawable)
 	}
+    
+    internal func start() {
+        for script in _jsScriptToBeUpdated {
+            script.run(function: "Start")
+        }
+    }
 }

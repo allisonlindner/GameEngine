@@ -9,11 +9,11 @@
 import simd
 
 internal class dTransformData {
-	internal var position: float3
+	internal var position: dVector3D
 	// Definir a posição dentro de outro transform
 	//internal var localPosition: float3
-	internal var rotation: float3
-	internal var scale: float2
+	internal var rotation: dVector3D
+	internal var scale: dSize2D
 	internal var parentTransform: dTransformData?
 	
 	private var _localMatrix4x4: float4x4!
@@ -36,19 +36,19 @@ internal class dTransformData {
 	              rotation: (x: Float, y: Float, z: Float),
 					 scale: (x: Float, y: Float)) {
 		
-		self.position = float3(position.x, position.y, position.z)
-		self.rotation = float3(rotation.x, rotation.y, rotation.z)
-		self.scale =	float2(scale.x, scale.y)
+		self.position = dVector3D(position.x, position.y, position.z)
+		self.rotation = dVector3D(rotation.x, rotation.y, rotation.z)
+		self.scale =	dSize2D(scale.x, scale.y)
 		
 		_updateMatrix()
 	}
 	
 	private func _updateMatrix() {
-		self._localMatrix4x4 =	dMath.newTranslation(self.position) *
-								dMath.newRotationX(self.rotation.x) *
-								dMath.newRotationY(self.rotation.y) *
-								dMath.newRotationZ(self.rotation.z) *
-								dMath.newScale(self.scale.x, y: self.scale.y, z: 1.0)
+		self._localMatrix4x4 =	dMath.newTranslation(self.position.Get()) *
+								dMath.newRotationX(self.rotation.Get().x) *
+								dMath.newRotationY(self.rotation.Get().y) *
+								dMath.newRotationZ(self.rotation.Get().z) *
+								dMath.newScale(self.scale.Get().x, y: self.scale.Get().y, z: 1.0)
 		
 		if self.parentTransform != nil {
 			self._worldMatrix4x4 = self.parentTransform!._worldMatrix4x4 *

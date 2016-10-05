@@ -22,6 +22,7 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	
 	func start() {
 		simpleRender = dSimpleSceneRender(scene: _scene)
+        simpleRender.start()
 	}
 	
 	func draw(in view: MTKView) {
