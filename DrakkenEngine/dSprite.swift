@@ -20,13 +20,19 @@ public class dSpriteDef {
 		self.animations[data.name] = data
 	}
 	
-	public init(name: String, columns: Int = 1, lines: Int = 1, texture: dTexture) {
+    public init(_ name: String, columns: Int = 1, lines: Int = 1, texture: dTexture) {
 		self.name = name
 		self.texture = texture
 		
 		self.columns = columns
 		self.lines = lines
 	}
+    
+    public convenience init(_ name: String, columns: Int = 1, lines: Int = 1, texture: String) {
+        let t = dTexture(texture)
+        
+        self.init(name, columns: columns, lines: lines, texture: t)
+    }
 }
 
 public class dSprite : dComponent {

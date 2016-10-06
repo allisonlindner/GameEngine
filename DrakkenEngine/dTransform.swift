@@ -127,15 +127,28 @@ public class dTransform: NSObject, dTransformExport {
 	}
 	
 	public func add(component: dComponent) {
-		if component === dMeshRender.self {
-			for c in _components {
-				if c === dMeshRender.self {
-					return
-				}
-			}
-		}
+        switch component.self {
+        case is dMeshRender:
+            for c in _components {
+                if c.self is dMeshRender {
+                    return
+                }
+            }
+            break
+        case is dJSScript:
+            let s = component as! dJSScript
+            s.set(transform: self)
+            break
+        default:
+            break
+        }
 		
 		component.set(parent: self)
 		self._components.append(component)
 	}
+    
+    public func add(script: String) {
+        let s = dJSScript(fileName: script)
+        self.add(component: s)
+    }
 }

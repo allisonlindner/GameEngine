@@ -25,19 +25,19 @@ public class dTexture {
 		}
 	}
 	
-	public init(name: String, file: String) {
-		self._name = name
+	public init(_ file: String) {
+        if let id = dCore.instance.tManager.getID(file) {
+            self._id = id
+            self._name = file
+        }
+        
+		self._name = file
 		
-		self._id = dCore.instance.tManager.create(name, file: file)
+        self._id = dCore.instance.tManager.create(file)
+        
 	}
 	
-	public init(name: String) {
-		self._name = name
-		
-		self._id = dCore.instance.tManager.getID(name)
-	}
-	
-	public init(name: String, width: Int, height: Int) {
+	public init(_ name: String, width: Int, height: Int) {
 		self._name = name
 		
 		self._id = dCore.instance.tManager.createRenderTarget(name, width: width, height: height)

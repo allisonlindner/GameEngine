@@ -33,15 +33,15 @@ internal class dTextureManager {
 	
 	internal var screenTexture: MTLTexture?
 	
-	internal func create(_ name: String, file: String) -> Int {
+	internal func create(_ file: String) -> Int {
 		let texture = self.loadImage(file)!
 		
-		guard let indexed = _namedTextures[name] else {
+		guard let indexed = _namedTextures[file] else {
 			let _index = _nextTextureIndex
 			_textures[_index] = texture
 			_nextTextureIndex += 1
 			
-			_namedTextures[name] = _index
+			_namedTextures[file] = _index
 			
 			return _index
 		}
@@ -84,16 +84,16 @@ internal class dTextureManager {
 		return _renderTargetTextures[id]!
 	}
 	
-	internal func getTexture(_ name: String) -> MTLTexture {
-		return getTexture(_namedTextures[name]!)
+	internal func getTexture(_ file: String) -> MTLTexture {
+		return getTexture(_namedTextures[file]!)
 	}
 	
 	internal func getRenderTargetTexture(_ name: String) -> MTLTexture {
 		return getRenderTargetTexture(_namedRenderTargetTextures[name]!)
 	}
 	
-	internal func getID(_ name: String) -> Int{
-		return _namedTextures[name]!
+	internal func getID(_ name: String) -> Int? {
+		return _namedTextures[name]
 	}
 	
 	internal func getRenderTargetID(_ name: String) -> Int{
@@ -106,7 +106,7 @@ internal class dTextureManager {
 		do {
 			if let textureURL = Bundle(identifier: "drakkenstudio.DrakkenEngine")!.url(forResource: name, withExtension: nil, subdirectory: "Assets") {
 				_textureURL = textureURL
-			} else if let textureURL = Bundle.main.url(forResource: name, withExtension: nil, subdirectory: "Assets") {
+			} else if let textureURL = Bundle.main.url(forResource: name, withExtension: nil, subdirectory: "Assets/img") {
 				_textureURL = textureURL
 			}
 			
