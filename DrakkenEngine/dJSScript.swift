@@ -10,7 +10,7 @@ import Foundation
 import JavaScriptCore
 
 @objc internal protocol dJSScriptExport: JSExport {
-    var transform: dTransformExport { get set }
+    var transform: dTransformExport! { get set }
 }
 
 public class dJSScript: dComponent, dJSScriptExport {
