@@ -113,6 +113,10 @@ open class dGameView: MTKView {
 		self.delegate = _gameView
 	}
 	
+    public func load(scene: String) {
+        self._gameView._scene = dCore.instance.scManager.load(scene: scene)
+    }
+    
 	open func update() {
 		
 	}
