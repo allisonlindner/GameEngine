@@ -51,8 +51,8 @@ internal class dTransformData {
 								dMath.newScale(self.scale.Get().x, y: self.scale.Get().y, z: 1.0)
 		
 		if self.parentTransform != nil {
-			self._worldMatrix4x4 = self.parentTransform!._worldMatrix4x4 *
-									self._localMatrix4x4
+            self.parentTransform?._updateMatrix()
+			self._worldMatrix4x4 = self.parentTransform!._worldMatrix4x4 * self._localMatrix4x4
 		} else {
 			self._worldMatrix4x4 = _localMatrix4x4
 		}

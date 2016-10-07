@@ -114,10 +114,10 @@ public class dTransform: NSObject, dTransformExport {
 		self._tranformData.parentTransform = parent._tranformData
 	}
 	
-	public func add(child: dTransform) {
-		child._indexOnParentArray = self._childrenTransforms.count
+    public func add(child: dTransform) {
+        child.set(parent: self)
+        child._indexOnParentArray = self._childrenTransforms.count
 		self._childrenTransforms.append(child)
-		self.set(parent: self)
 	}
 	
 	public func remove(child: dTransform) {
