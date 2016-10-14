@@ -7,12 +7,60 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */; };
+		2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295F11DAC4FCA007C5512 /* WindowController.swift */; };
 		2E255A241DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
 		2E255A251DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
 		2E255A261DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
 		2E255A281DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A291DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A2A1DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
+		2E3520EA1DAC208200642255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3520E91DAC208200642255 /* AppDelegate.swift */; };
+		2E3520EC1DAC208200642255 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3520EB1DAC208200642255 /* EditorView.swift */; };
+		2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3520ED1DAC208200642255 /* Assets.xcassets */; };
+		2E3520F11DAC208200642255 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2E3520EF1DAC208200642255 /* Main.storyboard */; };
+		2E3520F61DAC4C1200642255 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */; };
+		2E3520F71DAC4C1500642255 /* dMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08551D6B7AD400F1FF19 /* dMath.swift */; };
+		2E3520F81DAC4C1500642255 /* dVector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FC51DA4620700456988 /* dVector3D.swift */; };
+		2E3520F91DAC4C1500642255 /* dSize2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FC91DA462D000456988 /* dSize2D.swift */; };
+		2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FD61DA5776500456988 /* dSVector3D.swift */; };
+		2E3520FB1DAC4C1500642255 /* dSSize2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FD51DA5776500456988 /* dSSize2D.swift */; };
+		2E3520FC1DAC4C1800642255 /* dBuffers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */; };
+		2E3520FD1DAC4C1800642255 /* dTexture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */; };
+		2E3520FE1DAC4C1800642255 /* dTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */; };
+		2E3520FF1DAC4C1D00642255 /* dQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD701D6F82FF0096C912 /* dQuad.swift */; };
+		2E3521001DAC4C1D00642255 /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
+		2E3521011DAC4C2200642255 /* dBufferManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084C1D6B7AA900F1FF19 /* dBufferManager.swift */; };
+		2E3521021DAC4C2200642255 /* dTextureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC084D1D6B7AA900F1FF19 /* dTextureManager.swift */; };
+		2E3521031DAC4C2200642255 /* dTransformManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC085D1D6B7AE900F1FF19 /* dTransformManager.swift */; };
+		2E3521041DAC4C2200642255 /* dMaterialManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */; };
+		2E3521051DAC4C2200642255 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */; };
+		2E3521071DAC4C2200642255 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
+		2E3521081DAC4C2200642255 /* dSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FE61DA829D000456988 /* dSceneManager.swift */; };
+		2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */; };
+		2E35210A1DAC4C2600642255 /* dCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08321D6B7A4800F1FF19 /* dCore.swift */; };
+		2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
+		2E35210C1DAC4C2600642255 /* dShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08361D6B7A5A00F1FF19 /* dShader.swift */; };
+		2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */; };
+		2E35210E1DAC4C2600642255 /* dGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */; };
+		2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC087E1D6B7C4200F1FF19 /* dRendererFactory.swift */; };
+		2E3521101DAC4C2C00642255 /* dComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */; };
+		2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */; };
+		2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
+		2E3521131DAC4C2C00642255 /* dScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD781D70959A0096C912 /* dScene.swift */; };
+		2E3521141DAC4C3100642255 /* dSimpleSceneRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */; };
+		2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
+		2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD621D6F58F80096C912 /* dMeshRender.swift */; };
+		2E3521171DAC4C3400642255 /* dSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD6B1D6F78F70096C912 /* dSprite.swift */; };
+		2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7781D78880100E65237 /* dAnimation.swift */; };
+		2E3521191DAC4C3500642255 /* dAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C77C1D78881500E65237 /* dAnimator.swift */; };
+		2E35211A1DAC4C3500642255 /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
+		2E35211B1DAC4C3B00642255 /* dDiffuseDef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD511D6D241B0096C912 /* dDiffuseDef.swift */; };
+		2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
+		2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
+		2E35211E1DAC4C3B00642255 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2E40ACBC1DAD848600A91328 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E40ACBB1DAD848600A91328 /* Assets */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -133,11 +181,26 @@
 		2EFC3FDA1DA5776500456988 /* dSVector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FD61DA5776500456988 /* dSVector3D.swift */; };
 		2EFC3FDB1DA5776500456988 /* dSVector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FD61DA5776500456988 /* dSVector3D.swift */; };
 		2EFC3FDC1DA5776500456988 /* dSVector3D.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FD61DA5776500456988 /* dSVector3D.swift */; };
+		2EFC3FE71DA829D000456988 /* dSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FE61DA829D000456988 /* dSceneManager.swift */; };
+		2EFC3FE81DA829D000456988 /* dSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FE61DA829D000456988 /* dSceneManager.swift */; };
+		2EFC3FE91DA829D000456988 /* dSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FE61DA829D000456988 /* dSceneManager.swift */; };
+		2EFC3FEC1DA82C0800456988 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */; };
+		2EFC3FED1DA82C0800456988 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */; };
+		2EFC3FEE1DA82C0800456988 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
+		2E1295F11DAC4FCA007C5512 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		2E255A231DA2D26A00364AFC /* dJSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSCore.swift; sourceTree = "<group>"; };
 		2E255A271DA2D36200364AFC /* dJSScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSScript.swift; sourceTree = "<group>"; };
+		2E3520E71DAC208100642255 /* DrakkenEngine_Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrakkenEngine_Editor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E3520E91DAC208200642255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		2E3520EB1DAC208200642255 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		2E3520ED1DAC208200642255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2E3520F01DAC208200642255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2E3520F21DAC208200642255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E40ACBB1DAD848600A91328 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
 		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
@@ -190,9 +253,18 @@
 		2EFC3FC91DA462D000456988 /* dSize2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSize2D.swift; sourceTree = "<group>"; };
 		2EFC3FD51DA5776500456988 /* dSSize2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSSize2D.swift; sourceTree = "<group>"; };
 		2EFC3FD61DA5776500456988 /* dSVector3D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSVector3D.swift; sourceTree = "<group>"; };
+		2EFC3FE61DA829D000456988 /* dSceneManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSceneManager.swift; sourceTree = "<group>"; };
+		2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyJSON.swift; path = SwiftyJSON/SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E3520E41DAC208100642255 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EEC080B1D6B79DE00F1FF19 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -223,6 +295,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E1295EE1DAC4F11007C5512 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
+				2E3520EB1DAC208200642255 /* EditorView.swift */,
+				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+			);
+			name = Editor;
+			sourceTree = "<group>";
+		};
+		2E3520E81DAC208200642255 /* DrakkenEngine_Editor */ = {
+			isa = PBXGroup;
+			children = (
+				2E3520E91DAC208200642255 /* AppDelegate.swift */,
+				2E1295EE1DAC4F11007C5512 /* Editor */,
+				2E3520ED1DAC208200642255 /* Assets.xcassets */,
+				2E40ACBB1DAD848600A91328 /* Assets */,
+				2E3520EF1DAC208200642255 /* Main.storyboard */,
+				2E3520F21DAC208200642255 /* Info.plist */,
+			);
+			path = DrakkenEngine_Editor;
+			sourceTree = "<group>";
+		};
 		2E6A16351D8C7DB9004F9750 /* *.js */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +391,7 @@
 				2EEC08101D6B79DE00F1FF19 /* DrakkenEngine_macOS */,
 				2EEC081D1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */,
 				2EEC082A1D6B79FB00F1FF19 /* DrakkenEngine_iOS */,
+				2E3520E81DAC208200642255 /* DrakkenEngine_Editor */,
 				2EEC08001D6B79AD00F1FF19 /* Products */,
 				2EEC08701D6B7BAE00F1FF19 /* Frameworks */,
 			);
@@ -307,6 +403,7 @@
 				2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */,
 				2EEC081C1D6B79EC00F1FF19 /* DrakkenEngine.framework */,
 				2EEC08291D6B79FB00F1FF19 /* DrakkenEngine.framework */,
+				2E3520E71DAC208100642255 /* DrakkenEngine_Editor.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -314,6 +411,7 @@
 		2EEC08011D6B79AD00F1FF19 /* DrakkenEngine */ = {
 			isa = PBXGroup;
 			children = (
+				2EFC3FEA1DA82BF000456988 /* SwiftyJSON */,
 				2EEC08541D6B7AC900F1FF19 /* Math */,
 				2EEC08431D6B7A8500F1FF19 /* Data */,
 				2EEC08421D6B7A7C00F1FF19 /* Managers */,
@@ -379,6 +477,7 @@
 				2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */,
 				2E6CBD551D6E3EFE0096C912 /* dShaderManager.swift */,
 				2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */,
+				2EFC3FE61DA829D000456988 /* dSceneManager.swift */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -451,6 +550,14 @@
 			name = "Core Factories";
 			sourceTree = "<group>";
 		};
+		2EFC3FEA1DA82BF000456988 /* SwiftyJSON */ = {
+			isa = PBXGroup;
+			children = (
+				2EFC3FEB1DA82C0800456988 /* SwiftyJSON.swift */,
+			);
+			name = SwiftyJSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -481,6 +588,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		2E3520E61DAC208100642255 /* DrakkenEngine_Editor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E3520F31DAC208200642255 /* Build configuration list for PBXNativeTarget "DrakkenEngine_Editor" */;
+			buildPhases = (
+				2E3520E31DAC208100642255 /* Sources */,
+				2E3520E41DAC208100642255 /* Frameworks */,
+				2E3520E51DAC208100642255 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DrakkenEngine_Editor;
+			productName = DrakkenEngine_Editor;
+			productReference = 2E3520E71DAC208100642255 /* DrakkenEngine_Editor.app */;
+			productType = "com.apple.product-type.application";
+		};
 		2EEC080E1D6B79DE00F1FF19 /* DrakkenEngine_macOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2EEC08141D6B79DE00F1FF19 /* Build configuration list for PBXNativeTarget "DrakkenEngine_macOS" */;
@@ -541,9 +665,15 @@
 		2EEC07F61D6B79AD00F1FF19 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0800;
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Drakken Studio";
 				TargetAttributes = {
+					2E3520E61DAC208100642255 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = 62TU375XJE;
+						ProvisioningStyle = Automatic;
+					};
 					2EEC080E1D6B79DE00F1FF19 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 62TU375XJE;
@@ -570,6 +700,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 2EEC07F51D6B79AD00F1FF19;
 			productRefGroup = 2EEC08001D6B79AD00F1FF19 /* Products */;
@@ -579,11 +710,22 @@
 				2EEC080E1D6B79DE00F1FF19 /* DrakkenEngine_macOS */,
 				2EEC081B1D6B79EC00F1FF19 /* DrakkenEngine_tvOS */,
 				2EEC08281D6B79FB00F1FF19 /* DrakkenEngine_iOS */,
+				2E3520E61DAC208100642255 /* DrakkenEngine_Editor */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E3520E51DAC208100642255 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */,
+				2E40ACBC1DAD848600A91328 /* Assets in Resources */,
+				2E3520F11DAC208200642255 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EEC080D1D6B79DE00F1FF19 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -608,6 +750,58 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E3520E31DAC208100642255 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E3520F71DAC4C1500642255 /* dMath.swift in Sources */,
+				2E3521001DAC4C1D00642255 /* dSpriteQuad.swift in Sources */,
+				2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */,
+				2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */,
+				2E35211E1DAC4C3B00642255 /* dError.swift in Sources */,
+				2E3521191DAC4C3500642255 /* dAnimator.swift in Sources */,
+				2E35210C1DAC4C2600642255 /* dShader.swift in Sources */,
+				2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */,
+				2E3520FE1DAC4C1800642255 /* dTransform.swift in Sources */,
+				2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */,
+				2E3520FB1DAC4C1500642255 /* dSSize2D.swift in Sources */,
+				2E3520F91DAC4C1500642255 /* dSize2D.swift in Sources */,
+				2E3520F61DAC4C1200642255 /* SwiftyJSON.swift in Sources */,
+				2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */,
+				2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */,
+				2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */,
+				2E3521021DAC4C2200642255 /* dTextureManager.swift in Sources */,
+				2E3521071DAC4C2200642255 /* dSpriteManager.swift in Sources */,
+				2E3521101DAC4C2C00642255 /* dComponent.swift in Sources */,
+				2E3520F81DAC4C1500642255 /* dVector3D.swift in Sources */,
+				2E3520EC1DAC208200642255 /* EditorView.swift in Sources */,
+				2E35211A1DAC4C3500642255 /* dJSScript.swift in Sources */,
+				2E3520EA1DAC208200642255 /* AppDelegate.swift in Sources */,
+				2E35210A1DAC4C2600642255 /* dCore.swift in Sources */,
+				2E3521051DAC4C2200642255 /* dMeshManager.swift in Sources */,
+				2E3521011DAC4C2200642255 /* dBufferManager.swift in Sources */,
+				2E3521081DAC4C2200642255 /* dSceneManager.swift in Sources */,
+				2E3520FF1DAC4C1D00642255 /* dQuad.swift in Sources */,
+				2E35210E1DAC4C2600642255 /* dGameView.swift in Sources */,
+				2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */,
+				2E3521031DAC4C2200642255 /* dTransformManager.swift in Sources */,
+				2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */,
+				2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */,
+				2E3521131DAC4C2C00642255 /* dScene.swift in Sources */,
+				2E35211B1DAC4C3B00642255 /* dDiffuseDef.swift in Sources */,
+				2E3521141DAC4C3100642255 /* dSimpleSceneRender.swift in Sources */,
+				2E3521171DAC4C3400642255 /* dSprite.swift in Sources */,
+				2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */,
+				2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */,
+				2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */,
+				2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */,
+				2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */,
+				2E3520FD1DAC4C1800642255 /* dTexture.swift in Sources */,
+				2E3520FC1DAC4C1800642255 /* dBuffers.swift in Sources */,
+				2E3521041DAC4C2200642255 /* dMaterialManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		2EEC080A1D6B79DE00F1FF19 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -633,6 +827,7 @@
 				2EEC085A1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
 				2EEC083F1D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08331D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EFC3FEC1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC085E1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD791D70959A0096C912 /* dScene.swift in Sources */,
 				2E6CBD5A1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
@@ -647,6 +842,7 @@
 				2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EFC3FE71DA829D000456988 /* dSceneManager.swift in Sources */,
 				2EC7F0B01D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2EFC3FD71DA5776500456988 /* dSSize2D.swift in Sources */,
 				2E6CBD491D6CCC950096C912 /* dMaterialManager.swift in Sources */,
@@ -679,6 +875,7 @@
 				2EEC085B1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
 				2EEC08401D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08341D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EFC3FED1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC085F1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD7A1D70959A0096C912 /* dScene.swift in Sources */,
 				2E6CBD5B1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
@@ -693,6 +890,7 @@
 				2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EFC3FE81DA829D000456988 /* dSceneManager.swift in Sources */,
 				2EC7F0B11D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2EFC3FD81DA5776500456988 /* dSSize2D.swift in Sources */,
 				2E6CBD4A1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
@@ -725,6 +923,7 @@
 				2EEC085C1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
 				2EEC08411D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08351D6B7A4800F1FF19 /* dCore.swift in Sources */,
+				2EFC3FEE1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC08601D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD7B1D70959A0096C912 /* dScene.swift in Sources */,
 				2E6CBD5C1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
@@ -739,6 +938,7 @@
 				2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */,
+				2EFC3FE91DA829D000456988 /* dSceneManager.swift in Sources */,
 				2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */,
 				2EFC3FD91DA5776500456988 /* dSSize2D.swift in Sources */,
 				2E6CBD4B1D6CCC950096C912 /* dMaterialManager.swift in Sources */,
@@ -748,7 +948,46 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXVariantGroup section */
+		2E3520EF1DAC208200642255 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2E3520F01DAC208200642255 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		2E3520F41DAC208200642255 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				INFOPLIST_FILE = DrakkenEngine_Editor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		2E3520F51DAC208200642255 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = 62TU375XJE;
+				INFOPLIST_FILE = DrakkenEngine_Editor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
 		2EEC08051D6B79AD00F1FF19 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -993,6 +1232,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E3520F31DAC208200642255 /* Build configuration list for PBXNativeTarget "DrakkenEngine_Editor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E3520F41DAC208200642255 /* Debug */,
+				2E3520F51DAC208200642255 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
 		2EEC07F91D6B79AD00F1FF19 /* Build configuration list for PBXProject "DrakkenEngine" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

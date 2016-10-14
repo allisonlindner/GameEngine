@@ -11,6 +11,7 @@ import simd
 public class dScene {
 	public var size: float2 = float2(1920.0, 1080.0)
 	
+    internal var name: String = "scene"
 	internal var transforms: [dTransform] = []
 	
 	public func add(transform: dTransform) {

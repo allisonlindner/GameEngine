@@ -37,4 +37,8 @@ public class dComponent: NSObject {
 		self._dependences.append(dependence)
 		return dependence
 	}
+    
+    internal func toDict() -> [String: JSON] {
+        return [:]
+    }
 }

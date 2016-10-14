@@ -61,7 +61,8 @@ public class dAnimator: dComponent {
 				state!.timeStamp = 0.0
 			}
 			
-			frame = sequence[_currentIndex].frame
+            frame = sequence[_currentIndex].frame
+            _sprite.frame = frame
 		} else {
 			frame = _sprite.frame
 		}

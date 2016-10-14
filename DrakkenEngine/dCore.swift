@@ -26,6 +26,7 @@ public class dCore {
 	internal var shManager: dShaderManager
 	internal var mshManager: dMeshManager
 	internal var spManager: dSpriteManager
+    internal var scManager: dSceneManager
 	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
@@ -38,6 +39,7 @@ public class dCore {
 		self.shManager = dShaderManager()
 		self.mshManager = dMeshManager()
 		self.spManager = dSpriteManager()
+        self.scManager = dSceneManager()
 
 		self.renderer = dRenderer()
 		

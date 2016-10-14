@@ -10,25 +10,48 @@ import Foundation
 import JavaScriptCore
 
 @objc internal protocol dJSScriptExport: JSExport {
-    var transform: dTransformExport { get set }
+    var transform: dTransformExport! { get set }
 }
 
 public class dJSScript: dComponent, dJSScriptExport {
     internal var jsContext: JSContext
-    internal var transform: dTransformExport
+    internal var transform: dTransformExport!
+    internal var script: String
+    internal var filename: String!
     
-    public init(script: String, transform: dTransform) {
-        self.transform = transform
+    internal init(script: String) {
         self.jsContext = JSContext()
+        self.script = script
         
         super.init()
-        
-        transform.add(component: self)
         
         let consoleLog: @convention(block) (String) -> Void = { message in
             NSLog(message as String)
         }
+        
         self.jsContext.setObject(unsafeBitCast(consoleLog, to: AnyObject.self), forKeyedSubscript: NSString(string: "consoleLog"))
+    }
+    
+    public convenience init(fileName: String) {
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "js", subdirectory: "Assets/scripts") {
+            var fileString: String = ""
+            
+            do {
+                fileString = try String(contentsOf: url)
+            } catch {
+                NSLog("Script file error")
+            }
+            
+            self.init(script: fileString)
+        } else {
+            self.init(script: " ")
+        }
+        
+        self.filename = fileName
+    }
+    
+    internal func set(transform: dTransform) {
+        self.transform = transform
         
         self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
         self.jsContext.evaluateScript(
@@ -40,25 +63,18 @@ public class dJSScript: dComponent, dJSScriptExport {
         )
     }
     
-    public convenience init(fileName: String, transform: dTransform) {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "js") {
-            var fileString: String = ""
-            
-            do {
-                fileString = try String(contentsOf: url)
-            } catch {
-                NSLog("Script file error")
-            }
-            
-            self.init(script: fileString, transform: transform)
-        } else {
-            self.init(script: " ", transform: transform)
-        }
-    }
-    
     internal func run(function: String) {
         self.jsContext.evaluateScript(
             "\(function)();"
         )
+    }
+    
+    internal override func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        dict["type"] = JSON("SCRIPT")
+        dict["filename"] = JSON(self.filename)
+        
+        return dict
     }
 }

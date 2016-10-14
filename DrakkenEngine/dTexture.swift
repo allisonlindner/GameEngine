@@ -25,25 +25,32 @@ public class dTexture {
 		}
 	}
 	
-	public init(name: String, file: String) {
-		self._name = name
-		
-		self._id = dCore.instance.tManager.create(name, file: file)
+	public init(_ file: String) {
+        if let id = dCore.instance.tManager.getID(file) {
+            self._id = id
+            self._name = file
+        } else {
+            self._name = file
+            self._id = dCore.instance.tManager.create(file)
+            DrakkenEngine.Register(texture: self)
+        }
 	}
 	
-	public init(name: String) {
-		self._name = name
-		
-		self._id = dCore.instance.tManager.getID(name)
-	}
-	
-	public init(name: String, width: Int, height: Int) {
-		self._name = name
-		
-		self._id = dCore.instance.tManager.createRenderTarget(name, width: width, height: height)
-	}
+//	public init(_ name: String, width: Int, height: Int) {
+//		self._name = name
+//		
+//		self._id = dCore.instance.tManager.createRenderTarget(name, width: width, height: height)
+//	}
 	
 	internal func getTexture() -> MTLTexture {
 		return dCore.instance.tManager.getTexture(_id)
 	}
+    
+    internal func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        dict["file"] = JSON(self._name)
+        
+        return dict
+    }
 }

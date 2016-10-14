@@ -23,6 +23,7 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	func start() {
 		simpleRender = dSimpleSceneRender(scene: _scene)
         simpleRender.start()
+        _firstStep = true
 	}
 	
 	func draw(in view: MTKView) {
@@ -63,10 +64,13 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 open class dGameView: MTKView {
 	private var _gameView: dGameViewDelegate!
 	
-	public var scene: dScene {
+	internal(set) public var scene: dScene {
 		get {
 			return self._gameView._scene
 		}
+        set {
+            self._gameView._scene = newValue
+        }
 	}
 	
 	override public init(frame frameRect: CGRect, device: MTLDevice?) {
@@ -107,12 +111,24 @@ open class dGameView: MTKView {
 		
 		_gameView = dGameViewDelegate()
 		_gameView._updateFunction = self.update
-		
-		self.start()
-		_gameView.start()
-		self.delegate = _gameView
 	}
 	
+    public func load(scene: String) {
+        self._gameView._scene = dCore.instance.scManager.load(scene: scene)
+        self.Init()
+    }
+    
+    public func load(sceneURL: URL) {
+        self._gameView._scene = dCore.instance.scManager.load(sceneURL: sceneURL)
+        self.Init()
+    }
+    
+    public func Init() {
+        self.start()
+        _gameView.start()
+        self.delegate = _gameView
+    }
+    
 	open func update() {
 		
 	}
