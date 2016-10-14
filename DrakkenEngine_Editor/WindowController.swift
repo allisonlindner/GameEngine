@@ -24,26 +24,6 @@ class WindowController: NSWindowController {
         }
     }
     
-    @IBAction internal func openScene(_ sender: AnyObject?) {
-        if becomeFirstResponder() {
-            if self.contentViewController is EditorViewController {
-                let editorVC = self.contentViewController as! EditorViewController
-                let openPanel = NSOpenPanel()
-            
-                openPanel.begin(completionHandler: { (result) in
-                    if result == NSFileHandlingPanelOKButton {
-                        if let url = openPanel.urls.first {
-                            if url.pathExtension == "dkscene" {
-                                editorVC.editorView.scene.load(url: url)
-                                editorVC.editorView.Init()
-                            }
-                        }
-                    }
-                })
-            }
-        }
-    }
-    
     @IBAction internal func saveScene(_ sender: AnyObject?) {
         if becomeFirstResponder() {
             if self.contentViewController is EditorViewController {
@@ -91,9 +71,15 @@ class WindowController: NSWindowController {
                             let scenesURL = assetsURL.appendingPathComponent("scenes", isDirectory: true)
                             let scriptsURL = assetsURL.appendingPathComponent("scripts", isDirectory: true)
                             
-                            try fileManager.createDirectory(at: imagesURL, withIntermediateDirectories: true, attributes: nil)
-                            try fileManager.createDirectory(at: scenesURL, withIntermediateDirectories: true, attributes: nil)
-                            try fileManager.createDirectory(at: scriptsURL, withIntermediateDirectories: true, attributes: nil)
+                            try fileManager.createDirectory(at: imagesURL,
+                                                            withIntermediateDirectories: true,
+                                                            attributes: nil)
+                            try fileManager.createDirectory(at: scenesURL,
+                                                            withIntermediateDirectories: true,
+                                                            attributes: nil)
+                            try fileManager.createDirectory(at: scriptsURL,
+                                                            withIntermediateDirectories: true,
+                                                            attributes: nil)
                             
                             var dictProject = [String: JSON]()
                             
