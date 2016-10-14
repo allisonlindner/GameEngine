@@ -38,6 +38,8 @@ public class dScene {
     }
     
     private func load(json: String) {
+        self.clear()
+        
         if let dataFromString = json.data(using: String.Encoding.utf8) {
             let json = JSON(data: dataFromString)
             
@@ -194,5 +196,9 @@ public class dScene {
         }
         
         return nil
+    }
+    
+    internal func clear() {
+        self.transforms.removeAll()
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E08D23E1DB165E400CB8D85 /* FileViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */; };
 		2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */; };
 		2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295F11DAC4FCA007C5512 /* WindowController.swift */; };
 		2E255A241DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
@@ -60,7 +61,6 @@
 		2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
 		2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
 		2E35211E1DAC4C3B00642255 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
-		2E40ACBC1DAD848600A91328 /* Assets in Resources */ = {isa = PBXBuildFile; fileRef = 2E40ACBB1DAD848600A91328 /* Assets */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -190,6 +190,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerController.swift; sourceTree = "<group>"; };
 		2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		2E1295F11DAC4FCA007C5512 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		2E255A231DA2D26A00364AFC /* dJSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSCore.swift; sourceTree = "<group>"; };
@@ -200,7 +201,6 @@
 		2E3520ED1DAC208200642255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3520F01DAC208200642255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E3520F21DAC208200642255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E40ACBB1DAD848600A91328 /* Assets */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Assets; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
 		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
@@ -301,6 +301,7 @@
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+				2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -311,7 +312,6 @@
 				2E3520E91DAC208200642255 /* AppDelegate.swift */,
 				2E1295EE1DAC4F11007C5512 /* Editor */,
 				2E3520ED1DAC208200642255 /* Assets.xcassets */,
-				2E40ACBB1DAD848600A91328 /* Assets */,
 				2E3520EF1DAC208200642255 /* Main.storyboard */,
 				2E3520F21DAC208200642255 /* Info.plist */,
 			);
@@ -721,7 +721,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */,
-				2E40ACBC1DAD848600A91328 /* Assets in Resources */,
 				2E3520F11DAC208200642255 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -791,6 +790,7 @@
 				2E35211B1DAC4C3B00642255 /* dDiffuseDef.swift in Sources */,
 				2E3521141DAC4C3100642255 /* dSimpleSceneRender.swift in Sources */,
 				2E3521171DAC4C3400642255 /* dSprite.swift in Sources */,
+				2E08D23E1DB165E400CB8D85 /* FileViewerController.swift in Sources */,
 				2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */,
 				2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */,
 				2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */,

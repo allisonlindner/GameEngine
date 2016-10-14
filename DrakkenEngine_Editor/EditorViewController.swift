@@ -12,6 +12,7 @@ import Foundation
 class EditorViewController: NSViewController {
 
     @IBOutlet weak var editorView: EditorView!
+    @IBOutlet weak var fileViewer: FileViewerController!
     
     override func viewDidLoad() {
         super.viewDidLoad()

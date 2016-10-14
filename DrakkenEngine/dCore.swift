@@ -49,7 +49,7 @@ public class dCore {
 		self.renderer = dRenderer()
         
         self.ROOT_PATH = Bundle.main.url(forResource: "Assets", withExtension: nil)
-        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("img", isDirectory: true)
+        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
         self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
         self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
 		
@@ -82,4 +82,18 @@ public class dCore {
 			}
 		}
 	}
+    
+    internal func loadRootPath(path: String) {
+        self.ROOT_PATH = URL(string: path)?.appendingPathComponent("Assets")
+        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
+        self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
+        self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
+    }
+    
+    internal func loadRootPath(url: URL) {
+        self.ROOT_PATH = url.appendingPathComponent("Assets")
+        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
+        self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
+        self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
+    }
 }
