@@ -1,10 +1,25 @@
 {
-  "name" : "scene",
+  "name" : "Scene 01",
+  "setup" : {
+    "sprites" : [
+      {
+        "lines" : 21,
+        "name" : "guy",
+        "texture" : "hero.png",
+        "columns" : 13
+      }
+    ],
+    "textures" : [
+      {
+        "file" : "hero.png"
+      }
+    ]
+  },
   "transforms" : [
     {
       "position" : {
         "y" : 0,
-        "x" : -103,
+        "x" : 169,
         "z" : 0
       },
       "components" : [
@@ -74,20 +89,5 @@
         "z" : 0
       }
     }
-  ],
-  "setup" : {
-    "sprites" : [
-      {
-        "lines" : 21,
-        "name" : "guy",
-        "texture" : "hero.png",
-        "columns" : 13
-      }
-    ],
-    "textures" : [
-      {
-        "file" : "hero.png"
-      }
-    ]
-  }
+  ]
 }
