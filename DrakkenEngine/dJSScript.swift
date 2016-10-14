@@ -17,8 +17,9 @@ public class dJSScript: dComponent, dJSScriptExport {
     internal var jsContext: JSContext
     internal var transform: dTransformExport!
     internal var script: String
+    internal var filename: String!
     
-    public init(script: String) {
+    internal init(script: String) {
         self.jsContext = JSContext()
         self.script = script
         
@@ -45,6 +46,8 @@ public class dJSScript: dComponent, dJSScriptExport {
         } else {
             self.init(script: " ")
         }
+        
+        self.filename = fileName
     }
     
     internal func set(transform: dTransform) {
@@ -64,5 +67,14 @@ public class dJSScript: dComponent, dJSScriptExport {
         self.jsContext.evaluateScript(
             "\(function)();"
         )
+    }
+    
+    internal override func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        dict["type"] = JSON("SCRIPT")
+        dict["filename"] = JSON(self.filename)
+        
+        return dict
     }
 }

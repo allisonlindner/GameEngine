@@ -17,6 +17,9 @@ public class DrakkenEngine {
 	private static var _toBeRegisteredMeshs: [dMeshDef] = []
 	private static var _toBeRegisteredMaterials: [dMaterialDef] = []
 	private static var _toBeRegisteredSprites: [dSpriteDef] = []
+    
+    private static var _registeredTexture: [dTexture] = []
+    private static var _registeredSprites: [dSpriteDef] = []
 	
 	public static func Init() {
 		DrakkenEngine.InitInternalShaders()
@@ -40,16 +43,21 @@ public class DrakkenEngine {
 	}
 	
 	public static func Register(mesh def: dMeshDef) {
-		_toBeRegisteredMeshs.append(def)
+		DrakkenEngine._toBeRegisteredMeshs.append(def)
 	}
 	
 	public static func Register(material def: dMaterialDef) {
-		_toBeRegisteredMaterials.append(def)
+		DrakkenEngine._toBeRegisteredMaterials.append(def)
 	}
 	
 	public static func Register(sprite def: dSpriteDef) {
-		_toBeRegisteredSprites.append(def)
+		DrakkenEngine._toBeRegisteredSprites.append(def)
+        DrakkenEngine._registeredSprites.append(def)
 	}
+    
+    internal static func Register(texture: dTexture) {
+        DrakkenEngine._registeredTexture.append(texture)
+    }
 	
 	private static func SetupShaders() {
 		for shaderToRegister in DrakkenEngine._toBeRegisteredShaders {
@@ -64,19 +72,22 @@ public class DrakkenEngine {
 			let mesh = dMesh(meshDef: meshToRegister)
 			mesh.build()
 		}
+        DrakkenEngine._toBeRegisteredMeshs.removeAll()
 	}
 	
 	private static func SetupMaterials() {
 		for materialToRegister in DrakkenEngine._toBeRegisteredMaterials {
 			let material = dMaterial(materialDef: materialToRegister)
 			material.build()
-		}
+        }
+        DrakkenEngine._toBeRegisteredMaterials.removeAll()
 	}
 	
 	private static func SetupSprites() {
 		for spriteToRegister in DrakkenEngine._toBeRegisteredSprites {
 			_ = dCore.instance.spManager.create(sprite: spriteToRegister)
-		}
+        }
+        DrakkenEngine._toBeRegisteredSprites.removeAll()
 	}
 	
 	private static func InitInternalShaders() {
@@ -93,4 +104,23 @@ public class DrakkenEngine {
 	private static func InitInternalMaterial() {
 		
 	}
+    
+    internal static func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        var textures = [JSON]()
+        for t in _registeredTexture {
+            textures.append(JSON(t.toDict()))
+        }
+        
+        var sprites = [JSON]()
+        for s in _registeredSprites {
+            sprites.append(JSON(s.toDict()))
+        }
+        
+        dict["textures"] = JSON(textures)
+        dict["sprites"] = JSON(sprites)
+        
+        return dict
+    }
 }

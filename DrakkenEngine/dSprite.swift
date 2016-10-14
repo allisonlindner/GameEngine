@@ -33,6 +33,17 @@ public class dSpriteDef {
         
         self.init(name, columns: columns, lines: lines, texture: t)
     }
+    
+    internal func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        dict["name"] = JSON(name)
+        dict["columns"] = JSON(columns)
+        dict["lines"] = JSON(lines)
+        dict["texture"] = JSON(texture.name)
+        
+        return dict
+    }
 }
 
 public class dSprite : dComponent {
@@ -86,4 +97,14 @@ public class dSprite : dComponent {
 	public func set(texture: dTexture) {
 		dCore.instance.spManager.get(sprite: spriteName)!.set(texture: texture)
 	}
+    
+    internal override func toDict() -> [String: JSON] {
+        var dict = [String: JSON]()
+        
+        dict["type"] = JSON("SPRITE")
+        dict["name"] = JSON(self.spriteName)
+        dict["frame"] = JSON(Int(self.frame))
+        
+        return dict
+    }
 }
