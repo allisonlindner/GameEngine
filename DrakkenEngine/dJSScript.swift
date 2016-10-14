@@ -33,7 +33,7 @@ public class dJSScript: dComponent, dJSScriptExport {
     }
     
     public convenience init(fileName: String) {
-        if let url = Bundle.main.url(forResource: fileName, withExtension: "js", subdirectory: "Assets/scripts") {
+        if let url = dCore.instance.SCRIPTS_PATH?.appendingPathComponent(fileName).appendingPathExtension("js") {
             var fileString: String = ""
             
             do {

@@ -27,6 +27,11 @@ public class dCore {
 	internal var mshManager: dMeshManager
 	internal var spManager: dSpriteManager
     internal var scManager: dSceneManager
+    
+    internal var ROOT_PATH: URL?
+    internal var IMAGES_PATH: URL?
+    internal var SCENES_PATH: URL?
+    internal var SCRIPTS_PATH: URL?
 	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
@@ -42,6 +47,11 @@ public class dCore {
         self.scManager = dSceneManager()
 
 		self.renderer = dRenderer()
+        
+        self.ROOT_PATH = Bundle.main.url(forResource: "Assets", withExtension: nil)
+        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("img", isDirectory: true)
+        self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
+        self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
 		
 		let bundle = Bundle.init(identifier: "drakkenstudio.DrakkenEngine")
 		

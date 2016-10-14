@@ -106,7 +106,7 @@ internal class dTextureManager {
 		do {
 			if let textureURL = Bundle(identifier: "drakkenstudio.DrakkenEngine")!.url(forResource: name, withExtension: nil, subdirectory: "Assets") {
 				_textureURL = textureURL
-			} else if let textureURL = Bundle.main.url(forResource: name, withExtension: nil, subdirectory: "Assets/img") {
+			} else if let textureURL = dCore.instance.IMAGES_PATH?.appendingPathComponent(name) {
 				_textureURL = textureURL
 			}
 			

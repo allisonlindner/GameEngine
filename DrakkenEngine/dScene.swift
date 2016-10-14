@@ -32,9 +32,7 @@ public class dScene {
     }
     
     internal func load(jsonFile: String) {
-        if let url = Bundle.main.url(forResource: jsonFile,
-                                     withExtension: "json",
-                                     subdirectory: "Assets/scenes") {
+        if let url = dCore.instance.SCENES_PATH?.appendingPathComponent(jsonFile).appendingPathExtension("dkscene") {
             self.load(url: url)
         }
     }

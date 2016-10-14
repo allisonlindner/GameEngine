@@ -6,6 +6,8 @@
 //  Copyright © 2016 Drakken Studio. All rights reserved.
 //
 
+import Foundation
+
 fileprivate struct dShaderRegister {
 	var name: String
 	var vertexFunctionName: String
@@ -20,8 +22,8 @@ public class DrakkenEngine {
     
     private static var _registeredTexture: [dTexture] = []
     private static var _registeredSprites: [dSpriteDef] = []
-	
-	public static func Init() {
+    
+    public static func Init() {
 		DrakkenEngine.InitInternalShaders()
 		DrakkenEngine.InitInternalMeshs()
 		DrakkenEngine.InitInternalMaterial()
