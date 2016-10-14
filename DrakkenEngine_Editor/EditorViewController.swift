@@ -19,58 +19,6 @@ class EditorViewController: NSViewController {
         self.create(scene: "scene")
     }
     
-    @IBAction internal func newScene(_ sender: AnyObject?) {
-        if becomeFirstResponder() {
-            self.create(scene: "scene")
-        }
-    }
-    
-    @IBAction internal func openScene(_ sender: AnyObject?) {
-        if becomeFirstResponder() {
-            let openPanel = NSOpenPanel()
-            
-            openPanel.begin(completionHandler: { (result) in
-                if result == NSFileHandlingPanelOKButton {
-                    
-                    if let url = openPanel.urls.first {
-                        if url.pathExtension == "dkscene" {
-                            self.editorView.load(sceneURL: url)
-                        }
-                    }
-                }
-            })
-        }
-    }
-    
-    @IBAction internal func saveScene(_ sender: AnyObject?) {
-        if becomeFirstResponder() {
-            let fileManager = FileManager()
-            let savePanel = NSSavePanel()
-            
-            savePanel.begin(completionHandler: { (result) in
-                if result == NSFileHandlingPanelOKButton {
-                    
-                    if var url = savePanel.url {
-                        if url.pathExtension != "dkscene" ||
-                            url.pathExtension.isEmpty {
-                            
-                            url.appendPathExtension("dkscene")
-                        }
-                        
-                        if let jsonData = dCore.instance.scManager.toJSON(scene: self.editorView.scene) {
-                        
-                            fileManager.createFile(atPath: url.path,
-                                                   contents: jsonData,
-                                                   attributes: nil)
-                        }
-                        
-                        NSLog("Scene save with success on path: \(url.path)")
-                    }
-                }
-            })
-        }
-    }
-    
     internal func create(scene: String) {
         editorView.scene = dScene()
         editorView.scene.name = scene

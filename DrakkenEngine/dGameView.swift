@@ -114,12 +114,12 @@ open class dGameView: MTKView {
 	}
 	
     public func load(scene: String) {
-        self._gameView._scene = dCore.instance.scManager.load(scene: scene)
+        self._gameView._scene.load(jsonFile: scene)
         self.Init()
     }
     
     public func load(sceneURL: URL) {
-        self._gameView._scene = dCore.instance.scManager.load(sceneURL: sceneURL)
+        self._gameView._scene.load(url: sceneURL)
         self.Init()
     }
     
