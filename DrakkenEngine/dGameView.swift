@@ -10,6 +10,12 @@ import Foundation
 import Metal
 import MetalKit
 
+internal enum LOOPSTATE {
+    case PLAY
+    case PAUSE
+    case STOP
+}
+
 internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	typealias updateFunction = () -> Void
 	
@@ -18,7 +24,9 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	fileprivate var _updateFunction: updateFunction?
 	fileprivate var _scene: dScene = dScene()
 	
-	private var simpleRender: dSimpleSceneRender!
+    private var simpleRender: dSimpleSceneRender!
+    
+    internal var state: LOOPSTATE = LOOPSTATE.PLAY
 	
 	func start() {
 		simpleRender = dSimpleSceneRender(scene: _scene)
@@ -42,6 +50,9 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 		
 		if let currentDrawable = view.currentDrawable {
 			if _scene.transforms.count > 0 {
+                if state == LOOPSTATE.PLAY {
+                    simpleRender.update(deltaTime: 0.016)
+                }
 				simpleRender.draw(drawable: currentDrawable)
 			} else {
 				let id = dCore.instance.renderer.startFrame(currentDrawable.texture)
@@ -49,6 +60,24 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 				dCore.instance.renderer.present(currentDrawable)
 			}
 		}
+        
+        #if os(iOS)
+            if Float(UIScreen.main.scale) != self._scene.scale {
+                self._scene.scale = Float(UIScreen.main.scale)
+            }
+        #endif
+        #if os(tvOS)
+            if Float(UIScreen.main.scale) != self._scene.scale {
+                self._scene.scale = Float(UIScreen.main.scale)
+            }
+        #endif
+        #if os(OSX)
+            if let scale = NSScreen.main()?.backingScaleFactor {
+                if Float(scale) != self._scene.scale {
+                    self._scene.scale = Float(scale)
+                }
+            }
+        #endif
 	}
 	
 	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
@@ -62,7 +91,16 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 }
 
 open class dGameView: MTKView {
-	private var _gameView: dGameViewDelegate!
+    private var _gameView: dGameViewDelegate!
+    
+    internal var state: LOOPSTATE {
+        get {
+            return _gameView.state
+        }
+        set {
+            _gameView.state = newValue
+        }
+    }
 	
 	internal(set) public var scene: dScene {
 		get {

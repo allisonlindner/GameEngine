@@ -210,27 +210,20 @@ internal class dSimpleSceneRender {
 	
 	internal func draw(drawable: CAMetalDrawable) {
 		
-		// ######################## //
-		// ######## UPDATE ######## //
-		// ######################## //
-		self.update(deltaTime: 0.016)
-		// ######################## //
-		// ######################## //
-		
-		
 		let id = dCore.instance.renderer.startFrame(drawable.texture)
 		self.ids.append(id)
 		
 		let renderer = dCore.instance.renderer
 		
 		let projectionMatrix = dMath.newOrtho(			-_scene.size.x/2.0,
-											  right:		 _scene.size.x/2.0,
+											  right:     _scene.size.x/2.0,
 											  bottom:	-_scene.size.y/2.0,
 											  top:		 _scene.size.y/2.0,
 											  near:		-1000,
 											  far:		 1000)
 		
-		let viewMatrix = dMath.newTranslation(float3(0.0, 0.0, -500.0))
+		let viewMatrix = dMath.newTranslation(float3(0.0, 0.0, -500.0)) *
+                         dMath.newScale(_scene.scale)
 		
 		let uCamera = dCameraUniform(viewMatrix: viewMatrix, projectionMatrix: projectionMatrix)
 		

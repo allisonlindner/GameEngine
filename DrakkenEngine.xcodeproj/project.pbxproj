@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2E08D23E1DB165E400CB8D85 /* FileViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */; };
 		2E08D2401DB189CF00CB8D85 /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08D23F1DB189CF00CB8D85 /* InspectorView.swift */; };
 		2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */; };
 		2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295F11DAC4FCA007C5512 /* WindowController.swift */; };
@@ -62,6 +61,7 @@
 		2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
 		2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
 		2E35211E1DAC4C3B00642255 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -191,7 +191,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileViewerController.swift; sourceTree = "<group>"; };
 		2E08D23F1DB189CF00CB8D85 /* InspectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		2E1295F11DAC4FCA007C5512 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
@@ -203,6 +202,7 @@
 		2E3520ED1DAC208200642255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3520F01DAC208200642255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E3520F21DAC208200642255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFolderView.swift; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
 		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
@@ -304,7 +304,7 @@
 				2E08D23F1DB189CF00CB8D85 /* InspectorView.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
-				2E08D23D1DB165E400CB8D85 /* FileViewerController.swift */,
+				2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -788,13 +788,13 @@
 				2E35210E1DAC4C2600642255 /* dGameView.swift in Sources */,
 				2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */,
 				2E3521031DAC4C2200642255 /* dTransformManager.swift in Sources */,
+				2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */,
 				2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */,
 				2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */,
 				2E3521131DAC4C2C00642255 /* dScene.swift in Sources */,
 				2E35211B1DAC4C3B00642255 /* dDiffuseDef.swift in Sources */,
 				2E3521141DAC4C3100642255 /* dSimpleSceneRender.swift in Sources */,
 				2E3521171DAC4C3400642255 /* dSprite.swift in Sources */,
-				2E08D23E1DB165E400CB8D85 /* FileViewerController.swift in Sources */,
 				2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */,
 				2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */,
 				2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */,

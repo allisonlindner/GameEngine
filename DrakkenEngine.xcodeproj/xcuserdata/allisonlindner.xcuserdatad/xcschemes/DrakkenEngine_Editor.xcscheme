@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E3520D11DAC1F4C00642255"
+               BlueprintIdentifier = "2E3520E61DAC208100642255"
                BuildableName = "DrakkenEngine_Editor.app"
                BlueprintName = "DrakkenEngine_Editor"
                ReferencedContainer = "container:DrakkenEngine.xcodeproj">
@@ -55,7 +55,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "2E3520D11DAC1F4C00642255"
+            BlueprintIdentifier = "2E3520E61DAC208100642255"
             BuildableName = "DrakkenEngine_Editor.app"
             BlueprintName = "DrakkenEngine_Editor"
             ReferencedContainer = "container:DrakkenEngine.xcodeproj">

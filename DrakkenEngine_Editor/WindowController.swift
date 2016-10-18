@@ -146,8 +146,7 @@ class WindowController: NSWindowController {
                                     NSLog("Fail while get first scene URL: \(error)")
                                 }
                                 
-                                editorVC.fileViewer.setCurrentDirectory(url: dCore.instance.ROOT_PATH!)
-                                editorVC.fileViewer.reloadPathData()
+                                editorVC.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                             }
                         }
                     }

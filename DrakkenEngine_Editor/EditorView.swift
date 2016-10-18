@@ -9,6 +9,9 @@
 import Cocoa
 
 class EditorView: dGameView {
-    
+    override func Init() {
+        self.state = .STOP
+        super.Init()
+    }
 }
 

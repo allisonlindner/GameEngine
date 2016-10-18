@@ -7,7 +7,7 @@
 		<key>DrakkenEngine_Editor.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>5</integer>
+			<integer>3</integer>
 		</dict>
 		<key>DrakkenEngine_iOS.xcscheme</key>
 		<dict>
@@ -30,37 +30,37 @@
 		<key>2E3520BE1DAC182400642255</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2E3520D11DAC1F4C00642255</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2E3520E61DAC208100642255</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2EEC07FE1D6B79AD00F1FF19</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2EEC080E1D6B79DE00F1FF19</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2EEC081B1D6B79EC00F1FF19</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 		<key>2EEC08281D6B79FB00F1FF19</key>
 		<dict>
 			<key>primary</key>
-			<true/>
+			<true />
 		</dict>
 	</dict>
 </dict>
