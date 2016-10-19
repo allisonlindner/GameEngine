@@ -13,5 +13,10 @@ class EditorView: dGameView {
         self.state = .STOP
         super.Init()
     }
+    
+    override func update() {
+        let appDelegate = NSApplication.shared().delegate as! AppDelegate
+        appDelegate.editorViewController?.fileViewer.checkFolder()
+    }
 }
 

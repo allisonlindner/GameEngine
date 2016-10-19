@@ -12,9 +12,12 @@ internal class dTransformData {
 	internal var position: dVector3D
 	// Definir a posição dentro de outro transform
 	//internal var localPosition: float3
+    internal var name: String
 	internal var rotation: dVector3D
 	internal var scale: dSize2D
 	internal var parentTransform: dTransformData?
+    
+    internal var meshScale: dSize2D?
 	
 	private var _localMatrix4x4: float4x4!
 	internal var localMatrix4x4: float4x4! {
@@ -32,29 +35,31 @@ internal class dTransformData {
 		}
 	}
 	
-	internal init(position: (x: Float, y: Float, z: Float),
+    internal init(name: String,
+                  position: (x: Float, y: Float, z: Float),
 	              rotation: (x: Float, y: Float, z: Float),
-					 scale: (x: Float, y: Float)) {
+	              scale: (x: Float, y: Float)) {
 		
 		self.position = dVector3D(position.x, position.y, position.z)
 		self.rotation = dVector3D(rotation.x, rotation.y, rotation.z)
 		self.scale =	dSize2D(scale.x, scale.y)
+        self.name = name
 		
 		_updateMatrix()
 	}
 	
-	private func _updateMatrix() {
-		self._localMatrix4x4 =	dMath.newTranslation(self.position.Get()) *
-								dMath.newRotationX(self.rotation.Get().x) *
-								dMath.newRotationY(self.rotation.Get().y) *
-								dMath.newRotationZ(self.rotation.Get().z) *
-								dMath.newScale(self.scale.Get().x, y: self.scale.Get().y, z: 1.0)
-		
+    private func _updateMatrix() {
+        self._localMatrix4x4 =	dMath.newTranslation(self.position.Get()) *
+                                dMath.newRotationX(self.rotation.Get().x) *
+                                dMath.newRotationY(self.rotation.Get().y) *
+                                dMath.newRotationZ(self.rotation.Get().z) *
+                                dMath.newScale(self.scale.Get().x, y: self.scale.Get().y, z: 1.0)
+        
 		if self.parentTransform != nil {
-            self.parentTransform?._updateMatrix()
+            self.parentTransform!._updateMatrix()
 			self._worldMatrix4x4 = self.parentTransform!._worldMatrix4x4 * self._localMatrix4x4
 		} else {
-			self._worldMatrix4x4 = _localMatrix4x4
+            self._worldMatrix4x4 = _localMatrix4x4
 		}
 	}
 }
@@ -63,11 +68,12 @@ internal class dTransformManager {
 	private var _transforms: [Int : dTransformData] = [:]
 	private var _nextTransformIndex: Int = 0
 	
-	internal func create(_ position: (x: Float, y: Float, z: Float),
+    internal func create(_ name: String,
+                         _ position: (x: Float, y: Float, z: Float),
 	                     _ rotation: (x: Float, y: Float, z: Float),
 							_ scale: (x: Float, y: Float)) -> Int {
 		
-		let transform = dTransformData(position: position, rotation: rotation, scale: scale)
+        let transform = dTransformData(name: name, position: position, rotation: rotation, scale: scale)
 		
 		let index = _nextTransformIndex
 		_transforms[index] = transform

@@ -15,10 +15,10 @@ internal class dSceneController {
 		self.process(transforms: scene.transforms)
 	}
 	
-	private func process(transforms: [dTransform]) {
+    private func process(transforms: [Int: dTransform]) {
 		for transform in transforms {
-			self.process(components: transform.components)
-			self.process(transforms: transform.childrenTransforms)
+			self.process(components: transform.value.components)
+			self.process(transforms: transform.value.childrenTransforms)
 		}
 	}
 	

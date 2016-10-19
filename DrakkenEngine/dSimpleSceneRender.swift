@@ -32,10 +32,10 @@ internal class dSimpleSceneRender {
 		self.process(transforms: scene.transforms)
 	}
 	
-	private func process(transforms: [dTransform]) {
+    private func process(transforms: [Int: dTransform]) {
 		for transform in transforms {
-			self.process(components: transform.components)
-			self.process(transforms: transform.childrenTransforms)
+			self.process(components: transform.value.components)
+			self.process(transforms: transform.value.childrenTransforms)
 		}
 	}
 	
@@ -141,7 +141,15 @@ internal class dSimpleSceneRender {
 	private func generateBufferOf(transforms: [dTransform]) -> dBufferable {
 		var matrixArray: [float4x4] = []
 		for transform in transforms {
-			matrixArray.append(transform.worldMatrix4x4)
+            
+            var matrix = transform.worldMatrix4x4
+            
+            if transform._transformData.meshScale != nil {
+                matrix = matrix * dMath.newScale(transform._transformData.meshScale!.Get().x,
+                                                 y: transform._transformData.meshScale!.Get().y, z: 1.0)
+            }
+            
+			matrixArray.append(matrix)
 		}
 		
 		return dBuffer<float4x4>(data: matrixArray, index: 1)

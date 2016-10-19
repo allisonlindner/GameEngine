@@ -14,10 +14,10 @@ public class dScene {
     public var scale: Float = 1.0
 	
     internal var name: String = "scene"
-	internal var transforms: [dTransform] = []
+    internal var transforms: [Int: dTransform] = [:]
 	
 	public func add(transform: dTransform) {
-		self.transforms.append(transform)
+		self.transforms[transform._id] = transform
 	}
     
     internal func load(url: URL) {
@@ -57,53 +57,8 @@ public class dScene {
             let transforms = json["transforms"].arrayValue
             
             for t in transforms {
-                print("----------------------------------------------")
-                
-                let position = t["position"].dictionaryValue
-                print("position - x: \(position["x"]!.floatValue), y: \(position["y"]!.floatValue), z: \(position["z"]!.floatValue)")
-                
-                let rotation = t["rotation"].dictionaryValue
-                print("rotation - x: \(rotation["x"]!.floatValue), y: \(rotation["y"]!.floatValue), z: \(rotation["z"]!.floatValue)")
-                
-                let scale = t["scale"].dictionaryValue
-                print("scale - w: \(scale["w"]!.floatValue), h: \(scale["h"]!.floatValue)")
-                
-                let transformObj = dTransform(position: (x: position["x"]!.floatValue, y: position["y"]!.floatValue, z: position["z"]!.floatValue),
-                                              rotation: (x: rotation["x"]!.floatValue, y: rotation["x"]!.floatValue, z: rotation["x"]!.floatValue),
-                                              scale: (x: scale["w"]!.floatValue, y: scale["h"]!.floatValue),
-                                              parent: nil)
-                
-                let components = t["components"].arrayValue
-                for c in components {
-                    let type = c["type"].stringValue
-                    
-                    switch type {
-                    case "SPRITE":
-                        let name = c["name"].stringValue
-                        let frame = c["frame"].int32Value
-                        
-                        print("\(type) - name: \(name), frame: \(frame)")
-                        
-                        let sprite = dSprite(sprite: name, frame: frame)
-                        transformObj.add(component: sprite)
-                        
-                        break
-                    case "SCRIPT":
-                        let filename = c["filename"].stringValue
-                        
-                        print("\(type) - filename: \(filename)")
-                        
-                        transformObj.add(script: filename)
-                        
-                        break
-                    default:
-                        break
-                    }
-                }
-                
-                self.add(transform: transformObj)
-                
-                print("----------------------------------------------")
+                let transform = dTransform(json: t)
+                self.add(transform: transform)
             }
         }
     }
@@ -144,46 +99,12 @@ public class dScene {
         jsonDict["name"] = JSON(self.name)
         jsonDict["setup"] = JSON(DrakkenEngine.toDict())
         
-        var transforms: [JSON] = []
-        
+        var transformsArray: [JSON] = []
         for t in self.transforms {
-            var dict = [String: JSON]()
-            var position = [String: JSON]()
-            
-            position["x"] = JSON(t.Position.x)
-            position["y"] = JSON(t.Position.y)
-            position["z"] = JSON(t.Position.z)
-            
-            dict["position"] = JSON(position)
-            
-            var rotation = [String: JSON]()
-            
-            rotation["x"] = JSON(t.Rotation.x)
-            rotation["y"] = JSON(t.Rotation.y)
-            rotation["z"] = JSON(t.Rotation.z)
-            
-            dict["rotation"] = JSON(rotation)
-            
-            var scale = [String: JSON]()
-            
-            scale["w"] = JSON(t.Scale.width)
-            scale["h"] = JSON(t.Scale.height)
-            
-            dict["scale"] = JSON(scale)
-            
-            var components = [JSON]()
-            for c in t.components {
-                if c.toDict().count > 0 {
-                    components.append(JSON(c.toDict()))
-                }
-            }
-            
-            dict["components"] = JSON(components)
-            
-            transforms.append(JSON(dict))
+            transformsArray.append(JSON(t.value.toDict()))
         }
         
-        jsonDict["transforms"] = JSON(transforms)
+        jsonDict["transforms"] = JSON(transformsArray)
         
         let json = JSON(jsonDict)
         do {

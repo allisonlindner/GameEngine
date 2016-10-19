@@ -9,5 +9,6 @@
 
 public class dMeshRender: dComponent {
 	internal var material: String?
-	internal var mesh: String?
+    internal var mesh: String?
+    internal var scale: dSize2D = dSize2D(1, 1)
 }

@@ -13,8 +13,12 @@ class EditorViewController: NSViewController {
 
     @IBOutlet weak var editorView: EditorView!
     @IBOutlet weak var fileViewer: ProjectFolderView!
+    @IBOutlet weak var transformsView: TransformsView!
+    @IBOutlet weak var playButton: NSButton!
     
     override func viewDidLoad() {
+        (NSApplication.shared().delegate as! AppDelegate).editorViewController = self
+        
         super.viewDidLoad()
         
         self.create(scene: "scene")

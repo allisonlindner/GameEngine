@@ -8,7 +8,7 @@
 
 import Cocoa
 
-internal class FolderItem {
+fileprivate class FolderItem: NSObject {
     var icon: NSImage
     var name: String
     var url: URL
@@ -19,14 +19,17 @@ internal class FolderItem {
         self.name = name
         self.url = url
         self.children = children
+        
+        super.init()
     }
 }
 
-internal class RootItem: FolderItem {}
+fileprivate class RootItem: FolderItem {}
 
 class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate {
     
     private var itens: [RootItem] = [RootItem]()
+    private var totalItens: Int = 0
     
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
@@ -55,6 +58,14 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         super.draw(dirtyRect)
     }
     
+    internal func checkFolder() {
+        if dCore.instance.ROOT_PATH != nil {
+            if totalItens != getNumberOfFolderItens(for: dCore.instance.ROOT_PATH!) {
+                self.loadData(for: dCore.instance.ROOT_PATH!)
+            }
+        }
+    }
+    
     internal func doubleActionSelector() {
         let item = self.item(atRow: clickedRow) as! FolderItem
         let url = item.url
@@ -68,7 +79,23 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         }
     }
     
+    private func getNumberOfFolderItens(for url: URL) -> Int {
+        let fileManager = FileManager()
+        
+        let enumerator = fileManager.enumerator(at: url,
+                                                includingPropertiesForKeys: [URLResourceKey.effectiveIconKey,URLResourceKey.localizedNameKey],
+                                                options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles,
+                                                errorHandler: { (u, error) -> Bool in
+                                                    NSLog("URL: \(u.path) - Error: \(error)")
+                                                    return false
+        })
+        
+        return enumerator!.allObjects.count
+    }
+    
     internal func loadData(for url: URL) {
+        totalItens = getNumberOfFolderItens(for: url)
+        
         let rootItens = getItens(from: url)
         itens.removeAll()
         
@@ -79,10 +106,12 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
             loadItem(from: i.url, at: rootItem)
         }
         
+        beginUpdates()
         self.reloadData()
+        endUpdates()
     }
     
-    internal func loadItem(from url: URL, at: FolderItem) {
+    private func loadItem(from url: URL, at: FolderItem) {
         let contentItens = getItens(from: url)
         
         for i in contentItens {
@@ -145,7 +174,6 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
                 return i.children[index]
             }
         }
-        
         
         return itens[index]
     }

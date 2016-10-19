@@ -10,6 +10,8 @@ import Cocoa
 
 class WindowController: NSWindowController {
     
+    let appDelegate = NSApplication.shared().delegate as! AppDelegate
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         
@@ -21,6 +23,14 @@ class WindowController: NSWindowController {
                 let editorVC = self.contentViewController as! EditorViewController
                 editorVC.create(scene: "scene01")
             }
+        }
+    }
+    
+    @IBAction internal func togglePlay(_ sender: AnyObject?) {
+        if appDelegate.editorViewController?.playButton.state == NSOnState {
+            appDelegate.editorViewController?.editorView.state = .PLAY
+        } else if appDelegate.editorViewController?.playButton.state == NSOffState {
+            appDelegate.editorViewController?.editorView.state = .PAUSE
         }
     }
     
@@ -115,43 +125,45 @@ class WindowController: NSWindowController {
     
     @IBAction internal func openProject(_ sender: AnyObject?) {
         if becomeFirstResponder() {
-            if self.contentViewController is EditorViewController {
-                let editorVC = self.contentViewController as! EditorViewController
-                let fileManager = FileManager()
-                let openPanel = NSOpenPanel()
-                
-                openPanel.canChooseDirectories = true
-                openPanel.canChooseFiles = false
-                
-                openPanel.begin(completionHandler: { (result) in
-                    if result == NSFileHandlingPanelOKButton {
-                        if let url = openPanel.urls.first {
+            let fileManager = FileManager()
+            let openPanel = NSOpenPanel()
+            
+            openPanel.canChooseDirectories = true
+            openPanel.canChooseFiles = false
+            
+            openPanel.begin(completionHandler: { (result) in
+                if result == NSFileHandlingPanelOKButton {
+                    if let url = openPanel.urls.first {
+                        
+                        let projectSettingsFileURL = url.appendingPathComponent("project").appendingPathExtension("dksettings")
+                        
+                        if fileManager.displayName(atPath: projectSettingsFileURL.path) == "project.dksettings" {
+                            NSLog("Is a project foldes")
+                            dCore.instance.loadRootPath(url: url)
                             
-                            let projectSettingsFileURL = url.appendingPathComponent("project").appendingPathExtension("dksettings")
-                            
-                            if fileManager.displayName(atPath: projectSettingsFileURL.path) == "project.dksettings" {
-                                NSLog("Is a project foldes")
-                                dCore.instance.loadRootPath(url: url)
+                            do {
+                                let sceneURL = try fileManager.contentsOfDirectory(at: dCore.instance.SCENES_PATH!, includingPropertiesForKeys: nil,
+                                                                                   options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
+                                                                                        .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants)).first
                                 
-                                do {
-                                    let sceneURL = try fileManager.contentsOfDirectory(at: dCore.instance.SCENES_PATH!, includingPropertiesForKeys: nil,
-                                                                                       options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
-                                                                                            .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants)).first
-                                    
-                                    if sceneURL != nil {
+                                if sceneURL != nil {
+                                    if let editorVC = self.appDelegate.editorViewController {
                                         editorVC.editorView.scene.load(url: sceneURL!)
                                         editorVC.editorView.Init()
                                     }
-                                } catch let error {
-                                    NSLog("Fail while get first scene URL: \(error)")
                                 }
-                                
+                            } catch let error {
+                                NSLog("Fail while get first scene URL: \(error)")
+                            }
+                            
+                            if let editorVC = self.appDelegate.editorViewController {
                                 editorVC.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                                editorVC.transformsView.reloadData()
                             }
                         }
                     }
-                })
-            }
+                }
+            })
         }
     }
 }

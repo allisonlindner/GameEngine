@@ -6,6 +6,7 @@
 //  Copyright © 2016 Drakken Studio. All rights reserved.
 //
 
+import simd
 
 public class dSpriteDef {
 	public var name: String
@@ -14,6 +15,8 @@ public class dSpriteDef {
 	public var columns: Int = 1
 	public var lines: Int = 1
 	
+    public var scale: dSize2D = dSize2D(1, 1)
+    
 	internal var animations: [String : dAnimation] = [:]
 	
 	public func add(animation data: dAnimation) {
@@ -59,13 +62,14 @@ public class dSprite : dComponent {
 	
 	internal var frame: Int32
 	
-	public init(sprite name: String, frame: Int32 = 0) {
+    public init(sprite name: String, scale: dSize2D, frame: Int32 = 0) {
 		self.spriteName = name
 		self.frame = frame
 		
 		self.meshRender = dMeshRender()
 		self.meshRender.material = "\(name)_spritematerial"
 		self.meshRender.mesh = "\(name)_spritemesh"
+        self.meshRender.scale = scale
 		
 		super.init()
 		
@@ -104,6 +108,13 @@ public class dSprite : dComponent {
         dict["type"] = JSON("SPRITE")
         dict["name"] = JSON(self.spriteName)
         dict["frame"] = JSON(Int(self.frame))
+        
+        var scaleDict = [String: JSON]()
+        
+        scaleDict["w"] = JSON(self.meshRender.scale.width)
+        scaleDict["h"] = JSON(self.meshRender.scale.height)
+        
+        dict["scale"] = JSON(scaleDict)
         
         return dict
     }

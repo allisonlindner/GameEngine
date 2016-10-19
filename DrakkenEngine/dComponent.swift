@@ -9,7 +9,7 @@
 import Foundation
 import JavaScriptCore
 
-public class dComponent: NSObject {
+public class dComponent: NSObject, Serializable {
     private var _parentTransform: dTransform?
 	internal var parentTransform: dTransform? {
 		return _parentTransform
