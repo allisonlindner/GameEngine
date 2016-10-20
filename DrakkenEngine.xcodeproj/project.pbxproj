@@ -108,6 +108,8 @@
 		2EC7F0B01D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
 		2EC7F0B11D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
 		2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
+		2ECE5A681DB9498D00CC8EDA /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */; };
+		2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */; };
 		2ED7C7751D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2ED7C7761D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2ED7C7771D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
@@ -222,6 +224,8 @@
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
+		2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
+		2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
 		2ED7C7741D78868400E65237 /* dSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSceneController.swift; sourceTree = "<group>"; };
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
@@ -308,6 +312,8 @@
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
 				2E08D23F1DB189CF00CB8D85 /* TransformsView.swift */,
 				2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */,
+				2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */,
+				2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
 			);
@@ -778,6 +784,7 @@
 				2E08D2401DB189CF00CB8D85 /* TransformsView.swift in Sources */,
 				2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */,
 				2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */,
+				2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */,
 				2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */,
 				2E3521021DAC4C2200642255 /* dTextureManager.swift in Sources */,
 				2E3521071DAC4C2200642255 /* dSpriteManager.swift in Sources */,
@@ -808,6 +815,7 @@
 				2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */,
 				2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */,
 				2E3520FD1DAC4C1800642255 /* dTexture.swift in Sources */,
+				2ECE5A681DB9498D00CC8EDA /* InspectorView.swift in Sources */,
 				2E3520FC1DAC4C1800642255 /* dBuffers.swift in Sources */,
 				2E3521041DAC4C2200642255 /* dMaterialManager.swift in Sources */,
 			);
