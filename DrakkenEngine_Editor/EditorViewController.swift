@@ -12,9 +12,15 @@ import Foundation
 class EditorViewController: NSViewController {
 
     @IBOutlet weak var editorView: EditorView!
+    @IBOutlet weak var gameView: GameView!
     @IBOutlet weak var fileViewer: ProjectFolderView!
     @IBOutlet weak var transformsView: TransformsView!
+    @IBOutlet weak var inspectorView: InspectorView!
     @IBOutlet weak var playButton: NSButton!
+    @IBOutlet weak var pauseButton: NSButton!
+    @IBOutlet weak var editorGameTabView: NSTabView!
+    
+    internal var selectedTransform: dTransform?
     
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self

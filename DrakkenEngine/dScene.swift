@@ -14,11 +14,15 @@ public class dScene {
     public var scale: Float = 1.0
 	
     internal var name: String = "scene"
-    internal var transforms: [Int: dTransform] = [:]
+    internal var root: dTransform = dTransform(name: "root")
 	
 	public func add(transform: dTransform) {
-		self.transforms[transform._id] = transform
+        root.add(child: transform)
 	}
+    
+    public func remove(transform: dTransform) {
+        root.remove(child: transform)
+    }
     
     internal func load(url: URL) {
         var fileString: String = ""
@@ -38,28 +42,32 @@ public class dScene {
         }
     }
     
-    private func load(json: String) {
+    internal func load(data: Data) {
         self.clear()
         
+        let json = JSON(data: data)
+        
+        self.name = json["name"].stringValue
+        
+        print("----------------------------------------------")
+        print("name: \(name)")
+        print("----------------------------------------------")
+        print("-----------------  SETUP  --------------------")
+        print("----------------------------------------------")
+        
+        load(setupJSON: json)
+        
+        let transforms = json["transforms"].arrayValue
+        
+        for t in transforms {
+            let transform = dTransform(json: t)
+            self.add(transform: transform)
+        }
+    }
+    
+    private func load(json: String) {
         if let dataFromString = json.data(using: String.Encoding.utf8) {
-            let json = JSON(data: dataFromString)
-            
-            self.name = json["name"].stringValue
-            
-            print("----------------------------------------------")
-            print("name: \(name)")
-            print("----------------------------------------------")
-            print("-----------------  SETUP  --------------------")
-            print("----------------------------------------------")
-            
-            load(setupJSON: json)
-            
-            let transforms = json["transforms"].arrayValue
-            
-            for t in transforms {
-                let transform = dTransform(json: t)
-                self.add(transform: transform)
-            }
+            self.load(data: dataFromString)
         }
     }
     
@@ -100,7 +108,7 @@ public class dScene {
         jsonDict["setup"] = JSON(DrakkenEngine.toDict())
         
         var transformsArray: [JSON] = []
-        for t in self.transforms {
+        for t in self.root.childrenTransforms {
             transformsArray.append(JSON(t.value.toDict()))
         }
         
@@ -121,6 +129,6 @@ public class dScene {
     }
     
     internal func clear() {
-        self.transforms.removeAll()
+        self.root.removeAll()
     }
 }

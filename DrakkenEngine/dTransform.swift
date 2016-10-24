@@ -233,6 +233,10 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         self.add(component: s)
     }
     
+    internal func removeAll() {
+        self._childrenTransforms.removeAll()
+    }
+    
     internal func toDict() -> [String: JSON] {
         var dict = [String: JSON]()
         
@@ -278,5 +282,18 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         dict["children"] = JSON(childrenArray)
         
         return dict
+    }
+    
+    internal func has(child: dTransform) -> Bool {
+        var result = false
+        for t in childrenTransforms {
+            if t.value == child {
+                result = true
+            } else {
+                result = t.value.has(child: child)
+            }
+        }
+        
+        return result
     }
 }

@@ -53,6 +53,8 @@ internal class dRenderer {
 	internal func present(_ drawable: CAMetalDrawable) {
 		_cBuffer.present(drawable)
 		_cBuffer.commit()
+        
+        _rcEncoders.removeAll()
 	}
 	
 	internal func bind(_ buffer: dBufferable, encoderID: Int) {

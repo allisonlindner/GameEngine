@@ -15,6 +15,8 @@ class WindowController: NSWindowController {
     override func windowDidLoad() {
         super.windowDidLoad()
         
+        appDelegate.editorViewController?.playButton.isEnabled = false
+        appDelegate.editorViewController?.pauseButton.isEnabled = false
     }
     
     @IBAction internal func newScene(_ sender: AnyObject?) {
@@ -27,10 +29,32 @@ class WindowController: NSWindowController {
     }
     
     @IBAction internal func togglePlay(_ sender: AnyObject?) {
-        if appDelegate.editorViewController?.playButton.state == NSOnState {
-            appDelegate.editorViewController?.editorView.state = .PLAY
-        } else if appDelegate.editorViewController?.playButton.state == NSOffState {
-            appDelegate.editorViewController?.editorView.state = .PAUSE
+        if becomeFirstResponder() {
+            if appDelegate.editorViewController?.playButton.state == NSOnState {
+                appDelegate.editorViewController?.gameView.Init()
+                appDelegate.editorViewController?.gameView.state = .PLAY
+                appDelegate.editorViewController?.editorGameTabView.selectTabViewItem(at: 1)
+                
+                appDelegate.editorViewController?.pauseButton.state = NSOffState
+                appDelegate.editorViewController?.pauseButton.isEnabled = true
+            } else if appDelegate.editorViewController?.playButton.state == NSOffState {
+                appDelegate.editorViewController?.gameView.state = .STOP
+                appDelegate.editorViewController?.editorView.state = .PAUSE
+                appDelegate.editorViewController?.editorGameTabView.selectTabViewItem(at: 0)
+                
+                appDelegate.editorViewController?.pauseButton.state = NSOffState
+                appDelegate.editorViewController?.pauseButton.isEnabled = false
+            }
+        }
+    }
+    
+    @IBAction internal func togglePause(_ sender: AnyObject?) {
+        if becomeFirstResponder() {
+            if appDelegate.editorViewController?.pauseButton.state == NSOnState {
+                appDelegate.editorViewController?.gameView.state = .PAUSE
+            } else if appDelegate.editorViewController?.pauseButton.state == NSOffState {
+                appDelegate.editorViewController?.gameView.state = .PLAY
+            }
         }
     }
     
@@ -150,6 +174,13 @@ class WindowController: NSWindowController {
                                     if let editorVC = self.appDelegate.editorViewController {
                                         editorVC.editorView.scene.load(url: sceneURL!)
                                         editorVC.editorView.Init()
+                                        
+                                        editorVC.gameView.Init()
+                                        
+                                        editorVC.editorGameTabView.selectTabViewItem(at: 0)
+                                        
+                                        editorVC.playButton.isEnabled = true
+                                        editorVC.pauseButton.isEnabled = false
                                     }
                                 }
                             } catch let error {

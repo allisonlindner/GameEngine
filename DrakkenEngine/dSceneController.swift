@@ -12,7 +12,7 @@ internal class dSceneController {
 	
 	internal init(scene: dScene) {
 		self._scene = scene
-		self.process(transforms: scene.transforms)
+		self.process(transforms: scene.root.childrenTransforms)
 	}
 	
     private func process(transforms: [Int: dTransform]) {

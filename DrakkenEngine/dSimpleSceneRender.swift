@@ -16,6 +16,9 @@ fileprivate class dMaterialMeshBind {
 	fileprivate var mesh: dMeshData!
 	fileprivate var instanceTransforms: [dTransform] = []
 	fileprivate var instanceTexCoordIDs: [Int32] = []
+    
+    fileprivate var transformsBuffer: dBuffer<float4x4>!
+    fileprivate var texCoordIDsBuffer: dBuffer<Int32>!
 }
 
 internal class dSimpleSceneRender {
@@ -26,11 +29,16 @@ internal class dSimpleSceneRender {
 	
 	private var ids: [Int] = []
 	private var _scene: dScene!
-	
-	internal init(scene: dScene) {
-		self._scene = scene
-		self.process(transforms: scene.transforms)
-	}
+    
+    private var uCameraBuffer: dBuffer<dCameraUniform>!
+    
+    internal init() { }
+    
+    internal func load(scene: dScene) {
+        self._scene = scene
+        self.renderGraph.removeAll()
+        self.process(transforms: _scene.root.childrenTransforms)
+    }
 	
     private func process(transforms: [Int: dTransform]) {
 		for transform in transforms {
@@ -138,9 +146,9 @@ internal class dSimpleSceneRender {
 		}
 	}
 	
-	private func generateBufferOf(transforms: [dTransform]) -> dBufferable {
-		var matrixArray: [float4x4] = []
-		for transform in transforms {
+	private func generateBufferOf(materialMeshBind: dMaterialMeshBind) {
+        var matrixArray: [float4x4] = []
+        for transform in materialMeshBind.instanceTransforms {
             
             var matrix = transform.worldMatrix4x4
             
@@ -149,11 +157,41 @@ internal class dSimpleSceneRender {
                                                  y: transform._transformData.meshScale!.Get().y, z: 1.0)
             }
             
-			matrixArray.append(matrix)
-		}
-		
-		return dBuffer<float4x4>(data: matrixArray, index: 1)
+            matrixArray.append(matrix)
+        }
+        
+        if materialMeshBind.transformsBuffer == nil || materialMeshBind.transformsBuffer.count != materialMeshBind.instanceTransforms.count {
+            materialMeshBind.transformsBuffer = dBuffer<float4x4>(data: matrixArray, index: 1)
+        } else {
+            materialMeshBind.transformsBuffer.change(matrixArray)
+        }
+        
+        if materialMeshBind.texCoordIDsBuffer == nil || materialMeshBind.texCoordIDsBuffer.count != materialMeshBind.instanceTexCoordIDs.count {
+            materialMeshBind.texCoordIDsBuffer = dBuffer<Int32>(data: materialMeshBind.instanceTexCoordIDs, index: 6)
+        } else {
+            materialMeshBind.texCoordIDsBuffer.change(materialMeshBind.instanceTexCoordIDs)
+        }
 	}
+    
+    private func generateCameraBuffer() {
+        let projectionMatrix = dMath.newOrtho(          -_scene.size.x/2.0,
+                                              	right:   _scene.size.x/2.0,
+                                              	bottom:	-_scene.size.y/2.0,
+                                              	top:     _scene.size.y/2.0,
+                                              	near:	-1000,
+                                              	far:	 1000)
+        
+        let viewMatrix = dMath.newTranslation(float3(0.0, 0.0, -500.0)) *
+            dMath.newScale(_scene.scale)
+        
+        let uCamera = dCameraUniform(viewMatrix: viewMatrix, projectionMatrix: projectionMatrix)
+        
+        if uCameraBuffer == nil {
+            uCameraBuffer = dBuffer(data: uCamera, index: 0)
+        } else {
+            uCameraBuffer.change([uCamera])
+        }
+    }
 	
 	private func process(animator: dAnimator, materialMeshBind: dMaterialMeshBind) {
 		let index = materialMeshBind.instanceTexCoordIDs.count
@@ -223,31 +261,17 @@ internal class dSimpleSceneRender {
 		
 		let renderer = dCore.instance.renderer
 		
-		let projectionMatrix = dMath.newOrtho(			-_scene.size.x/2.0,
-											  right:     _scene.size.x/2.0,
-											  bottom:	-_scene.size.y/2.0,
-											  top:		 _scene.size.y/2.0,
-											  near:		-1000,
-											  far:		 1000)
-		
-		let viewMatrix = dMath.newTranslation(float3(0.0, 0.0, -500.0)) *
-                         dMath.newScale(_scene.scale)
-		
-		let uCamera = dCameraUniform(viewMatrix: viewMatrix, projectionMatrix: projectionMatrix)
-		
-		let uCameraBuffer = dBuffer<dCameraUniform>(data: uCamera, index: 0)
-		
+		generateCameraBuffer()
 		renderer?.bind(uCameraBuffer, encoderID: id)
 		
 		for m in renderGraph {
 			for materialMeshBind in m.value {
 				
-				let transformBuffer = generateBufferOf(transforms: materialMeshBind.value.instanceTransforms)
-				let texCoordIDs = dBuffer<Int32>(data: materialMeshBind.value.instanceTexCoordIDs, index: 6)
+				generateBufferOf(materialMeshBind: materialMeshBind.value)
 				
 				renderer?.bind(materialMeshBind.value.material, encoderID: id)
-				renderer?.bind(texCoordIDs, encoderID: id)
-				renderer?.draw(materialMeshBind.value.mesh, encoderID: id, modelMatrixBuffer: transformBuffer)
+				renderer?.bind(materialMeshBind.value.texCoordIDsBuffer, encoderID: id)
+				renderer?.draw(materialMeshBind.value.mesh, encoderID: id, modelMatrixBuffer: materialMeshBind.value.transformsBuffer!)
 			}
 		}
 		

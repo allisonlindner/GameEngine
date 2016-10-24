@@ -126,6 +126,17 @@ internal class dBuffer<T>: dBufferable {
 		let size = MemoryLayout<T>.size
 		memcpy(pointer + (atIndex * size), [data], size)
 	}
+    
+    internal func change(_ data: [T]) {
+        if self._data.count == data.count {
+            self._data = data
+            
+            let pointer = self.buffer.contents()
+            
+            let size = MemoryLayout<T>.size * data.count
+            memcpy(pointer, data, size)
+        }
+    }
 	
 	internal func extendTo(_ size: Int) {
 		if size > self._data.capacity {

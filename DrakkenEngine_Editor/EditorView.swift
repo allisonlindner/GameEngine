@@ -8,15 +8,15 @@
 
 import Cocoa
 
-class EditorView: dGameView {
+internal class EditorView: dGameView {
+    let appDelegate = NSApplication.shared().delegate as! AppDelegate
+    
     override func Init() {
-        self.state = .STOP
+        self.state = .PAUSE
         super.Init()
     }
     
     override func update() {
-        let appDelegate = NSApplication.shared().delegate as! AppDelegate
         appDelegate.editorViewController?.fileViewer.checkFolder()
     }
 }
-

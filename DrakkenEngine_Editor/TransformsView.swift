@@ -8,17 +8,14 @@
 
 import Cocoa
 
-class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate {
+fileprivate let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.outline.item"
+
+class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
 
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
+    var draggedTransform: dTransform?
     
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    override func awakeFromNib() {
         setup()
     }
     
@@ -26,14 +23,18 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         self.dataSource = self
         self.delegate = self
         
-//        doubleAction = #selector(self.doubleActionSelector)
+        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        if self.tableColumns[0].width != superview!.frame.width - 2 {
-            self.tableColumns[0].minWidth = superview!.frame.width - 2
-            self.tableColumns[0].maxWidth = superview!.frame.width - 2
-            self.tableColumns[0].width = superview!.frame.width - 2
+        if self.tableColumns[0].headerCell.controlView != nil {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 15 {
+                self.tableColumns[0].headerCell.controlView!.setFrameSize(
+                    NSSize(width: superview!.frame.width - 15,
+                           height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
+                )
+                self.tableColumns[0].sizeToFit()
+            }
         }
         
         super.draw(dirtyRect)
@@ -54,7 +55,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
         
         if let editorVC = appDelegate.editorViewController {
-            return editorVC.editorView.scene.transforms.sorted(by: { (t1, t2) -> Bool in
+            return editorVC.editorView.scene.root.childrenTransforms.sorted(by: { (t1, t2) -> Bool in
                 if t1.key < t2.key {
                     return true
                 }
@@ -82,7 +83,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
         
         if let editorVC = appDelegate.editorViewController {
-            return editorVC.editorView.scene.transforms.sorted(by: { (t1, t2) -> Bool in
+            return editorVC.editorView.scene.root.childrenTransforms.sorted(by: { (t1, t2) -> Bool in
                 if t1.key < t2.key {
                     return true
                 }
@@ -127,5 +128,77 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
         
         return nil
+    }
+    
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        if let transform = item(atRow: selectedRow) as? dTransform {
+            appDelegate.editorViewController?.selectedTransform = transform
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        } else {
+            appDelegate.editorViewController?.selectedTransform = nil
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        }
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+        let pbItem = NSPasteboardItem()
+        pbItem.setDataProvider(self, forTypes: [TRANSFORM_PASTEBOARD_TYPE])
+        return pbItem
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+        draggedTransform = draggedItems[0] as? dTransform
+        session.draggingPasteboard.setData(Data(), forType: TRANSFORM_PASTEBOARD_TYPE)
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        return .generic
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
+        if item == nil {
+            draggedTransform!.parentTransform!.remove(child: draggedTransform!)
+            appDelegate.editorViewController!.editorView.scene.add(transform: draggedTransform!)
+            return true
+        }
+        
+        if let transform = item as? dTransform {
+            if draggedTransform!.has(child: transform) {
+                return false
+            }
+            
+            if draggedTransform != nil {
+                if draggedTransform != transform {
+                    if transform.parentTransform != nil {
+                        draggedTransform!.parentTransform!.remove(child: draggedTransform!)
+                        transform.add(child: draggedTransform!)
+                        
+                        return true
+                    }
+                }
+            }
+        }
+        
+        return false
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        draggedTransform = nil
+        reloadData()
+        
+        if self.tableColumns[0].headerCell.controlView != nil {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 5 {
+                self.tableColumns[0].headerCell.controlView!.setFrameSize(
+                    NSSize(width: superview!.frame.width - 5,
+                           height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
+                )
+                self.tableColumns[0].sizeToFit()
+            }
+        }
+    }
+    
+    func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
+        let s = "Outline Pasteboard Item"
+        item.setString(s, forType: type)
     }
 }

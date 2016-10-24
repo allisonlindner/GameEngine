@@ -11,10 +11,14 @@ import Cocoa
 class ConsoleView: NSTableView {
 
     override func draw(_ dirtyRect: NSRect) {
-        if self.tableColumns[0].width != superview!.frame.width - 2 {
-            self.tableColumns[0].minWidth = superview!.frame.width - 2
-            self.tableColumns[0].maxWidth = superview!.frame.width - 2
-            self.tableColumns[0].width = superview!.frame.width - 2
+        if self.tableColumns[0].headerCell.controlView != nil {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 3 {
+                self.tableColumns[0].headerCell.controlView!.setFrameSize(
+                    NSSize(width: superview!.frame.width - 3,
+                           height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
+                )
+                self.tableColumns[0].sizeToFit()
+            }
         }
         
         super.draw(dirtyRect)

@@ -31,13 +31,7 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     private var itens: [RootItem] = [RootItem]()
     private var totalItens: Int = 0
     
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        setup()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    override func awakeFromNib() {
         setup()
     }
     
@@ -49,10 +43,14 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     }
     
     override func draw(_ dirtyRect: NSRect) {
-        if self.tableColumns[0].width != superview!.frame.width - 2 {
-            self.tableColumns[0].minWidth = superview!.frame.width - 2
-            self.tableColumns[0].maxWidth = superview!.frame.width - 2
-            self.tableColumns[0].width = superview!.frame.width - 2
+        if self.tableColumns[0].headerCell.controlView != nil {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 3 {
+                self.tableColumns[0].headerCell.controlView!.setFrameSize(
+                    NSSize(width: superview!.frame.width - 3,
+                           height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
+                )
+                self.tableColumns[0].sizeToFit()
+            }
         }
         
         super.draw(dirtyRect)
@@ -75,6 +73,10 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
             if url.pathExtension == "dkscene" {
                 editorVC.editorView.scene.load(url: url)
                 editorVC.editorView.Init()
+                editorVC.transformsView.reloadData()
+                
+                editorVC.selectedTransform = nil
+                editorVC.inspectorView.reloadData()
             }
         }
     }
@@ -106,9 +108,7 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
             loadItem(from: i.url, at: rootItem)
         }
         
-        beginUpdates()
         self.reloadData()
-        endUpdates()
     }
     
     private func loadItem(from url: URL, at: FolderItem) {

@@ -24,43 +24,70 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	fileprivate var _updateFunction: updateFunction?
 	fileprivate var _scene: dScene = dScene()
 	
-    private var simpleRender: dSimpleSceneRender!
+    private var simpleRender = dSimpleSceneRender()
     
     internal var state: LOOPSTATE = LOOPSTATE.PLAY
 	
 	func start() {
-		simpleRender = dSimpleSceneRender(scene: _scene)
+		simpleRender.load(scene: _scene)
         simpleRender.start()
         _firstStep = true
 	}
 	
 	func draw(in view: MTKView) {
-		if view.device == nil {
-			view.device =  dCore.instance.device
-		}
-		
-		if _firstStep {
-			self.mtkView(view, drawableSizeWillChange: view.drawableSize)
-			_firstStep = false
-		}
-		
-		if _updateFunction != nil {
-			_updateFunction!()
-		}
-		
-		if let currentDrawable = view.currentDrawable {
-			if _scene.transforms.count > 0 {
-                if state == LOOPSTATE.PLAY {
-                    simpleRender.update(deltaTime: 0.016)
-                }
-				simpleRender.draw(drawable: currentDrawable)
-			} else {
-				let id = dCore.instance.renderer.startFrame(currentDrawable.texture)
-				dCore.instance.renderer.endFrame(id)
-				dCore.instance.renderer.present(currentDrawable)
-			}
-		}
+        if _firstStep {
+            self.mtkView(view, drawableSizeWillChange: view.drawableSize)
+            _firstStep = false
+        }
         
+        if view.device == nil {
+            view.device =  dCore.instance.device
+        }
+        
+        if state == LOOPSTATE.PLAY {
+            if _updateFunction != nil {
+                _updateFunction!()
+            }
+        }
+        
+        if state != LOOPSTATE.STOP {
+            if let currentDrawable = view.currentDrawable {
+                if _scene.root.childrenTransforms.count > 0 {
+                    if state == LOOPSTATE.PLAY {
+                        simpleRender.update(deltaTime: 0.016)
+                    }
+                    simpleRender.draw(drawable: currentDrawable)
+                } else {
+                    let id = dCore.instance.renderer.startFrame(currentDrawable.texture)
+                    dCore.instance.renderer.endFrame(id)
+                    dCore.instance.renderer.present(currentDrawable)
+                }
+            }
+            
+            setupSize()
+        }
+        
+        if state == LOOPSTATE.STOP {
+            setupSize()
+            
+            if let currentDrawable = view.currentDrawable {
+                let id = dCore.instance.renderer.startFrame(currentDrawable.texture)
+                dCore.instance.renderer.endFrame(id)
+                dCore.instance.renderer.present(currentDrawable)
+            }
+        }
+    }
+	
+	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+		#if os(tvOS)
+			self._scene.size = float2(1920.0, 1080.0)
+		#else
+			self._scene.size.x = Float(size.width)
+			self._scene.size.y = Float(size.height)
+		#endif
+	}
+    
+    private func setupSize() {
         #if os(iOS)
             if Float(UIScreen.main.scale) != self._scene.scale {
                 self._scene.scale = Float(UIScreen.main.scale)
@@ -78,16 +105,7 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
                 }
             }
         #endif
-	}
-	
-	func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
-		#if os(tvOS)
-			self._scene.size = float2(1920.0, 1080.0)
-		#else
-			self._scene.size.x = Float(size.width)
-			self._scene.size.y = Float(size.height)
-		#endif
-	}
+    }
 }
 
 open class dGameView: MTKView {

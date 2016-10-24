@@ -16,6 +16,7 @@
 		2E255A281DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A291DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A2A1DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
+		2E2608D61DBABDBF00206D41 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E2608D51DBABDBF00206D41 /* GameView.swift */; };
 		2E3520EA1DAC208200642255 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3520E91DAC208200642255 /* AppDelegate.swift */; };
 		2E3520EC1DAC208200642255 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3520EB1DAC208200642255 /* EditorView.swift */; };
 		2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E3520ED1DAC208200642255 /* Assets.xcassets */; };
@@ -98,6 +99,9 @@
 		2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */; };
+		2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */; };
+		2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -110,6 +114,7 @@
 		2EC7F0B21D75FDC50073315E /* dSpriteQuad.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */; };
 		2ECE5A681DB9498D00CC8EDA /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */; };
 		2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */; };
+		2ECE5A6C1DB96CE200CC8EDA /* ITransformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */; };
 		2ED7C7751D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2ED7C7761D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2ED7C7771D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
@@ -202,6 +207,7 @@
 		2E1295F11DAC4FCA007C5512 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
 		2E255A231DA2D26A00364AFC /* dJSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSCore.swift; sourceTree = "<group>"; };
 		2E255A271DA2D36200364AFC /* dJSScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSScript.swift; sourceTree = "<group>"; };
+		2E2608D51DBABDBF00206D41 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		2E3520E71DAC208100642255 /* DrakkenEngine_Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrakkenEngine_Editor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E3520E91DAC208200642255 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2E3520EB1DAC208200642255 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
@@ -221,11 +227,15 @@
 		2E6CBD781D70959A0096C912 /* dScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dScene.swift; sourceTree = "<group>"; };
 		2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSimpleSceneRender.swift; sourceTree = "<group>"; };
 		2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshManager.swift; sourceTree = "<group>"; };
+		2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IJSScriptCell.swift; path = Assets.xcassets/IJSScriptCell.swift; sourceTree = "<group>"; };
+		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
+		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
 		2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
+		2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITransformCell.swift; sourceTree = "<group>"; };
 		2ED7C7741D78868400E65237 /* dSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSceneController.swift; sourceTree = "<group>"; };
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
@@ -315,7 +325,12 @@
 				2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */,
 				2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
+				2E2608D51DBABDBF00206D41 /* GameView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+				2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */,
+				2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */,
+				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
+				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -773,6 +788,7 @@
 				2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */,
 				2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */,
 				2E35211E1DAC4C3B00642255 /* dError.swift in Sources */,
+				2ECE5A6C1DB96CE200CC8EDA /* ITransformCell.swift in Sources */,
 				2E3521191DAC4C3500642255 /* dAnimator.swift in Sources */,
 				2E35210C1DAC4C2600642255 /* dShader.swift in Sources */,
 				2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */,
@@ -780,8 +796,10 @@
 				2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */,
 				2E3520FB1DAC4C1500642255 /* dSSize2D.swift in Sources */,
 				2E3520F91DAC4C1500642255 /* dSize2D.swift in Sources */,
+				2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */,
 				2E3520F61DAC4C1200642255 /* SwiftyJSON.swift in Sources */,
 				2E08D2401DB189CF00CB8D85 /* TransformsView.swift in Sources */,
+				2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */,
 				2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */,
 				2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */,
 				2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */,
@@ -814,9 +832,11 @@
 				2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */,
 				2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */,
 				2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */,
+				2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */,
 				2E3520FD1DAC4C1800642255 /* dTexture.swift in Sources */,
 				2ECE5A681DB9498D00CC8EDA /* InspectorView.swift in Sources */,
 				2E3520FC1DAC4C1800642255 /* dBuffers.swift in Sources */,
+				2E2608D61DBABDBF00206D41 /* GameView.swift in Sources */,
 				2E3521041DAC4C2200642255 /* dMaterialManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
