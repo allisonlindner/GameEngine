@@ -10,7 +10,9 @@ import Cocoa
 
 class ISpriteCell: NSTableCellView {
 
+    @IBOutlet weak var image: NSImageView!
     @IBOutlet weak var spriteNameTF: NSTextField!
+    @IBOutlet weak var frameTF: NSTextField!
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

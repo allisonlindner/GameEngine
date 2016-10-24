@@ -780,20 +780,20 @@
                                                                                             </connections>
                                                                                         </tableCellView>
                                                                                         <tableCellView identifier="ISpriteCellID" id="b0Z-sE-nH5" customClass="ISpriteCell" customModule="DrakkenEngine_Editor" customModuleProvider="target">
-                                                                                            <rect key="frame" x="1" y="265" width="299" height="60"/>
+                                                                                            <rect key="frame" x="1" y="265" width="299" height="150"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="UHe-s3-77I">
-                                                                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="60"/>
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="299" height="150"/>
                                                                                                     <subviews>
                                                                                                         <box boxType="secondary" title="Sprite" translatesAutoresizingMaskIntoConstraints="NO" id="Ndh-mq-FRS">
-                                                                                                            <rect key="frame" x="-3" y="-4" width="305" height="54"/>
+                                                                                                            <rect key="frame" x="-3" y="-4" width="305" height="144"/>
                                                                                                             <view key="contentView" id="hcm-Y0-qW7">
-                                                                                                                <rect key="frame" x="2" y="2" width="301" height="37"/>
+                                                                                                                <rect key="frame" x="2" y="2" width="301" height="127"/>
                                                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                                 <subviews>
                                                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jRO-IO-yqS">
-                                                                                                                        <rect key="frame" x="8" y="10" width="44" height="17"/>
+                                                                                                                        <rect key="frame" x="8" y="100" width="44" height="17"/>
                                                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Name:" id="Qjn-s2-czx">
                                                                                                                             <font key="font" metaFont="system"/>
                                                                                                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -801,8 +801,32 @@
                                                                                                                         </textFieldCell>
                                                                                                                     </textField>
                                                                                                                     <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DPT-2g-F3D">
-                                                                                                                        <rect key="frame" x="55" y="8" width="236" height="22"/>
+                                                                                                                        <rect key="frame" x="55" y="98" width="236" height="22"/>
                                                                                                                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" bezelStyle="round" id="h2m-P3-mLb">
+                                                                                                                            <font key="font" metaFont="system"/>
+                                                                                                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                        </textFieldCell>
+                                                                                                                    </textField>
+                                                                                                                    <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Jf-By-ld8">
+                                                                                                                        <rect key="frame" x="7" y="7" width="86" height="86"/>
+                                                                                                                        <constraints>
+                                                                                                                            <constraint firstAttribute="width" constant="80" id="DeW-X5-bJs"/>
+                                                                                                                            <constraint firstAttribute="height" constant="80" id="gdr-Xh-Ikk"/>
+                                                                                                                        </constraints>
+                                                                                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="R6V-4A-bur"/>
+                                                                                                                    </imageView>
+                                                                                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7E4-Qe-EIK">
+                                                                                                                        <rect key="frame" x="98" y="76" width="46" height="17"/>
+                                                                                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Frame:" id="fAR-ml-bgd">
+                                                                                                                            <font key="font" metaFont="system"/>
+                                                                                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                                                                        </textFieldCell>
+                                                                                                                    </textField>
+                                                                                                                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7wM-at-8Zx">
+                                                                                                                        <rect key="frame" x="152" y="73" width="139" height="22"/>
+                                                                                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="right" bezelStyle="round" id="TWJ-dy-aVm">
                                                                                                                             <font key="font" metaFont="system"/>
                                                                                                                             <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                                                                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -810,11 +834,18 @@
                                                                                                                     </textField>
                                                                                                                 </subviews>
                                                                                                                 <constraints>
+                                                                                                                    <constraint firstItem="7wM-at-8Zx" firstAttribute="trailing" secondItem="DPT-2g-F3D" secondAttribute="trailing" id="2AZ-Hx-840"/>
                                                                                                                     <constraint firstItem="DPT-2g-F3D" firstAttribute="centerY" secondItem="jRO-IO-yqS" secondAttribute="centerY" id="8GT-fF-Mnz"/>
+                                                                                                                    <constraint firstItem="1Jf-By-ld8" firstAttribute="leading" secondItem="jRO-IO-yqS" secondAttribute="leading" id="9xk-04-dwg"/>
                                                                                                                     <constraint firstAttribute="trailing" secondItem="DPT-2g-F3D" secondAttribute="trailing" constant="10" id="GvU-5S-uOj"/>
+                                                                                                                    <constraint firstItem="7E4-Qe-EIK" firstAttribute="leading" secondItem="1Jf-By-ld8" secondAttribute="trailing" constant="10" id="Isg-C3-Lzw"/>
+                                                                                                                    <constraint firstItem="jRO-IO-yqS" firstAttribute="top" secondItem="hcm-Y0-qW7" secondAttribute="top" constant="10" id="Jw8-GY-vxW"/>
+                                                                                                                    <constraint firstItem="7wM-at-8Zx" firstAttribute="centerY" secondItem="7E4-Qe-EIK" secondAttribute="centerY" id="Syu-ex-bCn"/>
                                                                                                                     <constraint firstItem="DPT-2g-F3D" firstAttribute="leading" secondItem="jRO-IO-yqS" secondAttribute="trailing" constant="5" id="iV9-ln-qGP"/>
-                                                                                                                    <constraint firstItem="jRO-IO-yqS" firstAttribute="centerY" secondItem="hcm-Y0-qW7" secondAttribute="centerY" id="jtP-7y-fCb"/>
+                                                                                                                    <constraint firstItem="1Jf-By-ld8" firstAttribute="top" secondItem="jRO-IO-yqS" secondAttribute="bottom" constant="10" id="o3c-JR-ofm"/>
                                                                                                                     <constraint firstItem="jRO-IO-yqS" firstAttribute="leading" secondItem="hcm-Y0-qW7" secondAttribute="leading" constant="10" id="pOY-Nb-0tI"/>
+                                                                                                                    <constraint firstItem="7wM-at-8Zx" firstAttribute="leading" secondItem="7E4-Qe-EIK" secondAttribute="trailing" constant="10" id="wGg-Wk-idh"/>
+                                                                                                                    <constraint firstItem="7E4-Qe-EIK" firstAttribute="top" secondItem="jRO-IO-yqS" secondAttribute="baseline" constant="10" id="yoj-rj-dwS"/>
                                                                                                                 </constraints>
                                                                                                             </view>
                                                                                                         </box>
@@ -834,11 +865,13 @@
                                                                                                 <constraint firstItem="UHe-s3-77I" firstAttribute="width" secondItem="b0Z-sE-nH5" secondAttribute="width" id="I2I-sL-zHg"/>
                                                                                             </constraints>
                                                                                             <connections>
+                                                                                                <outlet property="frameTF" destination="7wM-at-8Zx" id="NBQ-aP-K3Q"/>
+                                                                                                <outlet property="image" destination="1Jf-By-ld8" id="27m-9s-Be8"/>
                                                                                                 <outlet property="spriteNameTF" destination="DPT-2g-F3D" id="Z44-F0-HDE"/>
                                                                                             </connections>
                                                                                         </tableCellView>
                                                                                         <tableCellView identifier="IMeshRenderCellID" id="Brj-Lg-fpN" customClass="IMeshRenderCell" customModule="DrakkenEngine_Editor" customModuleProvider="target">
-                                                                                            <rect key="frame" x="1" y="327" width="299" height="60"/>
+                                                                                            <rect key="frame" x="1" y="417" width="299" height="60"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ilg-rv-mlk">

@@ -83,6 +83,12 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                     if let cell = tableView.make(withIdentifier: "ISpriteCellID", owner: nil) as? ISpriteCell {
                         cell.spriteNameTF.stringValue = (component as! dSprite).spriteName
                         
+                        let sprite = dCore.instance.spManager.get(sprite: (component as! dSprite).spriteName)
+                        let imageURL = dCore.instance.IMAGES_PATH!.appendingPathComponent(sprite!.texture.name)
+                        
+                        cell.image.image = NSImage(contentsOf: imageURL)
+                        cell.frameTF.stringValue = "\((component as! dSprite).frame)"
+                        
                         return cell
                     }
                 } else if component is dMeshRender {
@@ -107,7 +113,7 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 if component is dJSScript {
                     return 60
                 } else if component is dSprite {
-                    return 60
+                    return 150
                 } else if component is dMeshRender {
                     return 60
                 }
