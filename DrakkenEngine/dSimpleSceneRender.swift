@@ -37,6 +37,8 @@ internal class dSimpleSceneRender {
     internal func load(scene: dScene) {
         self._scene = scene
         self.renderGraph.removeAll()
+        self._jsScriptToBeUpdated.removeAll()
+        self._animatorToBeUpdated.removeAll()
         self.process(transforms: _scene.root.childrenTransforms)
     }
 	
@@ -97,7 +99,6 @@ internal class dSimpleSceneRender {
                 //#####################################################################################
                 //############################################################################ SCRIPT
                 let script = component as! dJSScript
-                script.run(function: "Awake")
                 _jsScriptToBeUpdated.append(script)
                 //#####################################################################
                 //###################################################################

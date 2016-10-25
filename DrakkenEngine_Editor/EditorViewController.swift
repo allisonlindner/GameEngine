@@ -16,11 +16,13 @@ class EditorViewController: NSViewController {
     @IBOutlet weak var fileViewer: ProjectFolderView!
     @IBOutlet weak var transformsView: TransformsView!
     @IBOutlet weak var inspectorView: InspectorView!
+    @IBOutlet weak var consoleView: ConsoleView!
     @IBOutlet weak var playButton: NSButton!
     @IBOutlet weak var pauseButton: NSButton!
     @IBOutlet weak var editorGameTabView: NSTabView!
     
     internal var selectedTransform: dTransform?
+    internal var lastLogCount = 0
     
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self

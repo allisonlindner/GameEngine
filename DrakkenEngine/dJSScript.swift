@@ -18,6 +18,7 @@ public class dJSScript: dComponent, dJSScriptExport {
     internal var transform: dTransformExport!
     internal var script: String
     internal var filename: String!
+    internal var debug: dDebugExport!
     
     internal init(script: String) {
         self.jsContext = JSContext()
@@ -53,6 +54,9 @@ public class dJSScript: dComponent, dJSScriptExport {
     internal func set(transform: dTransform) {
         self.transform = transform
         
+        self.debug = dDebug(transform)
+        
+        self.jsContext.setObject(self.debug, forKeyedSubscript: NSString(string: "Debug"))
         self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
         self.jsContext.evaluateScript(
             "var transform = $.transform;"
@@ -64,9 +68,7 @@ public class dJSScript: dComponent, dJSScriptExport {
     }
     
     internal func run(function: String) {
-        self.jsContext.evaluateScript(
-            "\(function)();"
-        )
+        self.jsContext.objectForKeyedSubscript(function).call(withArguments: [])
     }
     
     internal override func toDict() -> [String: JSON] {

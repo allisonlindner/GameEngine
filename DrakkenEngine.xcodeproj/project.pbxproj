@@ -102,6 +102,10 @@
 		2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */; };
 		2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */; };
 		2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */; };
+		2E7CAB2C1DBFF759005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
+		2E7CAB2D1DBFF759005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
+		2E7CAB2E1DBFF759005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
+		2E7CAB2F1DBFFAB1005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -230,6 +234,7 @@
 		2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IJSScriptCell.swift; path = Assets.xcassets/IJSScriptCell.swift; sourceTree = "<group>"; };
 		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
 		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
+		2E7CAB2B1DBFF759005219BC /* dDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dDebug.swift; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
@@ -399,6 +404,7 @@
 				2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */,
 				2E61F66E1D70CE7900237241 /* dMesh.swift */,
 				2E6CBD781D70959A0096C912 /* dScene.swift */,
+				2E7CAB2B1DBFF759005219BC /* dDebug.swift */,
 				2E6CBD7C1D70A0650096C912 /* Renders */,
 				2ED7C7731D78866B00E65237 /* Controllers */,
 			);
@@ -801,6 +807,7 @@
 				2E08D2401DB189CF00CB8D85 /* TransformsView.swift in Sources */,
 				2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */,
 				2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */,
+				2E7CAB2F1DBFFAB1005219BC /* dDebug.swift in Sources */,
 				2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */,
 				2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */,
 				2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */,
@@ -850,6 +857,7 @@
 				2EEC08491D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
 				2EB1C41E1D6BAEAF004285D2 /* dComponent.swift in Sources */,
 				2E6CBD7E1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E7CAB2C1DBFF759005219BC /* dDebug.swift in Sources */,
 				2E6CBD6C1D6F78F70096C912 /* dSprite.swift in Sources */,
 				2EEC08681D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
 				2EEC084E1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,
@@ -899,6 +907,7 @@
 				2EEC084A1D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
 				2EB1C41F1D6BAEAF004285D2 /* dComponent.swift in Sources */,
 				2E6CBD7F1D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E7CAB2D1DBFF759005219BC /* dDebug.swift in Sources */,
 				2E6CBD6D1D6F78F70096C912 /* dSprite.swift in Sources */,
 				2EEC08691D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
 				2EEC084F1D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,
@@ -948,6 +957,7 @@
 				2EEC084B1D6B7A9D00F1FF19 /* dTexture.swift in Sources */,
 				2EB1C4201D6BAEAF004285D2 /* dComponent.swift in Sources */,
 				2E6CBD801D70A07F0096C912 /* dSimpleSceneRender.swift in Sources */,
+				2E7CAB2E1DBFF759005219BC /* dDebug.swift in Sources */,
 				2E6CBD6E1D6F78F70096C912 /* dSprite.swift in Sources */,
 				2EEC086A1D6B7B6B00F1FF19 /* SharedUniforms.swift in Sources */,
 				2EEC08501D6B7AA900F1FF19 /* dBufferManager.swift in Sources */,

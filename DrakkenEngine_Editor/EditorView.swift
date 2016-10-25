@@ -16,7 +16,11 @@ internal class EditorView: dGameView {
         super.Init()
     }
     
-    override func update() {
+    override func internalUpdate() {
         appDelegate.editorViewController?.fileViewer.checkFolder()
+        
+        if appDelegate.editorViewController?.lastLogCount != dCore.instance.allDebugLogs.count {
+            appDelegate.editorViewController?.consoleView.reloadData()
+        }
     }
 }

@@ -15,6 +15,8 @@ public class dScene {
 	
     internal var name: String = "scene"
     internal var root: dTransform = dTransform(name: "root")
+    
+    internal var DEBUG_MODE = false
 	
 	public func add(transform: dTransform) {
         root.add(child: transform)
@@ -44,6 +46,7 @@ public class dScene {
     
     internal func load(data: Data) {
         self.clear()
+        self.root._scene = self
         
         let json = JSON(data: data)
         

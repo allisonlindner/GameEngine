@@ -13,7 +13,18 @@ class GameView: dGameView {
     
     override func Init() {
         self.scene.load(data: appDelegate.editorViewController!.editorView.scene.toJSON()!)
+        self.scene.DEBUG_MODE = true
         self.state = .STOP
         super.Init()
+    }
+    
+    override func internalUpdate() {
+        appDelegate.editorViewController?.fileViewer.checkFolder()
+        
+        if appDelegate.editorViewController?.lastLogCount != dCore.instance.allDebugLogs.count {
+            appDelegate.editorViewController?.consoleView.reloadData()
+            appDelegate.editorViewController?.consoleView.scrollRowToVisible(dCore.instance.allDebugLogs.count - 1)
+            appDelegate.editorViewController?.lastLogCount = dCore.instance.allDebugLogs.count
+        }
     }
 }

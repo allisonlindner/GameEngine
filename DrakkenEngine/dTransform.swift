@@ -18,6 +18,7 @@ import JavaScriptCore
 public class dTransform: NSObject, dTransformExport, Serializable {
 	internal var _id: Int
 	internal var _transformData: dTransformData!
+    internal var _scene: dScene!
     
     private var _parentTransform: dTransform?
 	internal var parentTransform: dTransform? {
@@ -193,7 +194,8 @@ public class dTransform: NSObject, dTransformExport, Serializable {
     }
 	
 	internal func set(parent: dTransform) {
-		self._parentTransform = parent
+        self._scene = parent._scene
+        self._parentTransform = parent
 		self._transformData.parentTransform = parent._transformData
 	}
 	

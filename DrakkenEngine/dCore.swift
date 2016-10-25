@@ -28,6 +28,8 @@ public class dCore {
 	internal var spManager: dSpriteManager
     internal var scManager: dSceneManager
     
+    internal var allDebugLogs: [dLog] = []
+    
     internal var ROOT_PATH: URL?
     internal var IMAGES_PATH: URL?
     internal var SCENES_PATH: URL?

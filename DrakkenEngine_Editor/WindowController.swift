@@ -44,7 +44,11 @@ class WindowController: NSWindowController {
                 
                 appDelegate.editorViewController?.pauseButton.state = NSOffState
                 appDelegate.editorViewController?.pauseButton.isEnabled = false
+                
+                dCore.instance.allDebugLogs.removeAll()
             }
+            
+            appDelegate.editorViewController?.consoleView.reloadData()
         }
     }
     
@@ -174,8 +178,6 @@ class WindowController: NSWindowController {
                                     if let editorVC = self.appDelegate.editorViewController {
                                         editorVC.editorView.scene.load(url: sceneURL!)
                                         editorVC.editorView.Init()
-                                        
-                                        editorVC.gameView.Init()
                                         
                                         editorVC.editorGameTabView.selectTabViewItem(at: 0)
                                         

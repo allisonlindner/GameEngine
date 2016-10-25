@@ -1072,13 +1072,13 @@
                                                         <rect key="frame" x="513" y="0.0" width="767" height="172"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
-                                                            <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="3Ve-8v-S2o">
+                                                            <scrollView autohidesScrollers="YES" horizontalLineScroll="22" horizontalPageScroll="10" verticalLineScroll="22" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="3Ve-8v-S2o">
                                                                 <rect key="frame" x="0.0" y="-1" width="767" height="173"/>
                                                                 <clipView key="contentView" id="gb2-t5-lff">
                                                                     <rect key="frame" x="1" y="0.0" width="765" height="172"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                     <subviews>
-                                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="dk9-E2-QUe" viewBased="YES" id="F9h-9z-EV7" customClass="ConsoleView" customModule="DrakkenEngine_Editor" customModuleProvider="target">
+                                                                        <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnReordering="NO" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="20" rowSizeStyle="automatic" headerView="dk9-E2-QUe" viewBased="YES" id="F9h-9z-EV7" customClass="ConsoleView" customModule="DrakkenEngine_Editor" customModuleProvider="target">
                                                                             <rect key="frame" x="0.0" y="0.0" width="765" height="149"/>
                                                                             <autoresizingMask key="autoresizingMask"/>
                                                                             <size key="intercellSpacing" width="3" height="2"/>
@@ -1098,20 +1098,25 @@
                                                                                     </textFieldCell>
                                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                     <prototypeCellViews>
-                                                                                        <tableCellView id="JN1-rO-BnZ">
-                                                                                            <rect key="frame" x="1" y="1" width="762" height="17"/>
+                                                                                        <tableCellView identifier="ConsoleCellID" misplaced="YES" id="JN1-rO-BnZ">
+                                                                                            <rect key="frame" x="1" y="1" width="762" height="20"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pME-qQ-1db">
-                                                                                                    <rect key="frame" x="2" y="0.0" width="758" height="17"/>
-                                                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pME-qQ-1db">
+                                                                                                    <rect key="frame" x="0.0" y="0.0" width="762" height="19"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" drawsBackground="YES" id="lEF-4w-pI8">
-                                                                                                        <font key="font" metaFont="system"/>
+                                                                                                        <font key="font" size="13" name="AndaleMono"/>
                                                                                                         <color key="textColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                                                     </textFieldCell>
                                                                                                 </textField>
                                                                                             </subviews>
+                                                                                            <constraints>
+                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="centerY" secondItem="JN1-rO-BnZ" secondAttribute="centerY" id="QDH-Yc-KPq"/>
+                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="width" secondItem="JN1-rO-BnZ" secondAttribute="width" id="TgL-UL-ZJu"/>
+                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="height" secondItem="JN1-rO-BnZ" secondAttribute="height" id="WQg-xq-YD5"/>
+                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="centerX" secondItem="JN1-rO-BnZ" secondAttribute="centerX" id="X0n-tM-qvD"/>
+                                                                                            </constraints>
                                                                                             <connections>
                                                                                                 <outlet property="textField" destination="pME-qQ-1db" id="3jj-xk-TJN"/>
                                                                                             </connections>
@@ -1124,11 +1129,11 @@
                                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </clipView>
                                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="7kr-v9-Voa">
-                                                                    <rect key="frame" x="1" y="135" width="223" height="15"/>
+                                                                    <rect key="frame" x="1" y="136" width="223" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2tv-Ua-qjZ">
-                                                                    <rect key="frame" x="224" y="33" width="15" height="102"/>
+                                                                    <rect key="frame" x="224" y="34" width="15" height="102"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <tableHeaderView key="headerView" id="dk9-E2-QUe">
@@ -1179,6 +1184,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="consoleView" destination="F9h-9z-EV7" id="8Iv-8U-w1J"/>
                         <outlet property="editorGameTabView" destination="RFa-hP-nUt" id="RNf-Dl-bBi"/>
                         <outlet property="editorView" destination="m1j-83-q0f" id="win-lt-Y4f"/>
                         <outlet property="fileViewer" destination="DrW-wO-L66" id="Zhy-5w-k4X"/>

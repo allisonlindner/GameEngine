@@ -18,10 +18,11 @@ internal enum LOOPSTATE {
 
 internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	typealias updateFunction = () -> Void
-	
+    
 	private var _firstStep: Bool = true
 	
 	fileprivate var _updateFunction: updateFunction?
+    fileprivate var _internalUpdateFunction: updateFunction?
 	fileprivate var _scene: dScene = dScene()
 	
     private var simpleRender = dSimpleSceneRender()
@@ -48,6 +49,10 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
             if _updateFunction != nil {
                 _updateFunction!()
             }
+        }
+        
+        if _internalUpdateFunction != nil {
+            _internalUpdateFunction!()
         }
         
         if state != LOOPSTATE.STOP {
@@ -167,22 +172,25 @@ open class dGameView: MTKView {
 		
 		_gameView = dGameViewDelegate()
 		_gameView._updateFunction = self.update
+        _gameView._internalUpdateFunction = self.internalUpdate
 	}
 	
     public func load(scene: String) {
         self._gameView._scene.load(jsonFile: scene)
-        self.Init()
     }
     
     public func load(sceneURL: URL) {
         self._gameView._scene.load(url: sceneURL)
-        self.Init()
     }
     
     public func Init() {
         self.start()
         _gameView.start()
         self.delegate = _gameView
+    }
+    
+    internal func internalUpdate() {
+        
     }
     
 	open func update() {
