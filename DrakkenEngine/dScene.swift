@@ -58,8 +58,6 @@ public class dScene {
         print("-----------------  SETUP  --------------------")
         print("----------------------------------------------")
         
-        load(setupJSON: json)
-        
         let transforms = json["transforms"].arrayValue
         
         for t in transforms {
@@ -72,36 +70,6 @@ public class dScene {
         if let dataFromString = json.data(using: String.Encoding.utf8) {
             self.load(data: dataFromString)
         }
-    }
-    
-    private func load(setupJSON: JSON) {
-        let json = setupJSON
-        
-        let setup = json["setup"].dictionaryValue
-        
-        let textures = setup["textures"]!.arrayValue
-        for t in textures {
-            let file = t["file"].stringValue
-            
-            print("TEXTURE - file: \(file)")
-            
-            _ = dTexture(file)
-        }
-        
-        let sprites = setup["sprites"]!.arrayValue
-        for s in sprites {
-            let name = s["name"].stringValue
-            let columns = s["columns"].intValue
-            let lines = s["lines"].intValue
-            let texture = s["texture"].stringValue
-            
-            print("SPRITE - name: \(name), c: \(columns), l: \(lines), texture: \(texture)")
-            
-            let spriteDef = dSpriteDef(name, columns: columns, lines: lines, texture: texture)
-            DrakkenEngine.Register(sprite: spriteDef)
-        }
-        
-        DrakkenEngine.Init()
     }
     
     internal func toJSON() -> Data? {

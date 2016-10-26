@@ -108,6 +108,8 @@ class WindowController: NSWindowController {
                             let imagesURL = assetsURL.appendingPathComponent("images", isDirectory: true)
                             let scenesURL = assetsURL.appendingPathComponent("scenes", isDirectory: true)
                             let scriptsURL = assetsURL.appendingPathComponent("scripts", isDirectory: true)
+                            let spritesURL = assetsURL.appendingPathComponent("sprites", isDirectory: true)
+                            let prefabsURL = assetsURL.appendingPathComponent("prefabs", isDirectory: true)
                             
                             try fileManager.createDirectory(at: imagesURL,
                                                             withIntermediateDirectories: true,
@@ -116,6 +118,12 @@ class WindowController: NSWindowController {
                                                             withIntermediateDirectories: true,
                                                             attributes: nil)
                             try fileManager.createDirectory(at: scriptsURL,
+                                                            withIntermediateDirectories: true,
+                                                            attributes: nil)
+                            try fileManager.createDirectory(at: spritesURL,
+                                                            withIntermediateDirectories: true,
+                                                            attributes: nil)
+                            try fileManager.createDirectory(at: prefabsURL,
                                                             withIntermediateDirectories: true,
                                                             attributes: nil)
                             
@@ -170,6 +178,48 @@ class WindowController: NSWindowController {
                             dCore.instance.loadRootPath(url: url)
                             
                             do {
+                                
+                                //LOAD ALL TEXTURES
+                                let imageFolderContent = try fileManager.contentsOfDirectory(at: dCore.instance.IMAGES_PATH!, includingPropertiesForKeys: nil,
+                                                                                             options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
+                                                                                                .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants))
+                                
+                                for imageURL in imageFolderContent {
+                                    if imageURL.isFileURL && NSImage(contentsOf: imageURL) != nil {
+                                        _ = dTexture(imageURL.lastPathComponent)
+                                    }
+                                }
+                                
+                                let spritesFolderContent = try fileManager.contentsOfDirectory(at: dCore.instance.SPRITES_PATH!, includingPropertiesForKeys: nil,
+                                                                                               options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
+                                                                                                .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants))
+                                
+                                //LOAD ALL SPRITES
+                                for spriteURL in spritesFolderContent {
+                                    if spriteURL.isFileURL && spriteURL.pathExtension == "dksprite" {
+                                        var fileString: String = ""
+                                        do {
+                                            fileString = try String(contentsOf: spriteURL)
+                                            if let dataFromString = fileString.data(using: String.Encoding.utf8) {
+                                                let json = JSON(data: dataFromString)
+                                                
+                                                let name = json["name"].stringValue
+                                                let columns = json["columns"].intValue
+                                                let lines = json["lines"].intValue
+                                                let texture = json["texture"].stringValue
+                                                
+                                                print("SPRITE - name: \(name), c: \(columns), l: \(lines), texture: \(texture)")
+                                                
+                                                let spriteDef = dSpriteDef(name, columns: columns, lines: lines, texture: texture)
+                                                DrakkenEngine.Register(sprite: spriteDef)
+                                            }
+                                        } catch {
+                                            fatalError("Scene file error")
+                                        }
+                                    }
+                                }
+                                DrakkenEngine.Init()
+                                
                                 let sceneURL = try fileManager.contentsOfDirectory(at: dCore.instance.SCENES_PATH!, includingPropertiesForKeys: nil,
                                                                                    options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
                                                                                         .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants)).first
@@ -186,7 +236,7 @@ class WindowController: NSWindowController {
                                     }
                                 }
                             } catch let error {
-                                NSLog("Fail while get first scene URL: \(error)")
+                                fatalError("Fail while get first scene URL: \(error)")
                             }
                             
                             if let editorVC = self.appDelegate.editorViewController {

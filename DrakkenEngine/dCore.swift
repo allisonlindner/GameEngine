@@ -34,6 +34,8 @@ public class dCore {
     internal var IMAGES_PATH: URL?
     internal var SCENES_PATH: URL?
     internal var SCRIPTS_PATH: URL?
+    internal var SPRITES_PATH: URL?
+    internal var PREFABS_PATH: URL?
 	
 	internal init() {
 		self.device = MTLCreateSystemDefaultDevice()!
@@ -54,6 +56,8 @@ public class dCore {
         self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
         self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
         self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
+        self.SPRITES_PATH = ROOT_PATH?.appendingPathComponent("sprites", isDirectory: true)
+        self.PREFABS_PATH = ROOT_PATH?.appendingPathComponent("prefabs", isDirectory: true)
 		
 		let bundle = Bundle.init(identifier: "drakkenstudio.DrakkenEngine")
 		
@@ -86,10 +90,9 @@ public class dCore {
 	}
     
     internal func loadRootPath(path: String) {
-        self.ROOT_PATH = URL(string: path)?.appendingPathComponent("Assets")
-        self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
-        self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
-        self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
+        if let url = URL(string: path) {
+            loadRootPath(url: url)
+        }
     }
     
     internal func loadRootPath(url: URL) {
@@ -97,5 +100,7 @@ public class dCore {
         self.IMAGES_PATH = ROOT_PATH?.appendingPathComponent("images", isDirectory: true)
         self.SCENES_PATH = ROOT_PATH?.appendingPathComponent("scenes", isDirectory: true)
         self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
+        self.SPRITES_PATH = ROOT_PATH?.appendingPathComponent("sprites", isDirectory: true)
+        self.PREFABS_PATH = ROOT_PATH?.appendingPathComponent("prefabs", isDirectory: true)
     }
 }

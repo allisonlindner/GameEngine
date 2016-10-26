@@ -27,14 +27,16 @@ public class DrakkenEngine {
 		DrakkenEngine.InitInternalShaders()
 		DrakkenEngine.InitInternalMeshs()
 		DrakkenEngine.InitInternalMaterial()
-		
-		DrakkenEngine.SetupShaders()
-		
-		DrakkenEngine.SetupSprites()
-		
-		DrakkenEngine.SetupMeshs()
-		DrakkenEngine.SetupMaterials()
+        
+        DrakkenEngine.Setup()
 	}
+    
+    public static func Setup() {
+        DrakkenEngine.SetupShaders()
+        DrakkenEngine.SetupSprites()
+        DrakkenEngine.SetupMeshs()
+        DrakkenEngine.SetupMaterials()
+    }
 	
 	public static func Register(shader name: String, vertexFunc: String, fragmentFunc: String) {
 		let register = dShaderRegister(name: name,
