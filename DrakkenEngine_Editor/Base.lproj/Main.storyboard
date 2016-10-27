@@ -1129,11 +1129,11 @@
                                                                     <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </clipView>
                                                                 <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="7kr-v9-Voa">
-                                                                    <rect key="frame" x="1" y="136" width="223" height="15"/>
+                                                                    <rect key="frame" x="1" y="137" width="223" height="15"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <scroller key="verticalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="2tv-Ua-qjZ">
-                                                                    <rect key="frame" x="224" y="34" width="15" height="102"/>
+                                                                    <rect key="frame" x="224" y="35" width="15" height="102"/>
                                                                     <autoresizingMask key="autoresizingMask"/>
                                                                 </scroller>
                                                                 <tableHeaderView key="headerView" id="dk9-E2-QUe">
@@ -1198,18 +1198,6 @@
                 <customObject id="5aL-fp-gxc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="1346"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="3W4-Ou-yoM">
-            <objects>
-                <viewController id="TeZ-4Q-Pu6" sceneMemberID="viewController">
-                    <view key="view" id="Ji2-OI-wz2">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="0Tp-RA-9SN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>

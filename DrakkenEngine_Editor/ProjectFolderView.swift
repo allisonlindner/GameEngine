@@ -77,6 +77,12 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
                 
                 editorVC.selectedTransform = nil
                 editorVC.inspectorView.reloadData()
+            } else if url.pathExtension == "js" {
+                NSWorkspace.shared().open(url)
+            } else if url.isFileURL {
+                if NSImage(contentsOf: url) != nil {
+                    NSWorkspace.shared().open(url)
+                }
             }
         }
     }
