@@ -28,9 +28,9 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     
     override func draw(_ dirtyRect: NSRect) {
         if self.tableColumns[0].headerCell.controlView != nil {
-            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 15 {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 3 {
                 self.tableColumns[0].headerCell.controlView!.setFrameSize(
-                    NSSize(width: superview!.frame.width - 15,
+                    NSSize(width: superview!.frame.width - 3,
                            height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
                 )
                 self.tableColumns[0].sizeToFit()

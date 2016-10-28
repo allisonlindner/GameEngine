@@ -106,6 +106,8 @@
 		2E7CAB2D1DBFF759005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
 		2E7CAB2E1DBFF759005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
 		2E7CAB2F1DBFFAB1005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
+		2E7CAB341DC3C60A005219BC /* JSScriptCellVariablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */; };
+		2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -235,6 +237,8 @@
 		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
 		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
 		2E7CAB2B1DBFF759005219BC /* dDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dDebug.swift; sourceTree = "<group>"; };
+		2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSScriptCellVariablesView.swift; sourceTree = "<group>"; };
+		2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJSScriptVariableCell.swift; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
@@ -324,18 +328,12 @@
 		2E1295EE1DAC4F11007C5512 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				2E7CAB321DC3C5D3005219BC /* Table View Controllers */,
+				2E7CAB311DC3C5CD005219BC /* Cells */,
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
-				2E08D23F1DB189CF00CB8D85 /* TransformsView.swift */,
-				2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */,
-				2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */,
-				2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E2608D51DBABDBF00206D41 /* GameView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
-				2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */,
-				2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */,
-				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
-				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -395,6 +393,30 @@
 				2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */,
 			);
 			name = Renders;
+			sourceTree = "<group>";
+		};
+		2E7CAB311DC3C5CD005219BC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */,
+				2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */,
+				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
+				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
+				2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		2E7CAB321DC3C5D3005219BC /* Table View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				2E08D23F1DB189CF00CB8D85 /* TransformsView.swift */,
+				2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */,
+				2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */,
+				2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */,
+				2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */,
+			);
+			name = "Table View Controllers";
 			sourceTree = "<group>";
 		};
 		2EB1C41C1D6BAE94004285D2 /* Engine */ = {
@@ -790,6 +812,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2E3520F71DAC4C1500642255 /* dMath.swift in Sources */,
+				2E7CAB341DC3C60A005219BC /* JSScriptCellVariablesView.swift in Sources */,
 				2E3521001DAC4C1D00642255 /* dSpriteQuad.swift in Sources */,
 				2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */,
 				2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */,
@@ -797,6 +820,7 @@
 				2ECE5A6C1DB96CE200CC8EDA /* ITransformCell.swift in Sources */,
 				2E3521191DAC4C3500642255 /* dAnimator.swift in Sources */,
 				2E35210C1DAC4C2600642255 /* dShader.swift in Sources */,
+				2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */,
 				2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */,
 				2E3520FE1DAC4C1800642255 /* dTransform.swift in Sources */,
 				2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */,

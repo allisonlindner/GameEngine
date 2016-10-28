@@ -20,17 +20,34 @@ public class dJSScript: dComponent, dJSScriptExport {
     internal var filename: String!
     internal var debug: dDebugExport!
     
+    internal var publicVariables: [String : JSValue?] = [:]
+    
     internal init(script: String) {
         self.jsContext = JSContext()
         self.script = script
         
-        super.init()
-        
-        let consoleLog: @convention(block) (String) -> Void = { message in
-            NSLog(message as String)
+        do {
+            var regex = try NSRegularExpression(pattern: "(public\\svar\\s+)([\\w\\d]+)", options: NSRegularExpression.Options.caseInsensitive)
+            
+            let nsString = self.script as NSString
+            let matches = regex.matches(in: self.script, options: [], range: NSRange(0..<self.script.utf16.count)).map { nsString.substring(with: $0.rangeAt(2))}
+            
+            for m in matches {
+                self.publicVariables.updateValue(nil, forKey: m)
+                
+                NSLog("\(m) : \(publicVariables[m])")
+            }
+            
+            regex = try NSRegularExpression(pattern: "(?:public\\s)", options: NSRegularExpression.Options.caseInsensitive)
+            self.script = regex.stringByReplacingMatches(in: self.script, options: [], range: NSRange(0..<self.script.utf16.count), withTemplate: "")
+            
+        } catch let error {
+            fatalError("Regex creation fail!! Error: \(error)")
         }
         
-        self.jsContext.setObject(unsafeBitCast(consoleLog, to: AnyObject.self), forKeyedSubscript: NSString(string: "consoleLog"))
+        NSLog(self.script)
+        
+        super.init()
     }
     
     public convenience init(fileName: String) {

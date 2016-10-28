@@ -11,6 +11,7 @@ import Cocoa
 class IJSScriptCell: NSTableCellView {
 
     @IBOutlet weak var jsFileNameTF: NSTextField!
+    @IBOutlet weak var variablesTableView: JSScriptCellVariablesView!
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)

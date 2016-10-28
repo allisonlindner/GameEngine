@@ -76,6 +76,7 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 if component is dJSScript {
                     if let cell = tableView.make(withIdentifier: "IJSScriptCellID", owner: nil) as? IJSScriptCell {
                         cell.jsFileNameTF.stringValue = (component as! dJSScript).filename
+                        cell.variablesTableView.script = component as? dJSScript
                         
                         return cell
                     }
@@ -111,7 +112,7 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 let component = transform.components[row-1]
                 
                 if component is dJSScript {
-                    return 60
+                    return 175
                 } else if component is dSprite {
                     return 150
                 } else if component is dMeshRender {

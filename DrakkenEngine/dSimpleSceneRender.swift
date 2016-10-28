@@ -282,7 +282,12 @@ internal class dSimpleSceneRender {
     
     internal func start() {
         for script in _jsScriptToBeUpdated {
+            
             script.run(function: "Start")
+            
+            for variable in script.publicVariables {
+                script.publicVariables.updateValue(script.jsContext.objectForKeyedSubscript(variable.key), forKey: variable.key)
+            }
         }
     }
 }
