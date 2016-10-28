@@ -66,19 +66,19 @@ public class dCore {
 			{
 				library = try self.device.makeLibrary(filepath: path)
 			}
-			catch MTLLibraryErrorDomain.internal
+			catch MTLLibraryError.internal
 			{
 				assert(false, "Bundle identifier incorrect!")
 			}
-			catch MTLLibraryErrorDomain.compileFailure
+			catch MTLLibraryError.compileFailure
 			{
 				assert(false, "Compile failure")
 			}
-			catch MTLLibraryErrorDomain.compileWarning
+			catch MTLLibraryError.compileWarning
 			{
 				assert(false, "Compile warning")
 			}
-			catch MTLLibraryErrorDomain.unsupported
+			catch MTLLibraryError.unsupported
 			{
 				assert(false, "Unsupported")
 			}

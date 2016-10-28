@@ -12,6 +12,8 @@ class WindowController: NSWindowController {
     
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
+    var sceneBackupJSON: JSON!
+    
     override func windowDidLoad() {
         super.windowDidLoad()
         
@@ -31,6 +33,8 @@ class WindowController: NSWindowController {
     @IBAction internal func togglePlay(_ sender: AnyObject?) {
         if becomeFirstResponder() {
             if appDelegate.editorViewController?.playButton.state == NSOnState {
+                self.sceneBackupJSON = appDelegate.editorViewController?.editorView.scene.root.toJSON()
+                
                 appDelegate.editorViewController?.gameView.Init()
                 appDelegate.editorViewController?.gameView.state = .PLAY
                 appDelegate.editorViewController?.editorGameTabView.selectTabViewItem(at: 1)
@@ -39,6 +43,8 @@ class WindowController: NSWindowController {
                 appDelegate.editorViewController?.pauseButton.isEnabled = true
             } else if appDelegate.editorViewController?.playButton.state == NSOffState {
                 appDelegate.editorViewController?.gameView.state = .STOP
+                
+                appDelegate.editorViewController?.editorView.scene.root.reloadWithoutScript(from: sceneBackupJSON)
                 appDelegate.editorViewController?.editorView.state = .PAUSE
                 appDelegate.editorViewController?.editorGameTabView.selectTabViewItem(at: 0)
                 
@@ -79,7 +85,7 @@ class WindowController: NSWindowController {
                                 url.appendPathExtension("dkscene")
                             }
                             
-                            if let jsonData = editorVC.editorView.scene.toJSON() {
+                            if let jsonData: Data = editorVC.editorView.scene.toJSON() {
                                 fileManager.createFile(atPath: url.path,
                                                        contents: jsonData,
                                                        attributes: nil)
@@ -227,6 +233,7 @@ class WindowController: NSWindowController {
                                 if sceneURL != nil {
                                     if let editorVC = self.appDelegate.editorViewController {
                                         editorVC.editorView.scene.load(url: sceneURL!)
+                                        self.sceneBackupJSON = editorVC.editorView.scene.root.toJSON()
                                         editorVC.editorView.Init()
                                         
                                         editorVC.editorGameTabView.selectTabViewItem(at: 0)

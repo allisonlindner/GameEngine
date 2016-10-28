@@ -6,6 +6,7 @@
 //  Copyright © 2016 Allison Lindner. All rights reserved.
 //
 
+import Foundation
 import simd
 
 internal class dTransformData {
@@ -66,20 +67,26 @@ internal class dTransformData {
 
 internal class dTransformManager {
 	private var _transforms: [Int : dTransformData] = [:]
-	private var _nextTransformIndex: Int = 0
 	
     internal func create(_ name: String,
                          _ position: (x: Float, y: Float, z: Float),
+                         _ rotation: (x: Float, y: Float, z: Float),
+                         _ scale: (x: Float, y: Float)) -> Int {
+        
+        return self.create(name, position, rotation, scale, Int(NSDate().timeIntervalSince1970 * 1000000))
+    }
+    
+    internal func create(_ name: String,
+                         _ position: (x: Float, y: Float, z: Float),
 	                     _ rotation: (x: Float, y: Float, z: Float),
-							_ scale: (x: Float, y: Float)) -> Int {
+                         _ scale: (x: Float, y: Float),
+                         _ id: Int) -> Int {
 		
         let transform = dTransformData(name: name, position: position, rotation: rotation, scale: scale)
 		
-		let index = _nextTransformIndex
-		_transforms[index] = transform
-		_nextTransformIndex += 1
+		_transforms[id] = transform
 		
-		return index
+		return id
 	}
 	
 	internal func getTransform(_ id: Int) -> dTransformData {

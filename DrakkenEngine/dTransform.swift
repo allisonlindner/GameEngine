@@ -17,7 +17,7 @@ import JavaScriptCore
 
 public class dTransform: NSObject, dTransformExport, Serializable {
 	internal var _id: Int
-	internal var _transformData: dTransformData!
+    internal var _transformData: dTransformData!
     internal var _scene: dScene!
     
     private var _parentTransform: dTransform?
@@ -78,18 +78,35 @@ public class dTransform: NSObject, dTransformExport, Serializable {
     @objc internal var scale: dSSize2DExport {
         get { return dSSize2D(self._transformData.scale) }
     }
+    
+    public init(id: Int) {
+        self._id = id
+        self._transformData = dCore.instance.trManager.getTransform(id)
+    }
 	
 	public init(name: String,
 	            position: (x: Float, y: Float, z: Float),
 	            rotation: (x: Float, y: Float, z: Float),
 				   scale: (x: Float, y: Float),
-				  parent: dTransform?) {
+				   parent: dTransform?) {
 		
 		self._id = dCore.instance.trManager.create(name, position, rotation, scale)
 		self._transformData = dCore.instance.trManager.getTransform(_id)
 		
 		self._parentTransform = parent
 	}
+    
+    public init(name: String,
+                position: (x: Float, y: Float, z: Float),
+                rotation: (x: Float, y: Float, z: Float),
+                scale: (x: Float, y: Float),
+                parent: dTransform?, id: Int) {
+        
+        self._id = dCore.instance.trManager.create(name, position, rotation, scale, id)
+        self._transformData = dCore.instance.trManager.getTransform(_id)
+        
+        self._parentTransform = parent
+    }
 	
     public convenience init(name: String, position x: Float, _ y: Float, _ z: Float) {
         self.init(name: name,
@@ -137,6 +154,9 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         let name = json["name"].stringValue
         print("name: \(name)")
         
+        let id = json["id"].int
+        print("id: \(id)")
+        
         let position = json["position"].dictionaryValue
         print("position - x: \(position["x"]!.floatValue), y: \(position["y"]!.floatValue), z: \(position["z"]!.floatValue)")
         
@@ -146,11 +166,19 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         let scale = json["scale"].dictionaryValue
         print("scale - w: \(scale["w"]!.floatValue), h: \(scale["h"]!.floatValue)")
         
-        self.init(name: name,
-                  position: (x: position["x"]!.floatValue, y: position["y"]!.floatValue, z: position["z"]!.floatValue),
-                  rotation: (x: rotation["x"]!.floatValue, y: rotation["x"]!.floatValue, z: rotation["x"]!.floatValue),
-                  scale: (x: scale["w"]!.floatValue, y: scale["h"]!.floatValue),
-                  parent: nil)
+        if id != nil {
+            self.init(name: name,
+                      position: (x: position["x"]!.floatValue, y: position["y"]!.floatValue, z: position["z"]!.floatValue),
+                      rotation: (x: rotation["x"]!.floatValue, y: rotation["x"]!.floatValue, z: rotation["x"]!.floatValue),
+                      scale: (x: scale["w"]!.floatValue, y: scale["h"]!.floatValue),
+                      parent: nil, id: id!)
+        } else {
+            self.init(name: name,
+                      position: (x: position["x"]!.floatValue, y: position["y"]!.floatValue, z: position["z"]!.floatValue),
+                      rotation: (x: rotation["x"]!.floatValue, y: rotation["x"]!.floatValue, z: rotation["x"]!.floatValue),
+                      scale: (x: scale["w"]!.floatValue, y: scale["h"]!.floatValue),
+                      parent: nil)
+        }
         
         let components = json["components"].arrayValue
         for c in components {
@@ -189,6 +217,61 @@ public class dTransform: NSObject, dTransformExport, Serializable {
             for c in children {
                 let transformChild = dTransform(json: c)
                 self.add(child: transformChild)
+            }
+        }
+    }
+    
+    internal func reloadWithoutScript(from json: JSON) {
+        let name = json["name"].stringValue
+        print("name: \(name)")
+        
+        let id = json["id"].intValue
+        print("id: \(id)")
+        
+        let position = json["position"].dictionaryValue
+        print("position - x: \(position["x"]!.floatValue), y: \(position["y"]!.floatValue), z: \(position["z"]!.floatValue)")
+        
+        let rotation = json["rotation"].dictionaryValue
+        print("rotation - x: \(rotation["x"]!.floatValue), y: \(rotation["y"]!.floatValue), z: \(rotation["z"]!.floatValue)")
+        
+        let scale = json["scale"].dictionaryValue
+        print("scale - w: \(scale["w"]!.floatValue), h: \(scale["h"]!.floatValue)")
+        
+        self.Position.Set(position["x"]!.floatValue, position["y"]!.floatValue, position["z"]!.floatValue)
+        self.Rotation.Set(rotation["x"]!.floatValue, rotation["y"]!.floatValue, rotation["z"]!.floatValue)
+        self.Scale.Set(scale["w"]!.floatValue, scale["h"]!.floatValue)
+        
+        let components = json["components"].arrayValue
+        for c in components {
+            let type = c["type"].stringValue
+            
+            switch type {
+            case "SPRITE":
+                let name = c["name"].stringValue
+                let frame = c["frame"].int32Value
+                let scaleDict = c["scale"].dictionaryValue
+                
+                let scale = dSize2D(scaleDict["w"]!.floatValue, scaleDict["h"]!.floatValue)
+                
+                print("\(type) - name: \(name), frame: \(frame)")
+                
+                let sprite = dSprite(sprite: name, scale: scale, frame: frame)
+                self.add(component: sprite)
+                
+                break
+            default:
+                break
+            }
+        }
+        
+        print("----------------------------------------------")
+        
+        if let children = json["children"].array {
+            for c in children {
+                let c_id = c["id"].intValue
+                let c_t = dTransform(id: c_id)
+                c_t.set(parent: self)
+                c_t.reloadWithoutScript(from: c)
             }
         }
     }
@@ -243,6 +326,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         var dict = [String: JSON]()
         
         dict["name"] = JSON(name)
+        dict["id"] = JSON(_id)
         
         var position = [String: JSON]()
         
@@ -284,6 +368,54 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         dict["children"] = JSON(childrenArray)
         
         return dict
+    }
+    
+    internal func toJSON() -> JSON {
+        var dict = [String: JSON]()
+        
+        dict["name"] = JSON(name)
+        dict["id"] = JSON(_id)
+        
+        var position = [String: JSON]()
+        
+        position["x"] = JSON(Position.x)
+        position["y"] = JSON(Position.y)
+        position["z"] = JSON(Position.z)
+        
+        dict["position"] = JSON(position)
+        
+        var rotation = [String: JSON]()
+        
+        rotation["x"] = JSON(Rotation.x)
+        rotation["y"] = JSON(Rotation.y)
+        rotation["z"] = JSON(Rotation.z)
+        
+        dict["rotation"] = JSON(rotation)
+        
+        var scale = [String: JSON]()
+        
+        scale["w"] = JSON(Scale.width)
+        scale["h"] = JSON(Scale.height)
+        
+        dict["scale"] = JSON(scale)
+        
+        var componentsArray = [JSON]()
+        for c in components {
+            if c.toDict().count > 0 {
+                componentsArray.append(JSON(c.toDict()))
+            }
+        }
+        
+        dict["components"] = JSON(componentsArray)
+        
+        var childrenArray = [JSON]()
+        for t in childrenTransforms {
+            childrenArray.append(JSON(t.value.toDict()))
+        }
+        
+        dict["children"] = JSON(childrenArray)
+        
+        return JSON(dict)
     }
     
     internal func has(child: dTransform) -> Bool {

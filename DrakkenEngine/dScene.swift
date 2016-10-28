@@ -99,6 +99,24 @@ public class dScene {
         return nil
     }
     
+    internal func toJSON() -> JSON? {
+        var jsonDict = [String: JSON]()
+        
+        jsonDict["name"] = JSON(self.name)
+        jsonDict["setup"] = JSON(DrakkenEngine.toDict())
+        
+        var transformsArray: [JSON] = []
+        for t in self.root.childrenTransforms {
+            transformsArray.append(JSON(t.value.toDict()))
+        }
+        
+        jsonDict["transforms"] = JSON(transformsArray)
+        
+        let json = JSON(jsonDict)
+        
+        return json
+    }
+    
     internal func clear() {
         self.root.removeAll()
     }
