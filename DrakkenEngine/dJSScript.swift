@@ -88,6 +88,36 @@ public class dJSScript: dComponent, dJSScriptExport {
         self.jsContext.objectForKeyedSubscript(function).call(withArguments: [])
     }
     
+    internal func set(value: JSValue, for variable: String) {
+        if publicVariables[variable] != nil {
+            publicVariables.updateValue(value, forKey: variable)
+        }
+    }
+    
+    internal func set(any value: Any, for variable: String) {
+        self.set(value: JSValue(object: value, in: jsContext), for: variable)
+    }
+    
+    internal func set(int value: Int, for variable: String) {
+        self.set(value: JSValue(int32: Int32(value), in: jsContext), for: variable)
+    }
+    
+    internal func set(float value: Float, for variable: String) {
+        self.set(value: JSValue(double: Double(value), in: jsContext), for: variable)
+    }
+    
+    internal func set(string value: String, for variable: String) {
+        self.set(value: JSValue(object: value as Any, in: jsContext), for: variable)
+    }
+    
+    internal func updatePublicVariales() {
+        for variable in publicVariables {
+            if variable.value != nil {
+                self.jsContext.setObject(variable.value, forKeyedSubscript: NSString(string:variable.key))
+            }
+        }
+    }
+    
     internal override func toDict() -> [String: JSON] {
         var dict = [String: JSON]()
         

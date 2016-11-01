@@ -8,10 +8,21 @@
 
 import Cocoa
 
-class IJSScriptVariableCell: NSTableCellView {
+class IJSScriptVariableCell: NSTableCellView, NSTextFieldDelegate {
 
     @IBOutlet weak var varNameLB: NSTextField!
     @IBOutlet weak var varValueTF: NSTextField!
+    
+    internal var variableKey: String!
+    internal var script: dJSScript!
+    
+    override func awakeFromNib() {
+        setup()
+    }
+    
+    private func setup() {
+        varValueTF.delegate = self
+    }
     
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
@@ -19,4 +30,15 @@ class IJSScriptVariableCell: NSTableCellView {
         // Drawing code here.
     }
     
+    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+        let numFormatter = NumberFormatter()
+        
+        if let float = numFormatter.number(from: fieldEditor.string!)?.floatValue {
+            script.set(float: float, for: variableKey)
+        } else {
+            script.set(string: fieldEditor.string!, for: variableKey)
+        }
+        
+        return true
+    }
 }

@@ -240,6 +240,8 @@ class WindowController: NSWindowController {
                                         
                                         editorVC.playButton.isEnabled = true
                                         editorVC.pauseButton.isEnabled = false
+                                        
+                                        editorVC.inspectorView.reloadData()
                                     }
                                 }
                             } catch let error {

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2555" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11201"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11542"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="box content view" minToolsVersion="7.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -753,7 +754,7 @@
                                                                                                                     <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="32" horizontalPageScroll="10" verticalLineScroll="32" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" scrollerKnobStyle="dark" translatesAutoresizingMaskIntoConstraints="NO" id="CtF-o8-vSs">
                                                                                                                         <rect key="frame" x="10" y="10" width="281" height="112"/>
                                                                                                                         <clipView key="contentView" copiesOnScroll="NO" id="vmK-OO-RNF">
-                                                                                                                            <rect key="frame" x="0.0" y="23" width="281" height="89"/>
+                                                                                                                            <rect key="frame" x="0.0" y="0.0" width="281" height="112"/>
                                                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                                             <subviews>
                                                                                                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" headerView="6BK-98-Bwg" viewBased="YES" id="4Sw-9C-ODa" customClass="JSScriptCellVariablesView" customModule="DrakkenEngine_Editor" customModuleProvider="target">
@@ -781,7 +782,7 @@
                                                                                                                                                     <rect key="frame" x="1" y="1" width="278" height="30"/>
                                                                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                                                                                     <subviews>
-                                                                                                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-9D-FEy" userLabel="Var">
+                                                                                                                                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Xhe-9D-FEy" userLabel="VarTF">
                                                                                                                                                             <rect key="frame" x="1" y="7" width="99" height="17"/>
                                                                                                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="Variable:" id="DWU-CP-lkO">
                                                                                                                                                                 <font key="font" metaFont="system"/>
@@ -789,7 +790,7 @@
                                                                                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                                                                             </textFieldCell>
                                                                                                                                                         </textField>
-                                                                                                                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-JN-IMl">
+                                                                                                                                                        <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-JN-IMl" userLabel="ValueTF">
                                                                                                                                                             <rect key="frame" x="103" y="4" width="172" height="22"/>
                                                                                                                                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="left" bezelStyle="round" id="LYf-fb-g1y">
                                                                                                                                                                 <font key="font" metaFont="system"/>
@@ -861,7 +862,7 @@
                                                                                             </constraints>
                                                                                             <connections>
                                                                                                 <outlet property="jsFileNameTF" destination="kcE-YS-mox" id="OSa-wH-taP"/>
-                                                                                                <outlet property="variablesTableView" destination="4Sw-9C-ODa" id="Ti4-EZ-qtG"/>
+                                                                                                <outlet property="variablesTableView" destination="4Sw-9C-ODa" id="reK-j0-Qxn"/>
                                                                                             </connections>
                                                                                         </tableCellView>
                                                                                         <tableCellView identifier="ISpriteCellID" id="b0Z-sE-nH5" customClass="ISpriteCell" customModule="DrakkenEngine_Editor" customModuleProvider="target">

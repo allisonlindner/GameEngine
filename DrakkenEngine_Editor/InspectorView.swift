@@ -78,6 +78,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                         cell.jsFileNameTF.stringValue = (component as! dJSScript).filename
                         cell.variablesTableView.script = component as? dJSScript
                         
+                        cell.variablesTableView.reloadData()
+                        
                         return cell
                     }
                 } else if component is dSprite {

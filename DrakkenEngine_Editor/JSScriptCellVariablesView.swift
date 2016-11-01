@@ -62,6 +62,9 @@ class JSScriptCellVariablesView: NSTableView, NSTableViewDelegate, NSTableViewDa
                 cell.varNameLB.stringValue = "\(variable.0):"
                 cell.varValueTF.stringValue = variable.1!.toString()
                 
+                cell.variableKey = variable.0
+                cell.script = script!
+                
                 return cell
             }
         }
