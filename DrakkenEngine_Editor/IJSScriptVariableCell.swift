@@ -30,15 +30,15 @@ class IJSScriptVariableCell: NSTableCellView, NSTextFieldDelegate {
         // Drawing code here.
     }
     
-    func control(_ control: NSControl, textShouldEndEditing fieldEditor: NSText) -> Bool {
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        let fieldEditor = obj.object as! NSTextField
+        
         let numFormatter = NumberFormatter()
         
-        if let float = numFormatter.number(from: fieldEditor.string!)?.floatValue {
+        if let float = numFormatter.number(from: fieldEditor.stringValue)?.floatValue {
             script.set(float: float, for: variableKey)
         } else {
-            script.set(string: fieldEditor.string!, for: variableKey)
+            script.set(string: fieldEditor.stringValue, for: variableKey)
         }
-        
-        return true
     }
 }

@@ -328,12 +328,12 @@
 		2E1295EE1DAC4F11007C5512 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
-				2E7CAB321DC3C5D3005219BC /* Table View Controllers */,
-				2E7CAB311DC3C5CD005219BC /* Cells */,
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E2608D51DBABDBF00206D41 /* GameView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+				2E7CAB321DC3C5D3005219BC /* Table View Controllers */,
+				2E7CAB311DC3C5CD005219BC /* Cells */,
 			);
 			name = Editor;
 			sourceTree = "<group>";
@@ -342,10 +342,10 @@
 			isa = PBXGroup;
 			children = (
 				2E3520E91DAC208200642255 /* AppDelegate.swift */,
-				2E1295EE1DAC4F11007C5512 /* Editor */,
 				2E3520ED1DAC208200642255 /* Assets.xcassets */,
 				2E3520EF1DAC208200642255 /* Main.storyboard */,
 				2E3520F21DAC208200642255 /* Info.plist */,
+				2E1295EE1DAC4F11007C5512 /* Editor */,
 			);
 			path = DrakkenEngine_Editor;
 			sourceTree = "<group>";

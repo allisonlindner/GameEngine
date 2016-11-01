@@ -9,7 +9,7 @@
 import Cocoa
 import Foundation
 
-class ITransformCell: NSTableCellView {
+class ITransformCell: NSTableCellView, NSTextFieldDelegate {
 
     @IBOutlet weak var transformNameLabel: NSTextField!
     @IBOutlet weak var xpTF: NSTextField!
@@ -23,11 +23,58 @@ class ITransformCell: NSTableCellView {
     @IBOutlet weak var wsTF: NSTextField!
     @IBOutlet weak var hsTF: NSTextField!
     
+    internal var transform: dTransform!
+    
+    override func awakeFromNib() {
+        setup()
+    }
+    
+    private func setup() {
+        self.xpTF.delegate = self
+        self.ypTF.delegate = self
+        self.zpTF.delegate = self
+        self.xrTF.delegate = self
+        self.yrTF.delegate = self
+        self.zrTF.delegate = self
+        self.wsTF.delegate = self
+        self.hsTF.delegate = self
+    }
+    
     override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
     }
     
     @IBAction func xStepper(_ sender: NSStepper) {
         
+    }
+    
+    override func controlTextDidEndEditing(_ obj: Notification) {
+        let fieldEditor = obj.object as! NSTextField
+        
+        if fieldEditor.identifier == "posXID" {
+            let x = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Position.Set(x, transform.Position.y, transform.Position.z)
+        } else if fieldEditor.identifier == "posYID" {
+            let y = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Position.Set(transform.Position.x, y, transform.Position.z)
+        } else if fieldEditor.identifier == "posZID" {
+            let z = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Position.Set(transform.Position.x, transform.Position.y, z)
+        } else if fieldEditor.identifier == "rotXID" {
+            let x = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Rotation.Set(x, transform.Rotation.y, transform.Rotation.z)
+        } else if fieldEditor.identifier == "rotYID" {
+            let y = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Rotation.Set(transform.Rotation.x, y, transform.Rotation.z)
+        } else if fieldEditor.identifier == "rotZID" {
+            let z = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Rotation.Set(transform.Rotation.x, transform.Rotation.y, z)
+        } else if fieldEditor.identifier == "scaleWID" {
+            let w = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Scale.Set(w, transform.Scale.height)
+        } else if fieldEditor.identifier == "scaleHID" {
+            let h = NSString(string: fieldEditor.stringValue).floatValue
+            transform.Scale.Set(transform.Scale.width, h)
+        }
     }
 }

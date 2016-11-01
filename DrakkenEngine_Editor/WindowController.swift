@@ -52,6 +52,8 @@ class WindowController: NSWindowController {
                 appDelegate.editorViewController?.pauseButton.isEnabled = false
                 
                 dCore.instance.allDebugLogs.removeAll()
+                
+                appDelegate.editorViewController?.inspectorView.reloadData()
             }
             
             appDelegate.editorViewController?.consoleView.reloadData()

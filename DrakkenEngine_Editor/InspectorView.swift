@@ -66,6 +66,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                     cell.wsTF.stringValue = transform.scale.width.stringValue
                     cell.hsTF.stringValue = transform.scale.height.stringValue
                     
+                    cell.transform = transform
+                    
                     return cell
                 }
             }
