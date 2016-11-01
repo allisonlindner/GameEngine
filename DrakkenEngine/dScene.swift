@@ -76,7 +76,6 @@ public class dScene {
         var jsonDict = [String: JSON]()
         
         jsonDict["name"] = JSON(self.name)
-        jsonDict["setup"] = JSON(DrakkenEngine.toDict())
         
         var transformsArray: [JSON] = []
         for t in self.root.childrenTransforms {
