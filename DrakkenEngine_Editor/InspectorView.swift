@@ -129,4 +129,46 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
         
         return 10
     }
+    
+    func tableView(_ tableView: NSTableView, validateDrop info: NSDraggingInfo, proposedRow row: Int, proposedDropOperation dropOperation: NSTableViewDropOperation) -> NSDragOperation {
+        return .generic
+    }
+    
+    func tableView(_ tableView: NSTableView, acceptDrop info: NSDraggingInfo, row: Int, dropOperation: NSTableViewDropOperation) -> Bool {
+        if let transform = appDelegate.editorViewController!.selectedTransform {
+            if appDelegate.editorViewController!.draggedScript != nil {
+                transform._scene.DEBUG_MODE = false
+                transform.add(script: appDelegate.editorViewController!.draggedScript!)
+                endDragging()
+                return true
+            }
+        }
+        
+        return false
+    }
+    
+    private func endDragging() {
+        appDelegate.editorViewController!.editorView.Reload()
+        
+        if appDelegate.editorViewController!.draggedScript != nil {
+            appDelegate.editorViewController!.draggedScript = nil
+            appDelegate.editorViewController!.inspectorView.reloadData()
+        }
+        
+        reloadData()
+        
+        if self.tableColumns[0].headerCell.controlView != nil {
+            if self.tableColumns[0].headerCell.controlView!.frame.width != superview!.frame.width - 5 {
+                self.tableColumns[0].headerCell.controlView!.setFrameSize(
+                    NSSize(width: superview!.frame.width - 5,
+                           height: self.tableColumns[0].headerCell.controlView!.frame.size.height)
+                )
+                self.tableColumns[0].sizeToFit()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: NSTableView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        
+    }
 }
