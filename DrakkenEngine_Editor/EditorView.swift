@@ -40,18 +40,21 @@ internal class EditorView: dGameView {
     }
     
     private func checkChanges() {
+        var changed = false
         for transform in scene.root.childrenTransforms {
             for component in transform.value.components {
                 switch component {
                 case is dJSScript:
                     let c = component as! dJSScript
-                    c.checkNeedReload()
+                    changed = c.checkNeedReload()
                 default:
                     break
                 }
             }
         }
         
-        appDelegate.editorViewController?.inspectorView.reloadData()
+        if changed {
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        }
     }
 }

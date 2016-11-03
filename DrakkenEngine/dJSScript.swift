@@ -114,7 +114,7 @@ public class dJSScript: dComponent, dJSScriptExport {
         self.start()
     }
     
-    internal func checkNeedReload() {
+    internal func checkNeedReload() -> Bool {
         var fileString: String = ""
         
         do {
@@ -125,7 +125,9 @@ public class dJSScript: dComponent, dJSScriptExport {
         
         if self.scriptHash != fileString {
             self.reload(script: fileString)
+            return true
         }
+        return false
     }
     
     internal func start() {
