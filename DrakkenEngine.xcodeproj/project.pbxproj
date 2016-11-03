@@ -133,6 +133,7 @@
 		2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
+		2EE2CDFA1DCB840E00A53701 /* TTransformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */; };
 		2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEC08201D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC081E1D6B79EC00F1FF19 /* DrakkenEngine_tvOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EEC082D1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC082B1D6B79FB00F1FF19 /* DrakkenEngine_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -249,6 +250,7 @@
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
 		2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteManager.swift; sourceTree = "<group>"; };
+		2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTransformCell.swift; sourceTree = "<group>"; };
 		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DrakkenEngine_macOS.h; sourceTree = "<group>"; };
 		2EEC08121D6B79DE00F1FF19 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -398,11 +400,8 @@
 		2E7CAB311DC3C5CD005219BC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */,
-				2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */,
-				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
-				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
-				2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */,
+				2EE2CDFC1DCB841F00A53701 /* Transforms */,
+				2EE2CDFB1DCB841300A53701 /* Inspector */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -439,6 +438,26 @@
 				2ED7C7741D78868400E65237 /* dSceneController.swift */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		2EE2CDFB1DCB841300A53701 /* Inspector */ = {
+			isa = PBXGroup;
+			children = (
+				2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */,
+				2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */,
+				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
+				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
+				2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */,
+			);
+			name = Inspector;
+			sourceTree = "<group>";
+		};
+		2EE2CDFC1DCB841F00A53701 /* Transforms */ = {
+			isa = PBXGroup;
+			children = (
+				2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */,
+			);
+			name = Transforms;
 			sourceTree = "<group>";
 		};
 		2EEC07F51D6B79AD00F1FF19 = {
@@ -846,6 +865,7 @@
 				2E3521051DAC4C2200642255 /* dMeshManager.swift in Sources */,
 				2E3521011DAC4C2200642255 /* dBufferManager.swift in Sources */,
 				2E3521081DAC4C2200642255 /* dSceneManager.swift in Sources */,
+				2EE2CDFA1DCB840E00A53701 /* TTransformCell.swift in Sources */,
 				2E3520FF1DAC4C1D00642255 /* dQuad.swift in Sources */,
 				2E35210E1DAC4C2600642255 /* dGameView.swift in Sources */,
 				2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */,

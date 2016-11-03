@@ -36,4 +36,13 @@ class EditorViewController: NSViewController {
         editorView.scene = dScene()
         editorView.scene.name = scene
     }
+    
+    @IBAction func newTransform(_ sender: AnyObject?) {
+        let transform = dTransform()
+        transform.name = "GameObject"
+        
+        editorView.scene.add(transform: transform)
+        
+        transformsView.reloadData()
+    }
 }

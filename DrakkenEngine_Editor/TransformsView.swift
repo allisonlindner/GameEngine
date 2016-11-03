@@ -8,7 +8,7 @@
 
 import Cocoa
 
-fileprivate let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.outline.item"
+fileprivate let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms_outline.transform_item"
 
 class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
 
@@ -121,7 +121,8 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                 cellIdentifier = "TransformCellID"
             }
             
-            if let cell = outlineView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
+            if let cell = outlineView.make(withIdentifier: cellIdentifier, owner: nil) as? TTransformCell {
+                cell.transform = i
                 cell.textField?.stringValue = text
                 return cell
             }

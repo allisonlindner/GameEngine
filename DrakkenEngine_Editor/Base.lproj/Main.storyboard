@@ -93,6 +93,19 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Edit" id="W48-6f-4Dl"/>
                             </menuItem>
+                            <menuItem title="GameObject" id="UkQ-HK-Gac">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="GameObject" id="tVN-oM-IZC">
+                                    <items>
+                                        <menuItem title="Create Empty" id="24y-TS-X0J">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="newTransform:" target="Ady-hI-5gd" id="E4Y-iE-eM6"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                         </items>
                         <connections>
                             <outlet property="delegate" destination="hnw-xV-0zn" id="6Z8-8Y-o1Q"/>
@@ -298,14 +311,14 @@
                                                                                     </textFieldCell>
                                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                     <prototypeCellViews>
-                                                                                        <tableCellView identifier="TransformCellID" id="409-ia-F6g">
+                                                                                        <tableCellView identifier="TransformCellID" id="409-ia-F6g" customClass="TTransformCell" customModule="DrakkenEngine_Editor" customModuleProvider="target">
                                                                                             <rect key="frame" x="1" y="1" width="212" height="17"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zX8-lg-3pO" userLabel="Transform Cell">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="212" height="17"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="RLp-SG-gMq">
+                                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="RLp-SG-gMq">
                                                                                                         <font key="font" metaFont="system"/>
                                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
