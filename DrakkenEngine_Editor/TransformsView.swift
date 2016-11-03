@@ -182,6 +182,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                     if transform.parentTransform != nil {
                         appDelegate.editorViewController!.draggedTransform!.parentTransform!.remove(child: appDelegate.editorViewController!.draggedTransform!)
                         transform.add(child: appDelegate.editorViewController!.draggedTransform!)
+                        transform._scene.DEBUG_MODE = false
                         endDragging()
                         return true
                     }
