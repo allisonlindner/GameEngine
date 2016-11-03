@@ -46,6 +46,7 @@ class WindowController: NSWindowController {
                 
                 appDelegate.editorViewController?.editorView.scene.root.reloadWithoutScript(from: sceneBackupJSON)
                 appDelegate.editorViewController?.editorView.state = .PAUSE
+                appDelegate.editorViewController?.editorView.scene.DEBUG_MODE = false
                 appDelegate.editorViewController?.editorGameTabView.selectTabViewItem(at: 0)
                 
                 appDelegate.editorViewController?.pauseButton.state = NSOffState

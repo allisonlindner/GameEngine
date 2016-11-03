@@ -77,6 +77,7 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         if NSApplication.shared().mainWindow!.contentViewController is EditorViewController {
             let editorVC = NSApplication.shared().mainWindow!.contentViewController as! EditorViewController
             if url.pathExtension == "dkscene" {
+                editorVC.editorView.scene.DEBUG_MODE = false
                 editorVC.editorView.scene.load(url: url)
                 editorVC.editorView.Init()
                 editorVC.transformsView.reloadData()
