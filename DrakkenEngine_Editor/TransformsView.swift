@@ -13,8 +13,6 @@ public let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms_outline.transfo
 class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
 
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
-    var draggedTransform: dTransform?
-    var draggedScript: String?
     
     override func awakeFromNib() {
         setup()
@@ -150,7 +148,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     }
     
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
-        draggedTransform = draggedItems[0] as? dTransform
+        appDelegate.editorViewController?.draggedTransform = draggedItems[0] as? dTransform
         session.draggingPasteboard.setData(Data(), forType: TRANSFORM_PASTEBOARD_TYPE)
     }
     
@@ -165,9 +163,9 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
         if item == nil {
-            if draggedTransform != nil {
-                draggedTransform!.parentTransform!.remove(child: draggedTransform!)
-                appDelegate.editorViewController!.editorView.scene.add(transform: draggedTransform!)
+            if appDelegate.editorViewController!.draggedTransform != nil {
+                appDelegate.editorViewController!.draggedTransform!.parentTransform!.remove(child: appDelegate.editorViewController!.draggedTransform!)
+                appDelegate.editorViewController!.editorView.scene.add(transform: appDelegate.editorViewController!.draggedTransform!)
                 endDragging()
                 return true
             }
@@ -175,21 +173,22 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
         
         if let transform = item as? dTransform {
-            if draggedTransform != nil {
-                if draggedTransform!.has(child: transform) {
+            if appDelegate.editorViewController?.draggedTransform != nil {
+                if appDelegate.editorViewController!.draggedTransform!.has(child: transform) {
                     return false
                 }
                 
-                if draggedTransform != transform {
+                if appDelegate.editorViewController?.draggedTransform != transform {
                     if transform.parentTransform != nil {
-                        draggedTransform!.parentTransform!.remove(child: draggedTransform!)
-                        transform.add(child: draggedTransform!)
+                        appDelegate.editorViewController!.draggedTransform!.parentTransform!.remove(child: appDelegate.editorViewController!.draggedTransform!)
+                        transform.add(child: appDelegate.editorViewController!.draggedTransform!)
                         endDragging()
                         return true
                     }
                 }
-            } else if draggedScript != nil {
-                transform.add(script: draggedScript!)
+            } else if appDelegate.editorViewController!.draggedScript != nil {
+                transform._scene.DEBUG_MODE = false
+                transform.add(script: appDelegate.editorViewController!.draggedScript!)
                 endDragging()
                 return true
             }
@@ -199,12 +198,12 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     }
     
     private func endDragging() {
-        appDelegate.editorViewController?.editorView.Reload()
+        appDelegate.editorViewController!.editorView.Reload()
         
-        if draggedTransform != nil {
-            draggedTransform = nil
-        } else if draggedScript != nil {
-            draggedScript = nil
+        if appDelegate.editorViewController!.draggedTransform != nil {
+            appDelegate.editorViewController!.draggedTransform = nil
+        } else if appDelegate.editorViewController!.draggedScript != nil {
+            appDelegate.editorViewController!.draggedScript = nil
             appDelegate.editorViewController?.inspectorView.reloadData()
         }
         

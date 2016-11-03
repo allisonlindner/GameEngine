@@ -276,8 +276,19 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         }
     }
 	
+    internal func set(scene: dScene) {
+        self._scene = scene
+        
+        for child in _childrenTransforms {
+            child.value._scene = self._scene
+        }
+    }
+    
 	internal func set(parent: dTransform) {
-        self._scene = parent._scene
+        if parent._scene != nil {
+            self.set(scene: parent._scene)
+        }
+        
         self._parentTransform = parent
 		self._transformData.parentTransform = parent._transformData
 	}
@@ -304,6 +315,10 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         case is dJSScript:
             let s = component as! dJSScript
             s.set(transform: self)
+            break
+        case is dSprite:
+            let s = component as! dSprite
+            self.add(component: s.meshRender)
             break
         default:
             break

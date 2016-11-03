@@ -24,6 +24,9 @@ class EditorViewController: NSViewController {
     internal var selectedTransform: dTransform?
     internal var lastLogCount = 0
     
+    internal var draggedTransform: dTransform?
+    internal var draggedScript: String?
+    
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self
         

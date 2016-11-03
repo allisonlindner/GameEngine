@@ -236,7 +236,7 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
         let dragged = draggedItems[0] as? FolderItem
         
-        appDelegate.editorViewController?.transformsView.draggedScript = dragged!.url.deletingPathExtension().lastPathComponent
+        appDelegate.editorViewController!.draggedScript = dragged!.url.deletingPathExtension().lastPathComponent
         session.draggingPasteboard.setData(Data(), forType: SCRIPT_PASTEBOARD_TYPE)
     }
     

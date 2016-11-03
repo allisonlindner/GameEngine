@@ -21,6 +21,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
         self.delegate = self
         
         self.selectionHighlightStyle = .none
+        
+        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
