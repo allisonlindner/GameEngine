@@ -8,6 +8,8 @@
 
 import Cocoa
 
+public let SCRIPT_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.script_item"
+
 fileprivate class FolderItem: NSObject {
     var icon: NSImage
     var name: String
@@ -26,7 +28,9 @@ fileprivate class FolderItem: NSObject {
 
 fileprivate class RootItem: FolderItem {}
 
-class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate {
+class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
+    
+    let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
     private var itens: [RootItem] = [RootItem]()
     private var totalItens: Int = 0
@@ -40,6 +44,8 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         self.delegate = self
         
         doubleAction = #selector(self.doubleActionSelector)
+        
+        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -212,5 +218,30 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         }
         
         return nil
+    }
+    
+    //MARK: Drag and Drop Setup
+    func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+        let dragged = item as? FolderItem
+        
+        if dragged!.url.pathExtension == "js" {
+            let pbItem = NSPasteboardItem()
+            pbItem.setDataProvider(self, forTypes: [SCRIPT_PASTEBOARD_TYPE])
+            return pbItem
+        }
+        
+        return nil
+    }
+    
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+        let dragged = draggedItems[0] as? FolderItem
+        
+        appDelegate.editorViewController?.transformsView.draggedScript = dragged!.url.deletingPathExtension().lastPathComponent
+        session.draggingPasteboard.setData(Data(), forType: SCRIPT_PASTEBOARD_TYPE)
+    }
+    
+    func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
+        let s = SCRIPT_PASTEBOARD_TYPE
+        item.setString(s, forType: type)
     }
 }

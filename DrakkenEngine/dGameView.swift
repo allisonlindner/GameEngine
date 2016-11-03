@@ -34,6 +34,11 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
         simpleRender.start()
         _firstStep = true
 	}
+    
+    func reload() {
+        simpleRender.process()
+        simpleRender.start()
+    }
 	
 	func draw(in view: MTKView) {
         if _firstStep {
@@ -187,6 +192,11 @@ open class dGameView: MTKView {
         self.start()
         _gameView.start()
         self.delegate = _gameView
+    }
+    
+    public func Reload() {
+        self.start()
+        _gameView.reload()
     }
     
     internal func internalUpdate() {

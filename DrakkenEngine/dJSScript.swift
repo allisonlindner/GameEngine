@@ -68,6 +68,18 @@ public class dJSScript: dComponent, dJSScriptExport {
         self.filename = fileName
     }
     
+    internal func start() {
+        self.updatePublicVariales()
+        
+        self.run(function: "Start")
+        
+        for variable in self.publicVariables {
+            if variable.value == nil {
+                self.publicVariables.updateValue(self.jsContext.objectForKeyedSubscript(variable.key), forKey: variable.key)
+            }
+        }
+    }
+    
     internal func set(transform: dTransform) {
         self.transform = transform
         

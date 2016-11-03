@@ -8,12 +8,13 @@
 
 import Cocoa
 
-fileprivate let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms_outline.transform_item"
+public let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms_outline.transform_item"
 
 class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
 
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     var draggedTransform: dTransform?
+    var draggedScript: String?
     
     override func awakeFromNib() {
         setup()
@@ -23,7 +24,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         self.dataSource = self
         self.delegate = self
         
-        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE])
+        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE, SCRIPT_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -141,6 +142,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
     }
     
+    //MARK: Drag and Drop Setup
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
         let pbItem = NSPasteboardItem()
         pbItem.setDataProvider(self, forTypes: [TRANSFORM_PASTEBOARD_TYPE])
@@ -152,39 +154,60 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         session.draggingPasteboard.setData(Data(), forType: TRANSFORM_PASTEBOARD_TYPE)
     }
     
+    func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
+        let s = TRANSFORM_PASTEBOARD_TYPE
+        item.setString(s, forType: type)
+    }
+    
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
         return .generic
     }
     
     func outlineView(_ outlineView: NSOutlineView, acceptDrop info: NSDraggingInfo, item: Any?, childIndex index: Int) -> Bool {
         if item == nil {
-            draggedTransform!.parentTransform!.remove(child: draggedTransform!)
-            appDelegate.editorViewController!.editorView.scene.add(transform: draggedTransform!)
-            return true
+            if draggedTransform != nil {
+                draggedTransform!.parentTransform!.remove(child: draggedTransform!)
+                appDelegate.editorViewController!.editorView.scene.add(transform: draggedTransform!)
+                endDragging()
+                return true
+            }
+            return false
         }
         
         if let transform = item as? dTransform {
-            if draggedTransform!.has(child: transform) {
-                return false
-            }
-            
             if draggedTransform != nil {
+                if draggedTransform!.has(child: transform) {
+                    return false
+                }
+                
                 if draggedTransform != transform {
                     if transform.parentTransform != nil {
                         draggedTransform!.parentTransform!.remove(child: draggedTransform!)
                         transform.add(child: draggedTransform!)
-                        
+                        endDragging()
                         return true
                     }
                 }
+            } else if draggedScript != nil {
+                transform.add(script: draggedScript!)
+                endDragging()
+                return true
             }
         }
         
         return false
     }
     
-    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
-        draggedTransform = nil
+    private func endDragging() {
+        appDelegate.editorViewController?.editorView.Reload()
+        
+        if draggedTransform != nil {
+            draggedTransform = nil
+        } else if draggedScript != nil {
+            draggedScript = nil
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        }
+        
         reloadData()
         
         if self.tableColumns[0].headerCell.controlView != nil {
@@ -198,8 +221,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         }
     }
     
-    func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
-        let s = "Outline Pasteboard Item"
-        item.setString(s, forType: type)
+    func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
+        
     }
 }

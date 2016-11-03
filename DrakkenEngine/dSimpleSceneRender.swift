@@ -36,9 +36,15 @@ internal class dSimpleSceneRender {
     
     internal func load(scene: dScene) {
         self._scene = scene
+        process()
+    }
+    
+    internal func process() {
         self.renderGraph.removeAll()
         self._jsScriptToBeUpdated.removeAll()
         self._animatorToBeUpdated.removeAll()
+        self.ids.removeAll()
+        
         self.process(transforms: _scene.root.childrenTransforms)
     }
 	
@@ -282,16 +288,7 @@ internal class dSimpleSceneRender {
     
     internal func start() {
         for script in _jsScriptToBeUpdated {
-            
-            script.updatePublicVariales()
-            
-            script.run(function: "Start")
-            
-            for variable in script.publicVariables {
-                if variable.value == nil {
-                    script.publicVariables.updateValue(script.jsContext.objectForKeyedSubscript(variable.key), forKey: variable.key)
-                }
-            }
+            script.start()
         }
     }
 }
