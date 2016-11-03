@@ -52,7 +52,6 @@
 		2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E3521131DAC4C2C00642255 /* dScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD781D70959A0096C912 /* dScene.swift */; };
 		2E3521141DAC4C3100642255 /* dSimpleSceneRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */; };
-		2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD621D6F58F80096C912 /* dMeshRender.swift */; };
 		2E3521171DAC4C3400642255 /* dSprite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD6B1D6F78F70096C912 /* dSprite.swift */; };
 		2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7781D78880100E65237 /* dAnimation.swift */; };
@@ -121,9 +120,6 @@
 		2ECE5A681DB9498D00CC8EDA /* InspectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */; };
 		2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */; };
 		2ECE5A6C1DB96CE200CC8EDA /* ITransformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */; };
-		2ED7C7751D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
-		2ED7C7761D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
-		2ED7C7771D78868400E65237 /* dSceneController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7741D78868400E65237 /* dSceneController.swift */; };
 		2ED7C7791D78880100E65237 /* dAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7781D78880100E65237 /* dAnimation.swift */; };
 		2ED7C77A1D78880100E65237 /* dAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7781D78880100E65237 /* dAnimation.swift */; };
 		2ED7C77B1D78880100E65237 /* dAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7781D78880100E65237 /* dAnimation.swift */; };
@@ -246,7 +242,6 @@
 		2ECE5A671DB9498D00CC8EDA /* InspectorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InspectorView.swift; sourceTree = "<group>"; };
 		2ECE5A691DB94A0400CC8EDA /* ConsoleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConsoleView.swift; sourceTree = "<group>"; };
 		2ECE5A6B1DB96CE200CC8EDA /* ITransformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ITransformCell.swift; sourceTree = "<group>"; };
-		2ED7C7741D78868400E65237 /* dSceneController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSceneController.swift; sourceTree = "<group>"; };
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
 		2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteManager.swift; sourceTree = "<group>"; };
@@ -435,7 +430,6 @@
 		2ED7C7731D78866B00E65237 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2ED7C7741D78868400E65237 /* dSceneController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -743,7 +737,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Drakken Studio";
 				TargetAttributes = {
 					2E3520E61DAC208100642255 = {
@@ -880,7 +874,6 @@
 				2E3521171DAC4C3400642255 /* dSprite.swift in Sources */,
 				2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */,
 				2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */,
-				2E3521151DAC4C3100642255 /* dSceneController.swift in Sources */,
 				2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */,
 				2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */,
 				2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */,
@@ -912,7 +905,6 @@
 				2EEC08631D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
 				2EEC08461D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
 				2EFC3FC61DA4620700456988 /* dVector3D.swift in Sources */,
-				2ED7C7751D78868400E65237 /* dSceneController.swift in Sources */,
 				2ED7C7791D78880100E65237 /* dAnimation.swift in Sources */,
 				2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083B1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
@@ -962,7 +954,6 @@
 				2EEC08641D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
 				2EEC08471D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
 				2EFC3FC71DA4620700456988 /* dVector3D.swift in Sources */,
-				2ED7C7761D78868400E65237 /* dSceneController.swift in Sources */,
 				2ED7C77A1D78880100E65237 /* dAnimation.swift in Sources */,
 				2E61F6701D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083C1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
@@ -1012,7 +1003,6 @@
 				2EEC08651D6B7B3B00F1FF19 /* DiffuseMaterial.metal in Sources */,
 				2EEC08481D6B7A9D00F1FF19 /* dBuffers.swift in Sources */,
 				2EFC3FC81DA4620700456988 /* dVector3D.swift in Sources */,
-				2ED7C7771D78868400E65237 /* dSceneController.swift in Sources */,
 				2ED7C77B1D78880100E65237 /* dAnimation.swift in Sources */,
 				2E61F6711D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083D1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
@@ -1102,6 +1092,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1154,6 +1145,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -1280,7 +1272,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 62TU375XJE;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -1305,7 +1297,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 62TU375XJE;
 				DYLIB_COMPATIBILITY_VERSION = 1;

@@ -1197,11 +1197,11 @@
                                                                                     </textFieldCell>
                                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                     <prototypeCellViews>
-                                                                                        <tableCellView identifier="ConsoleCellID" misplaced="YES" id="JN1-rO-BnZ">
+                                                                                        <tableCellView identifier="ConsoleCellID" id="JN1-rO-BnZ">
                                                                                             <rect key="frame" x="1" y="1" width="762" height="20"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pME-qQ-1db">
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="pME-qQ-1db">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="762" height="19"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" drawsBackground="YES" id="lEF-4w-pI8">
                                                                                                         <font key="font" size="13" name="AndaleMono"/>
@@ -1213,7 +1213,7 @@
                                                                                             <constraints>
                                                                                                 <constraint firstItem="pME-qQ-1db" firstAttribute="centerY" secondItem="JN1-rO-BnZ" secondAttribute="centerY" id="QDH-Yc-KPq"/>
                                                                                                 <constraint firstItem="pME-qQ-1db" firstAttribute="width" secondItem="JN1-rO-BnZ" secondAttribute="width" id="TgL-UL-ZJu"/>
-                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="height" secondItem="JN1-rO-BnZ" secondAttribute="height" id="WQg-xq-YD5"/>
+                                                                                                <constraint firstItem="pME-qQ-1db" firstAttribute="height" secondItem="JN1-rO-BnZ" secondAttribute="height" constant="-1" id="WQg-xq-YD5"/>
                                                                                                 <constraint firstItem="pME-qQ-1db" firstAttribute="centerX" secondItem="JN1-rO-BnZ" secondAttribute="centerX" id="X0n-tM-qvD"/>
                                                                                             </constraints>
                                                                                             <connections>
