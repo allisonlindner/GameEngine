@@ -19,12 +19,15 @@ public class dJSScript: dComponent, dJSScriptExport {
     internal var script: String
     internal var filename: String!
     internal var debug: dDebugExport!
+    internal var fileURL: URL!
+    private var scriptHash: String!
     
     internal var publicVariables: [String : JSValue?] = [:]
     
     internal init(script: String) {
         self.jsContext = JSContext()
         self.script = script
+        self.scriptHash = script
         
         do {
             var regex = try NSRegularExpression(pattern: "(public\\svar\\s+)([\\w\\d]+)", options: NSRegularExpression.Options.caseInsensitive)
@@ -61,11 +64,68 @@ public class dJSScript: dComponent, dJSScriptExport {
             }
             
             self.init(script: fileString)
+            self.fileURL = url
         } else {
             self.init(script: " ")
         }
         
         self.filename = fileName
+    }
+    
+    internal func reload(script: String) {
+        self.jsContext = JSContext()
+        self.publicVariables.removeAll()
+        self.script = script
+        self.scriptHash = script
+        
+        do {
+            var regex = try NSRegularExpression(pattern: "(public\\svar\\s+)([\\w\\d]+)", options: NSRegularExpression.Options.caseInsensitive)
+            
+            let nsString = self.script as NSString
+            let matches = regex.matches(in: self.script, options: [], range: NSRange(0..<self.script.utf16.count)).map { nsString.substring(with: $0.rangeAt(2))}
+            
+            for m in matches {
+                self.publicVariables.updateValue(nil, forKey: m)
+                
+                NSLog("\(m) : \(publicVariables[m])")
+            }
+            
+            regex = try NSRegularExpression(pattern: "(?:public\\s)", options: NSRegularExpression.Options.caseInsensitive)
+            self.script = regex.stringByReplacingMatches(in: self.script, options: [], range: NSRange(0..<self.script.utf16.count), withTemplate: "")
+            
+        } catch let error {
+            fatalError("Regex creation fail!! Error: \(error)")
+        }
+        
+        NSLog(self.script)
+        
+        self.debug = dDebug(transform as! dTransform)
+        
+        self.jsContext.setObject(self.debug, forKeyedSubscript: NSString(string: "Debug"))
+        self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
+        self.jsContext.evaluateScript(
+            "var transform = $.transform;"
+        )
+        
+        self.jsContext.evaluateScript(
+            "\(self.script)"
+        )
+        
+        self.start()
+    }
+    
+    internal func checkNeedReload() {
+        var fileString: String = ""
+        
+        do {
+            fileString = try String(contentsOf: fileURL)
+        } catch {
+            NSLog("Script file error")
+        }
+        
+        if self.scriptHash != fileString {
+            self.reload(script: fileString)
+        }
     }
     
     internal func start() {
