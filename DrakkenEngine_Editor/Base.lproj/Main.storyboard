@@ -81,9 +81,16 @@
                                                 <action selector="newScene:" target="Ady-hI-5gd" id="qr0-Rw-vec"/>
                                             </connections>
                                         </menuItem>
-                                        <menuItem title="Save" keyEquivalent="s" id="Nbn-eI-jce">
+                                        <menuItem title="Save Scene" keyEquivalent="s" id="Nbn-eI-jce">
                                             <connections>
                                                 <action selector="saveScene:" target="Ady-hI-5gd" id="edm-Si-IpB"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="BOk-7X-vcW"/>
+                                        <menuItem title="New Script" id="FYw-di-XlR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="newScript:" target="Ady-hI-5gd" id="NzD-vy-T0q"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -1113,7 +1120,7 @@
                                                                                     </textFieldCell>
                                                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                                     <prototypeCellViews>
-                                                                                        <tableCellView identifier="FolderItemID" id="CVp-aH-Jz9" userLabel="Folder Item Cell">
+                                                                                        <tableCellView identifier="FolderItemID" id="CVp-aH-Jz9" userLabel="Folder Item Cell" customClass="PFolderItemCell" customModule="DrakkenEngine_Editor" customModuleProvider="target">
                                                                                             <rect key="frame" x="1" y="1" width="508" height="17"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
@@ -1125,7 +1132,7 @@
                                                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuo-EJ-rlW">
                                                                                                     <rect key="frame" x="25" y="0.0" width="483" height="17"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="30n-vB-uVA">
+                                                                                                    <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="30n-vB-uVA">
                                                                                                         <font key="font" metaFont="system"/>
                                                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>

@@ -10,7 +10,7 @@ import Cocoa
 
 public let SCRIPT_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.script_item"
 
-fileprivate class FolderItem: NSObject {
+internal class FolderItem: NSObject {
     var icon: NSImage
     var name: String
     var url: URL
@@ -211,9 +211,12 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
                 cellIdentifier = "FolderItemID"
             }
             
-            if let cell = outlineView.make(withIdentifier: cellIdentifier, owner: nil) as? NSTableCellView {
+            if let cell = outlineView.make(withIdentifier: cellIdentifier, owner: nil) as? PFolderItemCell {
                 cell.textField?.stringValue = text
                 cell.imageView?.image = image ?? nil
+                
+                cell.folderItem = i
+                
                 return cell
             }
         }

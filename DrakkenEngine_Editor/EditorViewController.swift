@@ -48,4 +48,16 @@ class EditorViewController: NSViewController {
         
         transformsView.reloadData()
     }
+    
+    @IBAction func newScript(_ sender: AnyObject?) {
+        let content = "function Start() {\n    \n}\n\nfunction Update() {\n    \n}"
+        let fileManager = FileManager()
+        
+        if fileManager.createFile(atPath: dCore.instance.SCRIPTS_PATH!.appendingPathComponent("newScript.js").path,
+                               contents: content.data(using: .utf8),
+                               attributes: nil) {
+            NSLog("New script created")
+            fileViewer.reloadData()
+        }
+    }
 }
