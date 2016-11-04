@@ -71,7 +71,7 @@ class WindowController: NSWindowController {
         }
     }
     
-    @IBAction internal func saveScene(_ sender: AnyObject?) {
+    @IBAction internal func saveSceneAs(_ sender: AnyObject?) {
         if becomeFirstResponder() {
             if self.contentViewController is EditorViewController {
                 let editorVC = self.contentViewController as! EditorViewController
@@ -94,10 +94,28 @@ class WindowController: NSWindowController {
                                                        attributes: nil)
                             }
                             
+                            self.appDelegate.editorViewController!.currentSceneURL = url
                             NSLog("Scene save with success on path: \(url.path)")
                         }
                     }
                 })
+            }
+        }
+    }
+    
+    @IBAction internal func saveScene(_ sender: AnyObject?) {
+        if becomeFirstResponder() {
+            if self.contentViewController is EditorViewController {
+                let editorVC = self.contentViewController as! EditorViewController
+                let fileManager = FileManager()
+                
+                if let jsonData: Data = editorVC.editorView.scene.toJSON() {
+                    fileManager.createFile(atPath: editorVC.currentSceneURL.path,
+                                           contents: jsonData,
+                                           attributes: nil)
+                }
+                
+                NSLog("Scene save with success on path: \(editorVC.currentSceneURL.path)")
             }
         }
     }
@@ -234,6 +252,7 @@ class WindowController: NSWindowController {
                                                                                         .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants)).first
                                 
                                 if sceneURL != nil {
+                                    self.appDelegate.editorViewController!.currentSceneURL = sceneURL
                                     if let editorVC = self.appDelegate.editorViewController {
                                         editorVC.editorView.scene.load(url: sceneURL!)
                                         self.sceneBackupJSON = editorVC.editorView.scene.root.toJSON()

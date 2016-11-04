@@ -21,11 +21,14 @@ class EditorViewController: NSViewController {
     @IBOutlet weak var pauseButton: NSButton!
     @IBOutlet weak var editorGameTabView: NSTabView!
     
+    internal var currentSceneURL: URL!
+    
     internal var selectedTransform: dTransform?
     internal var lastLogCount = 0
     
     internal var draggedTransform: dTransform?
     internal var draggedScript: String?
+    internal var draggedImage: String?
     
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self

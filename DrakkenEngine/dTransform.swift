@@ -333,6 +333,18 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         self.add(component: s)
     }
     
+    internal func removeSprite() {
+        for c in _components {
+            if c.self is dMeshRender {
+                _components.remove(at: _components.index(of: c)!)
+            }
+            
+            if c.self is dSprite {
+                _components.remove(at: _components.index(of: c)!)
+            }
+        }
+    }
+    
     internal func removeAll() {
         self._childrenTransforms.removeAll()
     }

@@ -219,41 +219,37 @@ internal class dSimpleSceneRender {
 				if #available(iOS 10, *) {
 					let thread = Thread(block: {
 						value.animator.update(deltaTime: deltaTime)
-						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 						return
 					})
 					thread.start()
 				} else {
 					value.animator.update(deltaTime: deltaTime)
-					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 				}
 			#endif
 			#if os(tvOS)
 				if #available(tvOS 10, *) {
 					let thread = Thread(block: {
 						value.animator.update(deltaTime: deltaTime)
-						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 						return
 					})
 					thread.start()
 				} else {
 					value.animator.update(deltaTime: deltaTime)
-					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 				}
 			#endif
 			#if os(OSX)
 				if #available(OSX 10.12, *) {
 					let thread = Thread(block: {
 						value.animator.update(deltaTime: deltaTime)
-						value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 						return
 					})
 					thread.start()
 				} else {
 					value.animator.update(deltaTime: deltaTime)
-					value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 				}
-			#endif
+            #endif
+            
+            value.materialMeshBind.instanceTexCoordIDs[value.index] = value.animator.frame
 		}
         
         for script in _jsScriptToBeUpdated {

@@ -88,13 +88,20 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                     }
                 } else if component is dSprite {
                     if let cell = tableView.make(withIdentifier: "ISpriteCellID", owner: nil) as? ISpriteCell {
-                        cell.spriteNameTF.stringValue = (component as! dSprite).spriteName
+                        let sprite = (component as! dSprite)
                         
-                        let sprite = dCore.instance.spManager.get(sprite: (component as! dSprite).spriteName)
-                        let imageURL = dCore.instance.IMAGES_PATH!.appendingPathComponent(sprite!.texture.name)
+                        cell.sprite = sprite
+                        
+                        cell.spriteNameTF.stringValue = sprite.spriteName
+                        
+                        let spriteData = dCore.instance.spManager.get(sprite: sprite.spriteName)
+                        let imageURL = dCore.instance.IMAGES_PATH!.appendingPathComponent(spriteData!.texture.name)
                         
                         cell.image.image = NSImage(contentsOf: imageURL)
                         cell.frameTF.stringValue = "\((component as! dSprite).frame)"
+                        
+                        cell.hsTF.stringValue = "\(sprite.meshRender.scale.width)"
+                        cell.wsTF.stringValue = "\(sprite.meshRender.scale.height)"
                         
                         return cell
                     }

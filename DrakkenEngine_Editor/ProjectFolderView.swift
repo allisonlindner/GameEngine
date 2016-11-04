@@ -9,6 +9,7 @@
 import Cocoa
 
 public let SCRIPT_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.script_item"
+public let IMAGE_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.image_item"
 
 internal class FolderItem: NSObject {
     var icon: NSImage
@@ -32,6 +33,8 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
+    var draggedItem: FolderItem?
+    
     private var itens: [RootItem] = [RootItem]()
     private var totalItens: Int = 0
     
@@ -45,7 +48,7 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         
         doubleAction = #selector(self.doubleActionSelector)
         
-        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE])
+        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -77,6 +80,8 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         if NSApplication.shared().mainWindow!.contentViewController is EditorViewController {
             let editorVC = NSApplication.shared().mainWindow!.contentViewController as! EditorViewController
             if url.pathExtension == "dkscene" {
+                editorVC.currentSceneURL = url
+                
                 editorVC.editorView.scene.DEBUG_MODE = false
                 editorVC.editorView.scene.load(url: url)
                 editorVC.editorView.Init()
@@ -226,26 +231,46 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     
     //MARK: Drag and Drop Setup
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
-        let dragged = item as? FolderItem
+        draggedItem = item as? FolderItem
+        var pbItem: NSPasteboardItem? = nil
         
-        if dragged!.url.pathExtension == "js" {
-            let pbItem = NSPasteboardItem()
-            pbItem.setDataProvider(self, forTypes: [SCRIPT_PASTEBOARD_TYPE])
-            return pbItem
+        if draggedItem!.url.pathExtension == "js" {
+            pbItem = NSPasteboardItem()
+            pbItem!.setDataProvider(self, forTypes: [SCRIPT_PASTEBOARD_TYPE])
+        } else if draggedItem!.url.isFileURL {
+            if NSImage(contentsOf: draggedItem!.url) != nil {
+                pbItem = NSPasteboardItem()
+                pbItem!.setDataProvider(self, forTypes: [IMAGE_PASTEBOARD_TYPE])
+            }
         }
         
-        return nil
+        return pbItem
     }
     
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
-        let dragged = draggedItems[0] as? FolderItem
         
-        appDelegate.editorViewController!.draggedScript = dragged!.url.deletingPathExtension().lastPathComponent
-        session.draggingPasteboard.setData(Data(), forType: SCRIPT_PASTEBOARD_TYPE)
+        draggedItem = draggedItems[0] as? FolderItem
+        
+        if draggedItem!.url.pathExtension == "js" {
+            appDelegate.editorViewController?.draggedScript = draggedItem!.url.deletingPathExtension().lastPathComponent
+            session.draggingPasteboard.setString(draggedItem!.url.deletingPathExtension().lastPathComponent,
+                                                 forType: SCRIPT_PASTEBOARD_TYPE)
+        } else if draggedItem!.url.isFileURL {
+            if NSImage(contentsOf: draggedItem!.url) != nil {
+                appDelegate.editorViewController?.draggedImage = draggedItem!.url.lastPathComponent
+                session.draggingPasteboard.setString(draggedItem!.url.lastPathComponent,
+                                                     forType: IMAGE_PASTEBOARD_TYPE)
+            }
+        }
     }
     
     func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
-        let s = SCRIPT_PASTEBOARD_TYPE
-        item.setString(s, forType: type)
+        if draggedItem!.url.pathExtension == "js" {
+            item.setString(draggedItem!.url.deletingPathExtension().lastPathComponent, forType: SCRIPT_PASTEBOARD_TYPE)
+        } else if draggedItem!.url.isFileURL {
+            if NSImage(contentsOf: draggedItem!.url) != nil {
+                item.setString(draggedItem!.url.lastPathComponent, forType: IMAGE_PASTEBOARD_TYPE)
+            }
+        }
     }
 }

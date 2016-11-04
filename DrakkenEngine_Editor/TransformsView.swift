@@ -22,7 +22,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         self.dataSource = self
         self.delegate = self
         
-        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE, SCRIPT_PASTEBOARD_TYPE])
+        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE, SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -158,6 +158,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     }
     
     func outlineView(_ outlineView: NSOutlineView, validateDrop info: NSDraggingInfo, proposedItem item: Any?, proposedChildIndex index: Int) -> NSDragOperation {
+        
         return .generic
     }
     
@@ -192,6 +193,27 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                 transform.add(script: appDelegate.editorViewController!.draggedScript!)
                 endDragging()
                 return true
+            } else if appDelegate.editorViewController!.draggedImage != nil {
+                transform._scene.DEBUG_MODE = false
+                
+                transform.removeSprite()
+                
+                let spriteDef = dSpriteDef.init(appDelegate.editorViewController!.draggedImage!,
+                                                texture: appDelegate.editorViewController!.draggedImage!)
+                
+                DrakkenEngine.Register(sprite: spriteDef)
+                DrakkenEngine.Init()
+                
+                transform.add(component: dSprite.init(
+                    sprite: appDelegate.editorViewController!.draggedImage!,
+                    scale: dSize2D(
+                        Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().width),
+                        Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().height))
+                    )
+                )
+                
+                endDragging()
+                return true
             }
         }
         
@@ -205,6 +227,9 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
             appDelegate.editorViewController!.draggedTransform = nil
         } else if appDelegate.editorViewController!.draggedScript != nil {
             appDelegate.editorViewController!.draggedScript = nil
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        } else if appDelegate.editorViewController!.draggedImage != nil {
+            appDelegate.editorViewController!.draggedImage = nil
             appDelegate.editorViewController?.inspectorView.reloadData()
         }
         
