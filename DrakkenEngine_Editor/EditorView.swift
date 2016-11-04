@@ -15,8 +15,10 @@ internal class EditorView: dGameView {
     var deltaTime: Double = 0.016
     
     var timeToCheckChanges: Double = 1.0
+    var changed = false
     
     override func Init() {
+        self.changed = false
         self.state = .PAUSE
         super.Init()
     }
@@ -40,7 +42,7 @@ internal class EditorView: dGameView {
     }
     
     private func checkChanges() {
-        var changed = false
+        changed = false
         for transform in scene.root.childrenTransforms {
             for component in transform.value.components {
                 switch component {
