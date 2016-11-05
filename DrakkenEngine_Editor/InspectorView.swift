@@ -84,6 +84,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                         
                         cell.variablesTableView.reloadData()
                         
+                        cell.script = component as! dJSScript
+                        
                         return cell
                     }
                 } else if component is dSprite {
@@ -125,9 +127,9 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 let component = transform.components[row-1]
                 
                 if component is dJSScript {
-                    return 175
+                    return 180
                 } else if component is dSprite {
-                    return 150
+                    return 155
                 } else if component is dMeshRender {
                     return 60
                 }

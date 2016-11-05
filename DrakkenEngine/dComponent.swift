@@ -14,6 +14,8 @@ public class dComponent: NSObject, Serializable {
 	internal var parentTransform: dTransform? {
 		return _parentTransform
 	}
+    
+    internal var indexOnParent: Int!
 	
 	private var _dependences: [dComponent] = []
 	
@@ -37,6 +39,10 @@ public class dComponent: NSObject, Serializable {
 		self._dependences.append(dependence)
 		return dependence
 	}
+    
+    internal func removeFromParent() {
+        _parentTransform?.components.remove(at: indexOnParent)
+    }
     
     internal func toDict() -> [String: JSON] {
         return [:]

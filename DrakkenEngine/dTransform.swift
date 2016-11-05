@@ -33,6 +33,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
 	private var _components: [dComponent] = []
 	internal var components: [dComponent] {
 		get { return self._components }
+        set { _components = newValue }
 	}
 	
 	public var localMatrix4x4: float4x4 {
@@ -326,6 +327,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
 		
 		component.set(parent: self)
 		self._components.append(component)
+        component.indexOnParent = self._components.index(of: component)
 	}
     
     public func add(script: String) {

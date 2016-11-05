@@ -51,4 +51,11 @@ class ISpriteCell: NSTableCellView, NSTextFieldDelegate {
             appDelegate.editorViewController!.editorView.Reload()
         }
     }
+    
+    @IBAction func removeComponent(_ sender: Any) {
+        sprite.removeFromParent()
+        sprite.meshRender.removeFromParent()
+        appDelegate.editorViewController?.inspectorView.reloadData()
+        appDelegate.editorViewController!.editorView.Reload()
+    }
 }
