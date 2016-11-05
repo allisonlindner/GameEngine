@@ -157,7 +157,7 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                                                 texture: appDelegate.editorViewController!.draggedImage!)
                 
                 DrakkenEngine.Register(sprite: spriteDef)
-                DrakkenEngine.Init()
+                DrakkenEngine.Setup()
                 
                 transform.add(component: dSprite.init(
                     sprite: appDelegate.editorViewController!.draggedImage!,
