@@ -24,6 +24,8 @@ class EditorViewController: NSViewController {
     internal var currentSceneURL: URL!
     
     internal var selectedTransform: dTransform?
+    internal var selectedSpriteDef: dSpriteDef?
+    
     internal var lastLogCount = 0
     
     internal var draggedTransform: dTransform?

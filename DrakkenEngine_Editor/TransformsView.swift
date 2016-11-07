@@ -132,7 +132,11 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     
     func outlineViewSelectionDidChange(_ notification: Notification) {
         if let transform = item(atRow: selectedRow) as? dTransform {
+            appDelegate.editorViewController?.selectedSpriteDef = nil
             appDelegate.editorViewController?.selectedTransform = transform
+            
+            appDelegate.editorViewController?.fileViewer.deselectAll(nil)
+            
             appDelegate.editorViewController?.inspectorView.reloadData()
         } else {
             appDelegate.editorViewController?.selectedTransform = nil

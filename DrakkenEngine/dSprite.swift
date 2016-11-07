@@ -37,6 +37,15 @@ public class dSpriteDef {
         self.init(name, columns: columns, lines: lines, texture: t)
     }
     
+    public convenience init(json: JSON) {
+        let _name = json["name"].stringValue
+        let _columns = json["columns"].intValue
+        let _lines = json["lines"].intValue
+        let _texture = json["texture"].stringValue
+        
+        self.init(_name, columns: _columns, lines: _lines, texture: _texture)
+    }
+    
     internal func toDict() -> [String: JSON] {
         var dict = [String: JSON]()
         

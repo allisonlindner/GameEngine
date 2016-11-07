@@ -229,6 +229,42 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         return nil
     }
     
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        if let item = item(atRow: selectedRow) as? FolderItem {
+            if item.url.pathExtension == "dksprite" {
+                
+                var fileString: String = ""
+                
+                do {
+                    fileString = try String(contentsOf: item.url)
+                    
+                    if let dataFromString = fileString.data(using: String.Encoding.utf8) {
+                        let json = JSON(data: dataFromString)
+                        
+                        appDelegate.editorViewController?.selectedSpriteDef = dSpriteDef(json: json)
+                        appDelegate.editorViewController?.selectedTransform = nil
+                        
+                        appDelegate.editorViewController?.transformsView.deselectAll(nil)
+                        
+                        appDelegate.editorViewController?.inspectorView.reloadData()
+                    }
+                } catch {
+                    NSLog("Scene file error")
+                }
+            } else {
+                if appDelegate.editorViewController?.selectedSpriteDef != nil {
+                    appDelegate.editorViewController?.selectedSpriteDef = nil
+                    appDelegate.editorViewController?.inspectorView.reloadData()
+                }
+            }
+        } else {
+            if appDelegate.editorViewController?.selectedSpriteDef != nil {
+                appDelegate.editorViewController?.selectedSpriteDef = nil
+                appDelegate.editorViewController?.inspectorView.reloadData()
+            }
+        }
+    }
+    
     //MARK: Drag and Drop Setup
     func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
         draggedItem = item as? FolderItem

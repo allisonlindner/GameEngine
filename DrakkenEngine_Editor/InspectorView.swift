@@ -42,6 +42,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         if let transform = appDelegate.editorViewController?.selectedTransform {
             return 1 + transform.components.count
+        } else if appDelegate.editorViewController?.selectedSpriteDef != nil {
+            return 1
         }
         
         return 0
@@ -53,8 +55,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if row == 0 {
-            if let cell = tableView.make(withIdentifier: "ITransformCellID", owner: nil) as? ITransformCell {
-                if let transform = appDelegate.editorViewController!.selectedTransform {
+            if let transform = appDelegate.editorViewController?.selectedTransform {
+                if let cell = tableView.make(withIdentifier: "ITransformCellID", owner: nil) as? ITransformCell {
                     cell.transformNameLabel.stringValue = transform.name
                     
                     cell.xpTF.stringValue = transform.position.x.stringValue
@@ -69,6 +71,19 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                     cell.hsTF.stringValue = transform.scale.height.stringValue
                     
                     cell.transform = transform
+                    
+                    return cell
+                }
+            } else if let spriteDef = appDelegate.editorViewController?.selectedSpriteDef {
+                if let cell = tableView.make(withIdentifier: "ISpriteDefCellID", owner: nil) as? ISpriteDefCell {
+                    cell.nameTF.stringValue = spriteDef.name
+                    cell.columnsTF.stringValue = "\(spriteDef.columns)"
+                    cell.linesTF.stringValue = "\(spriteDef.lines)"
+                    cell.textureTF.stringValue = "\(spriteDef.texture.name)"
+                    
+                    let textureURL = dCore.instance.IMAGES_PATH?.appendingPathComponent(spriteDef.texture.name)
+                    
+                    cell.textureImage.image = NSImage(contentsOf: textureURL!)
                     
                     return cell
                 }
@@ -121,7 +136,11 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
         if row == 0 {
-            return 200
+            if appDelegate.editorViewController?.selectedTransform != nil {
+                return 200
+            } else if appDelegate.editorViewController?.selectedSpriteDef != nil {
+                return 415
+            }
         } else {
             if let transform = appDelegate.editorViewController?.selectedTransform {
                 let component = transform.components[row-1]

@@ -61,6 +61,7 @@
 		2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08621D6B7B3B00F1FF19 /* DiffuseMaterial.metal */; };
 		2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08671D6B7B6B00F1FF19 /* SharedUniforms.swift */; };
 		2E35211E1DAC4C3B00642255 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
+		2E3C09A81DD10574008F36C2 /* ISpriteDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C09A71DD10574008F36C2 /* ISpriteDefCell.swift */; };
 		2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -218,6 +219,7 @@
 		2E3520ED1DAC208200642255 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2E3520F01DAC208200642255 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2E3520F21DAC208200642255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E3C09A71DD10574008F36C2 /* ISpriteDefCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteDefCell.swift; sourceTree = "<group>"; };
 		2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFolderView.swift; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
@@ -445,6 +447,7 @@
 				2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */,
 				2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */,
 				2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */,
+				2E3C09A71DD10574008F36C2 /* ISpriteDefCell.swift */,
 			);
 			name = Inspector;
 			sourceTree = "<group>";
@@ -852,6 +855,7 @@
 				2E3520F91DAC4C1500642255 /* dSize2D.swift in Sources */,
 				2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */,
 				2E3520F61DAC4C1200642255 /* SwiftyJSON.swift in Sources */,
+				2E3C09A81DD10574008F36C2 /* ISpriteDefCell.swift in Sources */,
 				2E08D2401DB189CF00CB8D85 /* TransformsView.swift in Sources */,
 				2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */,
 				2E3521061DAC4C2200642255 /* dShaderManager.swift in Sources */,
