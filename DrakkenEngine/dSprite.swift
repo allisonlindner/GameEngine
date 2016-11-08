@@ -6,6 +6,7 @@
 //  Copyright © 2016 Drakken Studio. All rights reserved.
 //
 
+import Foundation
 import simd
 
 public class dSpriteDef {
@@ -29,6 +30,8 @@ public class dSpriteDef {
 		
 		self.columns = columns
 		self.lines = lines
+        
+        self.scale.Set(Float(texture.getTexture().width), Float(texture.getTexture().height))
 	}
     
     public convenience init(_ name: String, columns: Int = 1, lines: Int = 1, texture: String) {
@@ -44,6 +47,32 @@ public class dSpriteDef {
         let _texture = json["texture"].stringValue
         
         self.init(_name, columns: _columns, lines: _lines, texture: _texture)
+        
+        let _scaleJson = json["scale"].dictionaryValue
+        
+        let _scaleW = _scaleJson["w"]!.floatValue
+        let _scaleH = _scaleJson["h"]!.floatValue
+        
+        self.scale = dSize2D(_scaleW, _scaleH)
+    }
+    
+    public convenience init(json url: URL) {
+        var fileString: String = ""
+        var json: JSON!
+        
+        do {
+            fileString = try String(contentsOf: url)
+            
+            if let dataFromString = fileString.data(using: String.Encoding.utf8) {
+                json = JSON(data: dataFromString)
+            } else {
+                fatalError("Sprite def load file error")
+            }
+        } catch {
+            NSLog("Sprite def load file error")
+        }
+        
+        self.init(json: json)
     }
     
     internal func toDict() -> [String: JSON] {
@@ -54,7 +83,29 @@ public class dSpriteDef {
         dict["lines"] = JSON(lines)
         dict["texture"] = JSON(texture.name)
         
+        var scaleDict = [String: JSON]()
+        scaleDict["w"] = JSON(scale.width)
+        scaleDict["h"] = JSON(scale.height)
+        
+        dict["scale"] = JSON(scaleDict)
+        
         return dict
+    }
+    
+    internal func toData() -> Data? {
+        let json = JSON(self.toDict())
+        
+        do {
+            let data = try json.rawData(options: JSONSerialization.WritingOptions.prettyPrinted)
+            let string = String(data: data, encoding: String.Encoding.utf8)
+            NSLog(string!)
+            
+            return data
+        } catch let error {
+            NSLog("JSON conversion FAIL!! \(error)")
+        }
+        
+        return nil
     }
 }
 

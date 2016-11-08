@@ -8,8 +8,9 @@
 
 import Cocoa
 
-public let SCRIPT_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.script_item"
-public let IMAGE_PASTEBOARD_TYPE = "drakkenengine.projectfolder_outline.image_item"
+public let SCRIPT_PASTEBOARD_TYPE = "drakkenengine.projectfolder.item.script"
+public let IMAGE_PASTEBOARD_TYPE = "drakkenengine.projectfolder.item.image"
+public let SPRITEDEF_PASTEBOARD_TYPE = "drakkenengine.projectfolder.item.spritedef"
 
 internal class FolderItem: NSObject {
     var icon: NSImage
@@ -232,25 +233,12 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     func outlineViewSelectionDidChange(_ notification: Notification) {
         if let item = item(atRow: selectedRow) as? FolderItem {
             if item.url.pathExtension == "dksprite" {
+                appDelegate.editorViewController?.selectedSpriteDef = item.url
+                appDelegate.editorViewController?.selectedTransform = nil
                 
-                var fileString: String = ""
+                appDelegate.editorViewController?.transformsView.deselectAll(nil)
                 
-                do {
-                    fileString = try String(contentsOf: item.url)
-                    
-                    if let dataFromString = fileString.data(using: String.Encoding.utf8) {
-                        let json = JSON(data: dataFromString)
-                        
-                        appDelegate.editorViewController?.selectedSpriteDef = dSpriteDef(json: json)
-                        appDelegate.editorViewController?.selectedTransform = nil
-                        
-                        appDelegate.editorViewController?.transformsView.deselectAll(nil)
-                        
-                        appDelegate.editorViewController?.inspectorView.reloadData()
-                    }
-                } catch {
-                    NSLog("Scene file error")
-                }
+                appDelegate.editorViewController?.inspectorView.reloadData()
             } else {
                 if appDelegate.editorViewController?.selectedSpriteDef != nil {
                     appDelegate.editorViewController?.selectedSpriteDef = nil
@@ -273,11 +261,12 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         if draggedItem!.url.pathExtension == "js" {
             pbItem = NSPasteboardItem()
             pbItem!.setDataProvider(self, forTypes: [SCRIPT_PASTEBOARD_TYPE])
-        } else if draggedItem!.url.isFileURL {
-            if NSImage(contentsOf: draggedItem!.url) != nil {
-                pbItem = NSPasteboardItem()
-                pbItem!.setDataProvider(self, forTypes: [IMAGE_PASTEBOARD_TYPE])
-            }
+        } else if NSImage(contentsOf: draggedItem!.url) != nil {
+            pbItem = NSPasteboardItem()
+            pbItem!.setDataProvider(self, forTypes: [IMAGE_PASTEBOARD_TYPE])
+        } else if draggedItem!.url.pathExtension == "dksprite" {
+            pbItem = NSPasteboardItem()
+            pbItem!.setDataProvider(self, forTypes: [SPRITEDEF_PASTEBOARD_TYPE])
         }
         
         return pbItem
@@ -291,22 +280,24 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
             appDelegate.editorViewController?.draggedScript = draggedItem!.url.deletingPathExtension().lastPathComponent
             session.draggingPasteboard.setString(draggedItem!.url.deletingPathExtension().lastPathComponent,
                                                  forType: SCRIPT_PASTEBOARD_TYPE)
-        } else if draggedItem!.url.isFileURL {
-            if NSImage(contentsOf: draggedItem!.url) != nil {
-                appDelegate.editorViewController?.draggedImage = draggedItem!.url.lastPathComponent
-                session.draggingPasteboard.setString(draggedItem!.url.lastPathComponent,
-                                                     forType: IMAGE_PASTEBOARD_TYPE)
-            }
+        } else if NSImage(contentsOf: draggedItem!.url) != nil {
+            appDelegate.editorViewController?.draggedImage = draggedItem!.url.lastPathComponent
+            session.draggingPasteboard.setString(draggedItem!.url.lastPathComponent,
+                                                 forType: IMAGE_PASTEBOARD_TYPE)
+        } else if draggedItem!.url.pathExtension == "dksprite" {
+            appDelegate.editorViewController?.draggedSpriteDef = dSpriteDef(json: draggedItem!.url)
+            session.draggingPasteboard.setString(draggedItem!.url.lastPathComponent,
+                                                 forType: SPRITEDEF_PASTEBOARD_TYPE)
         }
     }
     
     func pasteboard(_ pasteboard: NSPasteboard?, item: NSPasteboardItem, provideDataForType type: String) {
         if draggedItem!.url.pathExtension == "js" {
             item.setString(draggedItem!.url.deletingPathExtension().lastPathComponent, forType: SCRIPT_PASTEBOARD_TYPE)
-        } else if draggedItem!.url.isFileURL {
-            if NSImage(contentsOf: draggedItem!.url) != nil {
-                item.setString(draggedItem!.url.lastPathComponent, forType: IMAGE_PASTEBOARD_TYPE)
-            }
+        } else if NSImage(contentsOf: draggedItem!.url) != nil {
+            item.setString(draggedItem!.url.lastPathComponent, forType: IMAGE_PASTEBOARD_TYPE)
+        } else if draggedItem!.url.pathExtension == "dksprite" {
+            item.setString(draggedItem!.url.lastPathComponent, forType: SPRITEDEF_PASTEBOARD_TYPE)
         }
     }
 }

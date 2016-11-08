@@ -8,7 +8,7 @@
 
 import Cocoa
 
-public let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms_outline.transform_item"
+public let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms.item.transform"
 
 class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
 
@@ -22,7 +22,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
         self.dataSource = self
         self.delegate = self
         
-        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE, SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE])
+        self.register(forDraggedTypes: [TRANSFORM_PASTEBOARD_TYPE, SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE, SPRITEDEF_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -208,13 +208,23 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                 DrakkenEngine.Register(sprite: spriteDef)
                 DrakkenEngine.Init()
                 
-                transform.add(component: dSprite.init(
+                transform.add(
+                    component: dSprite.init(
                     sprite: appDelegate.editorViewController!.draggedImage!,
-                    scale: dSize2D(
-                        Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().width),
-                        Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().height))
-                    )
+                    scale: spriteDef.scale)
                 )
+                
+                endDragging()
+                return true
+            } else if let spriteDef = appDelegate.editorViewController!.draggedSpriteDef {
+                transform._scene.DEBUG_MODE = false
+                
+                transform.removeSprite()
+                
+                DrakkenEngine.Register(sprite: spriteDef)
+                DrakkenEngine.Init()
+                
+                transform.add(component: dSprite(sprite: spriteDef.name, scale: spriteDef.scale, frame: 0))
                 
                 endDragging()
                 return true
@@ -234,6 +244,9 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
             appDelegate.editorViewController?.inspectorView.reloadData()
         } else if appDelegate.editorViewController!.draggedImage != nil {
             appDelegate.editorViewController!.draggedImage = nil
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        } else if appDelegate.editorViewController!.draggedSpriteDef != nil {
+            appDelegate.editorViewController!.draggedSpriteDef = nil
             appDelegate.editorViewController?.inspectorView.reloadData()
         }
         

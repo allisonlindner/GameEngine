@@ -22,7 +22,7 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
         
         self.selectionHighlightStyle = .none
         
-        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE])
+        self.register(forDraggedTypes: [SCRIPT_PASTEBOARD_TYPE, IMAGE_PASTEBOARD_TYPE, SPRITEDEF_PASTEBOARD_TYPE])
     }
     
     override func draw(_ dirtyRect: NSRect) {
@@ -59,31 +59,39 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 if let cell = tableView.make(withIdentifier: "ITransformCellID", owner: nil) as? ITransformCell {
                     cell.transformNameLabel.stringValue = transform.name
                     
-                    cell.xpTF.stringValue = transform.position.x.stringValue
-                    cell.ypTF.stringValue = transform.position.y.stringValue
-                    cell.zpTF.stringValue = transform.position.z.stringValue
+                    cell.xpTF.floatValue = transform.position.x.floatValue
+                    cell.ypTF.floatValue = transform.position.y.floatValue
+                    cell.zpTF.floatValue = transform.position.z.floatValue
                     
-                    cell.xrTF.stringValue = transform.rotation.x.stringValue
-                    cell.yrTF.stringValue = transform.rotation.y.stringValue
-                    cell.zrTF.stringValue = transform.rotation.z.stringValue
+                    cell.xrTF.floatValue = transform.rotation.x.floatValue
+                    cell.yrTF.floatValue = transform.rotation.y.floatValue
+                    cell.zrTF.floatValue = transform.rotation.z.floatValue
                     
-                    cell.wsTF.stringValue = transform.scale.width.stringValue
-                    cell.hsTF.stringValue = transform.scale.height.stringValue
+                    cell.wsTF.floatValue = transform.scale.width.floatValue
+                    cell.hsTF.floatValue = transform.scale.height.floatValue
                     
                     cell.transform = transform
                     
                     return cell
                 }
-            } else if let spriteDef = appDelegate.editorViewController?.selectedSpriteDef {
+            } else if let spriteDefURL = appDelegate.editorViewController?.selectedSpriteDef {
                 if let cell = tableView.make(withIdentifier: "ISpriteDefCellID", owner: nil) as? ISpriteDefCell {
+                    let spriteDef = dSpriteDef(json: spriteDefURL)
+                    
                     cell.nameTF.stringValue = spriteDef.name
-                    cell.columnsTF.stringValue = "\(spriteDef.columns)"
-                    cell.linesTF.stringValue = "\(spriteDef.lines)"
-                    cell.textureTF.stringValue = "\(spriteDef.texture.name)"
+                    cell.columnsTF.integerValue = spriteDef.columns
+                    cell.linesTF.integerValue = spriteDef.lines
+                    cell.textureTF.stringValue = spriteDef.texture.name
+                    
+                    cell.scaleWTF.floatValue = spriteDef.scale.width
+                    cell.scaleHTF.floatValue = spriteDef.scale.height
                     
                     let textureURL = dCore.instance.IMAGES_PATH?.appendingPathComponent(spriteDef.texture.name)
                     
                     cell.textureImage.image = NSImage(contentsOf: textureURL!)
+                    
+                    cell.spriteDef = spriteDef
+                    cell.spriteDefURL = spriteDefURL
                     
                     return cell
                 }
@@ -115,10 +123,10 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                         let imageURL = dCore.instance.IMAGES_PATH!.appendingPathComponent(spriteData!.texture.name)
                         
                         cell.image.image = NSImage(contentsOf: imageURL)
-                        cell.frameTF.stringValue = "\((component as! dSprite).frame)"
+                        cell.frameTF.intValue = (component as! dSprite).frame
                         
-                        cell.hsTF.stringValue = "\(sprite.meshRender.scale.width)"
-                        cell.wsTF.stringValue = "\(sprite.meshRender.scale.height)"
+                        cell.hsTF.floatValue = sprite.meshRender.scale.width
+                        cell.wsTF.floatValue = sprite.meshRender.scale.height
                         
                         return cell
                     }
@@ -190,6 +198,18 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                 
                 endDragging()
                 return true
+            } else if let spriteDef = appDelegate.editorViewController!.draggedSpriteDef {
+                transform._scene.DEBUG_MODE = false
+                
+                transform.removeSprite()
+                
+                DrakkenEngine.Register(sprite: spriteDef)
+                DrakkenEngine.Init()
+                
+                transform.add(component: dSprite(sprite: spriteDef.name, scale: spriteDef.scale, frame: 0))
+                
+                endDragging()
+                return true
             }
         }
         
@@ -204,6 +224,9 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
             appDelegate.editorViewController!.inspectorView.reloadData()
         } else if appDelegate.editorViewController!.draggedImage != nil {
             appDelegate.editorViewController!.draggedImage = nil
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        } else if appDelegate.editorViewController!.draggedSpriteDef != nil {
+            appDelegate.editorViewController!.draggedSpriteDef = nil
             appDelegate.editorViewController?.inspectorView.reloadData()
         }
         

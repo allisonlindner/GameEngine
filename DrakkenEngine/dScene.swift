@@ -76,7 +76,7 @@ public class dScene {
         }
     }
     
-    internal func toJSON() -> Data? {
+    internal func toData() -> Data? {
         var jsonDict = [String: JSON]()
         
         jsonDict["name"] = JSON(self.name)

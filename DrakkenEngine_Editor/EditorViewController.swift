@@ -24,13 +24,14 @@ class EditorViewController: NSViewController {
     internal var currentSceneURL: URL!
     
     internal var selectedTransform: dTransform?
-    internal var selectedSpriteDef: dSpriteDef?
+    internal var selectedSpriteDef: URL?
     
     internal var lastLogCount = 0
     
     internal var draggedTransform: dTransform?
     internal var draggedScript: String?
     internal var draggedImage: String?
+    internal var draggedSpriteDef: dSpriteDef?
     
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self

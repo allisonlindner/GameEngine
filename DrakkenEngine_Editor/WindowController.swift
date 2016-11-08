@@ -88,7 +88,7 @@ class WindowController: NSWindowController {
                                 url.appendPathExtension("dkscene")
                             }
                             
-                            if let jsonData: Data = editorVC.editorView.scene.toJSON() {
+                            if let jsonData: Data = editorVC.editorView.scene.toData() {
                                 fileManager.createFile(atPath: url.path,
                                                        contents: jsonData,
                                                        attributes: nil)
@@ -109,7 +109,7 @@ class WindowController: NSWindowController {
                 let editorVC = self.contentViewController as! EditorViewController
                 let fileManager = FileManager()
                 
-                if let jsonData: Data = editorVC.editorView.scene.toJSON() {
+                if let jsonData: Data = editorVC.editorView.scene.toData() {
                     fileManager.createFile(atPath: editorVC.currentSceneURL.path,
                                            contents: jsonData,
                                            attributes: nil)

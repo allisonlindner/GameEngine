@@ -52,28 +52,28 @@ class ITransformCell: NSTableCellView, NSTextFieldDelegate {
         let fieldEditor = obj.object as! NSTextField
         
         if fieldEditor.identifier == "posXID" {
-            let x = NSString(string: fieldEditor.stringValue).floatValue
+            let x = fieldEditor.floatValue
             transform.Position.Set(x, transform.Position.y, transform.Position.z)
         } else if fieldEditor.identifier == "posYID" {
-            let y = NSString(string: fieldEditor.stringValue).floatValue
+            let y = fieldEditor.floatValue
             transform.Position.Set(transform.Position.x, y, transform.Position.z)
         } else if fieldEditor.identifier == "posZID" {
-            let z = NSString(string: fieldEditor.stringValue).floatValue
+            let z = fieldEditor.floatValue
             transform.Position.Set(transform.Position.x, transform.Position.y, z)
         } else if fieldEditor.identifier == "rotXID" {
-            let x = NSString(string: fieldEditor.stringValue).floatValue
+            let x = fieldEditor.floatValue
             transform.Rotation.Set(x, transform.Rotation.y, transform.Rotation.z)
         } else if fieldEditor.identifier == "rotYID" {
-            let y = NSString(string: fieldEditor.stringValue).floatValue
+            let y = fieldEditor.floatValue
             transform.Rotation.Set(transform.Rotation.x, y, transform.Rotation.z)
         } else if fieldEditor.identifier == "rotZID" {
-            let z = NSString(string: fieldEditor.stringValue).floatValue
+            let z = fieldEditor.floatValue
             transform.Rotation.Set(transform.Rotation.x, transform.Rotation.y, z)
         } else if fieldEditor.identifier == "scaleWID" {
-            let w = NSString(string: fieldEditor.stringValue).floatValue
+            let w = fieldEditor.floatValue
             transform.Scale.Set(w, transform.Scale.height)
         } else if fieldEditor.identifier == "scaleHID" {
-            let h = NSString(string: fieldEditor.stringValue).floatValue
+            let h = fieldEditor.floatValue
             transform.Scale.Set(transform.Scale.width, h)
         }
     }
