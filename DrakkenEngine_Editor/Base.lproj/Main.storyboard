@@ -1246,7 +1246,7 @@
                                                                                                                 <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                                                             </textFieldCell>
                                                                                                         </textField>
-                                                                                                        <box title="Frame Size" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-ap-syM">
+                                                                                                        <box title="Default Sprite Size" translatesAutoresizingMaskIntoConstraints="NO" id="Er8-ap-syM">
                                                                                                             <rect key="frame" x="2" y="327" width="295" height="54"/>
                                                                                                             <view key="contentView" id="tE5-Xc-FDs">
                                                                                                                 <rect key="frame" x="2" y="2" width="291" height="37"/>
