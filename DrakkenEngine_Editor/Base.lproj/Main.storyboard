@@ -156,7 +156,7 @@
                 <viewController id="ke6-Rp-1pk" customClass="EditorViewController" customModule="DrakkenEngine_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="bbZ-f2-OOE">
                         <rect key="frame" x="0.0" y="0.0" width="1280" height="1648"/>
-                        <autoresizingMask key="autoresizingMask"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="MCt-dV-ClR">
                                 <rect key="frame" x="0.0" y="1608" width="1280" height="40"/>
@@ -1478,12 +1478,16 @@
                                                                                             </subviews>
                                                                                             <connections>
                                                                                                 <outlet property="imageView" destination="fA5-wj-Szg" id="kFp-Je-JRh"/>
+                                                                                                <outlet property="menu" destination="nEJ-bb-uK6" id="dpM-XN-jud"/>
                                                                                                 <outlet property="textField" destination="iuo-EJ-rlW" id="i0b-zi-bmz"/>
                                                                                             </connections>
                                                                                         </tableCellView>
                                                                                     </prototypeCellViews>
                                                                                 </tableColumn>
                                                                             </tableColumns>
+                                                                            <connections>
+                                                                                <outlet property="delegate" destination="nEJ-bb-uK6" id="yxe-xh-S8v"/>
+                                                                            </connections>
                                                                         </outlineView>
                                                                     </subviews>
                                                                     <nil key="backgroundColor"/>
@@ -1639,8 +1643,18 @@
                     </connections>
                 </viewController>
                 <customObject id="5aL-fp-gxc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu title="Image Menu" id="nEJ-bb-uK6" userLabel="Image Menu" customClass="ImageMenu" customModule="DrakkenEngine_Editor" customModuleProvider="target">
+                    <items>
+                        <menuItem title="New Sprite" id="7IO-WG-Txy">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="newSpriteDef:" target="5aL-fp-gxc" id="IQE-Jh-f4n"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="75" y="1810"/>
+            <point key="canvasLocation" x="75" y="1881"/>
         </scene>
     </scenes>
     <resources>

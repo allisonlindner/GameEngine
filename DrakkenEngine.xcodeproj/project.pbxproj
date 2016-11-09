@@ -99,6 +99,7 @@
 		2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
+		2E7BF82D1DD39CC1004F77B2 /* ImageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */; };
 		2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */; };
 		2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */; };
 		2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */; };
@@ -233,6 +234,7 @@
 		2E6CBD781D70959A0096C912 /* dScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dScene.swift; sourceTree = "<group>"; };
 		2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSimpleSceneRender.swift; sourceTree = "<group>"; };
 		2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshManager.swift; sourceTree = "<group>"; };
+		2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMenu.swift; sourceTree = "<group>"; };
 		2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IJSScriptCell.swift; path = Assets.xcassets/IJSScriptCell.swift; sourceTree = "<group>"; };
 		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
 		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
@@ -333,6 +335,7 @@
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E2608D51DBABDBF00206D41 /* GameView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+				2E7BF82B1DD39CA8004F77B2 /* Menus */,
 				2E7CAB321DC3C5D3005219BC /* Table View Controllers */,
 				2E7CAB311DC3C5CD005219BC /* Cells */,
 			);
@@ -394,6 +397,14 @@
 				2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */,
 			);
 			name = Renders;
+			sourceTree = "<group>";
+		};
+		2E7BF82B1DD39CA8004F77B2 /* Menus */ = {
+			isa = PBXGroup;
+			children = (
+				2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */,
+			);
+			name = Menus;
 			sourceTree = "<group>";
 		};
 		2E7CAB311DC3C5CD005219BC /* Cells */ = {
@@ -898,6 +909,7 @@
 				2E3520FC1DAC4C1800642255 /* dBuffers.swift in Sources */,
 				2E2608D61DBABDBF00206D41 /* GameView.swift in Sources */,
 				2E3521041DAC4C2200642255 /* dMaterialManager.swift in Sources */,
+				2E7BF82D1DD39CC1004F77B2 /* ImageMenu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

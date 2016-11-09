@@ -125,8 +125,8 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
                         cell.image.image = NSImage(contentsOf: imageURL)
                         cell.frameTF.intValue = (component as! dSprite).frame
                         
-                        cell.hsTF.floatValue = sprite.meshRender.scale.width
-                        cell.wsTF.floatValue = sprite.meshRender.scale.height
+                        cell.wsTF.floatValue = sprite.meshRender.scale.width
+                        cell.hsTF.floatValue = sprite.meshRender.scale.height
                         
                         return cell
                     }

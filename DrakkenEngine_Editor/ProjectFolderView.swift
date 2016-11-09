@@ -30,7 +30,7 @@ internal class FolderItem: NSObject {
 
 fileprivate class RootItem: FolderItem {}
 
-class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
+class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider, NSMenuDelegate {
     
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
@@ -251,6 +251,14 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
                 appDelegate.editorViewController?.inspectorView.reloadData()
             }
         }
+        
+        if selectedRow >= 0 {
+            if let cell = self.view(atColumn: selectedColumn, row: selectedRow, makeIfNecessary: false) as? PFolderItemCell {
+                appDelegate.editorViewController?.selectedFolderItem = cell.folderItem
+            }
+        } else {
+            appDelegate.editorViewController?.selectedFolderItem = nil
+        }
     }
     
     //MARK: Drag and Drop Setup
@@ -299,5 +307,27 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         } else if draggedItem!.url.pathExtension == "dksprite" {
             item.setString(draggedItem!.url.lastPathComponent, forType: SPRITEDEF_PASTEBOARD_TYPE)
         }
+    }
+    
+    //Mark: Menu
+    
+    override func menu(for event: NSEvent) -> NSMenu? {
+        let point = self.convert(event.locationInWindow, to: nil)
+        let column = self.column(at: point)
+        let row = self.row(at: point)
+        
+        if column >= 0 && row >= 0 {
+            if let cell = self.view(atColumn: column, row: row, makeIfNecessary: false) as? PFolderItemCell {
+                if NSImage(contentsOf: cell.folderItem.url) != nil {
+                    NSLog("\(cell.folderItem.name)")
+                    
+                    self.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
+                    
+                    return cell.menu
+                }
+            }
+        }
+        
+        return nil
     }
 }
