@@ -41,4 +41,11 @@ class PFolderItemCell: NSTableCellView, NSTextFieldDelegate {
             }
         }
     }
+    
+    override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+        if event?.buttonNumber == 1 {
+            return true
+        }
+        return false
+    }
 }

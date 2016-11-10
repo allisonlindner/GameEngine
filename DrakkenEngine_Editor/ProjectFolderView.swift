@@ -312,18 +312,26 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     //Mark: Menu
     
     override func menu(for event: NSEvent) -> NSMenu? {
-        let point = self.convert(event.locationInWindow, to: nil)
-        let column = self.column(at: point)
-        let row = self.row(at: point)
-        
-        if column >= 0 && row >= 0 {
-            if let cell = self.view(atColumn: column, row: row, makeIfNecessary: false) as? PFolderItemCell {
-                if NSImage(contentsOf: cell.folderItem.url) != nil {
-                    NSLog("\(cell.folderItem.name)")
-                    
-                    self.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
-                    
-                    return cell.menu
+        if becomeFirstResponder() {
+            let point = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
+            let column = self.column(at: point)
+            let row = self.row(at: point)
+            
+            if column >= 0 && row >= 0 {
+                if let cell = self.view(atColumn: column, row: row, makeIfNecessary: false) as? PFolderItemCell {
+                    if NSImage(contentsOf: cell.folderItem.url) != nil {
+                        NSLog("\(cell.folderItem.name)")
+                        
+                        if self.selectedRow != row {
+                            self.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
+                        }
+                        
+                        if let menu = cell.menu as? ImageMenu {
+                            menu.selectedFolderItem = cell.folderItem
+                            return menu
+                        }
+                        return nil
+                    }
                 }
             }
         }

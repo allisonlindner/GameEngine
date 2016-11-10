@@ -327,7 +327,7 @@
                                                                                             <rect key="frame" x="1" y="1" width="212" height="17"/>
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zX8-lg-3pO" userLabel="Transform Cell">
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zX8-lg-3pO" userLabel="Transform Cell" customClass="DKTextField" customModule="DrakkenEngine_Editor" customModuleProvider="target">
                                                                                                     <rect key="frame" x="0.0" y="0.0" width="212" height="17"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="RLp-SG-gMq">
@@ -338,12 +338,16 @@
                                                                                                 </textField>
                                                                                             </subviews>
                                                                                             <connections>
+                                                                                                <outlet property="menu" destination="csc-3G-sCZ" id="lSu-kI-fMV"/>
                                                                                                 <outlet property="textField" destination="zX8-lg-3pO" id="M45-Xl-Tcw"/>
                                                                                             </connections>
                                                                                         </tableCellView>
                                                                                     </prototypeCellViews>
                                                                                 </tableColumn>
                                                                             </tableColumns>
+                                                                            <connections>
+                                                                                <outlet property="delegate" destination="csc-3G-sCZ" id="911-Gr-xjr"/>
+                                                                            </connections>
                                                                         </outlineView>
                                                                     </subviews>
                                                                 </clipView>
@@ -1466,7 +1470,7 @@
                                                                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="NSActionTemplate" id="q30-HJ-xH9"/>
                                                                                                 </imageView>
-                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuo-EJ-rlW">
+                                                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iuo-EJ-rlW" customClass="DKTextField" customModule="DrakkenEngine_Editor" customModuleProvider="target">
                                                                                                     <rect key="frame" x="25" y="0.0" width="483" height="17"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" title="Table View Cell" id="30n-vB-uVA">
@@ -1648,7 +1652,17 @@
                         <menuItem title="New Sprite" id="7IO-WG-Txy">
                             <modifierMask key="keyEquivalentModifierMask"/>
                             <connections>
-                                <action selector="newSpriteDef:" target="5aL-fp-gxc" id="IQE-Jh-f4n"/>
+                                <action selector="newSpriteDef:" target="nEJ-bb-uK6" id="Rks-34-KHs"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
+                <menu title="Transform Menu" id="csc-3G-sCZ" userLabel="Transform Menu" customClass="TransformMenu" customModule="DrakkenEngine_Editor" customModuleProvider="target">
+                    <items>
+                        <menuItem title="Delete" id="KHP-cj-xmF">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="deleteTransform:" target="csc-3G-sCZ" id="rKU-qQ-TLa"/>
                             </connections>
                         </menuItem>
                     </items>

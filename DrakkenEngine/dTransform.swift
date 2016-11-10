@@ -302,6 +302,10 @@ public class dTransform: NSObject, dTransformExport, Serializable {
 	public func remove(child: dTransform) {
 		self._childrenTransforms.removeValue(forKey: child._id)
 	}
+    
+    public func removeFromParent() {
+        self._parentTransform?.remove(child: self)
+    }
 	
 	public func add(component: dComponent) {
         switch component.self {

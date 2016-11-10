@@ -10,7 +10,7 @@ import Cocoa
 
 public let TRANSFORM_PASTEBOARD_TYPE = "drakkenengine.transforms.item.transform"
 
-class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider {
+class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDelegate, NSPasteboardItemDataProvider, NSMenuDelegate {
 
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
@@ -265,5 +265,33 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
     
     func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, endedAt screenPoint: NSPoint, operation: NSDragOperation) {
         
+    }
+    
+    //Mark: Menu
+    
+    override func menu(for event: NSEvent) -> NSMenu? {
+        if becomeFirstResponder() {
+            let point = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
+            let column = self.column(at: point)
+            let row = self.row(at: point)
+            
+            if column >= 0 && row >= 0 {
+                if let cell = self.view(atColumn: column, row: row, makeIfNecessary: false) as? TTransformCell {
+                    NSLog("\(cell.transform.name)")
+                    
+                    if self.selectedRow != row {
+                        self.selectRowIndexes(IndexSet(integer: row), byExtendingSelection: false)
+                    }
+                    
+                    if let menu = cell.menu as? TransformMenu {
+                        menu.selectedTransform = cell.transform
+                        return menu
+                    }
+                    return nil
+                }
+            }
+        }
+        
+        return nil
     }
 }

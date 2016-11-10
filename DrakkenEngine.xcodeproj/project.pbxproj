@@ -100,6 +100,8 @@
 		2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */; };
 		2E7BF82D1DD39CC1004F77B2 /* ImageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */; };
+		2E7BF8301DD4CD1E004F77B2 /* DKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */; };
+		2E7BF8321DD4E254004F77B2 /* TransformMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF8311DD4E254004F77B2 /* TransformMenu.swift */; };
 		2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */; };
 		2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */; };
 		2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */; };
@@ -235,6 +237,8 @@
 		2E6CBD7D1D70A07F0096C912 /* dSimpleSceneRender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSimpleSceneRender.swift; sourceTree = "<group>"; };
 		2E6CBD811D70C3DE0096C912 /* dMeshManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMeshManager.swift; sourceTree = "<group>"; };
 		2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMenu.swift; sourceTree = "<group>"; };
+		2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKTextField.swift; sourceTree = "<group>"; };
+		2E7BF8311DD4E254004F77B2 /* TransformMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformMenu.swift; sourceTree = "<group>"; };
 		2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IJSScriptCell.swift; path = Assets.xcassets/IJSScriptCell.swift; sourceTree = "<group>"; };
 		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
 		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 		2E1295EE1DAC4F11007C5512 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				2E7BF82E1DD4CCF5004F77B2 /* Utilities */,
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E2608D51DBABDBF00206D41 /* GameView.swift */,
@@ -403,8 +408,17 @@
 			isa = PBXGroup;
 			children = (
 				2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */,
+				2E7BF8311DD4E254004F77B2 /* TransformMenu.swift */,
 			);
 			name = Menus;
+			sourceTree = "<group>";
+		};
+		2E7BF82E1DD4CCF5004F77B2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		2E7CAB311DC3C5CD005219BC /* Cells */ = {
@@ -853,6 +867,7 @@
 				2E7CAB341DC3C60A005219BC /* JSScriptCellVariablesView.swift in Sources */,
 				2E3521001DAC4C1D00642255 /* dSpriteQuad.swift in Sources */,
 				2E35211C1DAC4C3B00642255 /* DiffuseMaterial.metal in Sources */,
+				2E7BF8301DD4CD1E004F77B2 /* DKTextField.swift in Sources */,
 				2E3521181DAC4C3500642255 /* dAnimation.swift in Sources */,
 				2E35211E1DAC4C3B00642255 /* dError.swift in Sources */,
 				2ECE5A6C1DB96CE200CC8EDA /* ITransformCell.swift in Sources */,
@@ -892,6 +907,7 @@
 				2E3521121DAC4C2C00642255 /* dMesh.swift in Sources */,
 				2E3521031DAC4C2200642255 /* dTransformManager.swift in Sources */,
 				2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */,
+				2E7BF8321DD4E254004F77B2 /* TransformMenu.swift in Sources */,
 				2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */,
 				2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */,
 				2E3521131DAC4C2C00642255 /* dScene.swift in Sources */,

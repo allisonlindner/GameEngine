@@ -67,26 +67,4 @@ class EditorViewController: NSViewController {
             fileViewer.reloadData()
         }
     }
-    
-    @IBAction func newSpriteDef(_ sender: AnyObject?) {
-        if selectedFolderItem != nil {
-            if NSImage(contentsOf: selectedFolderItem!.url) != nil {
-                let spriteDef = dSpriteDef.init(selectedFolderItem!.name, columns: 1, lines: 1, texture: selectedFolderItem!.url.lastPathComponent)
-                
-                let fileManager = FileManager()
-                
-                let fileName = selectedFolderItem!.url.deletingPathExtension().lastPathComponent
-                
-                if let jsonData: Data = spriteDef.toData() {
-                    fileManager.createFile(atPath: dCore.instance.SPRITES_PATH!.appendingPathComponent(fileName).appendingPathExtension("dksprite").path,
-                                           contents: jsonData,
-                                           attributes: nil)
-                }
-                
-                self.fileViewer.reloadData()
-                
-                NSLog("Sprite save with success on path: \(dCore.instance.SPRITES_PATH!.appendingPathComponent(fileName).appendingPathExtension("dksprite").path)")
-            }
-        }
-    }
 }
