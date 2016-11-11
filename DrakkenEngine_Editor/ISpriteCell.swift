@@ -41,9 +41,11 @@ class ISpriteCell: NSTableCellView, NSTextFieldDelegate {
         if fieldEditor.identifier == "scaleWID" {
             let w = fieldEditor.floatValue
             sprite.meshRender.scale.Set(w, sprite.meshRender.scale.height)
+            appDelegate.editorViewController?.editorView.Reload()
         } else if fieldEditor.identifier == "scaleHID" {
             let h = fieldEditor.floatValue
             sprite.meshRender.scale.Set(sprite.meshRender.scale.width, h)
+            appDelegate.editorViewController?.editorView.Reload()
         } else if fieldEditor.identifier == "frameID" {
             let frame = fieldEditor.intValue
             sprite.set(frame: frame)
