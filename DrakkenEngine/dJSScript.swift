@@ -158,8 +158,20 @@ public class dJSScript: dComponent, dJSScriptExport {
         )
     }
     
-    internal func run(function: String) {
-        self.jsContext.objectForKeyedSubscript(function).call(withArguments: [])
+    internal func run(function: String, _ arguments: JSValue?...) {
+        self.jsContext.objectForKeyedSubscript(function).call(withArguments: arguments)
+    }
+    
+    internal func rightClick(_ x: Float, _ y: Float) {
+        self.run(function: "RightClick", JSValue(double: Double(x), in: jsContext), JSValue(double: Double(y), in: jsContext))
+    }
+    
+    internal func leftClick(_ x: Float, _ y: Float) {
+        self.run(function: "LeftClick", JSValue(double: Double(x), in: jsContext), JSValue(double: Double(y), in: jsContext))
+    }
+    
+    internal func touch(_ x: Float, _ y: Float) {
+        self.run(function: "Touch", JSValue(double: Double(x), in: jsContext), JSValue(double: Double(y), in: jsContext))
     }
     
     internal func set(value: JSValue, for variable: String) {

@@ -10,9 +10,6 @@
 		2E08D2401DB189CF00CB8D85 /* TransformsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E08D23F1DB189CF00CB8D85 /* TransformsView.swift */; };
 		2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */; };
 		2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E1295F11DAC4FCA007C5512 /* WindowController.swift */; };
-		2E255A241DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
-		2E255A251DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
-		2E255A261DA2D26A00364AFC /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
 		2E255A281DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A291DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
 		2E255A2A1DA2D36200364AFC /* dJSScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A271DA2D36200364AFC /* dJSScript.swift */; };
@@ -42,7 +39,6 @@
 		2E3521081DAC4C2200642255 /* dSceneManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EFC3FE61DA829D000456988 /* dSceneManager.swift */; };
 		2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */; };
 		2E35210A1DAC4C2600642255 /* dCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08321D6B7A4800F1FF19 /* dCore.swift */; };
-		2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E255A231DA2D26A00364AFC /* dJSCore.swift */; };
 		2E35210C1DAC4C2600642255 /* dShader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08361D6B7A5A00F1FF19 /* dShader.swift */; };
 		2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */; };
 		2E35210E1DAC4C2600642255 /* dGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */; };
@@ -102,6 +98,10 @@
 		2E7BF82D1DD39CC1004F77B2 /* ImageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */; };
 		2E7BF8301DD4CD1E004F77B2 /* DKTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */; };
 		2E7BF8321DD4E254004F77B2 /* TransformMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF8311DD4E254004F77B2 /* TransformMenu.swift */; };
+		2E7BF83E1DDCC263004F77B2 /* dJSInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */; };
+		2E7BF83F1DDCC263004F77B2 /* dJSInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */; };
+		2E7BF8401DDCC263004F77B2 /* dJSInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */; };
+		2E7BF8411DDCC263004F77B2 /* dJSInputHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */; };
 		2E7CAB261DBE8B0D005219BC /* IJSScriptCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */; };
 		2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */; };
 		2E7CAB2A1DBE944C005219BC /* IMeshRenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */; };
@@ -213,7 +213,6 @@
 		2E08D23F1DB189CF00CB8D85 /* TransformsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformsView.swift; sourceTree = "<group>"; };
 		2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditorViewController.swift; sourceTree = "<group>"; };
 		2E1295F11DAC4FCA007C5512 /* WindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
-		2E255A231DA2D26A00364AFC /* dJSCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSCore.swift; sourceTree = "<group>"; };
 		2E255A271DA2D36200364AFC /* dJSScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSScript.swift; sourceTree = "<group>"; };
 		2E2608D51DBABDBF00206D41 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
 		2E3520E71DAC208100642255 /* DrakkenEngine_Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrakkenEngine_Editor.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -239,6 +238,7 @@
 		2E7BF82C1DD39CC1004F77B2 /* ImageMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageMenu.swift; sourceTree = "<group>"; };
 		2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DKTextField.swift; sourceTree = "<group>"; };
 		2E7BF8311DD4E254004F77B2 /* TransformMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransformMenu.swift; sourceTree = "<group>"; };
+		2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dJSInputHandler.swift; sourceTree = "<group>"; };
 		2E7CAB251DBE8B0D005219BC /* IJSScriptCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IJSScriptCell.swift; path = Assets.xcassets/IJSScriptCell.swift; sourceTree = "<group>"; };
 		2E7CAB271DBE8E94005219BC /* ISpriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteCell.swift; sourceTree = "<group>"; };
 		2E7CAB291DBE944C005219BC /* IMeshRenderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IMeshRenderCell.swift; sourceTree = "<group>"; };
@@ -359,13 +359,6 @@
 			path = DrakkenEngine_Editor;
 			sourceTree = "<group>";
 		};
-		2E6A16351D8C7DB9004F9750 /* *.js */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "*.js";
-			sourceTree = "<group>";
-		};
 		2E6CBD501D6D23FD0096C912 /* Materials */ = {
 			isa = PBXGroup;
 			children = (
@@ -382,7 +375,7 @@
 				2ED7C7781D78880100E65237 /* dAnimation.swift */,
 				2ED7C77C1D78881500E65237 /* dAnimator.swift */,
 				2E255A271DA2D36200364AFC /* dJSScript.swift */,
-				2E6A16351D8C7DB9004F9750 /* *.js */,
+				2E7BF83C1DDCC241004F77B2 /* JSScript */,
 			);
 			name = Components;
 			sourceTree = "<group>";
@@ -419,6 +412,14 @@
 				2E7BF82F1DD4CD1E004F77B2 /* DKTextField.swift */,
 			);
 			name = Utilities;
+			sourceTree = "<group>";
+		};
+		2E7BF83C1DDCC241004F77B2 /* JSScript */ = {
+			isa = PBXGroup;
+			children = (
+				2E7BF83D1DDCC263004F77B2 /* dJSInputHandler.swift */,
+			);
+			name = JSScript;
 			sourceTree = "<group>";
 		};
 		2E7CAB311DC3C5CD005219BC /* Cells */ = {
@@ -568,7 +569,6 @@
 			children = (
 				2E6CBD591D6E44190096C912 /* DrakkenEngine.swift */,
 				2EEC08321D6B7A4800F1FF19 /* dCore.swift */,
-				2E255A231DA2D26A00364AFC /* dJSCore.swift */,
 				2EEC08361D6B7A5A00F1FF19 /* dShader.swift */,
 				2EEC08371D6B7A5A00F1FF19 /* dRenderer.swift */,
 				2EEC083E1D6B7A6A00F1FF19 /* dGameView.swift */,
@@ -874,7 +874,6 @@
 				2E3521191DAC4C3500642255 /* dAnimator.swift in Sources */,
 				2E35210C1DAC4C2600642255 /* dShader.swift in Sources */,
 				2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */,
-				2E35210B1DAC4C2600642255 /* dJSCore.swift in Sources */,
 				2E3520FE1DAC4C1800642255 /* dTransform.swift in Sources */,
 				2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */,
 				2E3520FB1DAC4C1500642255 /* dSSize2D.swift in Sources */,
@@ -889,6 +888,7 @@
 				2E3520FA1DAC4C1500642255 /* dSVector3D.swift in Sources */,
 				2ECE5A6A1DB94A0400CC8EDA /* ConsoleView.swift in Sources */,
 				2E1295F01DAC4F38007C5512 /* EditorViewController.swift in Sources */,
+				2E7BF8411DDCC263004F77B2 /* dJSInputHandler.swift in Sources */,
 				2E3521021DAC4C2200642255 /* dTextureManager.swift in Sources */,
 				2E3521071DAC4C2200642255 /* dSpriteManager.swift in Sources */,
 				2E3521101DAC4C2C00642255 /* dComponent.swift in Sources */,
@@ -958,6 +958,7 @@
 				2EFC3FEC1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC085E1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD791D70959A0096C912 /* dScene.swift in Sources */,
+				2E7BF83E1DDCC263004F77B2 /* dJSInputHandler.swift in Sources */,
 				2E6CBD5A1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
 				2E6CBD521D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
 				2EEC08561D6B7AD400F1FF19 /* dMath.swift in Sources */,
@@ -966,7 +967,6 @@
 				2EEC08511D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
 				2EEC086D1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
-				2E255A241DA2D26A00364AFC /* dJSCore.swift in Sources */,
 				2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD711D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD821D70C3DE0096C912 /* dMeshManager.swift in Sources */,
@@ -1007,6 +1007,7 @@
 				2EFC3FED1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC085F1D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD7A1D70959A0096C912 /* dScene.swift in Sources */,
+				2E7BF83F1DDCC263004F77B2 /* dJSInputHandler.swift in Sources */,
 				2E6CBD5B1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
 				2E6CBD531D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
 				2EEC08571D6B7AD400F1FF19 /* dMath.swift in Sources */,
@@ -1015,7 +1016,6 @@
 				2EEC08521D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
 				2EEC086E1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
-				2E255A251DA2D26A00364AFC /* dJSCore.swift in Sources */,
 				2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD721D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD831D70C3DE0096C912 /* dMeshManager.swift in Sources */,
@@ -1056,6 +1056,7 @@
 				2EFC3FEE1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
 				2EEC08601D6B7AE900F1FF19 /* dTransformManager.swift in Sources */,
 				2E6CBD7B1D70959A0096C912 /* dScene.swift in Sources */,
+				2E7BF8401DDCC263004F77B2 /* dJSInputHandler.swift in Sources */,
 				2E6CBD5C1D6E44190096C912 /* DrakkenEngine.swift in Sources */,
 				2E6CBD541D6D241B0096C912 /* dDiffuseDef.swift in Sources */,
 				2EEC08581D6B7AD400F1FF19 /* dMath.swift in Sources */,
@@ -1064,7 +1065,6 @@
 				2EEC08531D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
 				2EEC086F1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
-				2E255A261DA2D26A00364AFC /* dJSCore.swift in Sources */,
 				2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */,
 				2E6CBD731D6F82FF0096C912 /* dQuad.swift in Sources */,
 				2E6CBD841D70C3DE0096C912 /* dMeshManager.swift in Sources */,

@@ -287,4 +287,22 @@ internal class dSimpleSceneRender {
             script.start()
         }
     }
+    
+    internal func rightClick(_ x: Float, _ y: Float) {
+        for script in _jsScriptToBeUpdated {
+            script.rightClick(x, y)
+        }
+    }
+    
+    internal func leftClick(_ x: Float, _ y: Float) {
+        for script in _jsScriptToBeUpdated {
+            script.leftClick(x, y)
+        }
+    }
+    
+    internal func touch(_ x: Float, _ y: Float) {
+        for script in _jsScriptToBeUpdated {
+            script.touch(x, y)
+        }
+    }
 }

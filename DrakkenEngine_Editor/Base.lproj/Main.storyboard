@@ -251,17 +251,17 @@
                                                                     </tabViewItem>
                                                                     <tabViewItem label="Game" identifier="2" id="3tD-fq-AOu">
                                                                         <view key="view" id="VXx-Qd-yU0">
-                                                                            <rect key="frame" x="32" y="7" width="729" height="501"/>
+                                                                            <rect key="frame" x="32" y="7" width="729" height="1194"/>
                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                             <subviews>
                                                                                 <box boxType="custom" borderType="none" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="ehr-u3-Krc">
-                                                                                    <rect key="frame" x="0.0" y="0.0" width="729" height="501"/>
+                                                                                    <rect key="frame" x="0.0" y="0.0" width="729" height="1194"/>
                                                                                     <view key="contentView" id="0ek-Dt-Hfs">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="729" height="501"/>
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="729" height="1194"/>
                                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                         <subviews>
                                                                                             <customView canDrawConcurrently="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LBr-vt-d0v" customClass="GameView" customModule="DrakkenEngine_Editor" customModuleProvider="target">
-                                                                                                <rect key="frame" x="0.0" y="0.0" width="729" height="501"/>
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="729" height="1194"/>
                                                                                             </customView>
                                                                                         </subviews>
                                                                                         <constraints>

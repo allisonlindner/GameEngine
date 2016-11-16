@@ -25,9 +25,9 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
     fileprivate var _internalUpdateFunction: updateFunction?
 	fileprivate var _scene: dScene = dScene()
 	
-    private var simpleRender = dSimpleSceneRender()
+    fileprivate var simpleRender = dSimpleSceneRender()
     
-    internal var state: LOOPSTATE = LOOPSTATE.PLAY
+    internal var state: LOOPSTATE = LOOPSTATE.STOP
 	
 	func start() {
 		simpleRender.load(scene: _scene)
@@ -210,4 +210,36 @@ open class dGameView: MTKView {
 	open func start() {
 		//Override this method to create your scene on startup
 	}
+    
+    open override func keyDown(with event: NSEvent) {
+        NSLog("\(event.characters)")
+    }
+    
+    open override func mouseDown(with event: NSEvent) {
+        if state != .STOP {
+            var locationInView = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
+            locationInView.x = locationInView.x - (self.frame.width/2.0)
+            locationInView.y = locationInView.y - (self.frame.height/2.0)
+            
+            if state == .PLAY {
+                self._gameView.simpleRender.leftClick(Float(locationInView.x), Float(locationInView.y))
+            }
+        }
+    }
+    
+    open override func rightMouseDown(with event: NSEvent) {
+        if state != .STOP {
+            var locationInView = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
+            locationInView.x = locationInView.x - (self.frame.width/2.0)
+            locationInView.y = locationInView.y - (self.frame.height/2.0)
+            
+            if state == .PLAY {
+                self._gameView.simpleRender.rightClick(Float(locationInView.x), Float(locationInView.y))
+            }
+        }
+    }
+    
+    open override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
+        return true
+    }
 }
