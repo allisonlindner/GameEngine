@@ -101,6 +101,8 @@ public class dJSScript: dComponent, dJSScriptExport {
         
         self.debug = dDebug(transform as! dTransform)
         
+        self.jsContext.setObject(KeyCode, forKeyedSubscript: NSString(string: "KEYCODE"))
+        
         self.jsContext.setObject(self.debug, forKeyedSubscript: NSString(string: "Debug"))
         self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
         self.jsContext.evaluateScript(
@@ -147,6 +149,8 @@ public class dJSScript: dComponent, dJSScriptExport {
         
         self.debug = dDebug(transform)
         
+        self.jsContext.setObject(KeyCode, forKeyedSubscript: NSString(string: "KEYCODE"))
+        
         self.jsContext.setObject(self.debug, forKeyedSubscript: NSString(string: "Debug"))
         self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
         self.jsContext.evaluateScript(
@@ -172,6 +176,22 @@ public class dJSScript: dComponent, dJSScriptExport {
     
     internal func touch(_ x: Float, _ y: Float) {
         self.run(function: "Touch", JSValue(double: Double(x), in: jsContext), JSValue(double: Double(y), in: jsContext))
+    }
+    
+    internal func keyDown(_ keyCode: UInt16, _ modifier: UInt16? = nil) {
+        if modifier != nil {
+            self.run(function: "KeyDown", JSValue(uInt32: UInt32(keyCode), in: jsContext), JSValue(uInt32: UInt32(modifier!), in: jsContext))
+        } else {
+            self.run(function: "KeyDown", JSValue(uInt32: UInt32(keyCode), in: jsContext))
+        }
+    }
+    
+    internal func keyUp(_ keyCode: UInt16, _ modifier: UInt16? = nil) {
+        if modifier != nil {
+            self.run(function: "KeyUp", JSValue(uInt32: UInt32(keyCode), in: jsContext), JSValue(uInt32: UInt32(modifier!), in: jsContext))
+        } else {
+            self.run(function: "KeyUp", JSValue(uInt32: UInt32(keyCode), in: jsContext))
+        }
     }
     
     internal func set(value: JSValue, for variable: String) {

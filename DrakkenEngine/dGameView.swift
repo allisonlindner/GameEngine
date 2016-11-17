@@ -212,7 +212,47 @@ open class dGameView: MTKView {
 	}
     
     open override func keyDown(with event: NSEvent) {
-        NSLog("\(event.characters)")
+        if state != .STOP {
+            if state == .PLAY {
+                var modifier: UInt16? = nil
+                
+                if event.modifierFlags.contains(.command) {
+                    modifier = KeyCode["Command"]!
+                } else if event.modifierFlags.contains(.shift) {
+                    modifier = KeyCode["Shift"]!
+                } else if event.modifierFlags.contains(.capsLock) {
+                    modifier = KeyCode["CapsLock"]!
+                } else if event.modifierFlags.contains(.option) {
+                    modifier = KeyCode["Option"]!
+                } else if event.modifierFlags.contains(.control) {
+                    modifier = KeyCode["Control"]!
+                }
+                
+                self._gameView.simpleRender.keyDown(event.keyCode, modifier)
+            }
+        }
+    }
+    
+    open override func keyUp(with event: NSEvent) {
+        if state != .STOP {
+            if state == .PLAY {
+                var modifier: UInt16? = nil
+                
+                if event.modifierFlags.contains(.command) {
+                    modifier = KeyCode["Command"]!
+                } else if event.modifierFlags.contains(.shift) {
+                    modifier = KeyCode["Shift"]!
+                } else if event.modifierFlags.contains(.capsLock) {
+                    modifier = KeyCode["CapsLock"]!
+                } else if event.modifierFlags.contains(.option) {
+                    modifier = KeyCode["Option"]!
+                } else if event.modifierFlags.contains(.control) {
+                    modifier = KeyCode["Control"]!
+                }
+                
+                self._gameView.simpleRender.keyUp(event.keyCode, modifier)
+            }
+        }
     }
     
     open override func mouseDown(with event: NSEvent) {
@@ -235,6 +275,18 @@ open class dGameView: MTKView {
             
             if state == .PLAY {
                 self._gameView.simpleRender.rightClick(Float(locationInView.x), Float(locationInView.y))
+            }
+        }
+    }
+    
+    open override func touchesBegan(with event: NSEvent) {
+        if state != .STOP {
+            var locationInView = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
+            locationInView.x = locationInView.x - (self.frame.width/2.0)
+            locationInView.y = locationInView.y - (self.frame.height/2.0)
+            
+            if state == .PLAY {
+                self._gameView.simpleRender.touch(Float(locationInView.x), Float(locationInView.y))
             }
         }
     }

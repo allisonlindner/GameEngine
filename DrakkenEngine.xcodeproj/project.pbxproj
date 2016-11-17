@@ -133,6 +133,10 @@
 		2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
 		2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */; };
+		2EE0C2A81DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
+		2EE0C2A91DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
+		2EE0C2AA1DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
+		2EE0C2AB1DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
 		2EE2CDFA1DCB840E00A53701 /* TTransformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */; };
 		2EE2CDFF1DCBC0D100A53701 /* PFolderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CDFE1DCBC0D100A53701 /* PFolderItemCell.swift */; };
 		2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -254,6 +258,7 @@
 		2ED7C7781D78880100E65237 /* dAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimation.swift; sourceTree = "<group>"; };
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
 		2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteManager.swift; sourceTree = "<group>"; };
+		2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyCode.swift; path = KeyCode/KeyCode.swift; sourceTree = "<group>"; };
 		2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTransformCell.swift; sourceTree = "<group>"; };
 		2EE2CDFE1DCBC0D100A53701 /* PFolderItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFolderItemCell.swift; sourceTree = "<group>"; };
 		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -465,6 +470,14 @@
 			name = Controllers;
 			sourceTree = "<group>";
 		};
+		2EE0C2A11DDE146F00A0B01C /* KeyCode */ = {
+			isa = PBXGroup;
+			children = (
+				2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */,
+			);
+			name = KeyCode;
+			sourceTree = "<group>";
+		};
 		2EE2CDFB1DCB841300A53701 /* Inspector */ = {
 			isa = PBXGroup;
 			children = (
@@ -522,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				2EFC3FEA1DA82BF000456988 /* SwiftyJSON */,
+				2EE0C2A11DDE146F00A0B01C /* KeyCode */,
 				2EEC08541D6B7AC900F1FF19 /* Math */,
 				2EEC08431D6B7A8500F1FF19 /* Data */,
 				2EEC08421D6B7A7C00F1FF19 /* Managers */,
@@ -875,6 +889,7 @@
 				2E35210C1DAC4C2600642255 /* dShader.swift in Sources */,
 				2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */,
 				2E3520FE1DAC4C1800642255 /* dTransform.swift in Sources */,
+				2EE0C2AB1DDE1AA800A0B01C /* KeyCode.swift in Sources */,
 				2E3521111DAC4C2C00642255 /* dMaterial.swift in Sources */,
 				2E3520FB1DAC4C1500642255 /* dSSize2D.swift in Sources */,
 				2E3520F91DAC4C1500642255 /* dSize2D.swift in Sources */,
@@ -953,6 +968,7 @@
 				2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083B1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
 				2EEC085A1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EE0C2A81DDE1AA800A0B01C /* KeyCode.swift in Sources */,
 				2EEC083F1D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08331D6B7A4800F1FF19 /* dCore.swift in Sources */,
 				2EFC3FEC1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
@@ -1002,6 +1018,7 @@
 				2E61F6701D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083C1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
 				2EEC085B1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EE0C2A91DDE1AA800A0B01C /* KeyCode.swift in Sources */,
 				2EEC08401D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08341D6B7A4800F1FF19 /* dCore.swift in Sources */,
 				2EFC3FED1DA82C0800456988 /* SwiftyJSON.swift in Sources */,
@@ -1051,6 +1068,7 @@
 				2E61F6711D70CE7900237241 /* dMesh.swift in Sources */,
 				2EEC083D1D6B7A5A00F1FF19 /* dRenderer.swift in Sources */,
 				2EEC085C1D6B7ADE00F1FF19 /* dTransform.swift in Sources */,
+				2EE0C2AA1DDE1AA800A0B01C /* KeyCode.swift in Sources */,
 				2EEC08411D6B7A6A00F1FF19 /* dGameView.swift in Sources */,
 				2EEC08351D6B7A4800F1FF19 /* dCore.swift in Sources */,
 				2EFC3FEE1DA82C0800456988 /* SwiftyJSON.swift in Sources */,

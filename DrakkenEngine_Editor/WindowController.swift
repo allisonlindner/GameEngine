@@ -41,6 +41,8 @@ class WindowController: NSWindowController {
                 
                 appDelegate.editorViewController?.pauseButton.state = NSOffState
                 appDelegate.editorViewController?.pauseButton.isEnabled = true
+                
+                self.window?.makeFirstResponder(appDelegate.editorViewController?.gameView)
             } else if appDelegate.editorViewController?.playButton.state == NSOffState {
                 appDelegate.editorViewController?.gameView.state = .STOP
                 
@@ -55,6 +57,8 @@ class WindowController: NSWindowController {
                 dCore.instance.allDebugLogs.removeAll()
                 
                 appDelegate.editorViewController?.inspectorView.reloadData()
+                
+                self.window?.makeFirstResponder(self.window)
             }
             
             appDelegate.editorViewController?.consoleView.reloadData()

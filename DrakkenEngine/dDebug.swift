@@ -42,14 +42,10 @@ public class dDebug: NSObject, dDebugExport {
     
     public func log(_ content: String) {
         if transform._scene.DEBUG_MODE {
-            Thread(block: {
-                let l = dLog(self.transform.name, Date(), String(content))
-                
-                self.logs.append(l)
-                dCore.instance.allDebugLogs.append(l)
-                
-                return
-            }).start()
+            let l = dLog(self.transform.name, Date(), String(content))
+            
+            self.logs.append(l)
+            dCore.instance.allDebugLogs.append(l)
         }
     }
 }

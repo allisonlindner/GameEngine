@@ -305,4 +305,16 @@ internal class dSimpleSceneRender {
             script.touch(x, y)
         }
     }
+    
+    internal func keyDown(_ keyCode: UInt16, _ modifier: UInt16? = nil) {
+        for script in _jsScriptToBeUpdated {
+            script.keyDown(keyCode, modifier)
+        }
+    }
+    
+    internal func keyUp(_ keyCode: UInt16, _ modifier: UInt16? = nil) {
+        for script in _jsScriptToBeUpdated {
+            script.keyUp(keyCode, modifier)
+        }
+    }
 }
