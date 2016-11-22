@@ -10,13 +10,13 @@ import Foundation
 import Metal
 import MetalKit
 
-internal enum LOOPSTATE {
+public enum LOOPSTATE {
     case PLAY
     case PAUSE
     case STOP
 }
 
-internal enum VIEWTYPE {
+public enum VIEWTYPE {
     case EDITOR
     case GAME
 }
@@ -32,8 +32,8 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 	
     fileprivate var simpleRender = dSimpleSceneRender()
     
-    internal var state: LOOPSTATE = .STOP
-    internal var type: VIEWTYPE = .GAME
+    public var state: LOOPSTATE = .STOP
+    public var type: VIEWTYPE = .GAME
     
     private var lastUpdate: Double = 0.0
     
@@ -139,7 +139,7 @@ internal class dGameViewDelegate: NSObject, MTKViewDelegate {
 open class dGameView: MTKView {
     private var _gameView: dGameViewDelegate!
     
-    internal var state: LOOPSTATE {
+    public var state: LOOPSTATE {
         get {
             return _gameView.state
         }
@@ -148,7 +148,7 @@ open class dGameView: MTKView {
         }
     }
     
-    internal var type: VIEWTYPE {
+    public var type: VIEWTYPE {
         get {
             return _gameView.type
         }
@@ -213,6 +213,10 @@ open class dGameView: MTKView {
     
     public func load(sceneURL: URL) {
         self._gameView._scene.load(url: sceneURL)
+    }
+    
+    public func load(projectURL: URL) {
+        dCore.instance.loadRootPath(url: projectURL)
     }
     
     public func Init() {

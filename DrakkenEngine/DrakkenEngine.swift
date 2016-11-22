@@ -33,9 +33,9 @@ public class DrakkenEngine {
     
     public static func Setup() {
         DrakkenEngine.SetupShaders()
-        DrakkenEngine.SetupSprites()
-        DrakkenEngine.SetupMeshs()
         DrakkenEngine.SetupMaterials()
+        DrakkenEngine.SetupMeshs()
+        DrakkenEngine.SetupSprites()
     }
 	
 	public static func Register(shader name: String, vertexFunc: String, fragmentFunc: String) {

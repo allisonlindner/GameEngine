@@ -7,6 +7,7 @@
 //
 
 import Metal
+import Foundation
 import CoreGraphics
 
 public class dCore {
@@ -102,5 +103,53 @@ public class dCore {
         self.SCRIPTS_PATH = ROOT_PATH?.appendingPathComponent("scripts", isDirectory: true)
         self.SPRITES_PATH = ROOT_PATH?.appendingPathComponent("sprites", isDirectory: true)
         self.PREFABS_PATH = ROOT_PATH?.appendingPathComponent("prefabs", isDirectory: true)
+        
+        let fileManager = FileManager()
+        
+        do {
+            
+            //LOAD ALL TEXTURES
+            let imageFolderContent = try fileManager.contentsOfDirectory(at: dCore.instance.IMAGES_PATH!, includingPropertiesForKeys: nil,
+                                                                         options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
+                                                                            .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants))
+            
+            for imageURL in imageFolderContent {
+                if imageURL.isFileURL {
+                    _ = dTexture(imageURL.lastPathComponent)
+                }
+            }
+            
+            let spritesFolderContent = try fileManager.contentsOfDirectory(at: dCore.instance.SPRITES_PATH!, includingPropertiesForKeys: nil,
+                                                                           options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles
+                                                                            .union(FileManager.DirectoryEnumerationOptions.skipsSubdirectoryDescendants))
+            
+            //LOAD ALL SPRITES
+            for spriteURL in spritesFolderContent {
+                if spriteURL.isFileURL && spriteURL.pathExtension == "dksprite" {
+                    var fileString: String = ""
+                    do {
+                        fileString = try String(contentsOf: spriteURL)
+                        if let dataFromString = fileString.data(using: String.Encoding.utf8) {
+                            let json = JSON(data: dataFromString)
+                            
+                            let name = json["name"].stringValue
+                            let columns = json["columns"].intValue
+                            let lines = json["lines"].intValue
+                            let texture = json["texture"].stringValue
+                            
+                            print("SPRITE - name: \(name), c: \(columns), l: \(lines), texture: \(texture)")
+                            
+                            let spriteDef = dSpriteDef(name, columns: columns, lines: lines, texture: texture)
+                            DrakkenEngine.Register(sprite: spriteDef)
+                        }
+                    } catch {
+                        fatalError("Sprite file error")
+                    }
+                }
+            }
+            DrakkenEngine.Setup()
+        } catch let error {
+            fatalError("Fail while get first scene URL: \(error)")
+        }
     }
 }

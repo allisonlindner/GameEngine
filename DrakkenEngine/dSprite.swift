@@ -135,10 +135,10 @@ public class dSprite : dComponent {
 		
 		_ = self.add(dependence: meshRender)
 		
-		if animations.count > 0 {
-			self.animator = dAnimator(sprite: self, defaultAnimation: animations.first!.key)
-			_ = self.add(dependence: animator!)
-		}
+        if animations.count > 0 {
+            self.animator = dAnimator(sprite: self, defaultAnimation: animations.first!.key)
+            _ = self.add(dependence: animator!)
+        }
 	}
 	
 	public func play(animation name: String) {

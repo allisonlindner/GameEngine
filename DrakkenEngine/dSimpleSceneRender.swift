@@ -35,6 +35,7 @@ internal class dSimpleSceneRender {
     internal init() { }
     
     internal func load(scene: dScene) {
+        DrakkenEngine.Init()
         self._scene = scene
         process()
     }

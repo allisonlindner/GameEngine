@@ -206,7 +206,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                                                 texture: appDelegate.editorViewController!.draggedImage!)
                 
                 DrakkenEngine.Register(sprite: spriteDef)
-                DrakkenEngine.Init()
+                DrakkenEngine.Setup()
                 
                 transform.add(
                     component: dSprite.init(
@@ -222,7 +222,7 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                 transform.removeSprite()
                 
                 DrakkenEngine.Register(sprite: spriteDef)
-                DrakkenEngine.Init()
+                DrakkenEngine.Setup()
                 
                 transform.add(component: dSprite(sprite: spriteDef.name, scale: spriteDef.scale, frame: 0))
                 

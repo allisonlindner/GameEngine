@@ -83,7 +83,7 @@ internal class dSpriteManager {
 		                         lines: def.lines,
 		                         texture: def.texture,
 		                         animations: def.animations)
-		self.sprites[def.name] = sprite
+		self.sprites.updateValue(sprite, forKey: def.name)
 		
 		return sprite
 	}
