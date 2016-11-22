@@ -15,7 +15,7 @@ fileprivate struct dShaderRegister {
 }
 
 public class DrakkenEngine {
-	private static var _toBeRegisteredShaders: [dShaderRegister] = []
+    private static var _toBeRegisteredShaders: [dShaderRegister] = []
 	private static var _toBeRegisteredMeshs: [dMeshDef] = []
 	private static var _toBeRegisteredMaterials: [dMaterialDef] = []
 	private static var _toBeRegisteredSprites: [dSpriteDef] = []

@@ -13,6 +13,8 @@ public class dScene {
 	public var size: float2 = float2(1920.0, 1080.0)
     public var scale: Float = 1.0
 	
+    internal var time: dTime = dTime()
+    
     internal var name: String = "scene"
     internal var root: dTransform = dTransform(name: "root")
     

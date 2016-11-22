@@ -99,19 +99,7 @@ public class dJSScript: dComponent, dJSScriptExport {
         
         NSLog(self.script)
         
-        self.debug = dDebug(transform as! dTransform)
-        
-        self.jsContext.setObject(KeyCode, forKeyedSubscript: NSString(string: "KEYCODE"))
-        
-        self.jsContext.setObject(self.debug, forKeyedSubscript: NSString(string: "Debug"))
-        self.jsContext.setObject(self, forKeyedSubscript: NSString(string: "$"))
-        self.jsContext.evaluateScript(
-            "var transform = $.transform;"
-        )
-        
-        self.jsContext.evaluateScript(
-            "\(self.script)"
-        )
+        self.set(transform: self.transform as! dTransform)
         
         self.start()
     }
@@ -142,6 +130,8 @@ public class dJSScript: dComponent, dJSScriptExport {
                 self.publicVariables.updateValue(self.jsContext.objectForKeyedSubscript(variable.key), forKey: variable.key)
             }
         }
+        
+        self.jsContext.setObject((transform as! dTransform)._scene.time as dTimeExport, forKeyedSubscript: NSString(string: "Time"))
     }
     
     internal func set(transform: dTransform) {

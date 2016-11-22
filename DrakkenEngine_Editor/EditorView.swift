@@ -20,6 +20,7 @@ internal class EditorView: dGameView {
     override func Init() {
         self.changed = false
         self.state = .PAUSE
+        self.type = .EDITOR
         super.Init()
     }
     

@@ -137,6 +137,10 @@
 		2EE0C2A91DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
 		2EE0C2AA1DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
 		2EE0C2AB1DDE1AA800A0B01C /* KeyCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */; };
+		2EE0C2AD1DDF83DB00A0B01C /* dTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */; };
+		2EE0C2AE1DDF83DB00A0B01C /* dTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */; };
+		2EE0C2AF1DDF83DB00A0B01C /* dTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */; };
+		2EE0C2B01DDF83DB00A0B01C /* dTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */; };
 		2EE2CDFA1DCB840E00A53701 /* TTransformCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */; };
 		2EE2CDFF1DCBC0D100A53701 /* PFolderItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EE2CDFE1DCBC0D100A53701 /* PFolderItemCell.swift */; };
 		2EEC08131D6B79DE00F1FF19 /* DrakkenEngine_macOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EEC08111D6B79DE00F1FF19 /* DrakkenEngine_macOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -259,6 +263,7 @@
 		2ED7C77C1D78881500E65237 /* dAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dAnimator.swift; sourceTree = "<group>"; };
 		2ED7C7841D7A046E00E65237 /* dSpriteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteManager.swift; sourceTree = "<group>"; };
 		2EE0C2A71DDE1AA800A0B01C /* KeyCode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KeyCode.swift; path = KeyCode/KeyCode.swift; sourceTree = "<group>"; };
+		2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dTime.swift; sourceTree = "<group>"; };
 		2EE2CDF91DCB840E00A53701 /* TTransformCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TTransformCell.swift; sourceTree = "<group>"; };
 		2EE2CDFE1DCBC0D100A53701 /* PFolderItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PFolderItemCell.swift; sourceTree = "<group>"; };
 		2EEC080F1D6B79DE00F1FF19 /* DrakkenEngine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DrakkenEngine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -608,6 +613,7 @@
 		2EEC08431D6B7A8500F1FF19 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				2EE0C2AC1DDF83DB00A0B01C /* dTime.swift */,
 				2EEC08441D6B7A9D00F1FF19 /* dBuffers.swift */,
 				2EEC08451D6B7A9D00F1FF19 /* dTexture.swift */,
 				2EEC08591D6B7ADE00F1FF19 /* dTransform.swift */,
@@ -912,6 +918,7 @@
 				2E3520EC1DAC208200642255 /* EditorView.swift in Sources */,
 				2E35211A1DAC4C3500642255 /* dJSScript.swift in Sources */,
 				2E3520EA1DAC208200642255 /* AppDelegate.swift in Sources */,
+				2EE0C2B01DDF83DB00A0B01C /* dTime.swift in Sources */,
 				2E35210A1DAC4C2600642255 /* dCore.swift in Sources */,
 				2E3521051DAC4C2200642255 /* dMeshManager.swift in Sources */,
 				2E3521011DAC4C2200642255 /* dBufferManager.swift in Sources */,
@@ -981,6 +988,7 @@
 				2E255A281DA2D36200364AFC /* dJSScript.swift in Sources */,
 				2EFC3FCA1DA462D000456988 /* dSize2D.swift in Sources */,
 				2EEC08511D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EE0C2AD1DDF83DB00A0B01C /* dTime.swift in Sources */,
 				2EEC086D1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC087F1D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7851D7A046E00E65237 /* dSpriteManager.swift in Sources */,
@@ -1031,6 +1039,7 @@
 				2E255A291DA2D36200364AFC /* dJSScript.swift in Sources */,
 				2EFC3FCB1DA462D000456988 /* dSize2D.swift in Sources */,
 				2EEC08521D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EE0C2AE1DDF83DB00A0B01C /* dTime.swift in Sources */,
 				2EEC086E1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC08801D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7861D7A046E00E65237 /* dSpriteManager.swift in Sources */,
@@ -1081,6 +1090,7 @@
 				2E255A2A1DA2D36200364AFC /* dJSScript.swift in Sources */,
 				2EFC3FCC1DA462D000456988 /* dSize2D.swift in Sources */,
 				2EEC08531D6B7AA900F1FF19 /* dTextureManager.swift in Sources */,
+				2EE0C2AF1DDF83DB00A0B01C /* dTime.swift in Sources */,
 				2EEC086F1D6B7B8B00F1FF19 /* dError.swift in Sources */,
 				2EEC08811D6B7C4200F1FF19 /* dRendererFactory.swift in Sources */,
 				2ED7C7871D7A046E00E65237 /* dSpriteManager.swift in Sources */,
