@@ -8,6 +8,12 @@
 
 import Cocoa
 
+internal enum dExportType {
+    case MacOS
+    case iOS
+    case tvOS
+}
+
 class WindowController: NSWindowController {
     
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
@@ -240,6 +246,102 @@ class WindowController: NSWindowController {
                     }
                 }
             })
+        }
+    }
+    
+    @IBAction internal func exportProject(_ sender: AnyObject?) {
+        let savePanel = NSSavePanel()
+        
+        savePanel.begin(completionHandler: { (result) in
+            if result == NSFileHandlingPanelOKButton {
+                if let url = savePanel.url {
+                    self.exportProject(to: url, as: .MacOS)
+                }
+            }
+        })
+    }
+    
+    internal func exportProject(to url: URL, as type: dExportType) {
+        let fileManager = FileManager()
+        
+        var templateURL: URL?
+        
+        if type == .MacOS {
+            templateURL = Bundle.main.url(forResource: "Project Templates", withExtension: nil)!.appendingPathComponent("MacOS/-PROJECT-NAME-")
+        } else {
+            templateURL = nil
+        }
+        
+        if templateURL != nil {
+            do {
+                try fileManager.copyItem(at: templateURL!, to: url)
+                
+                try fileManager.moveItem(at: url.appendingPathComponent("-PROJECT-NAME-"),
+                                         to: url.appendingPathComponent(url.lastPathComponent))
+                
+                try fileManager.moveItem(at: url.appendingPathComponent("-PROJECT-NAME-").appendingPathExtension("xcodeproj"),
+                                         to: url.appendingPathComponent(url.lastPathComponent).appendingPathExtension("xcodeproj"))
+                
+                try fileManager.copyItem(at: dCore.instance.ROOT_PATH!,
+                                         to: url.appendingPathComponent(url.lastPathComponent).appendingPathComponent("Assets"))
+                
+                let xcodeprojURL = url.appendingPathComponent(url.lastPathComponent).appendingPathExtension("xcodeproj")
+                var pbxprojString = try String(contentsOf: xcodeprojURL.appendingPathComponent("project.pbxproj"))
+                
+                var regex = try NSRegularExpression(pattern: "(-PROJECT-NAME-)", options: .caseInsensitive)
+                pbxprojString = regex.stringByReplacingMatches(in: pbxprojString,
+                                                               options: [],
+                                                               range: NSRange(0..<pbxprojString.utf8.count),
+                                                               withTemplate: url.lastPathComponent)
+                
+                try fileManager.removeItem(at: xcodeprojURL.appendingPathComponent("project.pbxproj"))
+                fileManager.createFile(atPath: xcodeprojURL.appendingPathComponent("project.pbxproj").path,
+                                       contents: pbxprojString.data(using: .utf8), attributes: nil)
+                
+                var xcworkspacedataString = try String(contentsOf: xcodeprojURL.appendingPathComponent("project.xcworkspace/contents.xcworkspacedata"))
+                regex = try NSRegularExpression(pattern: "(location\\s\\=\\s\")(.*)(\")", options: .caseInsensitive)
+                
+                let matches = regex.matches(in: xcworkspacedataString, options: [], range: NSRange(0..<xcworkspacedataString.utf8.count))
+                
+                for m in matches {
+                    xcworkspacedataString = String((xcworkspacedataString as NSString).replacingCharacters(in: m.rangeAt(2), with: xcodeprojURL.path))
+                }
+                
+                try fileManager.removeItem(at: xcodeprojURL.appendingPathComponent("project.xcworkspace/contents.xcworkspacedata"))
+                fileManager.createFile(atPath: xcodeprojURL.appendingPathComponent("project.xcworkspace/contents.xcworkspacedata").path,
+                                       contents: xcworkspacedataString.data(using: .utf8), attributes: nil)
+                
+                try fileManager.moveItem(at: xcodeprojURL.appendingPathComponent("xcuserdata/username.xcuserdatad"),
+                                         to: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad"))
+                
+                try fileManager.moveItem(at: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad/xcschemes/-PROJECT-NAME-.xcscheme"),
+                                         to: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad/xcschemes/\(url.lastPathComponent).xcscheme"))
+                
+                regex = try NSRegularExpression(pattern: "(-PROJECT-NAME-)", options: .caseInsensitive)
+                var schemeString = try String(contentsOf: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad/xcschemes/\(url.lastPathComponent).xcscheme"))
+                schemeString = regex.stringByReplacingMatches(in: schemeString,
+                                                              options: [],
+                                                              range: NSRange(0..<schemeString.utf8.count),
+                                                              withTemplate: url.lastPathComponent)
+                
+                try fileManager.removeItem(at: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad/xcschemes/\(url.lastPathComponent).xcscheme"))
+                fileManager.createFile(atPath: xcodeprojURL.appendingPathComponent("xcuserdata/\(NSUserName()).xcuserdatad/xcschemes/\(url.lastPathComponent).xcscheme").path,
+                                       contents: schemeString.data(using: .utf8), attributes: nil)
+                
+                regex = try NSRegularExpression(pattern: "(-SCENE-NAME-)", options: .caseInsensitive)
+                var viewcontrollerString = try String(contentsOf: xcodeprojURL.deletingLastPathComponent().appendingPathComponent(url.lastPathComponent).appendingPathComponent("ViewController.swift"))
+                viewcontrollerString = regex.stringByReplacingMatches(in: viewcontrollerString,
+                                                                      options: [],
+                                                                      range: (viewcontrollerString as NSString).range(of: viewcontrollerString),
+                                                                      withTemplate: appDelegate.editorViewController!.currentSceneURL.deletingPathExtension().lastPathComponent)
+                
+                try fileManager.removeItem(at: xcodeprojURL.deletingLastPathComponent().appendingPathComponent(url.lastPathComponent).appendingPathComponent("ViewController.swift"))
+                fileManager.createFile(atPath: xcodeprojURL.deletingLastPathComponent().appendingPathComponent(url.lastPathComponent).appendingPathComponent("ViewController.swift").path,
+                                       contents: viewcontrollerString.data(using: .utf8), attributes: nil)
+                
+            } catch let error {
+                NSLog("\(error)")
+            }
         }
     }
 }

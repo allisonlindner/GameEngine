@@ -98,6 +98,20 @@
                                                 <action selector="newScript:" target="Ady-hI-5gd" id="NzD-vy-T0q"/>
                                             </connections>
                                         </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="gDL-2p-hhl"/>
+                                        <menuItem title="Export" id="8Rq-wL-A0z">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Export" id="gGx-yZ-bPY">
+                                                <items>
+                                                    <menuItem title="MacOS" id="VVK-qU-Ar3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="exportProject:" target="Ady-hI-5gd" id="oEQ-oe-8bU"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
                                     </items>
                                 </menu>
                             </menuItem>

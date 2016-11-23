@@ -59,6 +59,7 @@
 		2E35211E1DAC4C3B00642255 /* dError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EEC086C1D6B7B8B00F1FF19 /* dError.swift */; };
 		2E3C09A81DD10574008F36C2 /* ISpriteDefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E3C09A71DD10574008F36C2 /* ISpriteDefCell.swift */; };
 		2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */; };
+		2E42425E1DE61BB3003A3DC7 /* Project Templates in Resources */ = {isa = PBXBuildFile; fileRef = 2E42425D1DE61BB3003A3DC7 /* Project Templates */; };
 		2E61F66F1D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6701D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
 		2E61F6711D70CE7900237241 /* dMesh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E61F66E1D70CE7900237241 /* dMesh.swift */; };
@@ -231,6 +232,7 @@
 		2E3520F21DAC208200642255 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2E3C09A71DD10574008F36C2 /* ISpriteDefCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ISpriteDefCell.swift; sourceTree = "<group>"; };
 		2E4038C21DB6968900D0EF4B /* ProjectFolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectFolderView.swift; sourceTree = "<group>"; };
+		2E42425D1DE61BB3003A3DC7 /* Project Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Project Templates"; sourceTree = "<group>"; };
 		2E61F66E1D70CE7900237241 /* dMesh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMesh.swift; sourceTree = "<group>"; };
 		2E6CBD481D6CCC950096C912 /* dMaterialManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterialManager.swift; sourceTree = "<group>"; };
 		2E6CBD4C1D6CF7E60096C912 /* dMaterial.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dMaterial.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			children = (
 				2E3520E91DAC208200642255 /* AppDelegate.swift */,
 				2E3520ED1DAC208200642255 /* Assets.xcassets */,
+				2E42425D1DE61BB3003A3DC7 /* Project Templates */,
 				2E3520EF1DAC208200642255 /* Main.storyboard */,
 				2E3520F21DAC208200642255 /* Info.plist */,
 				2E1295EE1DAC4F11007C5512 /* Editor */,
@@ -852,6 +855,7 @@
 			files = (
 				2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */,
 				2E3520F11DAC208200642255 /* Main.storyboard in Resources */,
+				2E42425E1DE61BB3003A3DC7 /* Project Templates in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
