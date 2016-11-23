@@ -111,6 +111,7 @@
 		2E7CAB2F1DBFFAB1005219BC /* dDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB2B1DBFF759005219BC /* dDebug.swift */; };
 		2E7CAB341DC3C60A005219BC /* JSScriptCellVariablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */; };
 		2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */; };
+		2E8FDCF71DE642770089DCF1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FDCF61DE642770089DCF1 /* Templates */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -253,6 +254,7 @@
 		2E7CAB2B1DBFF759005219BC /* dDebug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dDebug.swift; sourceTree = "<group>"; };
 		2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSScriptCellVariablesView.swift; sourceTree = "<group>"; };
 		2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJSScriptVariableCell.swift; sourceTree = "<group>"; };
+		2E8FDCF61DE642770089DCF1 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		2E3520E81DAC208200642255 /* DrakkenEngine_Editor */ = {
 			isa = PBXGroup;
 			children = (
+				2E8FDCF61DE642770089DCF1 /* Templates */,
 				2E3520E91DAC208200642255 /* AppDelegate.swift */,
 				2E3520ED1DAC208200642255 /* Assets.xcassets */,
 				2E3520EF1DAC208200642255 /* Main.storyboard */,
@@ -850,6 +853,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E8FDCF71DE642770089DCF1 /* Templates in Resources */,
 				2E3520EE1DAC208200642255 /* Assets.xcassets in Resources */,
 				2E3520F11DAC208200642255 /* Main.storyboard in Resources */,
 			);

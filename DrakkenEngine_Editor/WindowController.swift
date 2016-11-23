@@ -267,7 +267,7 @@ class WindowController: NSWindowController {
         var templateURL: URL?
         
         if type == .MacOS {
-            templateURL = Bundle.main.url(forResource: "Project Templates", withExtension: nil)!.appendingPathComponent("MacOS/-PROJECT-NAME-")
+            templateURL = Bundle.main.url(forResource: "Templates", withExtension: nil)!.appendingPathComponent("MacOS/-PROJECT-NAME-")
         } else {
             templateURL = nil
         }
