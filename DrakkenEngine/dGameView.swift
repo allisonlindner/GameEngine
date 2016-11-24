@@ -332,6 +332,12 @@ open class dGameView: MTKView {
         }
     }
     
+    override open var acceptsFirstResponder: Bool {
+        get {
+            return true
+        }
+    }
+    
     open override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
     }

@@ -177,6 +177,7 @@ SWIFT_CLASS("_TtC13DrakkenEngine9dGameView")
 - (void)mouseDown:(NSEvent * _Nonnull)event;
 - (void)rightMouseDown:(NSEvent * _Nonnull)event;
 - (void)touchesBeganWithEvent:(NSEvent * _Nonnull)event;
+@property (nonatomic, readonly) BOOL acceptsFirstResponder;
 - (BOOL)acceptsFirstMouse:(NSEvent * _Nullable)event;
 @end
 
