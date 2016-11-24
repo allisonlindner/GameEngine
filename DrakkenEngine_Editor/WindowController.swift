@@ -193,6 +193,8 @@ class WindowController: NSWindowController {
                     }
                 }
             })
+            
+            appDelegate.editorViewController?.fileViewer.reloadData()
         }
     }
     

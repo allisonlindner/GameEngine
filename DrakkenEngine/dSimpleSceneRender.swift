@@ -35,7 +35,7 @@ internal class dSimpleSceneRender {
     internal init() { }
     
     internal func load(scene: dScene) {
-        DrakkenEngine.Init()
+        DrakkenEngine.Setup()
         self._scene = scene
         process()
     }
@@ -271,11 +271,13 @@ internal class dSimpleSceneRender {
 		for m in renderGraph {
 			for materialMeshBind in m.value {
 				
-				generateBufferOf(materialMeshBind: materialMeshBind.value)
-				
-				renderer?.bind(materialMeshBind.value.material, encoderID: id)
-				renderer?.bind(materialMeshBind.value.texCoordIDsBuffer, encoderID: id)
-				renderer?.draw(materialMeshBind.value.mesh, encoderID: id, modelMatrixBuffer: materialMeshBind.value.transformsBuffer!)
+                if materialMeshBind.value.material != nil && materialMeshBind.value.mesh != nil {
+                    generateBufferOf(materialMeshBind: materialMeshBind.value)
+                    
+                    renderer?.bind(materialMeshBind.value.material, encoderID: id)
+                    renderer?.bind(materialMeshBind.value.texCoordIDsBuffer, encoderID: id)
+                    renderer?.draw(materialMeshBind.value.mesh, encoderID: id, modelMatrixBuffer: materialMeshBind.value.transformsBuffer!)
+                }
 			}
 		}
 		

@@ -323,6 +323,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
             break
         case is dSprite:
             let s = component as! dSprite
+            self.removeSprite()
             self.add(component: s.meshRender)
             break
         default:

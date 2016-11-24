@@ -200,10 +200,8 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
             } else if appDelegate.editorViewController!.draggedImage != nil {
                 transform._scene.DEBUG_MODE = false
                 
-                transform.removeSprite()
-                
-                let spriteDef = dSpriteDef.init(appDelegate.editorViewController!.draggedImage!,
-                                                texture: appDelegate.editorViewController!.draggedImage!)
+                let spriteDef = dSpriteDef(appDelegate.editorViewController!.draggedImage!,
+                                           texture: appDelegate.editorViewController!.draggedImage!)
                 
                 DrakkenEngine.Register(sprite: spriteDef)
                 DrakkenEngine.Setup()
@@ -218,8 +216,6 @@ class TransformsView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDeleg
                 return true
             } else if let spriteDef = appDelegate.editorViewController!.draggedSpriteDef {
                 transform._scene.DEBUG_MODE = false
-                
-                transform.removeSprite()
                 
                 DrakkenEngine.Register(sprite: spriteDef)
                 DrakkenEngine.Setup()

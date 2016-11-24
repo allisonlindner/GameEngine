@@ -180,28 +180,23 @@ class InspectorView: NSTableView, NSTableViewDataSource, NSTableViewDelegate {
             } else if appDelegate.editorViewController!.draggedImage != nil {
                 transform._scene.DEBUG_MODE = false
                 
-                transform.removeSprite()
-                
-                let spriteDef = dSpriteDef.init(appDelegate.editorViewController!.draggedImage!,
-                                                texture: appDelegate.editorViewController!.draggedImage!)
+                let spriteDef = dSpriteDef(appDelegate.editorViewController!.draggedImage!,
+                                           texture: appDelegate.editorViewController!.draggedImage!)
                 
                 DrakkenEngine.Register(sprite: spriteDef)
                 DrakkenEngine.Setup()
                 
-                transform.add(component: dSprite.init(
+                transform.add(component: dSprite(
                     sprite: appDelegate.editorViewController!.draggedImage!,
                     scale: dSize2D(
                         Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().width),
                         Float(dTexture(appDelegate.editorViewController!.draggedImage!).getTexture().height))
                     )
                 )
-                
                 endDragging()
                 return true
             } else if let spriteDef = appDelegate.editorViewController!.draggedSpriteDef {
                 transform._scene.DEBUG_MODE = false
-                
-                transform.removeSprite()
                 
                 DrakkenEngine.Register(sprite: spriteDef)
                 DrakkenEngine.Setup()
