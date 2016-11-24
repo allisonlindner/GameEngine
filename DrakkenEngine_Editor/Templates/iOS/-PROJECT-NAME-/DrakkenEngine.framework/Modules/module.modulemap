@@ -1,0 +1,3 @@
+framework module DrakkenEngine {
+    header "DrakkenEngine-Swift.h"
+}

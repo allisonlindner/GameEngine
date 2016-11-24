@@ -159,7 +159,8 @@ SWIFT_CLASS("_TtC13DrakkenEngine6dDebug")
 
 @protocol MTLDevice;
 @class NSCoder;
-@class NSEvent;
+@class UITouch;
+@class UIEvent;
 
 SWIFT_CLASS("_TtC13DrakkenEngine9dGameView")
 @interface dGameView : MTKView
@@ -172,12 +173,7 @@ SWIFT_CLASS("_TtC13DrakkenEngine9dGameView")
 - (void)Reload;
 - (void)update;
 - (void)start;
-- (void)keyDown:(NSEvent * _Nonnull)event;
-- (void)keyUp:(NSEvent * _Nonnull)event;
-- (void)mouseDown:(NSEvent * _Nonnull)event;
-- (void)rightMouseDown:(NSEvent * _Nonnull)event;
-@property (nonatomic, readonly) BOOL acceptsFirstResponder;
-- (BOOL)acceptsFirstMouse:(NSEvent * _Nullable)event;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 @end
 
 

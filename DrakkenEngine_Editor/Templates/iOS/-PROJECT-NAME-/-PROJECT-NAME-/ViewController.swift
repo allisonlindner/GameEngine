@@ -1,18 +1,19 @@
 //
 //  ViewController.swift
-//  PROJECT_NAME
+//  -PROJECT-NAME-
 //
-//  Created by Allison Lindner on 22/11/16.
-//  Copyright © 2016 ORGANIZATION_NAME. All rights reserved.
+//  Created by Allison Lindner on 24/11/16.
+//  Copyright © 2016 -ORGANIZATION-NAME-. All rights reserved.
 //
 
-import Cocoa
+import UIKit
+import DrakkenEngine
 
-class ViewController: NSViewController {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         let gameView = self.view as! GameView
         
         gameView.load(projectURL: Bundle.main.url(forResource: "Assets",
@@ -23,10 +24,9 @@ class ViewController: NSViewController {
         gameView.Init()
     }
 
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
     }
 
 

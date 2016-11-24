@@ -106,7 +106,13 @@
                                                     <menuItem title="MacOS" id="VVK-qU-Ar3">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                         <connections>
-                                                            <action selector="exportProject:" target="Ady-hI-5gd" id="oEQ-oe-8bU"/>
+                                                            <action selector="exportProject_macOS:" target="Ady-hI-5gd" id="Cym-Un-uyX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="iOS" id="J3N-w3-1c3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="exportProject_iOS:" target="Ady-hI-5gd" id="1bV-wx-Mpu"/>
                                                         </connections>
                                                     </menuItem>
                                                 </items>

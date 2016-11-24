@@ -251,13 +251,25 @@ class WindowController: NSWindowController {
         }
     }
     
-    @IBAction internal func exportProject(_ sender: AnyObject?) {
+    @IBAction internal func exportProject_macOS(_ sender: AnyObject?) {
         let savePanel = NSSavePanel()
         
         savePanel.begin(completionHandler: { (result) in
             if result == NSFileHandlingPanelOKButton {
                 if let url = savePanel.url {
                     self.exportProject(to: url, as: .MacOS)
+                }
+            }
+        })
+    }
+    
+    @IBAction internal func exportProject_iOS(_ sender: AnyObject?) {
+        let savePanel = NSSavePanel()
+        
+        savePanel.begin(completionHandler: { (result) in
+            if result == NSFileHandlingPanelOKButton {
+                if let url = savePanel.url {
+                    self.exportProject(to: url, as: .iOS)
                 }
             }
         })
@@ -270,6 +282,8 @@ class WindowController: NSWindowController {
         
         if type == .MacOS {
             templateURL = Bundle.main.url(forResource: "Templates", withExtension: nil)!.appendingPathComponent("MacOS/-PROJECT-NAME-")
+        } else if type == .iOS {
+            templateURL = Bundle.main.url(forResource: "Templates", withExtension: nil)!.appendingPathComponent("iOS/-PROJECT-NAME-")
         } else {
             templateURL = nil
         }

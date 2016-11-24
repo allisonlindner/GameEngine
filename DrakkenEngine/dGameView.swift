@@ -242,6 +242,7 @@ open class dGameView: MTKView {
 		//Override this method to create your scene on startup
 	}
     
+    #if os(OSX)
     open override func keyDown(with event: NSEvent) {
         if type == .GAME {
             if state != .STOP {
@@ -265,7 +266,9 @@ open class dGameView: MTKView {
             }
         }
     }
+    #endif
     
+    #if os(OSX)
     open override func keyUp(with event: NSEvent) {
         if type == .GAME {
             if state != .STOP {
@@ -289,7 +292,9 @@ open class dGameView: MTKView {
             }
         }
     }
+    #endif
     
+    #if os(OSX)
     open override func mouseDown(with event: NSEvent) {
         if type == .GAME {
             if state != .STOP {
@@ -303,7 +308,9 @@ open class dGameView: MTKView {
             }
         }
     }
+    #endif
     
+    #if os(OSX)
     open override func rightMouseDown(with event: NSEvent) {
         if type == .GAME {
             if state != .STOP {
@@ -317,28 +324,38 @@ open class dGameView: MTKView {
             }
         }
     }
+    #endif
     
-    open override func touchesBegan(with event: NSEvent) {
+    #if os(iOS)
+    open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if type == .GAME {
             if state != .STOP {
-                var locationInView = NSApplication.shared().mainWindow!.contentView!.convert(event.locationInWindow, to: self)
-                locationInView.x = locationInView.x - (self.frame.width/2.0)
-                locationInView.y = locationInView.y - (self.frame.height/2.0)
-                
-                if state == .PLAY {
-                    self._gameView.simpleRender.touch(Float(locationInView.x), Float(locationInView.y))
+                for touch in touches {
+                    var locationInView = touch.location(in: self)
+                    
+                    locationInView.x = locationInView.x - (self.frame.width/2.0)
+                    locationInView.y = (locationInView.y - (self.frame.height/2.0)) * (-1)
+    
+                    if state == .PLAY {
+                        self._gameView.simpleRender.touch(Float(locationInView.x), Float(locationInView.y))
+                    }
                 }
             }
         }
     }
+    #endif
     
+    #if os(OSX)
     override open var acceptsFirstResponder: Bool {
         get {
             return true
         }
     }
+    #endif
     
+    #if os(OSX)
     open override func acceptsFirstMouse(for event: NSEvent?) -> Bool {
         return true
     }
+    #endif
 }
