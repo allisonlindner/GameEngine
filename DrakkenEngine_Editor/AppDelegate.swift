@@ -7,7 +7,6 @@
 //
 
 import Cocoa
-import DrakkenEngine
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
