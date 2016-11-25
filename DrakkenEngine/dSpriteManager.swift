@@ -91,4 +91,8 @@ internal class dSpriteManager {
 	internal func get(sprite name: String) -> dSpriteData? {
 		return sprites[name]
 	}
+    
+    internal func deleteAll() {
+        sprites.removeAll()
+    }
 }

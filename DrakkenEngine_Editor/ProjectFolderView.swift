@@ -37,7 +37,6 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
     var draggedItem: FolderItem?
     
     private var itens: [RootItem] = [RootItem]()
-    private var totalItens: Int = 0
     
     override func awakeFromNib() {
         setup()
@@ -66,57 +65,34 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
         super.draw(dirtyRect)
     }
     
-    internal func checkFolder() {
-        if dCore.instance.ROOT_PATH != nil {
-            if totalItens != getNumberOfFolderItens(for: dCore.instance.ROOT_PATH!) {
-                self.loadData(for: dCore.instance.ROOT_PATH!)
-            }
-        }
-    }
-    
     internal func doubleActionSelector() {
-        let item = self.item(atRow: clickedRow) as! FolderItem
-        let url = item.url
-        
-        if NSApplication.shared().mainWindow!.contentViewController is EditorViewController {
-            let editorVC = NSApplication.shared().mainWindow!.contentViewController as! EditorViewController
-            if url.pathExtension == "dkscene" {
-                editorVC.currentSceneURL = url
-                
-                editorVC.editorView.scene.DEBUG_MODE = false
-                editorVC.editorView.scene.load(url: url)
-                editorVC.editorView.Init()
-                editorVC.transformsView.reloadData()
-                
-                editorVC.selectedTransform = nil
-                editorVC.inspectorView.reloadData()
-            } else if url.pathExtension == "js" {
-                NSWorkspace.shared().open(url)
-            } else if url.isFileURL {
-                if NSImage(contentsOf: url) != nil {
+        if let item = self.item(atRow: clickedRow) as? FolderItem {
+            let url = item.url
+            
+            if NSApplication.shared().mainWindow!.contentViewController is EditorViewController {
+                let editorVC = NSApplication.shared().mainWindow!.contentViewController as! EditorViewController
+                if url.pathExtension == "dkscene" {
+                    editorVC.currentSceneURL = url
+                    
+                    editorVC.editorView.scene.DEBUG_MODE = false
+                    editorVC.editorView.scene.load(url: url)
+                    editorVC.editorView.Init()
+                    editorVC.transformsView.reloadData()
+                    
+                    editorVC.selectedTransform = nil
+                    editorVC.inspectorView.reloadData()
+                } else if url.pathExtension == "js" {
                     NSWorkspace.shared().open(url)
+                } else if url.isFileURL {
+                    if NSImage(contentsOf: url) != nil {
+                        NSWorkspace.shared().open(url)
+                    }
                 }
             }
         }
     }
     
-    private func getNumberOfFolderItens(for url: URL) -> Int {
-        let fileManager = FileManager()
-        
-        let enumerator = fileManager.enumerator(at: url,
-                                                includingPropertiesForKeys: [URLResourceKey.effectiveIconKey,URLResourceKey.localizedNameKey],
-                                                options: FileManager.DirectoryEnumerationOptions.skipsHiddenFiles,
-                                                errorHandler: { (u, error) -> Bool in
-                                                    NSLog("URL: \(u.path) - Error: \(error)")
-                                                    return false
-        })
-        
-        return enumerator!.allObjects.count
-    }
-    
     internal func loadData(for url: URL) {
-        totalItens = getNumberOfFolderItens(for: url)
-        
         let rootItens = getItens(from: url)
         itens.removeAll()
         
@@ -289,6 +265,11 @@ class ProjectFolderView: NSOutlineView, NSOutlineViewDataSource, NSOutlineViewDe
             session.draggingPasteboard.setString(draggedItem!.url.deletingPathExtension().lastPathComponent,
                                                  forType: SCRIPT_PASTEBOARD_TYPE)
         } else if NSImage(contentsOf: draggedItem!.url) != nil {
+            _ = dTexture(draggedItem!.url.lastPathComponent)
+            let spriteDef = dSpriteDef(draggedItem!.url.lastPathComponent, texture: draggedItem!.url.lastPathComponent)
+            DrakkenEngine.Register(sprite: spriteDef)
+            DrakkenEngine.Setup()
+            
             appDelegate.editorViewController?.draggedImage = draggedItem!.url.lastPathComponent
             session.draggingPasteboard.setString(draggedItem!.url.lastPathComponent,
                                                  forType: IMAGE_PASTEBOARD_TYPE)

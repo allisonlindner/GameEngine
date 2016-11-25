@@ -11,9 +11,6 @@ import Cocoa
 internal class EditorView: dGameView {
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
-    var lastUpdate = NSDate().timeIntervalSince1970
-    var deltaTime: Double = 0.016
-    
     var timeToCheckChanges: Double = 1.0
     var changed = false
     
@@ -25,17 +22,7 @@ internal class EditorView: dGameView {
     }
     
     override func internalUpdate() {
-        deltaTime = NSDate().timeIntervalSince1970 - lastUpdate
-        lastUpdate = NSDate().timeIntervalSince1970
-        
-        if timeToCheckChanges <= 0.0 {
-            appDelegate.editorViewController?.fileViewer.checkFolder()
-            checkChanges()
-            
-            timeToCheckChanges = 1.0
-        }
-        
-        timeToCheckChanges -= deltaTime
+        checkChanges()
         
         if appDelegate.editorViewController?.lastLogCount != dCore.instance.allDebugLogs.count {
             appDelegate.editorViewController?.consoleView.reloadData()

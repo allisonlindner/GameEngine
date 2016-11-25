@@ -112,6 +112,7 @@
 		2E7CAB341DC3C60A005219BC /* JSScriptCellVariablesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */; };
 		2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */; };
 		2E8FDCF71DE642770089DCF1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FDCF61DE642770089DCF1 /* Templates */; };
+		2E8FDD301DE790120089DCF1 /* SwiftFSWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FDD2F1DE790120089DCF1 /* SwiftFSWatcher.swift */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -255,6 +256,7 @@
 		2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSScriptCellVariablesView.swift; sourceTree = "<group>"; };
 		2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJSScriptVariableCell.swift; sourceTree = "<group>"; };
 		2E8FDCF61DE642770089DCF1 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
+		2E8FDD2F1DE790120089DCF1 /* SwiftFSWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFSWatcher.swift; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
@@ -347,6 +349,7 @@
 		2E1295EE1DAC4F11007C5512 /* Editor */ = {
 			isa = PBXGroup;
 			children = (
+				2E8FDD241DE7801A0089DCF1 /* FolderMonitor */,
 				2E7BF82E1DD4CCF5004F77B2 /* Utilities */,
 				2E1295F11DAC4FCA007C5512 /* WindowController.swift */,
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
@@ -455,6 +458,14 @@
 				2E7CAB331DC3C60A005219BC /* JSScriptCellVariablesView.swift */,
 			);
 			name = "Table View Controllers";
+			sourceTree = "<group>";
+		};
+		2E8FDD241DE7801A0089DCF1 /* FolderMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				2E8FDD2F1DE790120089DCF1 /* SwiftFSWatcher.swift */,
+			);
+			path = FolderMonitor;
 			sourceTree = "<group>";
 		};
 		2EB1C41C1D6BAE94004285D2 /* Engine */ = {
@@ -934,6 +945,7 @@
 				2E3521031DAC4C2200642255 /* dTransformManager.swift in Sources */,
 				2E4038C31DB6968900D0EF4B /* ProjectFolderView.swift in Sources */,
 				2E7BF8321DD4E254004F77B2 /* TransformMenu.swift in Sources */,
+				2E8FDD301DE790120089DCF1 /* SwiftFSWatcher.swift in Sources */,
 				2E1295F21DAC4FCA007C5512 /* WindowController.swift in Sources */,
 				2E35211D1DAC4C3B00642255 /* SharedUniforms.swift in Sources */,
 				2E3521131DAC4C2C00642255 /* dScene.swift in Sources */,
@@ -1128,6 +1140,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 62TU375XJE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DrakkenEngine_Editor/FolderMonitor",
+				);
 				INFOPLIST_FILE = DrakkenEngine_Editor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;
@@ -1142,6 +1158,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = 62TU375XJE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/DrakkenEngine_Editor/FolderMonitor",
+				);
 				INFOPLIST_FILE = DrakkenEngine_Editor/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = drakkenstudio.DrakkenEngine;

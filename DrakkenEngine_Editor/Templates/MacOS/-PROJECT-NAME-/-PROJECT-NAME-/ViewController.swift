@@ -7,11 +7,13 @@
 //
 
 import Cocoa
+import DrakkenEngine
 
 class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DrakkenEngine.Init()
 
         let gameView = self.view as! GameView
         

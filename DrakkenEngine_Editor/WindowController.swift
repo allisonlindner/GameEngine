@@ -17,6 +17,7 @@ internal enum dExportType {
 class WindowController: NSWindowController {
     
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
+    var fileWatcher: SwiftFSWatcher!
     
     var sceneBackupJSON: JSON!
     
@@ -106,6 +107,8 @@ class WindowController: NSWindowController {
                             
                             self.appDelegate.editorViewController!.currentSceneURL = url
                             NSLog("Scene save with success on path: \(url.path)")
+                            
+                            self.appDelegate.editorViewController?.editorView.scene.load(jsonFile: url.deletingPathExtension().lastPathComponent)
                         }
                     }
                 })
@@ -183,6 +186,35 @@ class WindowController: NSWindowController {
                                 
                                 dCore.instance.loadRootPath(url: url)
                                 
+                                self.appDelegate.editorViewController!.currentSceneURL = url
+                                if let editorVC = self.appDelegate.editorViewController {
+                                    editorVC.editorView.scene.load(url: url)
+                                    self.sceneBackupJSON = editorVC.editorView.scene.root.toJSON()
+                                    editorVC.editorView.Init()
+                                    
+                                    editorVC.editorGameTabView.selectTabViewItem(at: 0)
+                                    
+                                    editorVC.playButton.isEnabled = true
+                                    editorVC.pauseButton.isEnabled = false
+                                    
+                                    editorVC.inspectorView.reloadData()
+                                }
+                                
+                                if let editorVC = self.appDelegate.editorViewController {
+                                    editorVC.inspectorView.reloadData()
+                                    editorVC.transformsView.reloadData()
+                                    editorVC.editorView.Reload()
+                                    editorVC.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                                    editorVC.transformsView.reloadData()
+                                }
+                                
+                                self.fileWatcher = SwiftFSWatcher([url.path])
+                                self.fileWatcher.watch({ (fileEvent) in
+                                    self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                                })
+                                
+                                DrakkenEngine.Setup()
+                                
                             } catch let error {
                                 NSLog("JSON conversion FAIL!! \(error)")
                             }
@@ -193,8 +225,6 @@ class WindowController: NSWindowController {
                     }
                 }
             })
-            
-            appDelegate.editorViewController?.fileViewer.reloadData()
         }
     }
     
@@ -244,6 +274,11 @@ class WindowController: NSWindowController {
                                 editorVC.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                                 editorVC.transformsView.reloadData()
                             }
+                            
+                            self.fileWatcher = SwiftFSWatcher([url.path])
+                            self.fileWatcher.watch({ (fileEvent) in
+                                self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                            })
                         }
                     }
                 }

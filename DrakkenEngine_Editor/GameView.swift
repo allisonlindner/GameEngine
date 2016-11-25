@@ -20,8 +20,6 @@ class GameView: dGameView {
     }
     
     override func internalUpdate() {
-        appDelegate.editorViewController?.fileViewer.checkFolder()
-        
         if appDelegate.editorViewController?.lastLogCount != dCore.instance.allDebugLogs.count {
             appDelegate.editorViewController?.consoleView.reloadData()
             appDelegate.editorViewController?.consoleView.scrollRowToVisible(dCore.instance.allDebugLogs.count - 1)

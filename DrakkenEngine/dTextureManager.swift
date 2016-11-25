@@ -123,4 +123,8 @@ internal class dTextureManager {
 		
 		return nil
 	}
+    
+    internal func deleteAll() {
+        _textures.removeAll()
+    }
 }

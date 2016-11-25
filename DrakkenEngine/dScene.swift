@@ -19,6 +19,10 @@ public class dScene {
     internal var root: dTransform = dTransform(name: "root")
     
     internal var DEBUG_MODE = false
+    
+    public init() {
+        root._scene = self
+    }
 	
     public func add(transform: dTransform) {
         if transform._scene == nil {

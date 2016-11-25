@@ -13,6 +13,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        DrakkenEngine.Init()
         
         let gameView = self.view as! GameView
         

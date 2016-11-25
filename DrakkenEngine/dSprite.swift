@@ -116,7 +116,11 @@ public class dSprite : dComponent {
 	
 	internal var animations: [String : dAnimation] {
 		get {
-			return dCore.instance.spManager.get(sprite: self.spriteName)!.animations
+            if dCore.instance.spManager.get(sprite: self.spriteName) != nil {
+                return dCore.instance.spManager.get(sprite: self.spriteName)!.animations
+            } else {
+                return [:]
+            }
 		}
 	}
 	

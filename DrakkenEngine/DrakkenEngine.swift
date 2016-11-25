@@ -33,8 +33,8 @@ public class DrakkenEngine {
     
     public static func Setup() {
         DrakkenEngine.SetupShaders()
-        DrakkenEngine.SetupMaterials()
         DrakkenEngine.SetupMeshs()
+        DrakkenEngine.SetupMaterials()
         DrakkenEngine.SetupSprites()
     }
 	

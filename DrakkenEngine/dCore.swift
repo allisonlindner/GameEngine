@@ -104,9 +104,15 @@ public class dCore {
         self.SPRITES_PATH = ROOT_PATH?.appendingPathComponent("sprites", isDirectory: true)
         self.PREFABS_PATH = ROOT_PATH?.appendingPathComponent("prefabs", isDirectory: true)
         
+        self.prepareFolderData()
+    }
+    
+    internal func prepareFolderData() {
         let fileManager = FileManager()
         
         do {
+            
+            spManager.deleteAll()
             
             //LOAD ALL TEXTURES
             let imageFolderContent = try fileManager.contentsOfDirectory(at: dCore.instance.IMAGES_PATH!, includingPropertiesForKeys: nil,
@@ -116,6 +122,8 @@ public class dCore {
             for imageURL in imageFolderContent {
                 if imageURL.isFileURL {
                     _ = dTexture(imageURL.lastPathComponent)
+                    let spriteDef = dSpriteDef(imageURL.lastPathComponent, texture: imageURL.lastPathComponent)
+                    DrakkenEngine.Register(sprite: spriteDef)
                 }
             }
             
