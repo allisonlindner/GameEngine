@@ -27,6 +27,7 @@ class NewSceneViewController: NSViewController {
                 NSLog("Scene save with success on path: \(url.path)")
                 
                 appDelegate.editorViewController?.currentSceneURL = url
+                appDelegate.editorViewController?.editorView.scene.load(jsonFile: url.deletingPathExtension().lastPathComponent)
                 
                 self.dismiss(self)
             }

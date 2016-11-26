@@ -13,6 +13,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     internal var editorViewController: EditorViewController?
     
+    internal var projectOpen: Bool = false
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         DrakkenEngine.Init()

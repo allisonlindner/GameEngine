@@ -86,38 +86,29 @@ class WindowController: NSWindowController {
         }
     }
     
+    @IBAction internal func newScript(_ sender: AnyObject?) {
+        if becomeFirstResponder() {
+            if self.contentViewController is EditorViewController {
+                let storyboard = NSStoryboard.init(name: "Main", bundle: Bundle.main)
+                let newSceneView = storyboard.instantiateController(withIdentifier: "NewScriptID") as! NewScriptViewController
+                
+                self.appDelegate.editorViewController?.presentViewControllerAsSheet(newSceneView as NSViewController)
+            }
+        }
+    }
+    
     @IBAction internal func saveSceneAs(_ sender: AnyObject?) {
         if becomeFirstResponder() {
             if self.contentViewController is EditorViewController {
                 let editorVC = self.contentViewController as! EditorViewController
-                let fileManager = FileManager()
-                let savePanel = NSSavePanel()
                 
-                savePanel.directoryURL = dCore.instance.SCENES_PATH!
-                
-                savePanel.beginSheetModal(for: self.window!, completionHandler: { (result) in
-                    if result == NSFileHandlingPanelOKButton {
-                        
-                        if var url = savePanel.url {
-                            if url.pathExtension != "dkscene" ||
-                                url.pathExtension.isEmpty {
-                                
-                                url.appendPathExtension("dkscene")
-                            }
-                            
-                            if let jsonData: Data = editorVC.editorView.scene.toData() {
-                                fileManager.createFile(atPath: url.path,
-                                                       contents: jsonData,
-                                                       attributes: nil)
-                            }
-                            
-                            self.appDelegate.editorViewController!.currentSceneURL = url
-                            NSLog("Scene save with success on path: \(url.path)")
-                            
-                            self.appDelegate.editorViewController?.editorView.scene.load(jsonFile: url.deletingPathExtension().lastPathComponent)
-                        }
-                    }
-                })
+                if let jsonData: Data = editorVC.editorView.scene.toData() {
+                    let storyboard = NSStoryboard.init(name: "Main", bundle: Bundle.main)
+                    let newSceneView = storyboard.instantiateController(withIdentifier: "NewSceneID") as! NewSceneViewController
+                    newSceneView.jsonData = jsonData
+                    
+                    self.appDelegate.editorViewController?.presentViewControllerAsSheet(newSceneView as NSViewController)
+                }
             }
         }
     }
@@ -145,6 +136,8 @@ class WindowController: NSWindowController {
             }
         }
     }
+    
+    
     
     @IBAction internal func newProject(_ sender: AnyObject?) {
         if becomeFirstResponder() {
@@ -225,6 +218,8 @@ class WindowController: NSWindowController {
                                     self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                                 })
                                 
+                                self.appDelegate.projectOpen = true
+                                
                                 DrakkenEngine.Setup()
                                 
                             } catch let error {
@@ -291,6 +286,8 @@ class WindowController: NSWindowController {
                             self.fileWatcher.watch({ (fileEvent) in
                                 self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                             })
+                            
+                            self.appDelegate.projectOpen = true
                         }
                     }
                 }
@@ -407,5 +404,20 @@ class WindowController: NSWindowController {
                 NSLog("\(error)")
             }
         }
+    }
+    
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if !menuItem.hasSubmenu {
+            if menuItem.title == "New Project" {
+                return true
+            }
+            
+            if menuItem.title == "Open Project" {
+                return true
+            }
+            
+            return appDelegate.projectOpen
+        }
+        return true
     }
 }

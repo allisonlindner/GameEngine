@@ -95,7 +95,7 @@
                                         <menuItem title="New Script" id="FYw-di-XlR">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="newScript:" target="Ady-hI-5gd" id="NzD-vy-T0q"/>
+                                                <action selector="newScript:" target="Ady-hI-5gd" id="zqf-cH-hgx"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="gDL-2p-hhl"/>
@@ -120,10 +120,6 @@
                                         </menuItem>
                                     </items>
                                 </menu>
-                            </menuItem>
-                            <menuItem title="Edit" id="5QF-Oa-p0T">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Edit" id="W48-6f-4Dl"/>
                             </menuItem>
                             <menuItem title="GameObject" id="UkQ-HK-Gac">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -1747,6 +1743,63 @@ DQ
                 <customObject id="XdR-uh-bYP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1033" y="1269"/>
+        </scene>
+        <!--New Script View Controller-->
+        <scene sceneID="OFD-Rf-Zu2">
+            <objects>
+                <viewController storyboardIdentifier="NewScriptID" id="8Ne-8K-n1J" customClass="NewScriptViewController" customModule="DrakkenEngine_Editor" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="rVJ-gN-DI7">
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="78"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-D2-INB">
+                                <rect key="frame" x="18" y="41" width="81" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script name:" id="qa2-Q5-vZh">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1B0-Bv-WGZ">
+                                <rect key="frame" x="151" y="2" width="59" height="32"/>
+                                <buttonCell key="cell" type="push" title="OK" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cPJ-LR-Fpu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="newScript:" target="8Ne-8K-n1J" id="brf-Go-E2Y"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-yR-Pih">
+                                <rect key="frame" x="105" y="38" width="235" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kgf-1Y-3t6">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Oyd-D2-INB" firstAttribute="top" secondItem="rVJ-gN-DI7" secondAttribute="top" constant="20" id="691-Jd-bHa"/>
+                            <constraint firstItem="vnO-yR-Pih" firstAttribute="centerY" secondItem="Oyd-D2-INB" secondAttribute="centerY" id="AAZ-bq-pcp"/>
+                            <constraint firstItem="1B0-Bv-WGZ" firstAttribute="top" secondItem="vnO-yR-Pih" secondAttribute="bottom" constant="8" id="Cj7-6r-UR0"/>
+                            <constraint firstItem="1B0-Bv-WGZ" firstAttribute="centerX" secondItem="rVJ-gN-DI7" secondAttribute="centerX" id="Vt4-iy-qMt"/>
+                            <constraint firstItem="Oyd-D2-INB" firstAttribute="leading" secondItem="rVJ-gN-DI7" secondAttribute="leading" constant="20" id="Wrp-e4-aSw"/>
+                            <constraint firstAttribute="bottom" secondItem="1B0-Bv-WGZ" secondAttribute="bottom" constant="9" id="fj2-X5-MM7"/>
+                            <constraint firstItem="vnO-yR-Pih" firstAttribute="leading" secondItem="Oyd-D2-INB" secondAttribute="trailing" constant="8" id="l5x-xx-Utw"/>
+                            <constraint firstAttribute="trailing" secondItem="vnO-yR-Pih" secondAttribute="trailing" constant="20" id="sd6-2r-Bdd"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="scriptNameTF" destination="vnO-yR-Pih" id="mKp-e3-QYg"/>
+                    </connections>
+                </viewController>
+                <customObject id="4zC-Jb-TwW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="910"/>
         </scene>
     </scenes>
     <resources>
