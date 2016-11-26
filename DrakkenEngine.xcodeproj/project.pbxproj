@@ -113,6 +113,7 @@
 		2E7CAB361DC3C893005219BC /* IJSScriptVariableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */; };
 		2E8FDCF71DE642770089DCF1 /* Templates in Resources */ = {isa = PBXBuildFile; fileRef = 2E8FDCF61DE642770089DCF1 /* Templates */; };
 		2E8FDD301DE790120089DCF1 /* SwiftFSWatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FDD2F1DE790120089DCF1 /* SwiftFSWatcher.swift */; };
+		2E8FDD321DE8CE4E0089DCF1 /* NewSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E8FDD311DE8CE4E0089DCF1 /* NewSceneViewController.swift */; };
 		2EA533911DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533921DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
 		2EA533931DB7DF250088EE66 /* Serializable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA533901DB7DF250088EE66 /* Serializable.swift */; };
@@ -257,6 +258,7 @@
 		2E7CAB351DC3C893005219BC /* IJSScriptVariableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IJSScriptVariableCell.swift; sourceTree = "<group>"; };
 		2E8FDCF61DE642770089DCF1 /* Templates */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Templates; sourceTree = "<group>"; };
 		2E8FDD2F1DE790120089DCF1 /* SwiftFSWatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftFSWatcher.swift; sourceTree = "<group>"; };
+		2E8FDD311DE8CE4E0089DCF1 /* NewSceneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewSceneViewController.swift; sourceTree = "<group>"; };
 		2EA533901DB7DF250088EE66 /* Serializable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Serializable.swift; sourceTree = "<group>"; };
 		2EB1C41D1D6BAEAF004285D2 /* dComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dComponent.swift; sourceTree = "<group>"; };
 		2EC7F0AF1D75FDC50073315E /* dSpriteQuad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dSpriteQuad.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				2E3520EB1DAC208200642255 /* EditorView.swift */,
 				2E2608D51DBABDBF00206D41 /* GameView.swift */,
 				2E1295EF1DAC4F38007C5512 /* EditorViewController.swift */,
+				2E8FDD311DE8CE4E0089DCF1 /* NewSceneViewController.swift */,
 				2E7BF82B1DD39CA8004F77B2 /* Menus */,
 				2E7CAB321DC3C5D3005219BC /* Table View Controllers */,
 				2E7CAB311DC3C5CD005219BC /* Cells */,
@@ -955,6 +958,7 @@
 				2E3521171DAC4C3400642255 /* dSprite.swift in Sources */,
 				2E35210D1DAC4C2600642255 /* dRenderer.swift in Sources */,
 				2E3521091DAC4C2600642255 /* DrakkenEngine.swift in Sources */,
+				2E8FDD321DE8CE4E0089DCF1 /* NewSceneViewController.swift in Sources */,
 				2E3521161DAC4C3400642255 /* dMeshRender.swift in Sources */,
 				2E35210F1DAC4C2900642255 /* dRendererFactory.swift in Sources */,
 				2E7CAB281DBE8E94005219BC /* ISpriteCell.swift in Sources */,

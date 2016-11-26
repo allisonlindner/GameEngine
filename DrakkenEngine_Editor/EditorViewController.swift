@@ -21,7 +21,7 @@ class EditorViewController: NSViewController {
     @IBOutlet weak var pauseButton: NSButton!
     @IBOutlet weak var editorGameTabView: NSTabView!
     
-    internal var currentSceneURL: URL!
+    internal var currentSceneURL: URL?
     
     internal var selectedFolderItem: FolderItem?
     internal var selectedTransform: dTransform?
