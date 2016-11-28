@@ -20,6 +20,8 @@ public class dScene {
     
     internal var DEBUG_MODE = false
     
+    internal var simpleRender: dSimpleSceneRender?
+    
     public init() {
         root._scene = self
     }
@@ -128,5 +130,11 @@ public class dScene {
     
     internal func clear() {
         self.root.removeAll()
+    }
+    
+    internal func sendMessageToAll(_ message: NSString) {
+        if simpleRender != nil {
+            simpleRender!.sendMessage(message)
+        }
     }
 }

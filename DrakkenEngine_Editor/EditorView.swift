@@ -22,16 +22,22 @@ internal class EditorView: dGameView {
     }
     
     override func internalUpdate() {
-        checkChanges()
-        
         if appDelegate.editorViewController?.lastLogCount != dCore.instance.allDebugLogs.count {
             appDelegate.editorViewController?.consoleView.reloadData()
         }
     }
     
-    private func checkChanges() {
+    internal func checkChanges() {
         changed = false
-        for transform in scene.root.childrenTransforms {
+        check(children: scene.root.childrenTransforms)
+        
+        if changed {
+            appDelegate.editorViewController?.inspectorView.reloadData()
+        }
+    }
+    
+    private func check(children: [Int: dTransform]) {
+        for transform in children {
             for component in transform.value.components {
                 switch component {
                 case is dJSScript:
@@ -41,10 +47,8 @@ internal class EditorView: dGameView {
                     break
                 }
             }
-        }
-        
-        if changed {
-            appDelegate.editorViewController?.inspectorView.reloadData()
+            
+            check(children: transform.value.childrenTransforms)
         }
     }
 }

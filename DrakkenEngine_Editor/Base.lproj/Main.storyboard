@@ -1777,11 +1777,11 @@ Gw
             <objects>
                 <viewController storyboardIdentifier="NewScriptID" id="8Ne-8K-n1J" customClass="NewScriptViewController" customModule="DrakkenEngine_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rVJ-gN-DI7">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="326"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-D2-INB">
-                                <rect key="frame" x="18" y="263" width="81" height="17"/>
+                                <rect key="frame" x="18" y="289" width="81" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script name:" id="qa2-Q5-vZh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1805,7 +1805,7 @@ DQ
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-yR-Pih">
-                                <rect key="frame" x="105" y="260" width="235" height="22"/>
+                                <rect key="frame" x="105" y="286" width="235" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kgf-1Y-3t6">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -1813,56 +1813,63 @@ DQ
                                 </textFieldCell>
                             </textField>
                             <box title="Creation Option" titlePosition="belowTop" translatesAutoresizingMaskIntoConstraints="NO" id="i29-ct-n1X">
-                                <rect key="frame" x="17" y="37" width="326" height="218"/>
+                                <rect key="frame" x="17" y="37" width="326" height="244"/>
                                 <view key="contentView" id="QjM-qF-1oj">
-                                    <rect key="frame" x="2" y="2" width="322" height="198"/>
+                                    <rect key="frame" x="2" y="2" width="322" height="224"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="a1m-ah-SbS">
-                                            <rect key="frame" x="18" y="148" width="67" height="18"/>
+                                            <rect key="frame" x="18" y="174" width="67" height="18"/>
                                             <buttonCell key="cell" type="check" title="Update" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="IYG-Au-mww">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="s9D-ct-fU8">
-                                            <rect key="frame" x="18" y="124" width="87" height="18"/>
+                                            <rect key="frame" x="18" y="150" width="87" height="18"/>
                                             <buttonCell key="cell" type="check" title="Right Click" bezelStyle="regularSquare" imagePosition="left" inset="2" id="CAn-kJ-tzJ">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-Ys-Nat">
-                                            <rect key="frame" x="18" y="76" width="60" height="18"/>
+                                            <rect key="frame" x="18" y="102" width="60" height="18"/>
                                             <buttonCell key="cell" type="check" title="Touch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cg3-If-EXd">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="Jpa-ZC-Ufe">
-                                            <rect key="frame" x="18" y="100" width="79" height="18"/>
+                                            <rect key="frame" x="18" y="126" width="79" height="18"/>
                                             <buttonCell key="cell" type="check" title="Left Click" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mnC-4Z-sOF">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="iRT-DI-f9V">
-                                            <rect key="frame" x="18" y="28" width="66" height="18"/>
+                                            <rect key="frame" x="18" y="54" width="66" height="18"/>
                                             <buttonCell key="cell" type="check" title="Key Up" bezelStyle="regularSquare" imagePosition="left" inset="2" id="AmN-jd-OIf">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="0Nd-ch-HPN">
-                                            <rect key="frame" x="18" y="52" width="82" height="18"/>
+                                            <rect key="frame" x="18" y="78" width="82" height="18"/>
                                             <buttonCell key="cell" type="check" title="Key Down" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zjj-6N-Egk">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
                                         <button translatesAutoresizingMaskIntoConstraints="NO" id="r5U-Md-UMr">
-                                            <rect key="frame" x="18" y="172" width="52" height="18"/>
+                                            <rect key="frame" x="18" y="198" width="52" height="18"/>
                                             <buttonCell key="cell" type="check" title="Start" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vmr-jM-34i">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="ZiX-rq-K32">
+                                            <rect key="frame" x="18" y="30" width="128" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Receive Message" bezelStyle="regularSquare" imagePosition="left" inset="2" id="JBZ-OY-8Xg">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
@@ -1870,6 +1877,7 @@ DQ
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="iRT-DI-f9V" firstAttribute="top" secondItem="0Nd-ch-HPN" secondAttribute="bottom" constant="10" id="3y3-A0-s2M"/>
+                                        <constraint firstItem="ZiX-rq-K32" firstAttribute="top" secondItem="iRT-DI-f9V" secondAttribute="bottom" constant="10" id="4AJ-05-tMk"/>
                                         <constraint firstItem="s9D-ct-fU8" firstAttribute="top" secondItem="a1m-ah-SbS" secondAttribute="bottom" constant="10" id="9jC-OY-3m2"/>
                                         <constraint firstItem="0Nd-ch-HPN" firstAttribute="leading" secondItem="Ljf-Ys-Nat" secondAttribute="leading" id="Cqu-Ej-qLz"/>
                                         <constraint firstItem="Ljf-Ys-Nat" firstAttribute="leading" secondItem="Jpa-ZC-Ufe" secondAttribute="leading" id="Edy-vP-ITz"/>
@@ -1883,6 +1891,7 @@ DQ
                                         <constraint firstItem="a1m-ah-SbS" firstAttribute="top" secondItem="r5U-Md-UMr" secondAttribute="bottom" constant="10" id="qak-QZ-5Uc"/>
                                         <constraint firstItem="a1m-ah-SbS" firstAttribute="leading" secondItem="r5U-Md-UMr" secondAttribute="leading" id="sc6-fY-Abm"/>
                                         <constraint firstItem="iRT-DI-f9V" firstAttribute="leading" secondItem="0Nd-ch-HPN" secondAttribute="leading" id="vFU-pp-005"/>
+                                        <constraint firstItem="ZiX-rq-K32" firstAttribute="leading" secondItem="iRT-DI-f9V" secondAttribute="leading" id="wIL-dE-0qf"/>
                                     </constraints>
                                 </view>
                             </box>
@@ -1921,6 +1930,7 @@ Gw
                         <outlet property="keyDownCB" destination="0Nd-ch-HPN" id="Mk0-Yg-bGy"/>
                         <outlet property="keyUpCB" destination="iRT-DI-f9V" id="o64-30-XPs"/>
                         <outlet property="leftClickCB" destination="Jpa-ZC-Ufe" id="4kZ-0D-OOX"/>
+                        <outlet property="receiveMessageCB" destination="ZiX-rq-K32" id="Nhg-bw-JCF"/>
                         <outlet property="rightClickCB" destination="s9D-ct-fU8" id="SuX-mQ-2mN"/>
                         <outlet property="scriptNameTF" destination="vnO-yR-Pih" id="mKp-e3-QYg"/>
                         <outlet property="startCB" destination="r5U-Md-UMr" id="cgK-No-ZpI"/>
@@ -1930,7 +1940,7 @@ Gw
                 </viewController>
                 <customObject id="4zC-Jb-TwW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="1032"/>
+            <point key="canvasLocation" x="1033" y="1045"/>
         </scene>
     </scenes>
     <resources>

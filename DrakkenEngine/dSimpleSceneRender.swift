@@ -37,6 +37,7 @@ internal class dSimpleSceneRender {
     internal func load(scene: dScene) {
         DrakkenEngine.Setup()
         self._scene = scene
+        self._scene.simpleRender = self
         process()
     }
     
@@ -318,6 +319,12 @@ internal class dSimpleSceneRender {
     internal func keyUp(_ keyCode: UInt16, _ modifier: UInt16? = nil) {
         for script in _jsScriptToBeUpdated {
             script.keyUp(keyCode, modifier)
+        }
+    }
+    
+    internal func sendMessage(_ message: NSString) {
+        for script in _jsScriptToBeUpdated {
+            script.receiveMessage(message)
         }
     }
 }

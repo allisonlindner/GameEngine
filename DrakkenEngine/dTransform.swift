@@ -13,12 +13,17 @@ import JavaScriptCore
     var position: dSVector3DExport { get }
     var rotation: dSVector3DExport { get }
     var scale: dSSize2DExport { get }
+    
+    func contains(_ x: NSNumber, _ y: NSNumber) -> Bool
+    func sendMessageToAll(_ message: NSString)
 }
 
 public class dTransform: NSObject, dTransformExport, Serializable {
 	internal var _id: Int
     internal var _transformData: dTransformData!
     internal var _scene: dScene!
+    
+    private var sprite: dSprite?
     
     private var _parentTransform: dTransform?
 	internal var parentTransform: dTransform? {
@@ -323,6 +328,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
             break
         case is dSprite:
             let s = component as! dSprite
+            self.sprite = s
             self.removeSprite()
             self.add(component: s.meshRender)
             break
@@ -463,5 +469,32 @@ public class dTransform: NSObject, dTransformExport, Serializable {
         }
         
         return result
+    }
+    
+    internal func contains(_ x: NSNumber, _ y: NSNumber) -> Bool {
+        let _x = x.floatValue
+        let _y = y.floatValue
+        
+        if sprite != nil {
+            
+            if _x < self.Position.x - (sprite!.meshRender.scale.width/2.0) ||
+               _x > self.Position.x + (sprite!.meshRender.scale.width/2.0) {
+                return false
+            }
+            
+            if _y < self.Position.y - (sprite!.meshRender.scale.height/2.0) ||
+               _y > self.Position.y + (sprite!.meshRender.scale.height/2.0) {
+                return false
+            }
+            
+            return true
+            
+        } else {
+            return false
+        }
+    }
+    
+    internal func sendMessageToAll(_ message: NSString) {
+        self._scene.sendMessageToAll(message)
     }
 }

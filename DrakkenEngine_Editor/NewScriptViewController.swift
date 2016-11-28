@@ -20,6 +20,7 @@ class NewScriptViewController: NSViewController {
     @IBOutlet weak var touchCB: NSButton!
     @IBOutlet weak var keyDownCB: NSButton!
     @IBOutlet weak var keyUpCB: NSButton!
+    @IBOutlet weak var receiveMessageCB: NSButton!
 
     @IBAction func newScript(_ sender: Any) {
         if !scriptNameTF.stringValue.isEmpty {
@@ -51,6 +52,10 @@ class NewScriptViewController: NSViewController {
             
             if keyUpCB.state == NSOnState {
                 content += "\nfunction KeyUp(keycode, modifier) {\n    \n}\n"
+            }
+            
+            if receiveMessageCB.state == NSOnState {
+                content += "\nfunction ReceiveMessage(message) {\n    \n}\n"
             }
             
             let fileManager = FileManager()

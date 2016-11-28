@@ -184,6 +184,10 @@ public class dJSScript: dComponent, dJSScriptExport {
         }
     }
     
+    internal func receiveMessage(_ message: NSString) {
+        self.run(function: "ReceiveMessage", JSValue(object: message, in: jsContext))
+    }
+    
     internal func set(value: JSValue, for variable: String) {
         if publicVariables[variable] != nil {
             publicVariables.updateValue(value, forKey: variable)

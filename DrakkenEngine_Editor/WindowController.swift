@@ -216,6 +216,7 @@ class WindowController: NSWindowController {
                                 self.fileWatcher = SwiftFSWatcher([url.path])
                                 self.fileWatcher.watch({ (fileEvent) in
                                     self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                                    self.appDelegate.editorViewController?.editorView.checkChanges()
                                 })
                                 
                                 self.appDelegate.editorViewController!.projectOpen = true
@@ -285,6 +286,7 @@ class WindowController: NSWindowController {
                             self.fileWatcher = SwiftFSWatcher([url.path])
                             self.fileWatcher.watch({ (fileEvent) in
                                 self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
+                                self.appDelegate.editorViewController?.editorView.checkChanges()
                             })
                             
                             self.appDelegate.editorViewController!.projectOpen = true
