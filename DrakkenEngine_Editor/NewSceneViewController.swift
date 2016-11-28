@@ -33,4 +33,8 @@ class NewSceneViewController: NSViewController {
             }
         }
     }
+    
+    @IBAction func cancel(_ sender: Any) {
+        self.dismiss(self)
+    }
 }

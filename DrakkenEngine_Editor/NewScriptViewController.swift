@@ -22,43 +22,49 @@ class NewScriptViewController: NSViewController {
     @IBOutlet weak var keyUpCB: NSButton!
 
     @IBAction func newScript(_ sender: Any) {
-        var content = ""
+        if !scriptNameTF.stringValue.isEmpty {
+            var content = ""
         
-        if startCB.state == NSOnState {
-            content += "function Start() {\n    //Call once on start game\n}\n"
+            if startCB.state == NSOnState {
+                content += "function Start() {\n    //Call once on start game\n}\n"
+            }
+            
+            if updateCB.state == NSOnState {
+                content += "\nfunction Update() {\n    //Call every frame\n}\n"
+            }
+            
+            if rightClickCB.state == NSOnState {
+                content += "\nfunction RightClick(x, y) {\n    \n}\n"
+            }
+            
+            if leftClickCB.state == NSOnState {
+                content += "\nfunction LeftClick(x, y) {\n    \n}\n"
+            }
+            
+            if touchCB.state == NSOnState {
+                content += "\nfunction Touch(x, y) {\n    \n}\n"
+            }
+            
+            if keyDownCB.state == NSOnState {
+                content += "\nfunction KeyDown(keycode, modifier) {\n    \n}\n"
+            }
+            
+            if keyUpCB.state == NSOnState {
+                content += "\nfunction KeyUp(keycode, modifier) {\n    \n}\n"
+            }
+            
+            let fileManager = FileManager()
+            
+            if fileManager.createFile(atPath: dCore.instance.SCRIPTS_PATH!.appendingPathComponent("\(scriptNameTF.stringValue).js").path,
+                                      contents: content.data(using: .utf8),
+                                      attributes: nil) {
+                NSLog("New script created")
+            }
+            self.dismiss(self)
         }
-        
-        if updateCB.state == NSOnState {
-            content += "\nfunction Update() {\n    //Call every frame\n}\n"
-        }
-        
-        if rightClickCB.state == NSOnState {
-            content += "\nfunction RightClick(x, y) {\n    \n}\n"
-        }
-        
-        if leftClickCB.state == NSOnState {
-            content += "\nfunction LeftClick(x, y) {\n    \n}\n"
-        }
-        
-        if touchCB.state == NSOnState {
-            content += "\nfunction Touch(x, y) {\n    \n}\n"
-        }
-        
-        if keyDownCB.state == NSOnState {
-            content += "\nfunction KeyDown(keycode, modifier) {\n    \n}\n"
-        }
-        
-        if keyUpCB.state == NSOnState {
-            content += "\nfunction KeyUp(keycode, modifier) {\n    \n}\n"
-        }
-        
-        let fileManager = FileManager()
-        
-        if fileManager.createFile(atPath: dCore.instance.SCRIPTS_PATH!.appendingPathComponent("\(scriptNameTF.stringValue).js").path,
-                                  contents: content.data(using: .utf8),
-                                  attributes: nil) {
-            NSLog("New script created")
-        }
+    }
+    
+    @IBAction func cancel(_ sender: Any) {
         self.dismiss(self)
     }
 }
