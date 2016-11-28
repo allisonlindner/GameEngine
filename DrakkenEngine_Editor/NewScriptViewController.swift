@@ -12,9 +12,46 @@ class NewScriptViewController: NSViewController {
     let appDelegate = NSApplication.shared().delegate as! AppDelegate
     
     @IBOutlet weak var scriptNameTF: NSTextField!
+    
+    @IBOutlet weak var startCB: NSButton!
+    @IBOutlet weak var updateCB: NSButton!
+    @IBOutlet weak var rightClickCB: NSButton!
+    @IBOutlet weak var leftClickCB: NSButton!
+    @IBOutlet weak var touchCB: NSButton!
+    @IBOutlet weak var keyDownCB: NSButton!
+    @IBOutlet weak var keyUpCB: NSButton!
 
     @IBAction func newScript(_ sender: Any) {
-        let content = "function Start() {\n    \n}\n\nfunction Update() {\n    \n}"
+        var content = ""
+        
+        if startCB.state == NSOnState {
+            content += "function Start() {\n    //Call once on start game\n}\n"
+        }
+        
+        if updateCB.state == NSOnState {
+            content += "\nfunction Update() {\n    //Call every frame\n}\n"
+        }
+        
+        if rightClickCB.state == NSOnState {
+            content += "\nfunction RightClick(x, y) {\n    \n}\n"
+        }
+        
+        if leftClickCB.state == NSOnState {
+            content += "\nfunction LeftClick(x, y) {\n    \n}\n"
+        }
+        
+        if touchCB.state == NSOnState {
+            content += "\nfunction Touch(x, y) {\n    \n}\n"
+        }
+        
+        if keyDownCB.state == NSOnState {
+            content += "\nfunction KeyDown(keycode, modifier) {\n    \n}\n"
+        }
+        
+        if keyUpCB.state == NSOnState {
+            content += "\nfunction KeyUp(keycode, modifier) {\n    \n}\n"
+        }
+        
         let fileManager = FileManager()
         
         if fileManager.createFile(atPath: dCore.instance.SCRIPTS_PATH!.appendingPathComponent("\(scriptNameTF.stringValue).js").path,

@@ -34,6 +34,8 @@ class EditorViewController: NSViewController {
     internal var draggedImage: String?
     internal var draggedSpriteDef: dSpriteDef?
     
+    internal var projectOpen: Bool = false
+    
     override func viewDidLoad() {
         (NSApplication.shared().delegate as! AppDelegate).editorViewController = self
         
@@ -54,5 +56,17 @@ class EditorViewController: NSViewController {
         editorView.scene.add(transform: transform)
         
         transformsView.reloadData()
+    }
+    
+    override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
+        if menuItem.title == "New Project" {
+            return true
+        }
+        
+        if menuItem.title == "Open Project" {
+            return true
+        }
+        
+        return projectOpen
     }
 }

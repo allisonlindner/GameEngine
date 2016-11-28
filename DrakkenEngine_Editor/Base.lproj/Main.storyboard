@@ -58,6 +58,9 @@
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <connections>
+                                        <outlet property="delegate" destination="hnw-xV-0zn" id="RQ0-7X-g58"/>
+                                    </connections>
                                 </menu>
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
@@ -119,24 +122,30 @@
                                             </menu>
                                         </menuItem>
                                     </items>
+                                    <connections>
+                                        <outlet property="delegate" destination="hnw-xV-0zn" id="tOX-h3-kLq"/>
+                                    </connections>
                                 </menu>
                             </menuItem>
-                            <menuItem title="GameObject" id="UkQ-HK-Gac">
+                            <menuItem title="Game Object" id="UkQ-HK-Gac">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="GameObject" id="tVN-oM-IZC">
+                                <menu key="submenu" title="Game Object" id="tVN-oM-IZC">
                                     <items>
-                                        <menuItem title="Create Empty" id="24y-TS-X0J">
+                                        <menuItem title="New Empty" id="24y-TS-X0J">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
-                                                <action selector="newTransform:" target="Ady-hI-5gd" id="E4Y-iE-eM6"/>
+                                                <action selector="newTransform:" target="Ady-hI-5gd" id="aDO-Av-pQ3"/>
                                             </connections>
                                         </menuItem>
                                     </items>
+                                    <connections>
+                                        <outlet property="delegate" destination="hnw-xV-0zn" id="S6N-7u-fzi"/>
+                                    </connections>
                                 </menu>
                             </menuItem>
                         </items>
                         <connections>
-                            <outlet property="delegate" destination="hnw-xV-0zn" id="6Z8-8Y-o1Q"/>
+                            <outlet property="delegate" destination="hnw-xV-0zn" id="aXR-cb-c6L"/>
                         </connections>
                     </menu>
                     <connections>
@@ -1742,18 +1751,18 @@ DQ
                 </viewController>
                 <customObject id="XdR-uh-bYP" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="1269"/>
+            <point key="canvasLocation" x="1033" y="1539"/>
         </scene>
         <!--New Script View Controller-->
         <scene sceneID="OFD-Rf-Zu2">
             <objects>
                 <viewController storyboardIdentifier="NewScriptID" id="8Ne-8K-n1J" customClass="NewScriptViewController" customModule="DrakkenEngine_Editor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="rVJ-gN-DI7">
-                        <rect key="frame" x="0.0" y="0.0" width="360" height="78"/>
+                        <rect key="frame" x="0.0" y="0.0" width="360" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oyd-D2-INB">
-                                <rect key="frame" x="18" y="41" width="81" height="17"/>
+                                <rect key="frame" x="18" y="263" width="81" height="17"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Script name:" id="qa2-Q5-vZh">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -1774,32 +1783,116 @@ DQ
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vnO-yR-Pih">
-                                <rect key="frame" x="105" y="38" width="235" height="22"/>
+                                <rect key="frame" x="105" y="260" width="235" height="22"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="Kgf-1Y-3t6">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <box title="Creation Option" titlePosition="belowTop" translatesAutoresizingMaskIntoConstraints="NO" id="i29-ct-n1X">
+                                <rect key="frame" x="17" y="36" width="326" height="219"/>
+                                <view key="contentView" id="QjM-qF-1oj">
+                                    <rect key="frame" x="2" y="2" width="322" height="199"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="a1m-ah-SbS">
+                                            <rect key="frame" x="18" y="149" width="67" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Update" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="IYG-Au-mww">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="s9D-ct-fU8">
+                                            <rect key="frame" x="18" y="125" width="87" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Right Click" bezelStyle="regularSquare" imagePosition="left" inset="2" id="CAn-kJ-tzJ">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Ljf-Ys-Nat">
+                                            <rect key="frame" x="18" y="77" width="60" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Touch" bezelStyle="regularSquare" imagePosition="left" inset="2" id="cg3-If-EXd">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="Jpa-ZC-Ufe">
+                                            <rect key="frame" x="18" y="101" width="79" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Left Click" bezelStyle="regularSquare" imagePosition="left" inset="2" id="mnC-4Z-sOF">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="iRT-DI-f9V">
+                                            <rect key="frame" x="18" y="29" width="66" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Key Up" bezelStyle="regularSquare" imagePosition="left" inset="2" id="AmN-jd-OIf">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="0Nd-ch-HPN">
+                                            <rect key="frame" x="18" y="53" width="82" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Key Down" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zjj-6N-Egk">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button translatesAutoresizingMaskIntoConstraints="NO" id="r5U-Md-UMr">
+                                            <rect key="frame" x="18" y="173" width="52" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Start" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vmr-jM-34i">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="iRT-DI-f9V" firstAttribute="top" secondItem="0Nd-ch-HPN" secondAttribute="bottom" constant="10" id="3y3-A0-s2M"/>
+                                        <constraint firstItem="s9D-ct-fU8" firstAttribute="top" secondItem="a1m-ah-SbS" secondAttribute="bottom" constant="10" id="9jC-OY-3m2"/>
+                                        <constraint firstItem="0Nd-ch-HPN" firstAttribute="leading" secondItem="Ljf-Ys-Nat" secondAttribute="leading" id="Cqu-Ej-qLz"/>
+                                        <constraint firstItem="Ljf-Ys-Nat" firstAttribute="leading" secondItem="Jpa-ZC-Ufe" secondAttribute="leading" id="Edy-vP-ITz"/>
+                                        <constraint firstItem="0Nd-ch-HPN" firstAttribute="top" secondItem="Ljf-Ys-Nat" secondAttribute="bottom" constant="10" id="IGu-Yh-aTs"/>
+                                        <constraint firstItem="r5U-Md-UMr" firstAttribute="top" secondItem="QjM-qF-1oj" secondAttribute="top" constant="10" id="KAq-eu-S0n"/>
+                                        <constraint firstItem="Ljf-Ys-Nat" firstAttribute="top" secondItem="Jpa-ZC-Ufe" secondAttribute="bottom" constant="10" id="KuT-8c-PWm"/>
+                                        <constraint firstItem="Jpa-ZC-Ufe" firstAttribute="top" secondItem="s9D-ct-fU8" secondAttribute="bottom" constant="10" id="UA4-IW-uvM"/>
+                                        <constraint firstItem="Jpa-ZC-Ufe" firstAttribute="leading" secondItem="s9D-ct-fU8" secondAttribute="leading" id="bJg-Gp-eh4"/>
+                                        <constraint firstItem="s9D-ct-fU8" firstAttribute="leading" secondItem="a1m-ah-SbS" secondAttribute="leading" id="bkU-B2-ZZJ"/>
+                                        <constraint firstItem="r5U-Md-UMr" firstAttribute="leading" secondItem="QjM-qF-1oj" secondAttribute="leading" constant="20" id="h6k-Ro-vle"/>
+                                        <constraint firstItem="a1m-ah-SbS" firstAttribute="top" secondItem="r5U-Md-UMr" secondAttribute="bottom" constant="10" id="qak-QZ-5Uc"/>
+                                        <constraint firstItem="a1m-ah-SbS" firstAttribute="leading" secondItem="r5U-Md-UMr" secondAttribute="leading" id="sc6-fY-Abm"/>
+                                        <constraint firstItem="iRT-DI-f9V" firstAttribute="leading" secondItem="0Nd-ch-HPN" secondAttribute="leading" id="vFU-pp-005"/>
+                                    </constraints>
+                                </view>
+                            </box>
                         </subviews>
                         <constraints>
                             <constraint firstItem="Oyd-D2-INB" firstAttribute="top" secondItem="rVJ-gN-DI7" secondAttribute="top" constant="20" id="691-Jd-bHa"/>
                             <constraint firstItem="vnO-yR-Pih" firstAttribute="centerY" secondItem="Oyd-D2-INB" secondAttribute="centerY" id="AAZ-bq-pcp"/>
-                            <constraint firstItem="1B0-Bv-WGZ" firstAttribute="top" secondItem="vnO-yR-Pih" secondAttribute="bottom" constant="8" id="Cj7-6r-UR0"/>
+                            <constraint firstItem="i29-ct-n1X" firstAttribute="trailing" secondItem="vnO-yR-Pih" secondAttribute="trailing" id="ACH-1Y-4cX"/>
+                            <constraint firstItem="1B0-Bv-WGZ" firstAttribute="top" secondItem="i29-ct-n1X" secondAttribute="bottom" constant="10" id="JvW-TJ-iM0"/>
+                            <constraint firstItem="i29-ct-n1X" firstAttribute="leading" secondItem="Oyd-D2-INB" secondAttribute="leading" id="Nrd-nc-fcO"/>
                             <constraint firstItem="1B0-Bv-WGZ" firstAttribute="centerX" secondItem="rVJ-gN-DI7" secondAttribute="centerX" id="Vt4-iy-qMt"/>
                             <constraint firstItem="Oyd-D2-INB" firstAttribute="leading" secondItem="rVJ-gN-DI7" secondAttribute="leading" constant="20" id="Wrp-e4-aSw"/>
                             <constraint firstAttribute="bottom" secondItem="1B0-Bv-WGZ" secondAttribute="bottom" constant="9" id="fj2-X5-MM7"/>
+                            <constraint firstItem="i29-ct-n1X" firstAttribute="top" secondItem="Oyd-D2-INB" secondAttribute="bottom" constant="10" id="kjs-Fs-Wwo"/>
                             <constraint firstItem="vnO-yR-Pih" firstAttribute="leading" secondItem="Oyd-D2-INB" secondAttribute="trailing" constant="8" id="l5x-xx-Utw"/>
                             <constraint firstAttribute="trailing" secondItem="vnO-yR-Pih" secondAttribute="trailing" constant="20" id="sd6-2r-Bdd"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="keyDownCB" destination="0Nd-ch-HPN" id="Mk0-Yg-bGy"/>
+                        <outlet property="keyUpCB" destination="iRT-DI-f9V" id="o64-30-XPs"/>
+                        <outlet property="leftClickCB" destination="Jpa-ZC-Ufe" id="4kZ-0D-OOX"/>
+                        <outlet property="rightClickCB" destination="s9D-ct-fU8" id="SuX-mQ-2mN"/>
                         <outlet property="scriptNameTF" destination="vnO-yR-Pih" id="mKp-e3-QYg"/>
+                        <outlet property="startCB" destination="r5U-Md-UMr" id="cgK-No-ZpI"/>
+                        <outlet property="touchCB" destination="Ljf-Ys-Nat" id="Ec7-ne-ydK"/>
+                        <outlet property="updateCB" destination="a1m-ah-SbS" id="983-fl-gcp"/>
                     </connections>
                 </viewController>
                 <customObject id="4zC-Jb-TwW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1033" y="910"/>
+            <point key="canvasLocation" x="1033" y="1032"/>
         </scene>
     </scenes>
     <resources>

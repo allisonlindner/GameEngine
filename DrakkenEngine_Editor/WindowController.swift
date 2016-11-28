@@ -218,7 +218,7 @@ class WindowController: NSWindowController {
                                     self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                                 })
                                 
-                                self.appDelegate.projectOpen = true
+                                self.appDelegate.editorViewController!.projectOpen = true
                                 
                                 DrakkenEngine.Setup()
                                 
@@ -287,7 +287,7 @@ class WindowController: NSWindowController {
                                 self.appDelegate.editorViewController?.fileViewer.loadData(for: dCore.instance.ROOT_PATH!)
                             })
                             
-                            self.appDelegate.projectOpen = true
+                            self.appDelegate.editorViewController!.projectOpen = true
                         }
                     }
                 }
@@ -407,17 +407,14 @@ class WindowController: NSWindowController {
     }
     
     override func validateMenuItem(_ menuItem: NSMenuItem) -> Bool {
-        if !menuItem.hasSubmenu {
-            if menuItem.title == "New Project" {
-                return true
-            }
-            
-            if menuItem.title == "Open Project" {
-                return true
-            }
-            
-            return appDelegate.projectOpen
+        if menuItem.title == "New Project" {
+            return true
         }
-        return true
+        
+        if menuItem.title == "Open Project" {
+            return true
+        }
+            
+        return appDelegate.editorViewController!.projectOpen
     }
 }
