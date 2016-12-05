@@ -16,6 +16,7 @@ import JavaScriptCore
     
     func contains(_ x: NSNumber, _ y: NSNumber) -> Bool
     func sendMessageToAll(_ message: NSString)
+    func delete()
 }
 
 public class dTransform: NSObject, dTransformExport, Serializable {
@@ -23,7 +24,10 @@ public class dTransform: NSObject, dTransformExport, Serializable {
     internal var _transformData: dTransformData!
     internal var _scene: dScene!
     
-    private var sprite: dSprite?
+    internal var sprite: dSprite?
+    internal var materialMeshBind: dMaterialMeshBind?
+    internal var materialMeshBindTransformID: Int?
+    internal var hasAnimator: Bool?
     
     private var _parentTransform: dTransform?
 	internal var parentTransform: dTransform? {
@@ -310,6 +314,7 @@ public class dTransform: NSObject, dTransformExport, Serializable {
     
     public func removeFromParent() {
         self._parentTransform?.remove(child: self)
+        self.materialMeshBind?.remove(self)
     }
 	
 	public func add(component: dComponent) {
@@ -496,5 +501,9 @@ public class dTransform: NSObject, dTransformExport, Serializable {
     
     internal func sendMessageToAll(_ message: NSString) {
         self._scene.sendMessageToAll(message)
+    }
+    
+    internal func delete() {
+        self.removeFromParent()
     }
 }

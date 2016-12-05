@@ -148,6 +148,18 @@ public class dJSScript: dComponent, dJSScriptExport {
         )
         
         self.jsContext.evaluateScript(
+            "var Delete = function() { $.transform.delete() };"
+        )
+        
+        self.jsContext.evaluateScript(
+            "var SendMessageToAll = function(message) { $.transform.sendMessageToAll(message) };"
+        )
+        
+        self.jsContext.evaluateScript(
+            "var Contains = function(x, y) { return $.transform.contains(x, y) };"
+        )
+        
+        self.jsContext.evaluateScript(
             "\(script)"
         )
     }

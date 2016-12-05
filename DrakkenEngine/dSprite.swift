@@ -112,7 +112,9 @@ public class dSpriteDef {
 public class dSprite : dComponent {
 	internal var spriteName: String
 	internal var meshRender: dMeshRender
-	internal var animator: dAnimator?
+    internal var animator: dAnimator?
+    
+    internal var materialMeshBindTexCoordID: Int?
 	
 	internal var animations: [String : dAnimation] {
 		get {

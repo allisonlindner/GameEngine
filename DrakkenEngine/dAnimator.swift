@@ -13,6 +13,11 @@ fileprivate class dAnimationState {
 
 public class dAnimator: dComponent {
 	private var _sprite: dSprite
+    internal var sprite: dSprite {
+        get {
+            return _sprite
+        }
+    }
 	private var _states: [String : dAnimationState] = [:]
 	private var _defaultAnimation: String
 	private var _currentAnimation: String

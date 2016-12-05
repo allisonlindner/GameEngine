@@ -11,7 +11,7 @@ import Metal
 import MetalKit
 import Foundation
 
-fileprivate class dMaterialMeshBind {
+internal class dMaterialMeshBind {
 	fileprivate var material: dMaterialData!
 	fileprivate var mesh: dMeshData!
 	fileprivate var instanceTransforms: [dTransform] = []
@@ -19,6 +19,28 @@ fileprivate class dMaterialMeshBind {
     
     fileprivate var transformsBuffer: dBuffer<float4x4>!
     fileprivate var texCoordIDsBuffer: dBuffer<Int32>!
+    
+    fileprivate func addTransform(_ t: dTransform) {
+        instanceTransforms.append(t)
+        t.materialMeshBind = self
+        t.materialMeshBindTransformID = instanceTransforms.index(of: t)
+    }
+    
+    fileprivate func addTexCoordID(_ s: dSprite, _ frame: Int32) {
+        instanceTexCoordIDs.append(frame)
+        s.materialMeshBindTexCoordID = instanceTexCoordIDs.index(of: frame)
+    }
+    
+    internal func remove(_ t: dTransform) {
+        if t.materialMeshBindTransformID != nil {
+            instanceTransforms.remove(at: t.materialMeshBindTransformID!)
+        }
+        if t.sprite != nil {
+            if t.sprite!.materialMeshBindTexCoordID != nil {
+                instanceTexCoordIDs.remove(at: t.sprite!.materialMeshBindTexCoordID!)
+            }
+        }
+    }
 }
 
 internal class dSimpleSceneRender {
@@ -31,6 +53,8 @@ internal class dSimpleSceneRender {
 	private var _scene: dScene!
     
     private var uCameraBuffer: dBuffer<dCameraUniform>!
+    
+    private var messagesToSend: [NSString] = []
     
     internal init() { }
     
@@ -132,13 +156,13 @@ internal class dSimpleSceneRender {
 	private func process(mesh: String, with material: String, transform: dTransform) -> dMaterialMeshBind {
 		if renderGraph[material] != nil {
 			if let materialMeshBind = renderGraph[material]![mesh] {
-				materialMeshBind.instanceTransforms.append(transform)
+				materialMeshBind.addTransform(transform)
 				return materialMeshBind
 			} else {
 				let materialMeshBind = dMaterialMeshBind()
 				materialMeshBind.material = dCore.instance.mtManager.get(material: material)
 				materialMeshBind.mesh = dCore.instance.mshManager.get(mesh: mesh)
-				materialMeshBind.instanceTransforms.append(transform)
+				materialMeshBind.addTransform(transform)
 				
 				renderGraph[material]![mesh] = materialMeshBind
 				return materialMeshBind
@@ -148,7 +172,7 @@ internal class dSimpleSceneRender {
 			let materialMeshBind = dMaterialMeshBind()
 			materialMeshBind.material = dCore.instance.mtManager.get(material: material)
 			materialMeshBind.mesh = dCore.instance.mshManager.get(mesh: mesh)
-			materialMeshBind.instanceTransforms.append(transform)
+			materialMeshBind.addTransform(transform)
 			
 			renderGraph[material]![mesh] = materialMeshBind
 			return materialMeshBind
@@ -204,7 +228,7 @@ internal class dSimpleSceneRender {
 	
 	private func process(animator: dAnimator, materialMeshBind: dMaterialMeshBind) {
 		let index = materialMeshBind.instanceTexCoordIDs.count
-		materialMeshBind.instanceTexCoordIDs.append(animator.frame)
+		materialMeshBind.addTexCoordID(animator.sprite, animator.frame)
 		
 		_animatorToBeUpdated.append((materialMeshBind: materialMeshBind,
 		                             index: index,
@@ -212,7 +236,7 @@ internal class dSimpleSceneRender {
 	}
 	
 	private func process(sprite: dSprite, materialMeshBind: dMaterialMeshBind) {
-		materialMeshBind.instanceTexCoordIDs.append(sprite.frame)
+		materialMeshBind.addTexCoordID(sprite, sprite.frame)
 	}
 	
 	internal func update(deltaTime: Float) {
@@ -255,6 +279,12 @@ internal class dSimpleSceneRender {
 		}
         
         for script in _jsScriptToBeUpdated {
+            for message in messagesToSend {
+                script.receiveMessage(message)
+            }
+            
+            messagesToSend.removeAll()
+            
             script.run(function: "Update")
         }
 	}
@@ -323,8 +353,6 @@ internal class dSimpleSceneRender {
     }
     
     internal func sendMessage(_ message: NSString) {
-        for script in _jsScriptToBeUpdated {
-            script.receiveMessage(message)
-        }
+        messagesToSend.append(message)
     }
 }

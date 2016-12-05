@@ -55,6 +55,7 @@ class WindowController: NSWindowController {
                 
                 self.window?.makeFirstResponder(appDelegate.editorViewController?.gameView)
             } else if appDelegate.editorViewController?.playButton.state == NSOffState {
+                self.sceneBackupJSON = appDelegate.editorViewController?.editorView.scene.root.toJSON()
                 appDelegate.editorViewController?.gameView.state = .STOP
                 
                 appDelegate.editorViewController?.editorView.scene.root.reloadWithoutScript(from: sceneBackupJSON)
